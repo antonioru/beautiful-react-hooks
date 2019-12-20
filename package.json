@@ -1,0 +1,76 @@
+{
+  "name": "beautiful-react-hooks",
+  "version": "0.1.0",
+  "description": "A collection of beautiful (and useful) React hooks",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --ext .js src/",
+    "build-js": "NODE_ENV=production npm test && npm run lint && gulp -f ./scripts/build.js",
+    "build": "npm run build-js && npm run docs",
+    "test": "nyc mocha",
+    "start": "npx styleguidist server --config playground/styleguidist.config.js --open",
+    "docs": "node ./scripts/generateDocs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonioru/beautiful-react-hooks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antonioru/beautiful-react-hooks/issues"
+  },
+  "homepage": "https://github.com/antonioru/beautiful-react-hooks#readme",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/register": "^7.7.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/react-hooks": "^3.2.1",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-require-ignore": "^0.1.1",
+    "chai": "^4.2.0",
+    "del": "^5.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-chai-expect": "^2.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "glob": "^7.1.6",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "jsdoc-to-markdown": "^5.0.3",
+    "jsdom": "^15.2.1",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^6.2.2",
+    "nyc": "^14.1.1",
+    "react-styleguidist": "^10.3.2",
+    "react-test-renderer": "^16.12.0",
+    "sinon": "^7.5.0",
+    "webpack": "^4.41.3"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "src/**/*.spec.js",
+      "src/**/index.js"
+    ],
+    "branches": 80,
+    "lines": 80,
+    "functions": 80,
+    "statements": 80
+  }
+}
