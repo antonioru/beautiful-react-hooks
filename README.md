@@ -30,6 +30,7 @@ $ yarn add beautiful-react-hooks
 * [useWillUnmount](./docs/useWillUnmount.md)
 * [useLifecycle](./docs/useLifecycle.md)
 * [useWindowResize](./docs/useWindowResize.md)
+* [useDebouncedCallback](./docs/useDebouncedCallback.md)
 
 
 <hr />

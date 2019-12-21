@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A collection of beautiful (and useful) React hooks",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/antonioru/beautiful-react-hooks#readme",
   "dependencies": {
+    "lodash.debounce": "^4.0.8",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },

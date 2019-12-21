@@ -13,5 +13,6 @@ module.exports = {
     { name: 'useOnMount', content: 'useOnMount.md' },
     { name: 'useWillUnMount', content: 'useWillUnmount.md' },
     { name: 'useWindowResize', content: 'useWindowResize.md' },
+    { name: 'useDebouncedCallback', content: 'useDebouncedCallback.md' },
   ],
 };
