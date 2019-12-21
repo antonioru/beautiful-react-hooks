@@ -24,3 +24,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - useWillUnmount hook & tests
 - useLifecycle hook & tests
 - useWindowResize hook & tests
+- Auto-generating documentation script
+
+## [0.2.0] - 2019-12-20
+
+### Added
+
+- useDebouncedCallback hook & tests
