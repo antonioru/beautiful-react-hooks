@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "A collection of beautiful (and useful) React hooks",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,8 @@
     "build": "npm run build-js && npm run docs",
     "test": "NODE_ENV=test nyc mocha --exit",
     "test:watch": "npm run test -- --watch",
-    "start": "npx styleguidist server --config playground/styleguidist.config.js --open",
-    "docs": "node ./scripts/generateDocs.js"
+    "start": "npx styleguidist server --config playground/config/styleguidist.config.js --open",
+    "docs": "npx styleguidist build --config playground/config/styleguidist.config.js && node ./scripts/generateDocs.js"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,8 @@
 const path = require('path');
 
 // local constants
-const srcPath = path.resolve(__dirname, '..', 'src');
+const srcPath = path.resolve(__dirname, '../..', 'src');
+const outPath = path.resolve(__dirname, '../..','gitpages');
 
 module.exports = {
   resolve: {
@@ -10,7 +11,8 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   output: {
-    filename: 'beautiful-react-hooks.dev.js',
+    path: outPath,
+    filename: 'beautiful-react-hooks.playground.js',
   },
   devServer: {
     open: true,
@@ -18,7 +20,6 @@ module.exports = {
     liveReload: true,
     watchContentBase: true,
   },
-  mode: 'development',
   module: {
     rules: [
       {
