@@ -3,7 +3,8 @@ import { useCallback } from 'react';
 
 /**
  * Accepts a function  and returns a new debounced yet memoized version of that same function that delays
- * its invoking by 500ms.
+ * its invoking by the defined time.<br />
+ * If time is not defined, its default value will be 500ms.
  *
  * ### Usage:
  *

@@ -1,16 +1,44 @@
-```jsx 
+```jsx noeditor
+// for demo purposes only
+const style = window.compStyle = {
+  background: '#FDFEFD',
+  width: '250px',
+  padding: '20px',
+  textAlign: 'center',
+  boxShadow: '0 0 10px rgba(20, 20, 20, .1)',
+  margin: '10px auto',
+};
+```
+
+```jsx harmony
+import { useState } from 'react';
 import { useLifecycle } from 'beautiful-react-hooks'; 
 
+/**
+* useOnMount example component
+*/
 const TestComponent = () => {
+   const [mounted, setIsMounted] = useState(false);
    const { onMount, onUnmount } = useLifecycle(); 
    
-   onMount(() => console.log('Callback performed on mount'));
-   onUnmount(() => console.log('Callback performed on unmount'));
-
+   onMount(() => {
+    setTimeout(() => {
+      setIsMounted(true);
+    }, 1000);
+   });
+      
+   onUnmount(() => {
+     alert('Component unmounted!')
+   });
+   
    return (
-     <p>
-       useLifecycle test
-     </p>
+     <div style={compStyle}>
+       {mounted && (
+        <p>
+          Component did mount, change page to show an alert!
+        </p>
+       )}
+     </div>
    );
 }
 
