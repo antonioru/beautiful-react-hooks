@@ -39,6 +39,12 @@ Object.defineProperty(exports, "useDebouncedCallback", {
     return _useDebouncedCallback["default"];
   }
 });
+Object.defineProperty(exports, "useMouse", {
+  enumerable: true,
+  get: function get() {
+    return _useMouse["default"];
+  }
+});
 Object.defineProperty(exports, "useMouseHandler", {
   enumerable: true,
   get: function get() {
@@ -63,6 +69,8 @@ var _useLifecycle = _interopRequireDefault(require("./useLifecycle"));
 var _useWindowResize = _interopRequireDefault(require("./useWindowResize"));
 
 var _useDebouncedCallback = _interopRequireDefault(require("./useDebouncedCallback"));
+
+var _useMouse = _interopRequireDefault(require("./useMouse"));
 
 var _useMouseHandler = _interopRequireDefault(require("./useMouseHandler"));
 

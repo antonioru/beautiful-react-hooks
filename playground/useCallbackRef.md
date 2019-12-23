@@ -1,20 +1,32 @@
 ```jsx 
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { useCallbackRef } from 'beautiful-react-hooks'; 
 
-const TestComponent = () => {
-   const [callbackRef, setCallback] = useCallbackRef(); 
+// using useCallbackRef to create a custom hook
+const useClock = () => {
+  const [callbackRef, setCallback] = useCallbackRef(); 
+
+  setTimeout(() => {
+    if(callbackRef.current) {
+      callbackRef.current();
+    }
+  }, 1000);
+  
+  return setCallback; 
+};
+
+const ClockComponent = () => {
+   const [current, setCurrent] = useState(0);
+   const onTick = useClock(); 
    
-   setCallback(() => console.log('Callback performed'));
-   
-   useEffect(callbackRef.current, []);
-   
+   onTick(() => setCurrent(1 + current));
+      
    return (
-     <p>
-       useCallbackRef test
-     </p>
+     <time>
+       Ticking: {current}
+     </time>
    );
 }
 
-<TestComponent />
+<ClockComponent />
 ```

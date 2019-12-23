@@ -12,11 +12,12 @@ module.exports = {
   styleguideDir: '../../dist-gitpages',
   sections: [
     { name: 'useCallbackRef', content: '../useCallbackRef.md' },
-    { name: 'useLifecycle', content: '../useLifecycle.md' },
     { name: 'useOnMount', content: '../useOnMount.md' },
     { name: 'useWillUnMount', content: '../useWillUnmount.md' },
+    { name: 'useLifecycle', content: '../useLifecycle.md' },
     { name: 'useWindowResize', content: '../useWindowResize.md' },
     { name: 'useDebouncedCallback', content: '../useDebouncedCallback.md' },
+    { name: 'useMouse', content: '../useMouse.md' },
     { name: 'useMouseHandler', content: '../useMouseHandler.md' },
     { name: 'useMouseState', content: '../useMouseState.md' },
   ],
