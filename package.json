@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A collection of beautiful (and useful) React hooks",
   "main": "index.js",
   "scripts": {
@@ -37,6 +37,7 @@
     "@testing-library/react-hooks": "^3.2.1",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
+    "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-transform-require-ignore": "^0.1.1",
     "chai": "^4.2.0",
     "del": "^5.1.0",
