@@ -1,5 +1,8 @@
 {
+  "require": [ "@babel/register" ],
   "all": true,
+  "check-coverage": true,
+  "extension": [ ".js" ],
   "include": [ "src/**/*.js" ],
-  "exclude": [ "src/**/*.spec.js" ]
+  "exclude": [ "**/*.spec.js" ]
 }

@@ -39,3 +39,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - useMouseHandler hook & tests
 - useMouseState hook & tests
 - useMouse hook & tests
+
+## [0.3.1]  - 2019-12-23
+
+### Fixed
+
+- Adding babel-plugin-istanbul to solve [this issue with istanbul/nyc](https://github.com/istanbuljs/nyc/issues/706)
