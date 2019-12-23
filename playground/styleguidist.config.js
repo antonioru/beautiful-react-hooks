@@ -14,5 +14,7 @@ module.exports = {
     { name: 'useWillUnMount', content: 'useWillUnmount.md' },
     { name: 'useWindowResize', content: 'useWindowResize.md' },
     { name: 'useDebouncedCallback', content: 'useDebouncedCallback.md' },
+    { name: 'useMouseHandler', content: 'useMouseHandler.md' },
+    { name: 'useMouseState', content: 'useMouseState.md' },
   ],
 };

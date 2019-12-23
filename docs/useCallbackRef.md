@@ -6,7 +6,7 @@ Returns the callback ref and a setter to change its value, as per the React hook
 The setter also makes sure that the given callback is indeed a function.
 If not the callback ref won't change.
 
-Usage:
+### Usage:
 
 ```jsx harmony
 const MyComponent = () => {

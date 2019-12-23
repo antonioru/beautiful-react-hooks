@@ -11,6 +11,14 @@
 ![Usage example](./example.png)
 
 
+## Features
+
+* Concise API
+* Small and lightweight
+
+## Why?
+
+
 ## Install
 
 ```js 
@@ -31,8 +39,11 @@ $ yarn add beautiful-react-hooks
 * [useLifecycle](./docs/useLifecycle.md)
 * [useWindowResize](./docs/useWindowResize.md)
 * [useDebouncedCallback](./docs/useDebouncedCallback.md)
+* [useMouse](./docs/useMouse.md)
+* [useMouseState](./docs/useMouseState.md)
+* [useMouseHandler](./docs/useMouseHandler.md)
 
 
 <hr />
 
-<small> logo has been created stealing from [FreePik](https://www.freepik.com/free-photos-vectors/design)</small>
+<small> logo has been created by stealing from [FreePik](https://www.freepik.com/free-photos-vectors/design)</small>

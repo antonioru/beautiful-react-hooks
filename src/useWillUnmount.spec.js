@@ -1,10 +1,13 @@
 import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
+import { render, cleanup as cleanupReact } from '@testing-library/react';
+import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
 import useWillUnmount from './useWillUnmount';
 
 describe('useWillUnmount', () => {
-  beforeEach(cleanup);
+  beforeEach(() => {
+    cleanupHooks();
+    cleanupReact();
+  });
 
   it('should be an arrow function', () => {
     expect(useWillUnmount).to.be.a('function');

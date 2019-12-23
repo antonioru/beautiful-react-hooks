@@ -31,3 +31,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - useDebouncedCallback hook & tests
+
+## [0.3.0]  - 2019-12-21
+
+### Added
+
+- useMouseHandler hook & tests
+- useMouseState hook & tests
+- useMouse hook & tests

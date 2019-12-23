@@ -4,7 +4,7 @@
 Returns a function that accepts a callback to be performed when the window resizes.
 Please note: the callback is not debounced, to improve performances check `useDebouncedCallback`;
 
-Usage:
+### Usage:
 
 ```jsx harmony
 const MyComponent = () => {

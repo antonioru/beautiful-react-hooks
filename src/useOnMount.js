@@ -4,7 +4,7 @@ import useCallbackRef from './useCallbackRef';
 /**
  * Returns a function that accepts a callback to be performed when the component did mount.
  *
- * Usage:
+ * ### Usage:
  *
  * ```jsx harmony
  * const MyComponent = () => {
