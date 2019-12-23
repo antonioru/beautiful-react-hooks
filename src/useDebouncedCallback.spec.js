@@ -11,8 +11,15 @@ describe('useDebouncedCallback', () => {
 
   it('should return a single function', () => {
     const fn = () => 0;
-    const { result } = renderHook(() => useDebouncedCallback(fn, 1000));
+    const { result } = renderHook(() => useDebouncedCallback(fn));
 
     expect(result.current).to.be.a('function');
+  });
+
+  it('should return a debounced function', () => {
+    const { result } = renderHook(() => useDebouncedCallback(() => null, 1000));
+
+    expect(result.current.cancel).to.be.a('function');
+    expect(result.current.flush).to.be.a('function');
   });
 });

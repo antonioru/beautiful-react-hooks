@@ -4,7 +4,7 @@
 Accepts a function  and returns a new debounced yet memoized version of that same function that delays
 its invoking by 500ms.
 
-Usage:
+### Usage:
 
 ```jsx harmony
 const MyComponent = () => {
@@ -15,6 +15,8 @@ const MyComponent = () => {
   return (<button onClick={debouncedClick}>Click me</button>)
 }
 ```
+
+### Debounce time:
 
 It is possible to change the debounce time by defining how many ms to wait:
 
@@ -27,6 +29,8 @@ const MyComponent = () => {
   return (<button onClick={debouncedClick}>Click me</button>)
 }
 ```
+
+### Dependencies:
 
 Since `useDebouncedCallback` uses `useCallback` under the hood, it is also possible to define its dependencies:
 

@@ -1,10 +1,13 @@
 import React from 'react';
-import { render, fireEvent, cleanup } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
+import { render, fireEvent, cleanup as cleanupReact } from '@testing-library/react';
+import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
 import useWindowResize from './useWindowResize';
 
 describe('useWindowResize', () => {
-  beforeEach(cleanup);
+  beforeEach(() => {
+    cleanupReact();
+    cleanupHooks();
+  });
 
   it('should be an arrow function', () => {
     expect(useWindowResize).to.be.a('function');

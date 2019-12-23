@@ -1,7 +1,8 @@
-<a name="useLifecycle"></a>
+<a name="useMouse"></a>
 
-## useLifecycle()
-Returns an object wrapping lifecycle hooks such as `useOnMount` or `useWillUnmount`.
+## useMouse()
+Returns an array where the first item is the state of the mouse from `useMouseState` and the second item
+is the object of callback setters from `useMouseHandler`.
 It is intended as a shortcut to those hooks.
 
 ### Usage:

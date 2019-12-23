@@ -1,13 +1,14 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A collection of beautiful (and useful) React hooks",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext .js src/",
     "build-js": "NODE_ENV=production npm test && npm run lint && gulp -f ./scripts/build.js",
     "build": "npm run build-js && npm run docs",
-    "test": "nyc mocha",
+    "test": "NODE_ENV=test nyc mocha --exit",
+    "test:watch": "npm run test -- --watch",
     "start": "npx styleguidist server --config playground/styleguidist.config.js --open",
     "docs": "node ./scripts/generateDocs.js"
   },

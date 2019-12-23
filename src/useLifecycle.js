@@ -3,9 +3,9 @@ import useWillUnmount from './useWillUnmount';
 
 /**
  * Returns an object wrapping lifecycle hooks such as `useOnMount` or `useWillUnmount`.
- * It is to be intended as a shortcut to those hooks.
+ * It is intended as a shortcut to those hooks.
  *
- * Usage:
+ * ### Usage:
  *
  * ```jsx harmony
  * const MyComponent = () => {
