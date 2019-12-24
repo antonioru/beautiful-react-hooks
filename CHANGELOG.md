@@ -72,3 +72,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - useThrottledCallback hook & tests
 - debounce and throttle utilities
+
+## [0.7.0] - 2019-12-24
+
+### Added
+
+- useWindowScroll hook & tests
