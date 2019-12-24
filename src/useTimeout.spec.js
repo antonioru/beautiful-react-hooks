@@ -1,9 +1,10 @@
 import React from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks';
-import useOnMount from './useOnMount';
+import useTimeout from './useTimeout';
+import promiseDelay from '../test/utils/promiseDelay';
 
-describe('useOnMount', () => {
+describe('useTimeout', () => {
   beforeEach(() => {
     cleanupHooks();
     cleanupReact();
@@ -11,28 +12,31 @@ describe('useOnMount', () => {
   });
 
   it('should be an arrow function', () => {
-    expect(useOnMount).to.be.a('function');
-    expect(useOnMount.prototype).to.be.empty;
+    expect(useTimeout).to.be.a('function');
+    expect(useTimeout.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {
-    const { result } = renderHook(() => useOnMount());
+    const { result } = renderHook(() => useTimeout());
 
     expect(result.current).to.be.a('function');
   });
 
-  it('the returned function should be a setter for a callback to be performed when component mounts', () => {
+  it('should delay the execution of its returning function', async () => {
+    const delay = 100;
     const spy = sinon.spy();
 
     const TestComponent = () => {
-      const onMount = useOnMount();
+      const after1Sec = useTimeout(delay);
 
-      onMount(spy);
+      after1Sec(spy);
 
       return null;
     };
 
     render(<TestComponent />);
+
+    await promiseDelay(1 + delay);
 
     expect(spy.called).to.be.true;
   });

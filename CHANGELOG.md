@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - useDebouncedCallback hook & tests
 
-## [0.3.0]  - 2019-12-21
+## [0.3.0] - 2019-12-21
 
 ### Added
 
@@ -40,14 +40,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - useMouseState hook & tests
 - useMouse hook & tests
 
-## [0.3.1]  - 2019-12-23
+## [0.3.1] - 2019-12-23
 
 ### Fixed
 
 - Adding babel-plugin-istanbul to solve [this issue with istanbul/nyc](https://github.com/istanbuljs/nyc/issues/706)
 
-## [0.4.0]  - 2019-12-23
+## [0.4.0] - 2019-12-23
 
 ### Added
 
 - Adding playground build as a gitpages website
+- Adding better documentation
+
+## [0.5.0] - 2019-12-24
+
+### Added
+
+- useInterval hook & tests
+- useTimeout hook & tests
+
+### Fixed
+
+- useCallbackRef update bug

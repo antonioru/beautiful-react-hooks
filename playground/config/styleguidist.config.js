@@ -20,6 +20,8 @@ module.exports = {
     { name: 'useMouse', content: '../useMouse.md' },
     { name: 'useMouseHandler', content: '../useMouseHandler.md' },
     { name: 'useMouseState', content: '../useMouseState.md' },
+    { name: 'useTimeout', content: '../useTimeout.md' },
+    { name: 'useInterval', content: '../useInterval.md' },
   ],
   ...theme,
 };

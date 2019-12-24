@@ -11,7 +11,7 @@ const style = window.compStyle = {
 ```
 
 
-```jsx 
+```jsx harmony
 import { useState } from 'react'; 
 import { useWindowResize, useDebouncedCallback } from 'beautiful-react-hooks'; 
 
