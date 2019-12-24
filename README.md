@@ -60,6 +60,7 @@ $ yarn add @beautiful/react-hooks
 * [useLifecycle](./docs/useLifecycle.md)
 * [useWindowResize](./docs/useWindowResize.md)
 * [useDebouncedCallback](./docs/useDebouncedCallback.md)
+* [useThrottledCallback](./docs/useThrottledCallback.md)
 * [useTimeout](./docs/useTimeout.md)
 * [useInterval](./docs/useInterval.md)
 * [useMouseHandler](./docs/useMouseHandler.md)

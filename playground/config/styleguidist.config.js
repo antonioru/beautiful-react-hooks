@@ -17,6 +17,7 @@ module.exports = {
     { name: 'useLifecycle', content: '../useLifecycle.md' },
     { name: 'useWindowResize', content: '../useWindowResize.md' },
     { name: 'useDebouncedCallback', content: '../useDebouncedCallback.md' },
+    { name: 'useThrottledCallback', content: '../useThrottledCallback.md' },
     { name: 'useMouse', content: '../useMouse.md' },
     { name: 'useMouseHandler', content: '../useMouseHandler.md' },
     { name: 'useMouseState', content: '../useMouseState.md' },
