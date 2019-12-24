@@ -59,3 +59,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - useInterval hook & tests
 - useTimeout hook & tests
+
+## [0.5.1] - 2019-12-24
+
+### Fixed
+
+- Build workflow performs tests twice
