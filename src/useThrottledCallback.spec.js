@@ -1,11 +1,11 @@
 import React from 'react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
-import useDebouncedCallback from './useDebouncedCallback';
+import useThrottledCallback from './useThrottledCallback';
 import promiseDelay from '../test/utils/promiseDelay';
 
 
-describe('useDebouncedCallback', () => {
+describe('useThrottledCallback', () => {
   beforeEach(() => {
     cleanupReact();
     cleanupHooks();
@@ -13,30 +13,30 @@ describe('useDebouncedCallback', () => {
   });
 
   it('should be an arrow function', () => {
-    expect(useDebouncedCallback).to.be.a('function');
-    expect(useDebouncedCallback.prototype).to.be.empty;
+    expect(useThrottledCallback).to.be.a('function');
+    expect(useThrottledCallback.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {
     const fn = () => 0;
-    const { result } = renderHook(() => useDebouncedCallback(fn));
+    const { result } = renderHook(() => useThrottledCallback(fn));
 
     expect(result.current).to.be.a('function');
   });
 
-  it('should return a debounced function', async () => {
+  it('should return a throttled function', async () => {
     const spy = sinon.spy();
 
     const TestComponent = () => {
-      const debouncedCallback = useDebouncedCallback(() => {
+      const throttledFn = useThrottledCallback(() => {
         spy();
       }, 250);
 
       React.useEffect(() => {
-        debouncedCallback();
-        debouncedCallback();
-        debouncedCallback();
-        debouncedCallback();
+        throttledFn();
+        throttledFn();
+        throttledFn();
+        throttledFn();
       }, []);
 
       return <div />;
@@ -44,7 +44,7 @@ describe('useDebouncedCallback', () => {
 
     render(<TestComponent />);
 
-    await promiseDelay(300);
+    await promiseDelay(250);
 
     expect(spy.called).to.be.true;
     expect(spy.callCount).to.equal(1);

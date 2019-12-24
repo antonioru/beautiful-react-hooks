@@ -65,3 +65,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Build workflow performs tests twice
+
+## [0.6.0] - 2019-12-24
+
+### Added
+
+- useThrottledCallback hook & tests
+- debounce and throttle utilities

@@ -8,7 +8,7 @@ const destPath = 'docs/';
 del.sync(destPath);
 fs.mkdirSync(destPath);
 
-glob('src/**/!(*.spec|index).js', (err, result) => {
+glob('src/!(*.spec|index).js', (err, result) => {
   if (err) throw err;
 
   result.forEach((file) => {

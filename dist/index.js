@@ -39,6 +39,12 @@ Object.defineProperty(exports, "useDebouncedCallback", {
     return _useDebouncedCallback["default"];
   }
 });
+Object.defineProperty(exports, "useThrottledCallback", {
+  enumerable: true,
+  get: function get() {
+    return _useThrottledCallback["default"];
+  }
+});
 Object.defineProperty(exports, "useMouse", {
   enumerable: true,
   get: function get() {
@@ -57,6 +63,18 @@ Object.defineProperty(exports, "useMouseState", {
     return _useMouseState["default"];
   }
 });
+Object.defineProperty(exports, "useTimeout", {
+  enumerable: true,
+  get: function get() {
+    return _useTimeout["default"];
+  }
+});
+Object.defineProperty(exports, "useInterval", {
+  enumerable: true,
+  get: function get() {
+    return _useInterval["default"];
+  }
+});
 
 var _useCallbackRef = _interopRequireDefault(require("./useCallbackRef"));
 
@@ -70,11 +88,17 @@ var _useWindowResize = _interopRequireDefault(require("./useWindowResize"));
 
 var _useDebouncedCallback = _interopRequireDefault(require("./useDebouncedCallback"));
 
+var _useThrottledCallback = _interopRequireDefault(require("./useThrottledCallback"));
+
 var _useMouse = _interopRequireDefault(require("./useMouse"));
 
 var _useMouseHandler = _interopRequireDefault(require("./useMouseHandler"));
 
 var _useMouseState = _interopRequireDefault(require("./useMouseState"));
+
+var _useTimeout = _interopRequireDefault(require("./useTimeout"));
+
+var _useInterval = _interopRequireDefault(require("./useInterval"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 //# sourceMappingURL=index.js.map
