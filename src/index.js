@@ -7,3 +7,5 @@ export { default as useDebouncedCallback } from './useDebouncedCallback';
 export { default as useMouse } from './useMouse';
 export { default as useMouseHandler } from './useMouseHandler';
 export { default as useMouseState } from './useMouseState';
+export { default as useTimeout } from './useTimeout';
+export { default as useInterval } from './useInterval';
