@@ -1,7 +1,7 @@
 import throttle from './throttle';
 import promiseDelay from '../../test/utils/promiseDelay';
 
-describe('debounce utility', () => {
+describe('throttle utility', () => {
   beforeEach(sinon.restore);
 
   it('should be an arrow function', () => {

@@ -3,6 +3,7 @@ export { default as useOnMount } from './useOnMount';
 export { default as useWillUnmount } from './useWillUnmount';
 export { default as useLifecycle } from './useLifecycle';
 export { default as useWindowResize } from './useWindowResize';
+export { default as useWindowScroll } from './useWindowScroll';
 export { default as useDebouncedCallback } from './useDebouncedCallback';
 export { default as useThrottledCallback } from './useThrottledCallback';
 export { default as useMouse } from './useMouse';

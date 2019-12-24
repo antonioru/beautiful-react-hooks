@@ -59,6 +59,7 @@ $ yarn add @beautiful/react-hooks
 * [useWillUnmount](./docs/useWillUnmount.md)
 * [useLifecycle](./docs/useLifecycle.md)
 * [useWindowResize](./docs/useWindowResize.md)
+* [useWindowScroll](./docs/useWindowScroll.md)
 * [useDebouncedCallback](./docs/useDebouncedCallback.md)
 * [useThrottledCallback](./docs/useThrottledCallback.md)
 * [useTimeout](./docs/useTimeout.md)

@@ -33,6 +33,12 @@ Object.defineProperty(exports, "useWindowResize", {
     return _useWindowResize["default"];
   }
 });
+Object.defineProperty(exports, "useWindowScroll", {
+  enumerable: true,
+  get: function get() {
+    return _useWindowScroll["default"];
+  }
+});
 Object.defineProperty(exports, "useDebouncedCallback", {
   enumerable: true,
   get: function get() {
@@ -85,6 +91,8 @@ var _useWillUnmount = _interopRequireDefault(require("./useWillUnmount"));
 var _useLifecycle = _interopRequireDefault(require("./useLifecycle"));
 
 var _useWindowResize = _interopRequireDefault(require("./useWindowResize"));
+
+var _useWindowScroll = _interopRequireDefault(require("./useWindowScroll"));
 
 var _useDebouncedCallback = _interopRequireDefault(require("./useDebouncedCallback"));
 

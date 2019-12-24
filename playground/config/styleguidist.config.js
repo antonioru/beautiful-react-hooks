@@ -16,6 +16,7 @@ module.exports = {
     { name: 'useWillUnMount', content: '../useWillUnmount.md' },
     { name: 'useLifecycle', content: '../useLifecycle.md' },
     { name: 'useWindowResize', content: '../useWindowResize.md' },
+    { name: 'useWindowScroll', content: '../useWindowScroll.md' },
     { name: 'useDebouncedCallback', content: '../useDebouncedCallback.md' },
     { name: 'useThrottledCallback', content: '../useThrottledCallback.md' },
     { name: 'useMouse', content: '../useMouse.md' },
