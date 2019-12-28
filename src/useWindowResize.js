@@ -1,5 +1,4 @@
-import useLifecycle from './useLifecycle';
-import useCallbackRef from './useCallbackRef';
+import useGlobalEvent from './useGlobalEvent';
 
 /**
  * Returns a function that accepts a callback to be performed when the window resizes.
@@ -17,19 +16,6 @@ import useCallbackRef from './useCallbackRef';
  * }
  * ```
  */
-const useWindowResize = () => {
-  const [handler, setHandler] = useCallbackRef();
-  const { onMount, onUnmount } = useLifecycle();
-
-  onMount(() => {
-    window.addEventListener('resize', handler.current);
-  });
-
-  onUnmount(() => {
-    window.removeEventListener('resize', handler.current);
-  });
-
-  return setHandler;
-};
+const useWindowResize = () => useGlobalEvent('resize');
 
 export default useWindowResize;

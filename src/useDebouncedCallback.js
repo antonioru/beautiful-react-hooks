@@ -9,41 +9,20 @@ import debounce from './utils/debounce';
  * ### Usage:
  *
  * ```jsx harmony
- * const MyComponent = () => {
- *   const debouncedClick = useDebouncedCallback(() => {
- *     console.log('Button clicked...');
+ *
+ * const TestComponent = () => {
+ *   const onWindowResize = useGlobalEvent('resize');
+ *
+ *   onWindowResize((event) => {
+ *      console.log('GNIFRO', event)
  *   });
- **
- *   return (<button onClick={debouncedClick}>Click me</button>)
- * }
- * ```
  *
- * ### Debounce time:
- *
- * It is possible to change the debounce time by defining how many ms to wait:
- *
- * ```jsx harmony
- * const MyComponent = () => {
- *   const debouncedClick = useDebouncedCallback(() => {
- *     console.log('Button clicked...');
- *   }, 250);
- *
- *   return (<button onClick={debouncedClick}>Click me</button>)
- * }
- * ```
- *
- * ### Dependencies:
- *
- * Since `useDebouncedCallback` uses `useCallback` under the hood, it is also possible to define its dependencies:
- *
- * ```jsx harmony
- * const MyComponent = (props) => {
- *   const debouncedClick = useDebouncedCallback(() => {
- *     console.log('Button clicked...');
- *   }, 250, [props.foo]);
- *
- *   return (<button onClick={debouncedClick}>Click me</button>)
- * }
+ *   return (
+ *      <div style={compStyle}>
+ *       pippo
+ *    </div>
+ *  );
+ *}
  * ```
  */
 const useDebouncedCallback = (fn, wait = 250, dependencies) => useCallback(debounce(fn, wait), dependencies);

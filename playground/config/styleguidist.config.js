@@ -15,6 +15,7 @@ module.exports = {
     { name: 'useOnMount', content: '../useOnMount.md' },
     { name: 'useWillUnMount', content: '../useWillUnmount.md' },
     { name: 'useLifecycle', content: '../useLifecycle.md' },
+    { name: 'useGlobalEvent', content: '../useGlobalEvent.md' },
     { name: 'useWindowResize', content: '../useWindowResize.md' },
     { name: 'useWindowScroll', content: '../useWindowScroll.md' },
     { name: 'useDebouncedCallback', content: '../useDebouncedCallback.md' },
