@@ -8,27 +8,31 @@ If time is not defined, its default value will be 100ms.
 ### Usage:
 
 ```jsx harmony
-const MyComponent = () => {
-  const throttledClick = useThrottledCallback(() => {
-    console.log('Button clicked...');
-  });
-*
-  return (<button onClick={throttledClick}>Click me</button>)
-}
+
+const TestComponent = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const onWindowResize = useWindowResize();
+
+  onWindowResize(useThrottledCallback(() => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }, 250));
+
+  return (
+    <div style={compStyle}>
+      <p>window width: {width}</p>
+      <p>window height: {height}</p>
+   </div>
+  );
 ```
 
-### Throttle time:
+### Debounce time:
 
 It is possible to change the throttle time by defining how many ms to wait:
 
 ```jsx harmony
-const MyComponent = () => {
-  const throttledClick = useThrottledCallback(() => {
-    console.log('Button clicked...');
-  }, 250);
-
-  return (<button onClick={throttledClick}>Click me</button>)
-}
+const useDebouncedBy250 = (fn) => useThrottledCallback(fn, 250);
 ```
 
 ### Dependencies:
@@ -36,13 +40,22 @@ const MyComponent = () => {
 Since `useThrottledCallback` uses `useCallback` under the hood, it is also possible to define its dependencies:
 
 ```jsx harmony
-const MyComponent = (props) => {
-  const throttledClick = useThrottledCallback(() => {
-    console.log('Button clicked...');
-  }, 250, [props.foo]);
+const TestComponent = (props) => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const onWindowResize = useWindowResize();
 
-  return (<button onClick={debouncedClick}>Click me</button>)
-}
+  onWindowResize(useThrottledCallback(() => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }, 250, [props.foo, props.bar]));
+
+  return (
+    <div style={compStyle}>
+      <p>window width: {width}</p>
+      <p>window height: {height}</p>
+   </div>
+  );
 ```
 
 **Kind**: global function  
