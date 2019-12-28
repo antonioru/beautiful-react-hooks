@@ -1,5 +1,4 @@
-import useLifecycle from './useLifecycle';
-import useCallbackRef from './useCallbackRef';
+import useGlobalEvent from './useGlobalEvent';
 
 /**
  * Returns a function that accepts a callback to be performed when the window scrolls.
@@ -17,19 +16,6 @@ import useCallbackRef from './useCallbackRef';
  * }
  * ```
  */
-const useWindowScroll = () => {
-  const [handler, setHandler] = useCallbackRef();
-  const { onMount, onUnmount } = useLifecycle();
-
-  onMount(() => {
-    window.addEventListener('scroll', handler.current);
-  });
-
-  onUnmount(() => {
-    window.removeEventListener('scroll', handler.current);
-  });
-
-  return setHandler;
-};
+const useWindowScroll = () => useGlobalEvent('scroll');
 
 export default useWindowScroll;

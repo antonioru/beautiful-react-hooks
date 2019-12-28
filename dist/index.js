@@ -81,6 +81,12 @@ Object.defineProperty(exports, "useInterval", {
     return _useInterval["default"];
   }
 });
+Object.defineProperty(exports, "useGlobalEvent", {
+  enumerable: true,
+  get: function get() {
+    return _useGlobalEvent["default"];
+  }
+});
 
 var _useCallbackRef = _interopRequireDefault(require("./useCallbackRef"));
 
@@ -107,6 +113,8 @@ var _useMouseState = _interopRequireDefault(require("./useMouseState"));
 var _useTimeout = _interopRequireDefault(require("./useTimeout"));
 
 var _useInterval = _interopRequireDefault(require("./useInterval"));
+
+var _useGlobalEvent = _interopRequireDefault(require("./useGlobalEvent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 //# sourceMappingURL=index.js.map

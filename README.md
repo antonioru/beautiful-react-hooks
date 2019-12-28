@@ -55,9 +55,7 @@ $ yarn add @beautiful/react-hooks
 ## 🎨 Hooks
 
 * [useCallbackRef](./docs/useCallbackRef.md)
-* [useOnMount](./docs/useOnMount.md)
-* [useWillUnmount](./docs/useWillUnmount.md)
-* [useLifecycle](./docs/useLifecycle.md)
+* [useGlobalEvent](./docs/useGlobalEvent.md)
 * [useWindowResize](./docs/useWindowResize.md)
 * [useWindowScroll](./docs/useWindowScroll.md)
 * [useDebouncedCallback](./docs/useDebouncedCallback.md)
@@ -68,6 +66,9 @@ $ yarn add @beautiful/react-hooks
 * [useMouse](./docs/useMouse.md)
 * [useMouseState](./docs/useMouseState.md)
 * [useMouseHandler](./docs/useMouseHandler.md)
+* [useOnMount](./docs/useOnMount.md)
+* [useWillUnmount](./docs/useWillUnmount.md)
+* [useLifecycle](./docs/useLifecycle.md)
 
 <hr />
 

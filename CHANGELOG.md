@@ -78,3 +78,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - useWindowScroll hook & tests
+
+
+## [0.8.0] - 2019-12-24
+
+### Added
+
+- useGlobalEvent hook & tests

@@ -3,7 +3,7 @@ import { useCallback, useRef } from 'react';
 /**
  * Creates a callback reference that will live trough the component lifecycle.<br />
  * It returns the callback ref and a setter to change its value.<br />
- * The setter also makes sure that the given callback is indeed a function, if not the callback ref won't change.<br />
+ * The setter also makes sure the given callback is indeed a function, if not the callback ref won't change.<br />
  * Callback ref are quite useful when abstracting other custom hooks.
 
  * ### Usage in a custom hook:

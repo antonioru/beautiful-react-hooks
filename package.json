@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A collection of beautiful (and useful) React hooks",
   "main": "index.js",
   "scripts": {
