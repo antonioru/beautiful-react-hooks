@@ -63,6 +63,7 @@ $ yarn add @binteractions/react-hooks
 
 * [useCallbackRef](./docs/useCallbackRef.md)
 * [useGlobalEvent](./docs/useGlobalEvent.md)
+* [usePrev](./docs/usePrev.md)
 * [useWindowResize](./docs/useWindowResize.md)
 * [useWindowScroll](./docs/useWindowScroll.md)
 * [useDebouncedCallback](./docs/useDebouncedCallback.md)
