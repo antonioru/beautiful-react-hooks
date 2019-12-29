@@ -1,6 +1,6 @@
 {
-  "name": "@binteractions/react-hooks",
-  "version": "0.9.1",
+  "name": "beautiful-react-hooks",
+  "version": "0.9.3",
   "description": "A collection of beautiful (and useful) React hooks",
   "main": "index.js",
   "scripts": {
@@ -26,10 +26,7 @@
     "url": "https://github.com/antonioru/beautiful-react-hooks/issues"
   },
   "homepage": "https://github.com/antonioru/beautiful-react-hooks#readme",
-  "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/polyfill": "^7.7.0",
@@ -42,6 +39,8 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-transform-require-ignore": "^0.1.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "chai": "^4.2.0",
     "del": "^5.1.0",
     "eslint": "^6.1.0",
@@ -64,9 +63,5 @@
     "react-test-renderer": "^16.12.0",
     "sinon": "^7.5.0",
     "webpack": "^4.41.3"
-  },
-  "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
   }
 }
