@@ -1,6 +1,6 @@
 {
-  "name": "@beautiful/react-hooks",
-  "version": "0.8.1",
+  "name": "@binteractions/react-hooks",
+  "version": "0.8.3",
   "description": "A collection of beautiful (and useful) React hooks",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,10 @@
     "start": "npx styleguidist server --config playground/config/styleguidist.config.js --open",
     "docs": "npx styleguidist build --config playground/config/styleguidist.config.js && node ./scripts/generateDocs.js"
   },
+  "files": [
+    "dist/**",
+    "index.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/antonioru/beautiful-react-hooks.git"

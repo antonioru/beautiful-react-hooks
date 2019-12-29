@@ -9,7 +9,7 @@ module.exports = {
   exampleMode: 'expand',
   pagePerSection: true,
   skipComponentsWithoutExample: true,
-  styleguideDir: '../../dist-gitpages',
+  styleguideDir: '../../dist-ghpages',
   sections: [
     { name: 'useCallbackRef', content: '../useCallbackRef.md' },
     { name: 'useOnMount', content: '../useOnMount.md' },

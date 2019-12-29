@@ -12,7 +12,7 @@
 
 <div>
   <p align="center">
-    <a href="https://antonioru.github.io/beautiful-react-hooks/#/useMouseState">
+    <a href="https://antonioru.github.io/binteractions-react-hooks/" target="_blank">
     🌟 Live playground here 🌟
     </a>
   </p>
@@ -22,13 +22,13 @@
 
 React custom hooks allow to abstract components' business logic into single thus reusable functions.<br />
 So far, I've found that most of the hooks I've created and therefore shared between my projects have quite often a 
-similar gist that involves callback references, events and React's lifecycle. <br />
-For this reason I've tried to sum up that gist into `@beautiful/react-hooks`: a collection of (*hopefully*) useful 
+similar gist that involves callback references, events and components' lifecycle. <br />
+For this reason I've tried to sum up that gist into `@binteractions/react-hooks`: a collection of (*hopefully*) useful 
 React hooks to possibly help other developers to speed up their development process.<br /><br />
 Furthermore, I've tried to create a concise yet concrete API having in mind the code readability, focusing 
 to keep the learning curve as lower as possible so that the it can be used and shared in bigger teams.
 <br /><br />
-**Please read the hooks documentation before using em!**
+**-- Please before using any hook, read its documentation! --**
 
 ## ☕️ Features
 
@@ -36,20 +36,27 @@ to keep the learning curve as lower as possible so that the it can be used and s
 * Small and lightweight
 * Easy to learn
 * Zero dependencies (beside React, of course)
-* Written in Javascript
+* Fully written in JS (although TS types are supported)
 
+<div>
+  <p align="center">
+    <a href="https://antonioru.github.io/binteractions-react-hooks/" target="_blank">
+    🌟 Live playground here 🌟
+    </a>
+  </p>
+</div>
 
 ## 🕺 Install
 
 ```js 
-$ npm install @beautiful/react-hooks
+$ npm install @binteractions/react-hooks
 ```
 
 
 or
 
 ```js 
-$ yarn add @beautiful/react-hooks
+$ yarn add @binteractions/react-hooks
 ```
 
 ## 🎨 Hooks
@@ -70,6 +77,23 @@ $ yarn add @beautiful/react-hooks
 * [useWillUnmount](./docs/useWillUnmount.md)
 * [useLifecycle](./docs/useLifecycle.md)
 
-<hr />
+<div>
+  <p align="center">
+    <a href="https://antonioru.github.io/binteractions-react-hooks/" target="_blank">
+    🌟 Live playground here 🌟
+    </a>
+  </p>
+</div>
+
+
+##### Tested with
+
+* [Mocha](https://mochajs.org/)
+* [Chai](https://www.chaijs.com/)
+* [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
+* [@testing-library/react-hooks](https://react-hooks-testing-library.com/) 
+
+
+##### Credits
 
 <small> logo has been created by stealing from [FreePik](https://www.freepik.com/free-photos-vectors/design)</small>

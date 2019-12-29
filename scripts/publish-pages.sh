@@ -1,2 +1,2 @@
 #!/bin/sh
-git subtree push --prefix dist-gitpages origin gh-pages
+git subtree push --prefix dist-ghpages origin gh-pages

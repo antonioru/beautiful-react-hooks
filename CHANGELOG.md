@@ -85,8 +85,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - useGlobalEvent hook & tests
 
-
 ## [0.8.1] - 2019-12-28
+
+### Fixed
+
+- Few documentation typos
+
+## [0.8.2] - 2019-12-28
+
+### Fixed
+
+- Few documentation typos
+- README image
+
+### Added 
+
+- Types support
+
+
+## [0.8.3] - 2019-12-28
 
 ### Fixed
 
