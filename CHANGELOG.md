@@ -102,9 +102,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Types support
 
-
 ## [0.8.3] - 2019-12-28
 
 ### Fixed
 
 - Few documentation typos
+
+## [0.9.0] - 2019-12-29
+
+### Fixed
+
+- usePrev hook & tests

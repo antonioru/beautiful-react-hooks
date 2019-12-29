@@ -12,10 +12,8 @@ module.exports = {
   styleguideDir: '../../dist-ghpages',
   sections: [
     { name: 'useCallbackRef', content: '../useCallbackRef.md' },
-    { name: 'useOnMount', content: '../useOnMount.md' },
-    { name: 'useWillUnMount', content: '../useWillUnmount.md' },
-    { name: 'useLifecycle', content: '../useLifecycle.md' },
     { name: 'useGlobalEvent', content: '../useGlobalEvent.md' },
+    { name: 'usePrev', content: '../usePrev.md' },
     { name: 'useWindowResize', content: '../useWindowResize.md' },
     { name: 'useWindowScroll', content: '../useWindowScroll.md' },
     { name: 'useDebouncedCallback', content: '../useDebouncedCallback.md' },
@@ -25,6 +23,9 @@ module.exports = {
     { name: 'useMouseState', content: '../useMouseState.md' },
     { name: 'useTimeout', content: '../useTimeout.md' },
     { name: 'useInterval', content: '../useInterval.md' },
+    { name: 'useOnMount', content: '../useOnMount.md' },
+    { name: 'useWillUnMount', content: '../useWillUnmount.md' },
+    { name: 'useLifecycle', content: '../useLifecycle.md' },
   ],
   ...theme,
 };

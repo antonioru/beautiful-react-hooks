@@ -12,3 +12,4 @@ export { default as useMouseState } from './useMouseState';
 export { default as useTimeout } from './useTimeout';
 export { default as useInterval } from './useInterval';
 export { default as useGlobalEvent } from './useGlobalEvent';
+export { default as usePrev } from './usePrev';
