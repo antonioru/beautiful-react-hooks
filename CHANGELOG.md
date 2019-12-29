@@ -121,3 +121,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - peerDependencies
 - build was missing
 - usePrev types were missing
+
+## [0.9.2] - 2019-12-29
+
+### Fixed
+
+- React & ReactDom moved to `devDependencies`
+
+## [0.9.3] - 2019-12-29
+
+### Fixed
+
+- Package name for public usage
