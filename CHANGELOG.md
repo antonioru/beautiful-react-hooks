@@ -113,3 +113,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - usePrev hook & tests
+
+## [0.9.1] - 2019-12-29
+
+### Fixed
+
+- peerDependencies
+- build was missing
+- usePrev types were missing

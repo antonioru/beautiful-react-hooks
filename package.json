@@ -1,6 +1,6 @@
 {
   "name": "@binteractions/react-hooks",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "A collection of beautiful (and useful) React hooks",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
     "url": "https://github.com/antonioru/beautiful-react-hooks/issues"
   },
   "homepage": "https://github.com/antonioru/beautiful-react-hooks#readme",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
@@ -64,5 +64,9 @@
     "react-test-renderer": "^16.12.0",
     "sinon": "^7.5.0",
     "webpack": "^4.41.3"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }
