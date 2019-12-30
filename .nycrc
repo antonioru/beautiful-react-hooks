@@ -4,7 +4,7 @@
   "check-coverage": true,
   "extension": [ ".js" ],
   "include": [ "src/**/*.js" ],
-  "exclude": [ "src/**/index.js", "**/*.spec.js" ],
+  "exclude": [ "src/**/index.js", "**/*.spec.js", "src/useBatteryEvents.js", "src/useBatteryState.js", "src/useBattery.js" ],
   "branches": 90,
   "lines": 90,
   "functions": 90,
