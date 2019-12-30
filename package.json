@@ -1,7 +1,7 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.9.3",
-  "description": "A collection of beautiful (and useful) React hooks",
+  "version": "0.10.1",
+  "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext .js src/",
@@ -28,12 +28,12 @@
   "homepage": "https://github.com/antonioru/beautiful-react-hooks#readme",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.7.5",
+    "@babel/core": "^7.7.7",
     "@babel/polyfill": "^7.7.0",
-    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
-    "@babel/register": "^7.7.4",
-    "@testing-library/react": "^9.3.2",
+    "@babel/register": "^7.7.7",
+    "@testing-library/react": "^9.4.0",
     "@testing-library/react-hooks": "^3.2.1",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
@@ -43,7 +43,7 @@
     "react-dom": "^16.12.0",
     "chai": "^4.2.0",
     "del": "^5.1.0",
-    "eslint": "^6.1.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-chai-expect": "^2.1.0",
     "eslint-plugin-import": "^2.19.1",
@@ -58,10 +58,10 @@
     "jsdom": "^15.2.1",
     "jsdom-global": "^3.0.2",
     "mocha": "^6.2.2",
-    "nyc": "^14.1.1",
+    "nyc": "^15.0.0",
     "react-styleguidist": "^10.3.2",
     "react-test-renderer": "^16.12.0",
-    "sinon": "^7.5.0",
-    "webpack": "^4.41.3"
+    "sinon": "^8.0.2",
+    "webpack": "^4.41.5"
   }
 }
