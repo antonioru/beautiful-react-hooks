@@ -87,6 +87,12 @@ $ yarn add beautiful-react-hooks
 </div>
 
 
+## :arrow_up: Contributors wanted
+
+`beautiful-react-hooks` is looking for contributors and maintainers, please feel free to join us after reading our [contributing guidlines](./CONTRIBUTING.md) :fire:
+
+--- 
+
 ##### Tested with
 
 * [Mocha](https://mochajs.org/)
