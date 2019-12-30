@@ -4,7 +4,7 @@
   </p>
   <p align="center">
     A collection of beautiful (and hopefully useful) React hooks to speed-up your 
-    components development
+    components and hooks development
   </p>
 </div>
 
