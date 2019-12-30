@@ -133,3 +133,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Package name for public usage
+
+## [0.10.0] - 2019-12-30
+
+### Added
+
+- Code of conduct
+- Contributing guidelines 
+- issue template
+- pull request template
+
