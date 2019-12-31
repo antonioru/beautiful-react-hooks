@@ -57,10 +57,10 @@ Object.defineProperty(exports, "useMouse", {
     return _useMouse["default"];
   }
 });
-Object.defineProperty(exports, "useMouseHandler", {
+Object.defineProperty(exports, "useMouseEvents", {
   enumerable: true,
   get: function get() {
-    return _useMouseHandler["default"];
+    return _useMouseEvents["default"];
   }
 });
 Object.defineProperty(exports, "useMouseState", {
@@ -93,6 +93,24 @@ Object.defineProperty(exports, "usePrev", {
     return _usePrev["default"];
   }
 });
+Object.defineProperty(exports, "useBattery", {
+  enumerable: true,
+  get: function get() {
+    return _useBattery["default"];
+  }
+});
+Object.defineProperty(exports, "useBatteryEvents", {
+  enumerable: true,
+  get: function get() {
+    return _useBatteryEvents["default"];
+  }
+});
+Object.defineProperty(exports, "useBatteryState", {
+  enumerable: true,
+  get: function get() {
+    return _useBatteryState["default"];
+  }
+});
 
 var _useCallbackRef = _interopRequireDefault(require("./useCallbackRef"));
 
@@ -112,7 +130,7 @@ var _useThrottledCallback = _interopRequireDefault(require("./useThrottledCallba
 
 var _useMouse = _interopRequireDefault(require("./useMouse"));
 
-var _useMouseHandler = _interopRequireDefault(require("./useMouseHandler"));
+var _useMouseEvents = _interopRequireDefault(require("./useMouseEvents"));
 
 var _useMouseState = _interopRequireDefault(require("./useMouseState"));
 
@@ -123,6 +141,12 @@ var _useInterval = _interopRequireDefault(require("./useInterval"));
 var _useGlobalEvent = _interopRequireDefault(require("./useGlobalEvent"));
 
 var _usePrev = _interopRequireDefault(require("./usePrev"));
+
+var _useBattery = _interopRequireDefault(require("./useBattery"));
+
+var _useBatteryEvents = _interopRequireDefault(require("./useBatteryEvents"));
+
+var _useBatteryState = _interopRequireDefault(require("./useBatteryState"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 //# sourceMappingURL=index.js.map

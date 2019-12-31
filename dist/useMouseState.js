@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _react = require("react");
 
-var _useMouseHandler2 = _interopRequireDefault(require("./useMouseHandler"));
+var _useMouseEvents2 = _interopRequireDefault(require("./useMouseEvents"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -41,8 +41,8 @@ var useMouseState = function useMouseState() {
       state = _useState2[0],
       setState = _useState2[1];
 
-  var _useMouseHandler = (0, _useMouseHandler2["default"])(ref),
-      onMouseMove = _useMouseHandler.onMouseMove;
+  var _useMouseEvents = (0, _useMouseEvents2["default"])(ref),
+      onMouseMove = _useMouseEvents.onMouseMove;
 
   onMouseMove(function (event) {
     var nextState = createStateObject(event);

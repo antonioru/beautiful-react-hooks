@@ -26,7 +26,7 @@ const MouseReporter = () => {
      {mouseState.clientX}, {mouseState.clientY}
    </div>
   );
-}
+};
 
 <MouseReporter />
 ```
@@ -45,7 +45,7 @@ const MouseReporter = () => {
      {mouseState.clientX}, {mouseState.clientY}
    </div>
   );
-}
+};
 
 <MouseReporter />
 ```

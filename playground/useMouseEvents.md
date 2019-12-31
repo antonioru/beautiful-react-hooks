@@ -14,12 +14,12 @@ const style = window.compStyle = {
 
 ```jsx harmony
 import { useRef, useState } from 'react';
-import { useMouseHandler } from 'beautiful-react-hooks'; 
+import { useMouseEvents } from 'beautiful-react-hooks'; 
 
 const MyComponent = () => {
   const [coordinates, setCoordinates] = useState();
   const ref = useRef();
-  const { onMouseMove, onMouseLeave } = useMouseHandler(ref);
+  const { onMouseMove, onMouseLeave } = useMouseEvents(ref);
 
   onMouseMove((event) => {
     const nextCoords = [event.clientX, event.clientY];
@@ -45,11 +45,11 @@ const MyComponent = () => {
 
 ```jsx harmony
 import { useState } from 'react';
-import { useMouseHandler } from 'beautiful-react-hooks'; 
+import { useMouseEvents } from 'beautiful-react-hooks'; 
 
 const MyComponent = () => {
   const [coordinates, setCoordinates] = useState([0, 0]);
-  const { onMouseMove } = useMouseHandler();
+  const { onMouseMove } = useMouseEvents();
 
   onMouseMove((event) => {
     const nextCoords = [event.clientX, event.clientY];

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useMouseHandler from './useMouseHandler';
+import useMouseEvents from './useMouseEvents';
 
 const createStateObject = (event) => ({
   clientX: event.clientX,
@@ -48,7 +48,7 @@ const createStateObject = (event) => ({
  */
 const useMouseState = (ref = null) => {
   const [state, setState] = useState({ clientX: 0, clientY: 0, screenX: 0, screenY: 0 });
-  const { onMouseMove } = useMouseHandler(ref);
+  const { onMouseMove } = useMouseEvents(ref);
 
   onMouseMove((event) => {
     const nextState = createStateObject(event);

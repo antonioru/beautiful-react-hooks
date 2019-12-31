@@ -9,6 +9,10 @@ var _react = require("react");
 
 var _useCallbackRef15 = _interopRequireDefault(require("./useCallbackRef"));
 
+var _createCbSetterErrorProxy = _interopRequireDefault(require("./utils/createCbSetterErrorProxy"));
+
+var _hasOwnProperty = _interopRequireDefault(require("./utils/hasOwnProperty"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -19,9 +23,38 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var useMouseHandler = function useMouseHandler() {
+var useIsomorphicMouseEvent = function useIsomorphicMouseEvent(ref, callbackRef, eventName) {
+  (0, _react.useEffect)(function () {
+    var cb = function cb() {
+      if (callbackRef.current) {
+        callbackRef.current.apply(callbackRef, arguments);
+      }
+    };
+
+    var target;
+
+    if (ref !== null && !!ref.current) {
+      target = ref.current;
+    }
+
+    if (ref === null) {
+      target = document;
+    }
+
+    if (target && target.addEventListener) {
+      target.addEventListener(eventName, cb);
+    }
+
+    return function () {
+      if (target && target.removeEventListener) {
+        target.removeEventListener(eventName, cb);
+      }
+    };
+  }, [callbackRef, ref]);
+};
+
+var useMouseEvents = function useMouseEvents() {
   var ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-  var target;
 
   var _useCallbackRef = (0, _useCallbackRef15["default"])(),
       _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
@@ -58,58 +91,18 @@ var useMouseHandler = function useMouseHandler() {
       onMouseUpHandler = _useCallbackRef14[0],
       setOnMouseUp = _useCallbackRef14[1];
 
-  (0, _react.useEffect)(function () {
-    if (ref !== null && !!ref.current) {
-      target = ref.current;
-    }
+  if (ref !== null && !(0, _hasOwnProperty["default"])(ref, 'current')) {
+    return (0, _createCbSetterErrorProxy["default"])('Unable to assign any mouse event to the given ref');
+  }
 
-    if (ref === null) {
-      target = document;
-    }
-
-    if (target) {
-      if (onMouseDownHandler.current) {
-        target.addEventListener('mousedown', onMouseDownHandler.current);
-      }
-
-      if (onMouseEnterHandler.current) {
-        target.addEventListener('mouseenter', onMouseEnterHandler.current);
-      }
-
-      if (onMouseLeaveHandler.current) {
-        target.addEventListener('mouseleave', onMouseLeaveHandler.current);
-      }
-
-      if (onMouseMoveHandler.current) {
-        target.addEventListener('mousemove', onMouseMoveHandler.current);
-      }
-
-      if (onMouseOutHandler.current) {
-        target.addEventListener('mouseout', onMouseOutHandler.current);
-      }
-
-      if (onMouseOverHandler.current) {
-        target.addEventListener('mouseover', onMouseOverHandler.current);
-      }
-
-      if (onMouseUpHandler.current) {
-        target.addEventListener('mouseup', onMouseUpHandler.current);
-      }
-    }
-
-    return function () {
-      if (target) {
-        target.removeEventListener('mousedown', onMouseDownHandler.current);
-        target.removeEventListener('mouseenter', onMouseEnterHandler.current);
-        target.removeEventListener('mouseleave', onMouseLeaveHandler.current);
-        target.removeEventListener('mousemove', onMouseMoveHandler.current);
-        target.removeEventListener('mouseout', onMouseOutHandler.current);
-        target.removeEventListener('mouseover', onMouseOverHandler.current);
-        target.removeEventListener('mouseup', onMouseUpHandler.current);
-      }
-    };
-  }, [ref, onMouseDownHandler, onMouseEnterHandler, onMouseLeaveHandler, onMouseMoveHandler, onMouseOutHandler, onMouseOverHandler, onMouseUpHandler]);
-  return {
+  useIsomorphicMouseEvent(ref, onMouseDownHandler, 'mousedown');
+  useIsomorphicMouseEvent(ref, onMouseEnterHandler, 'mouseenter');
+  useIsomorphicMouseEvent(ref, onMouseLeaveHandler, 'mouseleave');
+  useIsomorphicMouseEvent(ref, onMouseMoveHandler, 'mousemove');
+  useIsomorphicMouseEvent(ref, onMouseOutHandler, 'mouseout');
+  useIsomorphicMouseEvent(ref, onMouseOverHandler, 'mouseover');
+  useIsomorphicMouseEvent(ref, onMouseUpHandler, 'mouseup');
+  return Object.freeze({
     onMouseDown: setOnMouseDown,
     onMouseEnter: setOnMouseEnter,
     onMouseLeave: setOnMouseLeave,
@@ -117,9 +110,9 @@ var useMouseHandler = function useMouseHandler() {
     onMouseOut: setOnMouseOut,
     onMouseOver: setOnMouseOver,
     onMouseUp: setOnMouseUp
-  };
+  });
 };
 
-var _default = useMouseHandler;
+var _default = useMouseEvents;
 exports["default"] = _default;
-//# sourceMappingURL=useMouseHandler.js.map
+//# sourceMappingURL=useMouseEvents.js.map

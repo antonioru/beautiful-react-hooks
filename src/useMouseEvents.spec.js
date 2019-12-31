@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, fireEvent, cleanup as cleanupReact } from '@testing-library/react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
-import useMouseHandler from './useMouseHandler';
+import useMouseEvents from './useMouseEvents';
 
-describe('useMouseHandler', () => {
+describe('useMouseEvents', () => {
   beforeEach(() => {
     cleanupReact();
     cleanupHooks();
@@ -11,12 +11,12 @@ describe('useMouseHandler', () => {
   });
 
   it('should be an arrow function', () => {
-    expect(useMouseHandler).to.be.a('function');
-    expect(useMouseHandler.prototype).to.be.empty;
+    expect(useMouseEvents).to.be.a('function');
+    expect(useMouseEvents.prototype).to.be.empty;
   });
 
   it('should return an object having a series of mouse handler setter', () => {
-    const { result } = renderHook(() => useMouseHandler());
+    const { result } = renderHook(() => useMouseEvents());
 
     expect(result.current).to.be.an('object').that.has.all.keys(
       'onMouseDown', 'onMouseEnter', 'onMouseLeave', 'onMouseMove', 'onMouseOut', 'onMouseOver', 'onMouseUp',
@@ -35,7 +35,7 @@ describe('useMouseHandler', () => {
     const TestComponent = () => {
       const {
         onMouseDown, onMouseEnter, onMouseLeave, onMouseMove, onMouseOut, onMouseUp, onMouseOver,
-      } = useMouseHandler();
+      } = useMouseEvents();
 
       onMouseDown(mouseDownSpy);
       onMouseMove(mouseMoveSpy);
@@ -80,7 +80,7 @@ describe('useMouseHandler', () => {
     const TestComponent = () => {
       const {
         onMouseDown, onMouseEnter, onMouseLeave, onMouseMove, onMouseOut, onMouseUp, onMouseOver,
-      } = useMouseHandler(refMock);
+      } = useMouseEvents(refMock);
 
       onMouseDown(mouseDownSpy);
       onMouseMove(mouseMoveSpy);
@@ -113,22 +113,35 @@ describe('useMouseHandler', () => {
   });
 
   it('if an invalid ref is provided, should not perform the callback', () => {
-    const refMock = { invalid: document.createElement('div') };
+    const { result } = renderHook(() => useMouseEvents({ invalid: true }));
+
+    expect(result.current.onSomething).to.be.a('function');
+    expect(result.current.onSomething).to.throw();
+    expect(result.current.someProperty).to.be.an('object').that.has.key('error');
+  });
+
+  it('if the provided ref is not an instance of HTMLElement should not add any listener', () => {
+    const refMock = { current: { dispatchEvent: () => undefined } };
     const mouseMoveSpy = sinon.spy();
 
     const TestComponent = () => {
-      const { onMouseMove } = useMouseHandler(refMock);
+      const { onMouseMove } = useMouseEvents(refMock);
 
       onMouseMove(mouseMoveSpy);
 
-      return null;
+      return <div />;
     };
 
-    render(<TestComponent />);
+    const { rerender } = render(<TestComponent />);
 
-    fireEvent(refMock.invalid, new MouseEvent('mousemove'));
+    fireEvent(refMock.current, new MouseEvent('mousemove'));
 
+    expect(mouseMoveSpy.called).to.be.false;
 
-    expect(mouseMoveSpy.called).to.not.be.true;
+    rerender(null);
+
+    fireEvent(refMock.current, new MouseEvent('mousemove'));
+
+    expect(mouseMoveSpy.called).to.be.false;
   });
 });
