@@ -36,7 +36,7 @@ const MyComponent = () => {
       {coordinates && <p>Coordinates x:{coordinates[0]} y:{coordinates[1]}</p>}
     </div>
   );
-}
+};
 
 <MyComponent />
 ```
@@ -62,7 +62,7 @@ const MyComponent = () => {
       <p>x:{coordinates[0]} y:{coordinates[1]}</p>
     </div>
   );
-}
+};
 
 <MyComponent />
 ```

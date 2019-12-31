@@ -1,4 +1,3 @@
-// Type definitions for @binteractions/react-hooks
 import { MutableRefObject, EffectCallback, DependencyList } from 'react';
 
 export type CallbackSetter = EffectCallback;
@@ -57,24 +56,31 @@ export declare const useWindowResize: () => CallbackSetter;
 // useWindowScroll
 export declare const useWindowScroll: () => CallbackSetter;
 
-// useBatteryEvents
-
-type BatteryCallbackSetters = {
-  onChargingChange: CallbackSetter,
-  onChangingTimeChange: CallbackSetter,
-  onDischargingTimeChange: CallbackSetter,
-  onLevelChange: CallbackSetter,
+// useGeolocationEvents
+type GeolocationCallbackSetters = {
+  isSupported: boolean,
+  onChange: CallbackSetter,
+  onError: CallbackSetter,
 }
+export declare const useGeolocationEvents: (options?: PositionOptions) => GeolocationCallbackSetters;
 
-export declare const useBatteryEvents: () => BatteryCallbackSetters;
-
-// useBatteryState
-type BatteryState = {
-  charging: boolean,
-  chargingTime: number,
-  dischargingTime: number,
-  level: number,
+// useGeolocationState
+type GeolocationState = {
+  isSupported: boolean,
+  isRetrieving: boolean,
+  position: {
+    timestamp: number,
+    coords: {
+      latitude: number,
+      longitude: number,
+      altitude: number,
+      accuracy: number,
+      altitudeAccuracy: number,
+      heading: number,
+      speed: number,
+    },
+  }
 }
-export declare const useBatteryState: () => BatteryState;
-// useBattery
-export declare const useBattery: () => [BatteryState, BatteryCallbackSetters];
+export declare const useGeolocationState: (options?: PositionOptions) => GeolocationState;
+// useGeolocation
+export declare const useGeolocation: (options?: PositionOptions) => [GeolocationState, GeolocationCallbackSetters];

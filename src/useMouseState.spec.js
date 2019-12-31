@@ -9,13 +9,13 @@ describe('useMouseState', () => {
     expect(useMouseState.prototype).to.be.empty;
   });
 
-  it('should return a single object having the current mouse position', () => {
+  it('should return a mouse coordinates reporting object', () => {
     const { result } = renderHook(() => useMouseState());
 
     expect(result.current).to.be.a('object').that.has.all.keys('clientX', 'clientY', 'screenY', 'screenY');
   });
 
-  it('should update mouse position whilst it moves', () => {
+  it('should update the mouse position whilst it moves', () => {
     const refMock = { current: document.createElement('div') };
     const positionMock = { clientX: 10, clientY: 10, screenX: 30, screenY: 30 };
     const { result } = renderHook(() => useMouseState(refMock));

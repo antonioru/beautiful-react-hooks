@@ -15,7 +15,7 @@ describe('useMouseEvents', () => {
     expect(useMouseEvents.prototype).to.be.empty;
   });
 
-  it('should return an object having a series of mouse handler setter', () => {
+  it('should return an object of mouse-related callback setters', () => {
     const { result } = renderHook(() => useMouseEvents());
 
     expect(result.current).to.be.an('object').that.has.all.keys(
