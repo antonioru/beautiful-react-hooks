@@ -21,7 +21,7 @@ describe('usePrev', () => {
     expect(result.current).to.be.undefined;
   });
 
-  it('the returned the previous value of a given variable', () => {
+  it('should return the previous value of a given variable', () => {
     const TestComponent = (props) => {
       // eslint-disable-next-line react/prop-types
       const { value } = props;

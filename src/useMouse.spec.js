@@ -9,7 +9,7 @@ describe('useMouse', () => {
     expect(useMouse.prototype).to.be.empty;
   });
 
-  it('should return return an array where the first item is a mouse state and the second a group of setters', () => {
+  it('should return an array where the first item is a mouse state and the second a group of setters', () => {
     const ref = { current: document.createElement('div') };
     const { result } = renderHook(() => useMouse(ref));
 

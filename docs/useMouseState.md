@@ -3,7 +3,7 @@
 ## useMouseState()
 Returns the current state (position) of the mouse pointer.<br/>
 It possibly accepts a DOM ref representing the mouse target.<br/>
-If a target is not provided the state will be globally catched.
+If a target is not provided the state will be caught globally.
 
 ### Target ref usage:
 

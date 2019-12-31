@@ -31,7 +31,7 @@ const TestComponent = () => {
        <p>window height: {height}</p>
      </div>
    );
-}
+};
 
 <TestComponent />
 ```
