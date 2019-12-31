@@ -5,6 +5,7 @@ Returns the current state of the the battery, when supported.<br/>
 
 ### Usage:
 
+```jsx harmony
 const BatteryReporter = () => {
   const { charging, chargingTime, level, dischargingTime } = useBatteryState();
 
@@ -18,5 +19,6 @@ const BatteryReporter = () => {
     </div>
    );
 };
+```
 
 **Kind**: global function  

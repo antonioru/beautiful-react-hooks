@@ -162,3 +162,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - renaming `useMouseHandler` into `useMouseEvents`
 - documentation typos
+
+## [0.11.1] - 2019-12-31
+
+### Fixed
+
+- documentation typos

@@ -8,6 +8,7 @@ import getNavigator from './utils/getNavigator';
  *
  * ### Usage:
  *
+ * ```jsx harmony
  * const BatteryReporter = () => {
  *   const { charging, chargingTime, level, dischargingTime } = useBatteryState();
  *
@@ -21,6 +22,7 @@ import getNavigator from './utils/getNavigator';
  *     </div>
  *    );
  * };
+ * ```
  */
 const useBatteryState = () => {
   const [state, setState] = useState({});

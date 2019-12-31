@@ -21,7 +21,7 @@ import useBatteryEvents from './useBatteryEvents';
  *
  *   return (
  *     <div style={compStyle}>
- *       Battery level: {state.level ? state.level*100 : 0}%
+ *       Battery level: {batteryState.level ? batteryState.level*100 : 0}%
  *     </div>
  *   );
  * };
