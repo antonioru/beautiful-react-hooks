@@ -16,7 +16,7 @@ export declare const useLifecycle: () => { onMount: CallbackSetter, onUnmount: C
 // useMouseHandler
 type MouseTarget = HTMLElement | Document | Window;
 
-type MouseHandlers = {
+type MouseCallbackSetters = {
   onMouseDown: CallbackSetter,
   onMouseEnter: CallbackSetter,
   onMouseLeave: CallbackSetter,
@@ -25,7 +25,7 @@ type MouseHandlers = {
   onMouseOver: CallbackSetter,
   onMouseUp: CallbackSetter,
 }
-export declare const useMouseHandler: (ref?: MutableRefObject<MouseTarget>) => MouseHandlers;
+export declare const useMouseEvents: (ref?: MutableRefObject<MouseTarget>) => MouseCallbackSetters;
 
 // useMouseState
 type MouseState = {
@@ -36,7 +36,7 @@ type MouseState = {
 }
 export declare const useMouseState: (ref?: MutableRefObject<MouseTarget>) => MouseState;
 // useMouse
-export declare const useMouse: (ref?: MutableRefObject<MouseTarget>) => [MouseState, MouseHandlers];
+export declare const useMouse: (ref?: MutableRefObject<MouseTarget>) => [MouseState, MouseCallbackSetters];
 
 // useOnMount
 export declare const useOnMount: () => CallbackSetter;
@@ -56,3 +56,25 @@ export declare const useWillUnmount: () => CallbackSetter;
 export declare const useWindowResize: () => CallbackSetter;
 // useWindowScroll
 export declare const useWindowScroll: () => CallbackSetter;
+
+// useBatteryEvents
+
+type BatteryCallbackSetters = {
+  onChargingChange: CallbackSetter,
+  onChangingTimeChange: CallbackSetter,
+  onDischargingTimeChange: CallbackSetter,
+  onLevelChange: CallbackSetter,
+}
+
+export declare const useBatteryEvents: () => BatteryCallbackSetters;
+
+// useBatteryState
+type BatteryState = {
+  charging: boolean,
+  chargingTime: number,
+  dischargingTime: number,
+  level: number,
+}
+export declare const useBatteryState: () => BatteryState;
+// useBattery
+export declare const useBattery: () => [BatteryState, BatteryCallbackSetters];

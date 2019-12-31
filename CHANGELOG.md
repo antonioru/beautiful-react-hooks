@@ -36,7 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- useMouseHandler hook & tests
+- useMouseEvents hook & tests
 - useMouseState hook & tests
 - useMouse hook & tests
 
@@ -143,10 +143,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - issue template
 - pull request template
 
-
 ## [0.10.1] - 2019-12-30
 
 ### Fixed
 
 - correct package.json version
 - dependencies update
+
+## [0.11.0] - 2019-12-30
+
+### Added
+
+- Rewriting `useMouseHandler` into `useMouseEvents`
+
+### Fixed
+
+- documentation typos
+
+## [0.11.1] - 2019-12-31
+
+### Fixed
+
+- documentation typos

@@ -1,25 +1,32 @@
-import useMouseHandler from './useMouseHandler';
+import useMouseEvents from './useMouseEvents';
 import useMouseState from './useMouseState';
 
 /**
- * Returns an array where the first item is the state of the mouse from `useMouseState` and the second item
- * is the object of callback setters from `useMouseHandler`.
+ * Returns an array where the first item is the mouse state from the `useMouseState` hook and the second item
+ * is the object of callback setters from the `useMouseEvents` hook.
  * It is intended as a shortcut to those hooks.
  *
  * ### Usage:
  *
  * ```jsx harmony
  * const MyComponent = () => {
- *   const { onMount, onUnmount } = useLifecycle();
+ *   const [mouseState, { onMouseMove }] = useMouseEvents();
  *
- *   onUnmount(() => console.log('Component will mount'));
- *   onUnmount(() => console.log('Component will unmount'));
+ *   // demo purposes only, in real-life scenario use the onMouseMove prop instead
+ *   onMouseMove((event) => {
+ *     trackMousePosition(event);
+ *   });
  *
- *   return (<div />)
+ *   return (
+ *     <div>
+ *       The current mouse coordinates within this div are:
+ *       <p>x:{mouseState.clientX} y:{mouseState.clientY}</p>
+ *     </div>
+ *   );
  * }
  * ```
  *
- * ### Shall `useMouse` handlers replace the standard mouse handler props?
+ * ### Shall the `useMouse` handlers like `onMouseMove` replace the standard mouse handler props?
  *
  * **They shall not!**<br />
  * **useMouse is meant to be used to abstract more complex hooks that need to control mouse**, for instance:
@@ -41,9 +48,9 @@ import useMouseState from './useMouseState';
  */
 const useMouse = (ref = null) => {
   const state = useMouseState(ref);
-  const handlers = useMouseHandler(ref);
+  const events = useMouseEvents(ref);
 
-  return [state, handlers];
+  return [state, events];
 };
 
 export default useMouse;

@@ -20,7 +20,7 @@
 
 ## 💡 Why? 
 
-React custom hooks allow to abstract components' business logic into single thus reusable functions.<br />
+React custom hooks allow to abstract components' business logic into single reusable functions.<br />
 So far, I've found that most of the hooks I've created and therefore shared between my projects have quite often a 
 similar gist that involves callback references, events and components' lifecycle. <br />
 For this reason I've tried to sum up that gist into `beautiful-react-hooks`: a collection of (*hopefully*) useful 
@@ -35,6 +35,7 @@ to keep the learning curve as lower as possible so that the it can be used and s
 * Concise API
 * Small and lightweight
 * Easy to learn
+* Functional approach
 * Zero dependencies (beside React, of course)
 * Fully written in JS (although TS types are supported)
 
@@ -61,7 +62,6 @@ $ yarn add beautiful-react-hooks
 
 ## 🎨 Hooks
 
-* [useCallbackRef](./docs/useCallbackRef.md)
 * [useGlobalEvent](./docs/useGlobalEvent.md)
 * [usePrev](./docs/usePrev.md)
 * [useWindowResize](./docs/useWindowResize.md)
@@ -70,13 +70,13 @@ $ yarn add beautiful-react-hooks
 * [useThrottledCallback](./docs/useThrottledCallback.md)
 * [useTimeout](./docs/useTimeout.md)
 * [useInterval](./docs/useInterval.md)
-* [useMouseHandler](./docs/useMouseHandler.md)
 * [useMouse](./docs/useMouse.md)
 * [useMouseState](./docs/useMouseState.md)
-* [useMouseHandler](./docs/useMouseHandler.md)
+* [useMouseEvents](./docs/useMouseEvents.md)
 * [useOnMount](./docs/useOnMount.md)
 * [useWillUnmount](./docs/useWillUnmount.md)
 * [useLifecycle](./docs/useLifecycle.md)
+* [useCallbackRef](./docs/useCallbackRef.md)
 
 <div>
   <p align="center">

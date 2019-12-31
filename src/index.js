@@ -7,7 +7,7 @@ export { default as useWindowScroll } from './useWindowScroll';
 export { default as useDebouncedCallback } from './useDebouncedCallback';
 export { default as useThrottledCallback } from './useThrottledCallback';
 export { default as useMouse } from './useMouse';
-export { default as useMouseHandler } from './useMouseHandler';
+export { default as useMouseEvents } from './useMouseEvents';
 export { default as useMouseState } from './useMouseState';
 export { default as useTimeout } from './useTimeout';
 export { default as useInterval } from './useInterval';

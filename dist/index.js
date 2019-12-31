@@ -57,10 +57,10 @@ Object.defineProperty(exports, "useMouse", {
     return _useMouse["default"];
   }
 });
-Object.defineProperty(exports, "useMouseHandler", {
+Object.defineProperty(exports, "useMouseEvents", {
   enumerable: true,
   get: function get() {
-    return _useMouseHandler["default"];
+    return _useMouseEvents["default"];
   }
 });
 Object.defineProperty(exports, "useMouseState", {
@@ -112,7 +112,7 @@ var _useThrottledCallback = _interopRequireDefault(require("./useThrottledCallba
 
 var _useMouse = _interopRequireDefault(require("./useMouse"));
 
-var _useMouseHandler = _interopRequireDefault(require("./useMouseHandler"));
+var _useMouseEvents = _interopRequireDefault(require("./useMouseEvents"));
 
 var _useMouseState = _interopRequireDefault(require("./useMouseState"));
 
