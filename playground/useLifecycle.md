@@ -15,19 +15,19 @@ import { useState } from 'react';
 import { useLifecycle } from 'beautiful-react-hooks'; 
 
 /**
-* useOnMount example component
+* useDidMount example component
 */
 const TestComponent = () => {
    const [mounted, setIsMounted] = useState(false);
-   const { onMount, onUnmount } = useLifecycle(); 
+   const { onDidMount, onWillUnmount } = useLifecycle(); 
    
-   onMount(() => {
+   onDidMount(() => {
     setTimeout(() => {
       setIsMounted(true);
     }, 1000);
    });
       
-   onUnmount(() => {
+   onWillUnmount(() => {
      alert('Component unmounted!')
    });
    
@@ -40,7 +40,7 @@ const TestComponent = () => {
        )}
      </div>
    );
-}
+};
 
 <TestComponent />
 ```

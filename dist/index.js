@@ -9,10 +9,10 @@ Object.defineProperty(exports, "useCallbackRef", {
     return _useCallbackRef["default"];
   }
 });
-Object.defineProperty(exports, "useOnMount", {
+Object.defineProperty(exports, "useDidMount", {
   enumerable: true,
   get: function get() {
-    return _useOnMount["default"];
+    return _useDidMount["default"];
   }
 });
 Object.defineProperty(exports, "useWillUnmount", {
@@ -111,10 +111,16 @@ Object.defineProperty(exports, "useGeolocationState", {
     return _useGeolocationState["default"];
   }
 });
+Object.defineProperty(exports, "useMediaQuery", {
+  enumerable: true,
+  get: function get() {
+    return _useMediaQuery["default"];
+  }
+});
 
 var _useCallbackRef = _interopRequireDefault(require("./useCallbackRef"));
 
-var _useOnMount = _interopRequireDefault(require("./useOnMount"));
+var _useDidMount = _interopRequireDefault(require("./useDidMount"));
 
 var _useWillUnmount = _interopRequireDefault(require("./useWillUnmount"));
 
@@ -147,6 +153,8 @@ var _useGeolocation = _interopRequireDefault(require("./useGeolocation"));
 var _useGeolocationEvents = _interopRequireDefault(require("./useGeolocationEvents"));
 
 var _useGeolocationState = _interopRequireDefault(require("./useGeolocationState"));
+
+var _useMediaQuery = _interopRequireDefault(require("./useMediaQuery"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 //# sourceMappingURL=index.js.map

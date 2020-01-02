@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _react = require("react");
 
-var _useCallbackRef3 = _interopRequireDefault(require("./useCallbackRef"));
+var _createCbSetterErrorProxy = _interopRequireDefault(require("./utils/createCbSetterErrorProxy"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -19,20 +19,30 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var useOnMount = function useOnMount() {
-  var _useCallbackRef = (0, _useCallbackRef3["default"])(),
-      _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
-      onMountHandler = _useCallbackRef2[0],
-      setOnMountHandler = _useCallbackRef2[1];
+var useMediaQuery = function useMediaQuery(mediaQuery) {
+  if (!('matchMedia' in window)) return (0, _createCbSetterErrorProxy["default"])('matchMedia is not supported');
+
+  var _useState = (0, _react.useState)(!!window.matchMedia(mediaQuery).matches),
+      _useState2 = _slicedToArray(_useState, 2),
+      isVerified = _useState2[0],
+      setIsVerified = _useState2[1];
 
   (0, _react.useEffect)(function () {
-    if (onMountHandler.current) {
-      onMountHandler.current();
-    }
-  }, []);
-  return setOnMountHandler;
+    var mediaQueryList = window.matchMedia(mediaQuery);
+
+    var documentChangeHandler = function documentChangeHandler() {
+      return setIsVerified(!!mediaQueryList.matches);
+    };
+
+    mediaQueryList.addListener(documentChangeHandler);
+    documentChangeHandler();
+    return function () {
+      mediaQueryList.removeListener(documentChangeHandler);
+    };
+  }, [mediaQuery]);
+  return isVerified;
 };
 
-var _default = useOnMount;
+var _default = useMediaQuery;
 exports["default"] = _default;
-//# sourceMappingURL=useOnMount.js.map
+//# sourceMappingURL=useMediaQuery.js.map

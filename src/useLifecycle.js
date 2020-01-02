@@ -1,28 +1,28 @@
-import useOnMount from './useOnMount';
+import useDidMount from './useDidMount';
 import useWillUnmount from './useWillUnmount';
 
 /**
- * Returns an object wrapping lifecycle hooks such as `useOnMount` or `useWillUnmount`.
+ * Returns an object wrapping lifecycle hooks such as `useDidMount` or `useWillUnmount`.
  * It is intended as a shortcut to those hooks.
  *
  * ### Usage:
  *
  * ```jsx harmony
  * const MyComponent = () => {
- *   const { onMount, onUnmount } = useLifecycle();
+ *   const { onDidMount, onWillUnmount } = useLifecycle();
  *
- *   onUnmount(() => console.log('Component will mount'));
- *   onUnmount(() => console.log('Component will unmount'));
+ *   onDidMount(() => console.log('Component did mount'));
+ *   onWillUnmount(() => console.log('Component will unmount'));
  *
  *   return (<div />)
  * }
  * ```
  */
 const useLifecycle = () => {
-  const onMount = useOnMount();
-  const onUnmount = useWillUnmount();
+  const onDidMount = useDidMount();
+  const onWillUnmount = useWillUnmount();
 
-  return { onMount, onUnmount };
+  return { onDidMount, onWillUnmount };
 };
 
 export default useLifecycle;

@@ -64,22 +64,17 @@ $ yarn add beautiful-react-hooks
 
 * [useGlobalEvent](./docs/useGlobalEvent.md)
 * [usePrev](./docs/usePrev.md)
+* [useMediaQuery](./docs/useMediaQuery.md)
+* [useGeolocation](./docs/useGeolocation.md), [useGeolocationState](./docs/useGeolocationState.md) and [useGeolocationEvents](./docs/useGeolocationEvents.md)
+* [useMouse](./docs/useMouse.md), [useMouseState](./docs/useMouseState.md) and [useMouseEvents](./docs/useMouseEvents.md)
+* [useLifecycle](./docs/useLifecycle.md), [useDidMount](./docs/useDidMount.md) and [useWillUnmount](./docs/useWillUnmount.md)
+* [useCallbackRef](./docs/useCallbackRef.md)
 * [useWindowResize](./docs/useWindowResize.md)
 * [useWindowScroll](./docs/useWindowScroll.md)
-* [useDebouncedCallback](./docs/useDebouncedCallback.md)
-* [useThrottledCallback](./docs/useThrottledCallback.md)
 * [useTimeout](./docs/useTimeout.md)
 * [useInterval](./docs/useInterval.md)
-* [useGeolocation](./docs/useGeolocation.md)
-* [useGeolocationState](./docs/useGeolocationState.md)
-* [useGeolocationEvents](./docs/useGeolocationEvents.md)
-* [useMouse](./docs/useMouse.md)
-* [useMouseState](./docs/useMouseState.md)
-* [useMouseEvents](./docs/useMouseEvents.md)
-* [useOnMount](./docs/useOnMount.md)
-* [useWillUnmount](./docs/useWillUnmount.md)
-* [useLifecycle](./docs/useLifecycle.md)
-* [useCallbackRef](./docs/useCallbackRef.md)
+* [useDebouncedCallback](./docs/useDebouncedCallback.md)
+* [useThrottledCallback](./docs/useThrottledCallback.md)
 
 <div>
   <p align="center">
@@ -90,9 +85,9 @@ $ yarn add beautiful-react-hooks
 </div>
 
 
-## :arrow_up: Contributors wanted
+## :arrow_up: contributors/translators wanted
 
-`beautiful-react-hooks` is looking for contributors and maintainers, please feel free to join us after reading our [contributing guidlines](./CONTRIBUTING.md) :fire:
+`beautiful-react-hooks` is looking for contributors and translators, please feel free to join us after reading our [contributing guidlines](./CONTRIBUTING.md) :fire:
 
 --- 
 

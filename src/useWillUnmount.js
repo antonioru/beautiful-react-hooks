@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import useCallbackRef from './useCallbackRef';
 
 /**
- * Returns a function that accepts a callback to be performed when the component will unmount.
+ * Returns a callback setter for a callback to be performed when the component will unmount.
  *
  * ### Usage:
  *

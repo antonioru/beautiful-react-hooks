@@ -11,7 +11,7 @@ export declare const useGlobalEvent: (eventName: string) => CallbackSetter;
 // useInterval
 export declare const useInterval: (delay?: number) => CallbackSetter;
 // useLifecycle
-export declare const useLifecycle: () => { onMount: CallbackSetter, onUnmount: CallbackSetter };
+export declare const useLifecycle: () => { onDidMount: CallbackSetter, onWillUnmount: CallbackSetter };
 // useMouseHandler
 type MouseTarget = HTMLElement | Document | Window;
 
@@ -37,8 +37,10 @@ export declare const useMouseState: (ref?: MutableRefObject<MouseTarget>) => Mou
 // useMouse
 export declare const useMouse: (ref?: MutableRefObject<MouseTarget>) => [MouseState, MouseCallbackSetters];
 
-// useOnMount
-export declare const useOnMount: () => CallbackSetter;
+// useDidMount
+export declare const useDidMount: () => CallbackSetter;
+// useWillUnmount
+export declare const useWillUnmount: () => CallbackSetter;
 
 // usePrev
 export declare const usePrev: (value: any) => unknown;
@@ -49,8 +51,6 @@ export declare const useThrottledCallback: (fn: Function, wait?: number, depende
 // useTimeout
 export declare const useTimeout: (delay?: number) => CallbackSetter;
 
-// useWillUnmount
-export declare const useWillUnmount: () => CallbackSetter;
 // useWindowResize
 export declare const useWindowResize: () => CallbackSetter;
 // useWindowScroll
@@ -84,3 +84,7 @@ type GeolocationState = {
 export declare const useGeolocationState: (options?: PositionOptions) => GeolocationState;
 // useGeolocation
 export declare const useGeolocation: (options?: PositionOptions) => [GeolocationState, GeolocationCallbackSetters];
+
+// useMediaQuery
+export declare const useMediaQuery: (mediaQuery: string) => boolean;
+

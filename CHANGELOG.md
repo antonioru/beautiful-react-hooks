@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tests
 - Build System
 - useCallbackRef hook & tests
-- useOnMount hook & tests
+- useDidMount hook & tests
 - useWillUnmount hook & tests
 - useLifecycle hook & tests
 - useWindowResize hook & tests
@@ -168,6 +168,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.12.0] - 2019-12-31
 
+### Added
+
 - useGeolocationEvents hook & tests
 - useGeolocationState hook & tests
 - useGeolocation hook & tests
+
+
+## [0.13.0] - 2020-01-02
+
+### Added
+
+- useMediaQuery hook & tests
+- change the order of the listed hooks into the Readme.md file
+
+### Fixed 
+
+- `useOnMount` renamed to `useDidMount`
