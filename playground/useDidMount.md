@@ -12,14 +12,14 @@ const style = window.compStyle = {
 
 ```jsx harmony
 import { useState } from 'react';
-import { useOnMount } from 'beautiful-react-hooks'; 
+import { useDidMount } from 'beautiful-react-hooks'; 
 
 /**
-* useOnMount example component
+* useDidMount example component
 */
 const TestComponent = () => {
    const [mounted, setIsMounted] = useState(false);
-   const onMount = useOnMount(); 
+   const onMount = useDidMount(); 
    
    onMount(() => {
     setTimeout(() => {

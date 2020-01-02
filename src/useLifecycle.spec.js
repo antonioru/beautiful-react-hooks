@@ -18,6 +18,6 @@ describe('useLifecycle', () => {
   it('the returned function should wrap other lifecycle hooks', () => {
     const { result } = renderHook(() => useLifecycle());
 
-    expect(result.current).to.be.an('object').that.has.all.keys('onMount', 'onUnmount');
+    expect(result.current).to.be.an('object').that.has.all.keys('onDidMount', 'onWillUnmount');
   });
 });
