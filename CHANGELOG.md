@@ -185,3 +185,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed 
 
 - `useOnMount` renamed to `useDidMount`
+
+
+## [0.13.1] - 2020-01-02
+
+### Fixed
+
+- Usage example image
