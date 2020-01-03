@@ -1,14 +1,12 @@
 <div align="center">
   <p align="center">
-    <img src="./logo.png" alt="Beautiful React Hooks" width="250px" />
+    <img src="./logo.png" alt="Beautiful React Hooks" width="960px" />
   </p>
   <p align="center">
     A collection of beautiful (and hopefully useful) React hooks to speed-up your 
     components and hooks development
   </p>
 </div>
-
-![Usage example](./usage_example.png)
 
 <div>
   <p align="center">
@@ -17,6 +15,9 @@
     </a>
   </p>
 </div>
+
+![Usage example](./usage_example.png)
+
 
 ## 💡 Why? 
 
@@ -101,4 +102,4 @@ $ yarn add beautiful-react-hooks
 
 ##### Credits
 
-<small> logo has been created by stealing from [FreePik](https://www.freepik.com/free-photos-vectors/design)</small>
+<small>Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)</small>

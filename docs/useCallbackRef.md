@@ -1,10 +1,15 @@
 <a name="useCallbackRef"></a>
 
 ## useCallbackRef()
-Creates a callback reference that will live trough the component lifecycle.<br />
-It returns the callback ref and a setter to change its value.<br />
-The setter also makes sure the given callback is indeed a function, if not the callback ref won't change.<br />
-Callback ref are quite useful when abstracting other custom hooks.
+Returns an array where the first item is the [ref](https://reactjs.org/docs/hooks-reference.html#useref) to a
+callback function and the second one is setter for that function.<br /><br />
+
+Although it looks quite similar to a [useState](https://reactjs.org/docs/hooks-reference.html#usestate), in this
+case the setter just makes sure the given callback is indeed a new function.<br /><br />
+**Setting a callback ref does not imply your component to re-render.**<br /><br />
+
+`useCallbackRef` is useful when abstracting other custom hooks to possibly implement callback setters.
+
 ### Usage in a custom hook:
 
 ```jsx harmony
@@ -12,26 +17,32 @@ const useSomething = () => {
   const [ callbackRef, setSomething ] = useCallbackRef();
 
   useEffect(() => {
-    if (callbackRef.current) {
-      callbackRef.current();
-    }
-  }, [callbackRef]);
+   something.addEventListener('change', () => {
+     if(callbackRef.current) {
+       callbackRef.current();
+     }
+   });
+  }, []);
 
   return setSomething;
 }
 ```
 
-### Usage in a component:
+### Usage of useSomething:
 
 ```jsx harmony
 const MyComponent = () => {
-  const [ callbackRef, setCallbackRef ] = useCallbackRef();
+  const onSomethingChange = useSomething();
 
-  setCallbackRef(() => console.log('A persistent callback'));
+  onSomethingChange(() => {
+    doSomething();
+  });
 
-  useEffect(callbackRef.current, []);
-
-  return (<div />)
+  return (
+   <div>
+     My component
+   </div>
+  );
 }
 ```
 

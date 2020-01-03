@@ -192,3 +192,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Usage example image
+
+## [0.13.2] - 2020-01-02
+
+### Fixed
+
+- improved `useCallbackRef` documentation
+- changed lib logo
