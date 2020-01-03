@@ -13,7 +13,7 @@ var useCallbackRef = function useCallbackRef() {
     if (nextCallback !== callbackRef.current && typeof nextCallback === 'function') {
       callbackRef.current = nextCallback;
     }
-  }, [callbackRef]);
+  });
   return [callbackRef, setCallbackRef];
 };
 
