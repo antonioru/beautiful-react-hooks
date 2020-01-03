@@ -18,7 +18,7 @@ import createCbSetterErrorProxy from './utils/createCbSetterErrorProxy';
  *   return (
  *     <div style={compStyle}>
  *       <p>Tablet view? {isTablet ? 'yes' : 'no'}</p>
- *       <p>Desktop view? {isDesktop ? 'yet' : 'no'}</p>
+ *       <p>Desktop view? {isDesktop ? 'yes' : 'no'}</p>
  *     </div>
  *    );
  * };
