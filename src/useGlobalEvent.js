@@ -38,7 +38,7 @@ const useGlobalEvent = (eventName) => {
         window.removeEventListener(eventName, cb);
       }
     };
-  }, [callbackRef, eventName]);
+  }, [eventName]);
 
   return setCallbackRef;
 };

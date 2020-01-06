@@ -45,7 +45,7 @@ const useInterval = (delay = 1000) => {
     return () => {
       clearInterval(intervalRef.current);
     };
-  }, [delay, callbackRef]);
+  }, [delay]);
 
   return setCallbackRef;
 };

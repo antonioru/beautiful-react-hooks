@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import useCallbackRef from './useCallbackRef';
 import createCbSetterErrorProxy from './utils/createCbSetterErrorProxy';
 import geolocationStandardOptions from './utils/geolocationStandardOptions';
@@ -35,7 +35,7 @@ const useGeolocationEvents = (options = geolocationStandardOptions) => {
   const watchId = useRef();
   const [onChangeRef, setOnChangeRef] = useCallbackRef();
   const [onErrorRef, setOnErrorRef] = useCallbackRef();
-  const isSupported = useMemo(() => ('geolocation' in window.navigator), [onChangeRef, onErrorRef]);
+  const isSupported = 'geolocation' in window.navigator; // fixme: shall this be moved outside the hook?
 
   useEffect(() => {
     const onSuccess = (...args) => {
@@ -58,7 +58,7 @@ const useGeolocationEvents = (options = geolocationStandardOptions) => {
         window.navigator.geolocation.clearWatch(watchId.current);
       }
     };
-  }, [onChangeRef, onErrorRef]);
+  }, []);
 
   return !isSupported ? createCbSetterErrorProxy('The Geolocation API is not supported') : Object.freeze({
     isSupported,
