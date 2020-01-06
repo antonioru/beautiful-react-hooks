@@ -37,7 +37,6 @@ to keep the learning curve as lower as possible so that the it can be used and s
 * Small and lightweight
 * Easy to learn
 * Functional approach
-* Zero dependencies (beside React, of course)
 * Fully written in JS (although TS types are supported)
 
 <div>
@@ -72,7 +71,7 @@ $ yarn add beautiful-react-hooks
 * [useCallbackRef](./docs/useCallbackRef.md)
 * [useWindowResize](./docs/useWindowResize.md)
 * [useWindowScroll](./docs/useWindowScroll.md)
-* [useTimeout](./docs/useTimeout.md)
+* [useTimeout](./playground/useTimeout.md)
 * [useInterval](./docs/useInterval.md)
 * [useDebouncedCallback](./docs/useDebouncedCallback.md)
 * [useThrottledCallback](./docs/useThrottledCallback.md)
