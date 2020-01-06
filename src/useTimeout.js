@@ -39,7 +39,7 @@ const useTimeout = (delay = 1000) => {
     return () => {
       clearTimeout(timeoutRef.current);
     };
-  }, [callbackRef]);
+  }, []);
 
   return setCallbackRef;
 };

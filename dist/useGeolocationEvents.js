@@ -37,9 +37,7 @@ var useGeolocationEvents = function useGeolocationEvents() {
       onErrorRef = _useCallbackRef4[0],
       setOnErrorRef = _useCallbackRef4[1];
 
-  var isSupported = (0, _react.useMemo)(function () {
-    return 'geolocation' in window.navigator;
-  }, [onChangeRef, onErrorRef]);
+  var isSupported = 'geolocation' in window.navigator;
   (0, _react.useEffect)(function () {
     var onSuccess = function onSuccess() {
       if (onChangeRef.current) {
@@ -62,7 +60,7 @@ var useGeolocationEvents = function useGeolocationEvents() {
         window.navigator.geolocation.clearWatch(watchId.current);
       }
     };
-  }, [onChangeRef, onErrorRef]);
+  }, []);
   return !isSupported ? (0, _createCbSetterErrorProxy["default"])('The Geolocation API is not supported') : Object.freeze({
     isSupported: isSupported,
     onChange: setOnChangeRef,

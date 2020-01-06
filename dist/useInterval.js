@@ -38,7 +38,7 @@ var useInterval = function useInterval() {
     return function () {
       clearInterval(intervalRef.current);
     };
-  }, [delay, callbackRef]);
+  }, [delay]);
   return setCallbackRef;
 };
 

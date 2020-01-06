@@ -3,20 +3,20 @@ import useCallbackRef from './useCallbackRef';
 import createCbSetterErrorProxy from './utils/createCbSetterErrorProxy';
 import hasOwnProperty from './utils/hasOwnProperty';
 
-const useIsomorphicMouseEvent = (ref, callbackRef, eventName) => {
+const assignMouseEventOnMount = (targetRef, handlerRef, eventName) => {
   useEffect(() => {
     const cb = (...args) => {
-      if (callbackRef.current) {
-        callbackRef.current(...args);
+      if (handlerRef.current) {
+        handlerRef.current(...args);
       }
     };
     let target;
 
-    if (ref !== null && !!ref.current) {
-      target = ref.current;
+    if (targetRef !== null && !!targetRef.current) {
+      target = targetRef.current;
     }
 
-    if (ref === null) {
+    if (targetRef === null) {
       target = document;
     }
 
@@ -29,7 +29,7 @@ const useIsomorphicMouseEvent = (ref, callbackRef, eventName) => {
         target.removeEventListener(eventName, cb);
       }
     };
-  }, [callbackRef, ref]);
+  }, []);
 };
 
 /**
@@ -102,7 +102,7 @@ const useIsomorphicMouseEvent = (ref, callbackRef, eventName) => {
  *};
  * ```
  */
-const useMouseEvents = (ref = null) => {
+const useMouseEvents = (targetRef = null) => {
   const [onMouseDownHandler, setOnMouseDown] = useCallbackRef();
   const [onMouseEnterHandler, setOnMouseEnter] = useCallbackRef();
   const [onMouseLeaveHandler, setOnMouseLeave] = useCallbackRef();
@@ -111,17 +111,17 @@ const useMouseEvents = (ref = null) => {
   const [onMouseOverHandler, setOnMouseOver] = useCallbackRef();
   const [onMouseUpHandler, setOnMouseUp] = useCallbackRef();
 
-  if (ref !== null && !hasOwnProperty(ref, 'current')) {
+  if (targetRef !== null && !hasOwnProperty(targetRef, 'current')) {
     return createCbSetterErrorProxy('Unable to assign any mouse event to the given ref');
   }
 
-  useIsomorphicMouseEvent(ref, onMouseDownHandler, 'mousedown');
-  useIsomorphicMouseEvent(ref, onMouseEnterHandler, 'mouseenter');
-  useIsomorphicMouseEvent(ref, onMouseLeaveHandler, 'mouseleave');
-  useIsomorphicMouseEvent(ref, onMouseMoveHandler, 'mousemove');
-  useIsomorphicMouseEvent(ref, onMouseOutHandler, 'mouseout');
-  useIsomorphicMouseEvent(ref, onMouseOverHandler, 'mouseover');
-  useIsomorphicMouseEvent(ref, onMouseUpHandler, 'mouseup');
+  assignMouseEventOnMount(targetRef, onMouseDownHandler, 'mousedown');
+  assignMouseEventOnMount(targetRef, onMouseEnterHandler, 'mouseenter');
+  assignMouseEventOnMount(targetRef, onMouseLeaveHandler, 'mouseleave');
+  assignMouseEventOnMount(targetRef, onMouseMoveHandler, 'mousemove');
+  assignMouseEventOnMount(targetRef, onMouseOutHandler, 'mouseout');
+  assignMouseEventOnMount(targetRef, onMouseOverHandler, 'mouseover');
+  assignMouseEventOnMount(targetRef, onMouseUpHandler, 'mouseup');
 
   return Object.freeze({
     onMouseDown: setOnMouseDown,

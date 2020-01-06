@@ -38,7 +38,7 @@ var useTimeout = function useTimeout() {
     return function () {
       clearTimeout(timeoutRef.current);
     };
-  }, [callbackRef]);
+  }, []);
   return setCallbackRef;
 };
 

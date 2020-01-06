@@ -199,3 +199,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - improved `useCallbackRef` documentation
 - changed lib logo
+
+## [0.13.3] - 2020-01-05
+
+### Fixed
+
+- removed wrong `useCallbackRef` dependencies
+- dependency check on other event related hooks
