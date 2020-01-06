@@ -5,9 +5,25 @@ node_js:
   - "11"
   - "12"
 
+install:
+  - npm ci
 
 script:
   - npm test
   - npm run build
 
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    local_dir: ./dist-ghpages
+    on:
+      branch: master
+  - provider: npm
+    email: $NPM_EMAIL
+    api_key: $NPM_TOKEN
+    on:
+      branch: master
 
+  
