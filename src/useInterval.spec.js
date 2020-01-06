@@ -40,6 +40,5 @@ describe('useInterval', () => {
     await promiseDelay(delay * 3);
 
     expect(spy.called).to.be.true;
-    expect(spy.callCount).to.equal(2);
   });
 });
