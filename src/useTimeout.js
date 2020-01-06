@@ -1,47 +1,52 @@
-import { useEffect, useRef } from 'react';
+import curryRight from 'lodash.curryright';
+import { useEffect, useMemo, useRef } from 'react';
 import useCallbackRef from './useCallbackRef';
 
-/**
- * Returns a setter function that accepts a callback to be performed after the given delay.
- *
- * ### Usage:
- *
- * ```jsx harmony
- * const useTimeCounter = () => {
- *   const [seconds, setSeconds] = useState(0);
- *   const [ms, setMilliseconds] = useState(0);
- *   const everySecond = useInterval(1000);
- *   const everyMillisecond = useInterval(100);
- *
- *   everySecond(() => {
- *     setSeconds(1 + seconds);
- *   }, [seconds]);
- *
- *   everyMillisecond(() => {
- *     setMilliseconds(1 + ms);
- *   });
- *
- *   return {seconds, ms};
- * }
- * ```
- */
-const useTimeout = (delay = 1000) => {
-  const timeoutRef = useRef();
-  const [callbackRef, setCallbackRef] = useCallbackRef();
-
-  useEffect(() => {
-    if (!timeoutRef.current && callbackRef.current) {
-      timeoutRef.current = setTimeout(() => {
-        callbackRef.current();
-      }, delay);
-    }
-
-    return () => {
-      clearTimeout(timeoutRef.current);
-    };
-  }, []);
-
-  return setCallbackRef;
+const defaultOptions = {
+  cancelPrevious: false,
+  cancelOnUnmount: true,
 };
 
-export default useTimeout;
+/**
+ * useTimeout is a "curry-ed" hook that accepts a function and a delay time (in milliseconds), then delays the
+ * execution of the given function by the defined time.
+ */
+const useTimeout = (fn, delay, options = defaultOptions) => {
+  /* eslint-disable no-underscore-dangle */
+  const _fn = typeof fn === 'function' ? fn : undefined;
+  const _delay = typeof delay !== 'number' && typeof fn === 'number' ? fn : delay;
+  const _options = typeof options === 'object' && typeof delay === 'object' ? delay : options;
+  /* eslint-enable no-underscore-dangle */
+
+  const [userCallback, setUserCallback] = useCallbackRef(_fn); // contains the function provided to be delayed
+  const timeoutRef = useRef(); // contains the current timeout ref
+  const opts = useMemo(() => ({ ...defaultOptions, ...(_options || {}) }), [options, delay]); // safe option object
+
+  // saves the timeout reference into the local timeoutRef
+  useEffect(() => {
+    if (!timeoutRef.current && userCallback.current) {
+      timeoutRef.current = setTimeout(() => {
+        userCallback.current();
+      }, _delay);
+    }
+  }, [fn, delay]);
+
+  // handles the options
+  useEffect(() => {
+    if (opts.cancelPrevious) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  }, [options, delay]);
+
+  // makes sure to timeout will be cleared when component unmount
+  useEffect(() => () => {
+    if (timeoutRef.current && options.cancelOnUnmount) {
+      clearTimeout(timeoutRef.current);
+    }
+  }, []);
+
+  return !_fn ? setUserCallback : timeoutRef.current;
+};
+
+export default curryRight(useTimeout);

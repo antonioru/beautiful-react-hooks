@@ -49,9 +49,10 @@ import { useCallback, useRef } from 'react';
 const useCallbackRef = (initialValue) => {
   const callbackRef = useRef(initialValue);
 
-  const setCallbackRef = useCallback((nextCallback) => {
+  const setCallbackRef = useCallback((nextCallback, invokeImmediately = false) => {
     if (nextCallback !== callbackRef.current && typeof nextCallback === 'function') {
       callbackRef.current = nextCallback;
+      if (invokeImmediately) callbackRef.current();
     }
   });
 

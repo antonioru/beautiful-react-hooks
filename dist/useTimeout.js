@@ -5,11 +5,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
+var _lodash = _interopRequireDefault(require("lodash.curryright"));
+
 var _react = require("react");
 
 var _useCallbackRef3 = _interopRequireDefault(require("./useCallbackRef"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -19,29 +27,55 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var useTimeout = function useTimeout() {
-  var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;
-  var timeoutRef = (0, _react.useRef)();
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-  var _useCallbackRef = (0, _useCallbackRef3["default"])(),
-      _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
-      callbackRef = _useCallbackRef2[0],
-      setCallbackRef = _useCallbackRef2[1];
-
-  (0, _react.useEffect)(function () {
-    if (!timeoutRef.current && callbackRef.current) {
-      timeoutRef.current = setTimeout(function () {
-        callbackRef.current();
-      }, delay);
-    }
-
-    return function () {
-      clearTimeout(timeoutRef.current);
-    };
-  }, []);
-  return setCallbackRef;
+var defaultOptions = {
+  cancelPrevious: false,
+  cancelOnUnmount: true
 };
 
-var _default = useTimeout;
+var useTimeout = function useTimeout(fn, delay) {
+  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : defaultOptions;
+
+  var _fn = typeof fn === 'function' ? fn : undefined;
+
+  var _delay = typeof delay !== 'number' && typeof fn === 'number' ? fn : delay;
+
+  var _options = _typeof(options) === 'object' && _typeof(delay) === 'object' ? delay : options;
+
+  var _useCallbackRef = (0, _useCallbackRef3["default"])(_fn),
+      _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
+      userCallback = _useCallbackRef2[0],
+      setUserCallback = _useCallbackRef2[1];
+
+  var timeoutRef = (0, _react.useRef)();
+  var opts = (0, _react.useMemo)(function () {
+    return _objectSpread({}, defaultOptions, {}, _options || {});
+  }, [options, delay]);
+  (0, _react.useEffect)(function () {
+    if (!timeoutRef.current && userCallback.current) {
+      timeoutRef.current = setTimeout(function () {
+        userCallback.current();
+      }, _delay);
+    }
+  }, [fn, delay]);
+  (0, _react.useEffect)(function () {
+    if (opts.cancelPrevious) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  }, [options, delay]);
+  (0, _react.useEffect)(function () {
+    return function () {
+      if (timeoutRef.current && options.cancelOnUnmount) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+  return !_fn ? setUserCallback : timeoutRef.current;
+};
+
+var _default = (0, _lodash["default"])(useTimeout);
+
 exports["default"] = _default;
 //# sourceMappingURL=useTimeout.js.map

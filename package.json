@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.13.4",
+  "version": "0.13.5",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,12 @@
     "url": "https://github.com/antonioru/beautiful-react-hooks/issues"
   },
   "homepage": "https://github.com/antonioru/beautiful-react-hooks#readme",
-  "dependencies": {},
+  "dependencies": {
+    "lodash.curry": "^4.1.1",
+    "lodash.curryright": "^4.1.1",
+    "lodash.partial": "^4.2.1",
+    "lodash.partialright": "^4.2.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/polyfill": "^7.7.0",

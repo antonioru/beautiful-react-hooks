@@ -212,3 +212,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Switching CI to Travis
+
+## [0.13.5] - 2020-01-06
+
+### Fixed
+
+- useTimeout
