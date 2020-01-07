@@ -15,7 +15,7 @@ import { useState } from 'react';
 import { useGlobalEvent } from 'beautiful-react-hooks'; 
 
 const TestComponent = () => {
-  const [widowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const onWindowResize = useGlobalEvent('resize');
   
   onWindowResize(() => {
@@ -24,7 +24,7 @@ const TestComponent = () => {
   
    return (
      <div style={compStyle}>
-       Current window width: {widowWidth}
+       Current window width: {windowWidth}
      </div>
    );
 }

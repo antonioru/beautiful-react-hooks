@@ -7,7 +7,7 @@ Accepts an event name then returns a callback setter for a function to be perfor
 
 ```jsx harmony
 const MyComponent = () => {
-   const [widowWidth, setWindowWidth] = useState(window.innerWidth);
+   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
    const onWindowResize = useGlobalEvent('resize');
 
    onWindowResize(() => {
@@ -16,7 +16,7 @@ const MyComponent = () => {
 
    return (
      <div>
-       Current window width: {widowWidth}
+       Current window width: {windowWidth}
      </div>
    );
 }

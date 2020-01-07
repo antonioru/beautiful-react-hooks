@@ -8,7 +8,7 @@ import useCallbackRef from './useCallbackRef';
  *
  * ```jsx harmony
  * const MyComponent = () => {
- *    const [widowWidth, setWindowWidth] = useState(window.innerWidth);
+ *    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
  *    const onWindowResize = useGlobalEvent('resize');
  *
  *    onWindowResize(() => {
@@ -17,7 +17,7 @@ import useCallbackRef from './useCallbackRef';
  *
  *    return (
  *      <div>
- *        Current window width: {widowWidth}
+ *        Current window width: {windowWidth}
  *      </div>
  *    );
  * }
