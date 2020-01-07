@@ -1,19 +1,109 @@
-<a name="useWindowResize"></a>
+# useWindowResize
 
-## useWindowResize()
-Returns a function that accepts a callback to be performed when the window resizes.
-Please note: the callback is not debounced, to improve performances check `useDebouncedCallback`;
+Accepts a function to be performed during the window resize event.
 
-### Usage:
+It's built on top of [useGlobalEvent](./useGlobalEvent.md).
+
+### Why? 💡
+
+- takes care of adding the listener for the window resize event.
+- takes care of removing the listener when the component will unmount
+
+### Basic Usage:
 
 ```jsx harmony
-const MyComponent = () => {
-  const onWindowResize = useWindowResize();
+import { useState } from 'react';
+import { useWindowResize } from 'beautiful-react-hooks'; 
 
-  onWindowResize(() => console.log('Window is resizing...'));
+const WindowSizeReporter = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+   
+  useWindowResize((event) => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  });
+  
+  return (
+    <DisplayDemo>
+       <p>window width: {width}</p>
+       <p>window height: {height}</p>
+    </DisplayDemo>
+  );
+};
 
-  return (<div />)
-}
+<WindowSizeReporter />
 ```
 
-**Kind**: global function  
+### Callback setter syntax:
+
+if the first parameter is not provided, the returned function (*a callback setter*) can be used to 
+set the `useWindowResize` handler, as long as it is immediately invoked.
+
+**Please note**: the returned callback setter is meant to change the value of the callback reference only, it does not 
+cause the component rerender nor should not be invoked asynchronously.
+
+```jsx harmony
+import { useState } from 'react'; 
+import { useWindowResize } from 'beautiful-react-hooks'; 
+
+const WindowSizeReporter = () => {
+   const [width, setWidth] = useState(window.innerWidth);
+   const [height, setHeight] = useState(window.innerHeight);
+   const onWindowResize = useWindowResize(); 
+   
+   onWindowResize(() => {
+     setWidth(window.innerWidth);
+     setHeight(window.innerHeight);
+   });
+      
+   return (
+     <DisplayDemo>
+       <p>window width: {width}</p>
+       <p>window height: {height}</p>
+     </DisplayDemo>
+   );
+};
+
+<WindowSizeReporter />
+```
+
+#### ✅ Pro tip:
+
+if you're using a `setState` function in your `useWindowResize` callback, you probably want to optimise your component 
+performances by preventing too many useless renders, please take into account using
+[useThrottledFn](useThrottledFn.md).
+
+```jsx harmony
+import { useState } from 'react';
+import { useWindowResize, useThrottledFn } from 'beautiful-react-hooks'; 
+
+const WindowSizeReporter = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  
+  useWindowResize(useThrottledFn((event) => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }));
+  
+  return (
+    <DisplayDemo>
+       <p>window width: {width}</p>
+       <p>window height: {height}</p>
+    </DisplayDemo>
+  );
+};
+
+<WindowSizeReporter />
+```
+### Mastering the hooks
+
+#### ✅ When to use
+ 
+- When in need of performing a function during the window resize, for example: to keep track of the window size
+
+#### 🛑 When not to use
+
+- You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+- If using the callback setter, it should not be used asynchronously but immediately invoked

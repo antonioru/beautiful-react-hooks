@@ -11,6 +11,12 @@ var _useCallbackRef3 = _interopRequireDefault(require("./useCallbackRef"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -19,11 +25,22 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+var defaultOptions = {
+  capture: false,
+  once: false,
+  passive: false
+};
+
 var useGlobalEvent = function useGlobalEvent(eventName) {
-  var _useCallbackRef = (0, _useCallbackRef3["default"])(),
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultOptions;
+  var fn = arguments.length > 2 ? arguments[2] : undefined;
+
+  var _useCallbackRef = (0, _useCallbackRef3["default"])(fn),
       _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
       callbackRef = _useCallbackRef2[0],
       setCallbackRef = _useCallbackRef2[1];
+
+  var opts = _objectSpread({}, defaultOptions, {}, options || {});
 
   (0, _react.useEffect)(function () {
     var cb = function cb() {
@@ -31,15 +48,15 @@ var useGlobalEvent = function useGlobalEvent(eventName) {
     };
 
     if (callbackRef.current && eventName) {
-      window.addEventListener(eventName, cb);
+      window.addEventListener(eventName, cb, opts);
     }
 
     return function () {
       if (eventName) {
-        window.removeEventListener(eventName, cb);
+        window.removeEventListener(eventName, cb, opts);
       }
     };
-  }, [eventName]);
+  }, [eventName, options]);
   return setCallbackRef;
 };
 

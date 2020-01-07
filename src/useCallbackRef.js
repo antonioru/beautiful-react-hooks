@@ -10,44 +10,10 @@ import { useCallback, useRef } from 'react';
  *
  * `useCallbackRef` is useful when abstracting other custom hooks to possibly implement callback setters.
  *
- * ### Usage in a custom hook:
- *
- * ```jsx harmony
- * const useSomething = () => {
- *   const [ callbackRef, setSomething ] = useCallbackRef();
- *
- *   useEffect(() => {
- *    something.addEventListener('change', () => {
- *      if(callbackRef.current) {
- *        callbackRef.current();
- *      }
- *    });
- *   }, []);
- *
- *   return setSomething;
- * }
- * ```
- *
- * ### Usage of useSomething:
- *
- * ```jsx harmony
- * const MyComponent = () => {
- *   const onSomethingChange = useSomething();
- *
- *   onSomethingChange(() => {
- *     doSomething();
- *   });
- *
- *   return (
- *    <div>
- *      My component
- *    </div>
- *   );
- * }
- * ```
  */
 const useCallbackRef = (initialValue) => {
   const callbackRef = useRef(initialValue);
+  callbackRef.current = initialValue;
 
   const setCallbackRef = useCallback((nextCallback, invokeImmediately = false) => {
     if (nextCallback !== callbackRef.current && typeof nextCallback === 'function') {

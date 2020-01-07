@@ -1,21 +1,8 @@
 import useGlobalEvent from './useGlobalEvent';
 
 /**
- * Returns a function that accepts a callback to be performed when the window resizes.
- * Please note: the callback is not debounced, to improve performances check `useDebouncedCallback`;
- *
- * ### Usage:
- *
- * ```jsx harmony
- * const MyComponent = () => {
- *   const onWindowResize = useWindowResize();
- *
- *   onWindowResize(() => console.log('Window is resizing...'));
- *
- *   return (<div />)
- * }
- * ```
+ * Returns a function that accepts a callback to be performed when the window resize.
  */
-const useWindowResize = () => useGlobalEvent('resize');
+const useWindowResize = (handler) => useGlobalEvent('resize', null, handler);
 
 export default useWindowResize;

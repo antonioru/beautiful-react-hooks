@@ -1,53 +1,51 @@
-import { useEffect, useRef } from 'react';
-import useCallbackRef from './useCallbackRef';
+import { useEffect, useState, useCallback, useRef } from 'react';
+
+const defaultOptions = {
+  cancelOnUnmount: true,
+};
 
 /**
- * Returns a setter function that accepts a callback to be performed every 'x' milliseconds.
- *
- * ### Usage:
- *
- * ```jsx harmony
- * const TestComponent = () => {
- *   const [show2sec, setShow2Sec] = useState();
- *   const [show5sec, setShow5Sec] = useState();
- *   const after2Second = useTimeout(2000);
- *   const after5Seconds = useTimeout(5000);
- *
- *   after2Second(() => {
- *     setShow2Sec(true);
- *   });
- *
- *   after5Seconds(() => {
- *     setShow5Sec(true);
- *   });
- *
- *   return (
- *     <div>
- *       <p>Content delay...</p>
- *       {show2sec && <p>Shown after 2 seconds...</p>}
- *       {show5sec && <p>Shown after 5 seconds.</p>}
- *     </div>
- *   );
- * };
- * ```
+ * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then repeats the
+ * execution of the given function by the defined milliseconds.
  */
-const useInterval = (delay = 1000) => {
-  const intervalRef = useRef();
-  const [callbackRef, setCallbackRef] = useCallbackRef();
+const useInterval = (fn, milliseconds, options = defaultOptions) => {
+  const opts = { ...defaultOptions, ...(options || {}) };
+  const timeout = useRef();
+  const callback = useRef(fn);
+  const [isCleared, setIsCleared] = useState(false);
 
-  useEffect(() => {
-    if (!intervalRef.current && callbackRef.current) {
-      intervalRef.current = setInterval(() => {
-        callbackRef.current();
-      }, delay);
+  // the clear method
+  const clear = useCallback(() => {
+    if (timeout.current) {
+      clearInterval(timeout.current);
+      setIsCleared(true);
     }
+  }, []);
 
-    return () => {
-      clearInterval(intervalRef.current);
-    };
-  }, [delay]);
+  // if the provided function changes, change its reference
+  useEffect(() => {
+    if (typeof fn === 'function') {
+      callback.current = fn;
+    }
+  }, [fn]);
 
-  return setCallbackRef;
+  // when the milliseconds change, reset the timeout
+  useEffect(() => {
+    if (typeof milliseconds === 'number') {
+      timeout.current = setInterval(() => {
+        callback.current();
+      }, milliseconds);
+    }
+  }, [milliseconds]);
+
+  // when component unmount clear the timeout
+  useEffect(() => () => {
+    if (opts.cancelOnUnmount) {
+      clear();
+    }
+  }, []);
+
+  return [isCleared, clear];
 };
 
 export default useInterval;

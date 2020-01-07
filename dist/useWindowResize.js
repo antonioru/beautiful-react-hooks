@@ -9,8 +9,8 @@ var _useGlobalEvent = _interopRequireDefault(require("./useGlobalEvent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var useWindowResize = function useWindowResize() {
-  return (0, _useGlobalEvent["default"])('resize');
+var useWindowResize = function useWindowResize(handler) {
+  return (0, _useGlobalEvent["default"])('resize', null, handler);
 };
 
 var _default = useWindowResize;

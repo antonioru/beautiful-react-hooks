@@ -9,8 +9,20 @@ module.exports = {
     favicon: 'https://beautifulinteractions.com/favicons/bi-favicon.ico',
   },
   styles: {
+    Header: {
+      logo: {
+        padding: '0',
+      }
+    },
     Logo: {
-      logo: {},
+      logo: {
+        padding: '0',
+      },
+    },
+    SectionHeading: {
+      wrapper: {
+        display: 'none',
+      },
     },
     TableOfContents: {
       search: {
@@ -55,14 +67,22 @@ module.exports = {
       },
     },
     StyleGuide: {
+      logo: {
+        background: 'url(./docs-logo.png) no-repeat left center',
+        borderBottom: 'none',
+        backgroundSize: 'contain',
+        margin: '15px 20px',
+        height: '50px',
+      },
       sidebar: {
         border: 0,
+        width: '200px',
         background: 'linear-gradient(#FFF,#F1F1F7)',
         boxShadow: '0 0 20px 0 rgba(20, 20, 20, 0.1)',
         color: '#0F8B8D',
       },
       content: {
-        maxWidth: '960px',
+        maxWidth: '820px',
       },
       root: {
         background: '#f5f8fd',

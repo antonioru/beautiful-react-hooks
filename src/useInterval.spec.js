@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
-import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
+import { cleanup as cleanupHooks, renderHook, act } from '@testing-library/react-hooks';
 import useInterval from './useInterval';
 import promiseDelay from '../test/utils/promiseDelay';
 
@@ -11,34 +11,90 @@ describe('useInterval', () => {
     sinon.restore();
   });
 
-
   it('should be an arrow function', () => {
     expect(useInterval).to.be.a('function');
     expect(useInterval.prototype).to.be.empty;
   });
 
-  it('should return a single function', () => {
-    const { result } = renderHook(() => useInterval());
+  it('should return an array, the first item is the interval state whilst the second its clearing method', () => {
+    const { result } = renderHook(() => useInterval(() => null, 1000));
 
-    expect(result.current).to.be.a('function');
+    expect(result.current).to.be.an('array');
+    expect(result.current[0]).to.be.an('boolean');
+    expect(result.current[1]).to.be.a('function');
   });
 
-  it('should fire the the execution of its returning function every \'x\' milliseconds', async () => {
-    const delay = 50;
+  it('should repeat the execution of the given function every x-milliseconds', async () => {
+    const ms = 50;
     const spy = sinon.spy();
 
     const TestComponent = () => {
-      const every50Ms = useInterval(delay);
+      useInterval(spy, ms);
 
-      every50Ms(spy);
-
-      return null;
+      return <div />;
     };
 
     render(<TestComponent />);
 
-    await promiseDelay(delay * 3);
+    await promiseDelay(3 * ms);
 
     expect(spy.called).to.be.true;
+    expect(spy.callCount).to.be.at.least(2);
+  });
+
+  it('should allow to define whether the interval should be cleared on unmount', async () => {
+    const ms = 50;
+    const spy = sinon.spy();
+
+    const TestComponent = () => {
+      useInterval(spy, ms, { cancelOnUnmount: false });
+
+      return <div />;
+    };
+
+    const { rerender } = render(<TestComponent />);
+    rerender(null);
+
+    await promiseDelay(10 + ms);
+
+    expect(spy.called).to.be.true;
+  });
+
+  it('even if the provided options is null, it should keep working', () => {
+    const { result } = renderHook(() => useInterval(() => null, 1000, null));
+
+    expect(result.current).to.be.an('array');
+  });
+
+  it('should allow to clear the created interval', () => {
+    const spy = sinon.spy();
+    const ms = 100;
+    const { result, error } = renderHook(() => useInterval(spy, ms));
+    const clear = result.current[1];
+
+    expect(result.current[0]).to.be.false;
+
+    act(clear);
+
+    expect(result.current[0]).to.be.true;
+    expect(spy.called).to.be.false;
+
+    act(clear);
+
+    expect(result.current[0]).to.be.true;
+
+    expect(error).to.be.undefined;
+  });
+
+  it('should check the received parameters to avoid errors', () => {
+    const { result } = renderHook(() => useInterval(10, { foo: 'bar' }));
+    const clear = result.current[1];
+
+    expect(result.current[0]).to.be.false;
+    expect(clear).to.be.a('function');
+
+    act(clear);
+
+    expect(result.current[0]).to.be.false;
   });
 });

@@ -1,11 +1,11 @@
 import React from 'react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
-import useThrottledCallback from './useThrottledCallback';
+import useThrottledFn from './useThrottledFn';
 import promiseDelay from '../test/utils/promiseDelay';
 
 
-describe('useThrottledCallback', () => {
+describe('useThrottledFn', () => {
   beforeEach(() => {
     cleanupReact();
     cleanupHooks();
@@ -13,13 +13,13 @@ describe('useThrottledCallback', () => {
   });
 
   it('should be an arrow function', () => {
-    expect(useThrottledCallback).to.be.a('function');
-    expect(useThrottledCallback.prototype).to.be.empty;
+    expect(useThrottledFn).to.be.a('function');
+    expect(useThrottledFn.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {
     const fn = () => 0;
-    const { result } = renderHook(() => useThrottledCallback(fn));
+    const { result } = renderHook(() => useThrottledFn(fn));
 
     expect(result.current).to.be.a('function');
   });
@@ -28,7 +28,7 @@ describe('useThrottledCallback', () => {
     const spy = sinon.spy();
 
     const TestComponent = () => {
-      const throttledFn = useThrottledCallback(() => {
+      const throttledFn = useThrottledFn(() => {
         spy();
       }, 250);
 

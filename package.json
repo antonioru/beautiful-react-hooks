@@ -1,16 +1,16 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.13.5",
+  "version": "0.13.6",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint --ext .js src/",
-    "build-js": "NODE_ENV=production npm test && npm run lint && gulp -f ./scripts/build.js",
+    "build-js": "NODE_ENV=production gulp -f ./scripts/build.js",
     "build": "npm run build-js && npm run docs",
     "test": "NODE_ENV=test nyc mocha --exit",
     "test:watch": "npm run test -- --watch",
-    "start": "npx styleguidist server --config playground/config/styleguidist.config.js --open",
-    "docs": "npx styleguidist build --config playground/config/styleguidist.config.js && node ./scripts/generateDocs.js"
+    "start": "npx styleguidist server --config docs/styleguidist/styleguidist.config.js --open",
+    "docs": "npx styleguidist build --config docs/styleguidist/styleguidist.config.js"
   },
   "files": [
     "dist/**",
@@ -27,10 +27,8 @@
   },
   "homepage": "https://github.com/antonioru/beautiful-react-hooks#readme",
   "dependencies": {
-    "lodash.curry": "^4.1.1",
-    "lodash.curryright": "^4.1.1",
-    "lodash.partial": "^4.2.1",
-    "lodash.partialright": "^4.2.1"
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
@@ -44,8 +42,6 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-transform-require-ignore": "^0.1.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
     "chai": "^4.2.0",
     "del": "^5.1.0",
     "eslint": "^6.8.0",
@@ -64,9 +60,12 @@
     "jsdom-global": "^3.0.2",
     "mocha": "^6.2.2",
     "nyc": "^15.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-styleguidist": "^10.3.2",
     "react-test-renderer": "^16.12.0",
     "sinon": "^8.0.2",
+    "url-loader": "^3.0.0",
     "webpack": "^4.41.5"
   }
 }

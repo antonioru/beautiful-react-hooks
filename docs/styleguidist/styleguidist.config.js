@@ -1,7 +1,8 @@
+const path = require('path');
 const theme = require('./styleguidist.theme');
 
 module.exports = {
-  title: 'beautiful react hooks playground',
+  title: 'beautiful react hooks docs',
   /* eslint-disable global-require */
   webpackConfig: require('./webpack.config.js'),
   /* eslint-enable global-require */
@@ -28,8 +29,13 @@ module.exports = {
     { name: 'useWindowScroll', content: '../useWindowScroll.md' },
     { name: 'useTimeout', content: '../useTimeout.md' },
     { name: 'useInterval', content: '../useInterval.md' },
-    { name: 'useDebouncedCallback', content: '../useDebouncedCallback.md' },
-    { name: 'useThrottledCallback', content: '../useThrottledCallback.md' },
+    { name: 'useDebouncedFn', content: '../useDebouncedFn.md' },
+    { name: 'useThrottledFn', content: '../useThrottledFn.md' },
   ],
+  require: [path.join(__dirname, 'setup.js')],
+  // Override Styleguidist components
+  styleguideComponents: {
+    LogoRenderer: path.join(__dirname, 'CustomLogo'),
+  },
   ...theme,
 };

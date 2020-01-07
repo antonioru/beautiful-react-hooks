@@ -19,8 +19,8 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var useDidMount = function useDidMount() {
-  var _useCallbackRef = (0, _useCallbackRef3["default"])(),
+var useDidMount = function useDidMount(handler) {
+  var _useCallbackRef = (0, _useCallbackRef3["default"])(handler),
       _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
       onMountHandler = _useCallbackRef2[0],
       setOnMountHandler = _useCallbackRef2[1];

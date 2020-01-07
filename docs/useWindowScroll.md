@@ -1,19 +1,101 @@
-<a name="useWindowScroll"></a>
+# useWindowScroll
 
-## useWindowScroll()
-Returns a function that accepts a callback to be performed when the window scrolls.
-Please note: the callback is not debounced, to improve performances check `useDebouncedCallback`;
+Accepts a function to be performed during the window scroll event.
 
-### Usage:
+It's built on top of [useGlobalEvent](./useGlobalEvent.md).
+
+### Why? 💡
+
+- takes care of adding the listener for the window scroll event.
+- takes care of removing the listener when the component will unmount
+
+### Basic usage:
 
 ```jsx harmony
-const MyComponent = () => {
-  const onWindowScroll = useWindowScroll();
+import { useState } from 'react';
+import { useWindowScroll } from 'beautiful-react-hooks'; 
 
-  onWindowScroll(() => console.log('Window is scrolling...'));
+const WindowScrollReporter = () => {
+   const [scrollY, setScrollY] = useState(window.scrollY);
+  
+  useWindowScroll((event) => {
+    setScrollY(window.scrollY);
+  });
+  
+  return (
+    <DisplayDemo>
+       <p>window y-scroll: {scrollY}</p>
+    </DisplayDemo>
+  );
+};
 
-  return (<div />)
-}
+<WindowScrollReporter />
 ```
 
-**Kind**: global function  
+### Callback setter syntax:
+
+if the first parameter is not provided, the returned function (*a callback setter*) can be used to 
+set the `useWindowScroll` handler, as long as it is immediately invoked.
+
+**Please note**: the returned callback setter is meant to change the value of the callback reference only, it does not 
+cause the component rerender nor should not be invoked asynchronously.
+
+```jsx harmony
+import { useState } from 'react'; 
+import { useWindowScroll } from 'beautiful-react-hooks'; 
+
+const WindowScrollReporter = () => {
+   const [scrollY, setScrollY] = useState(window.scrollY);
+   const onScroll = useWindowScroll(); 
+   
+   onScroll(() => {
+     setScrollY(window.scrollY);
+   });
+      
+   return (
+     <DisplayDemo>
+       <p>window y-scroll: {scrollY}</p>
+     </DisplayDemo>
+   );
+};
+
+<WindowScrollReporter />
+```
+
+#### ✅ Pro tip:
+
+if you're using a `setState` function in your `useWindowScroll` callback, you probably want to optimise your component 
+performances by preventing too many useless renders, please take into account using
+[useThrottledFn](useThrottledFn.md).
+
+```jsx harmony
+import { useState } from 'react';
+import { useWindowScroll, useThrottledFn } from 'beautiful-react-hooks'; 
+
+const WindowScrollReporter = () => {
+   const [scrollY, setScrollY] = useState(window.scrollY);
+  
+  useWindowScroll(useThrottledFn((event) => {
+    setScrollY(window.scrollY);
+  }));
+  
+  return (
+    <DisplayDemo>
+       <p>window y-scroll: {scrollY}</p>
+    </DisplayDemo>
+  );
+};
+
+<WindowScrollReporter />
+```
+
+### Mastering the hooks
+
+#### ✅ When to use
+ 
+- When in need of performing a function during the window scroll, for example: to keep track of the window scroll position
+
+#### 🛑 When not to use
+
+- You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+- If using the callback setter, it should not be used asynchronously but immediately invoked

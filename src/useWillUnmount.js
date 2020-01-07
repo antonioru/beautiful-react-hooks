@@ -3,21 +3,9 @@ import useCallbackRef from './useCallbackRef';
 
 /**
  * Returns a callback setter for a callback to be performed when the component will unmount.
- *
- * ### Usage:
- *
- * ```jsx harmony
- * const MyComponent = () => {
- *   const onUnmount = useWillUnmount();
- *
- *   onUnmount(() => console.log('Component will unmount'));
- *
- *   return (<div />)
- * }
- * ```
  */
-const useWillUnmount = () => {
-  const [onUnmountHandler, setOnUnmount] = useCallbackRef();
+const useWillUnmount = (handler) => {
+  const [onUnmountHandler, setOnUnmount] = useCallbackRef(handler);
 
   useEffect(() => () => {
     if (onUnmountHandler.current) {

@@ -9,6 +9,7 @@ var _react = require("react");
 
 var useCallbackRef = function useCallbackRef(initialValue) {
   var callbackRef = (0, _react.useRef)(initialValue);
+  callbackRef.current = initialValue;
   var setCallbackRef = (0, _react.useCallback)(function (nextCallback) {
     var invokeImmediately = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 

@@ -1,41 +1,67 @@
-<a name="useMouseState"></a>
+# useMouseState
 
-## useMouseState()
-Returns the current state (position) of the mouse pointer.<br/>
-It possibly accepts a DOM ref representing the mouse target.<br/>
-If a target is not provided the state will be caught globally.
+Returns an object of mouse position properties (such as clientX, clientY).
+It accepts a DOM ref representing the events target (where attach the events to).
 
-### Target ref usage:
+If a target is not provided the events will be globally attached to the `document` object.
 
-```jsx harmony
-const MouseReporter = () => {
-   const ref = useRef();
-   const mouseState = useMouseState(ref);
+### Why? 💡
 
-   return (
-     <div ref={ref} style={style}>
-       Mouse over me to get the mouse position:
-       {mouseState.pageX}, {mouseState.pageY}
-     </div>
-   );
-}
-```
-<br />
+- allow to easily receive the mouse position 
+- takes care of adding the mouse events listeners globally or to the defined target
+- takes care of cleaning the listener when the component will unmount
 
-### Global events usage:
+
+### Basic Usage:
+
+Provide a DOM ref as first parameter to `useMouseState`
+
 
 ```jsx harmony
+import { useRef } from 'react';
+import { useMouseState } from 'beautiful-react-hooks'; 
+
 const MouseReporter = () => {
-   const mouseState = useMouseState();
-
-   return (
-     <div ref={ref} style={style}>
-       Current mouse position:
-       {mouseState.pageX}, {mouseState.pageY}
+  const ref = useRef();
+  const { clientX, clientY } = useMouseState(ref); 
+  
+  return (
+   <DisplayDemo>
+     <div ref={ref}>
+       Move mouse over me to get its current coordinates:
+       {clientX}, {clientY}
      </div>
-   );
-}
-```
+   </DisplayDemo>
+  );
+};
+
+<MouseReporter />
 ```
 
-**Kind**: global function  
+### Global events
+
+Avoid providing any argument to `useMouseState`
+
+```jsx harmony
+import { useMouseState } from 'beautiful-react-hooks'; 
+
+const MouseReporter = () => {
+  const { clientX, clientY } = useMouseState(); 
+  
+  return (
+   <DisplayDemo>
+     The current mouse coordinates are:
+     {clientX}, {clientY}
+   </DisplayDemo>
+  );
+};
+
+<MouseReporter />
+```
+
+
+### Mastering the hooks
+
+#### ✅ When to use
+ 
+- If need to easily receive the mouse position 

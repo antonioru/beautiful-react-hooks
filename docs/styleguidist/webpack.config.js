@@ -12,7 +12,7 @@ module.exports = {
   devtool: 'inline-source-map',
   output: {
     path: outPath,
-    filename: 'beautiful-react-hooks.playground.js',
+    filename: 'beautiful-react-hooks.doc.js',
   },
   devServer: {
     open: true,
@@ -26,6 +26,10 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.png$/,
+        loader: 'url-loader',
       },
     ],
   },

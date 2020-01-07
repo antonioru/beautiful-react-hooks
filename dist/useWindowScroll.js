@@ -9,8 +9,8 @@ var _useGlobalEvent = _interopRequireDefault(require("./useGlobalEvent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var useWindowScroll = function useWindowScroll() {
-  return (0, _useGlobalEvent["default"])('scroll');
+var useWindowScroll = function useWindowScroll(handler) {
+  return (0, _useGlobalEvent["default"])('scroll', null, handler);
 };
 
 var _default = useWindowScroll;

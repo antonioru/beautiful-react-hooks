@@ -1,47 +1,100 @@
-<a name="useMouse"></a>
+# useMouse
 
-## useMouse()
-Returns an array where the first item is the mouse state from the `useMouseState` hook and the second item
-is the object of callback setters from the `useMouseEvents` hook.
+Returns an array where the first item is the mouse state from [useMouseState](./useMouseState.md) and the 
+second item is the object of callback setters from [useMouseEvents](./useMouseEvents.md).
+
 It is intended as a shortcut to those hooks.
 
-### Usage:
+### Why? 💡
+
+- allow to easily receive the mouse position 
+- takes care of adding the mouse events listeners globally or to the defined target
+- takes care of cleaning the listener when the component will unmount
+- allow to perform abstractions on mouse related events
+
+### Basic Usage:
+
+Provide a DOM ref as first parameter to `useMouse`
 
 ```jsx harmony
-const MyComponent = () => {
-  const [mouseState, { onMouseMove }] = useMouseEvents();
+import { useRef, useState } from 'react';
+import { useMouse } from 'beautiful-react-hooks'; 
 
-  // demo purposes only, in real-life scenario use the onMouseMove prop instead
-  onMouseMove((event) => {
-    trackMousePosition(event);
-  });
-
+const MouseReporter = () => {
+  const ref = useRef();
+  const [ showCoords, setShowCoords] = useState(false);
+  const [position, { onMouseEnter, onMouseLeave }] = useMouse(ref); 
+  
+  onMouseEnter(() => setShowCoords(true));
+  onMouseLeave(() => setShowCoords(false));
+  
   return (
-    <div>
-      The current mouse coordinates within this div are:
-      <p>x:{mouseState.clientX} y:{mouseState.clientY}</p>
-    </div>
+    <DisplayDemo>
+     <div ref={ref}>
+       Move mouse over me to get its current coordinates:
+       {showCoords && (
+         <p>{position.clientX}, {position.clientY}</p>
+       )}
+     </div>
+    </DisplayDemo>
   );
-}
+};
+
+<MouseReporter />
 ```
 
-### Shall the `useMouse` handlers like `onMouseMove` replace the standard mouse handler props?
+### Global events
 
-**They shall not!**<br />
-**useMouse is meant to be used to abstract more complex hooks that need to control mouse**, for instance:
-a drag n drop hook.<br />
-Using useMouse handlers instead of the classic props approach it's just as bad as it sounds since you'll
-lose the React SyntheticEvent performance boost.<br />
-If you were doing something like the following:
+Avoid providing any argument to `useMouse`
 
 ```jsx harmony
-const MyComponent = (props) => {
- const { myCallback } = props;
+import { useRef, useState } from 'react';
+import { useMouse } from 'beautiful-react-hooks'; 
 
- return <div onMouseDown={myCallback} />
-}
+const MouseReporter = () => {
+  const ref = useRef();
+  const [ mouseIsOver, setMouseHover] = useState(false);
+  const [position, { onMouseEnter, onMouseLeave }] = useMouse(ref); 
+  
+  onMouseEnter(() => setMouseHover(true));
+  onMouseLeave(() => setMouseHover(false));
+  
+  return (
+    <DisplayDemo>
+     <div ref={ref} style={{background: mouseIsOver ? '#FF4365' : 'white'}}>
+       The current mouse coordinates are:
+       <p>{position.clientX}, {position.clientY}</p>
+     </div>
+    </DisplayDemo>
+  );
+};
+
+<MouseReporter />
 ```
 
-**Please keep doing it**!
+### Mastering the hooks
 
-**Kind**: global function  
+#### ✅ When to use
+ 
+- If in need to get the mouse current position
+- If in need to abstract some mouse related logic into a custom hooks
+
+#### 🛑 What not to do
+
+- You can't use the returned callback setter asynchronously, it will not have any effect but changing the callback 
+ possibly leading to bugs in your code.
+- Absolutely avoid using `useMouse` callback setters to replace the standard mouse handler props. 
+-  `useMouse` is meant to be used to abstract more complex hooks that need to control the mouse, for example: a drag n drop hook.
+- Using `useMouse` handlers instead of the classic props approach it's just as bad as it sounds since you'll
+lose the React SyntheticEvent performance boost.<br />
+- If you were doing something like the following, please keep doing it:
+
+```jsx harmony static noedit
+const MyComponent = (props) => {
+  const { mouseDownHandler } = props;
+    
+  return (
+    <div onMouseDown={mouseDownHandler} />
+  );
+};
+``` 

@@ -1,44 +1,32 @@
 import { useEffect } from 'react';
 import useCallbackRef from './useCallbackRef';
 
+const defaultOptions = {
+  capture: false,
+  once: false,
+  passive: false,
+};
+
 /**
  * Accepts an event name then returns a callback setter for a function to be performed when the event triggers.
- *
- * ### Usage:
- *
- * ```jsx harmony
- * const MyComponent = () => {
- *    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
- *    const onWindowResize = useGlobalEvent('resize');
- *
- *    onWindowResize(() => {
- *        setWindowWidth(window.innerWidth);
- *    });
- *
- *    return (
- *      <div>
- *        Current window width: {windowWidth}
- *      </div>
- *    );
- * }
- * ```
  */
-const useGlobalEvent = (eventName) => {
-  const [callbackRef, setCallbackRef] = useCallbackRef();
+const useGlobalEvent = (eventName, options = defaultOptions, fn) => {
+  const [callbackRef, setCallbackRef] = useCallbackRef(fn);
+  const opts = { ...defaultOptions, ...(options || {}) };
 
   useEffect(() => {
     const cb = (...args) => callbackRef.current(...args);
 
     if (callbackRef.current && eventName) {
-      window.addEventListener(eventName, cb);
+      window.addEventListener(eventName, cb, opts);
     }
 
     return () => {
       if (eventName) {
-        window.removeEventListener(eventName, cb);
+        window.removeEventListener(eventName, cb, opts);
       }
     };
-  }, [eventName]);
+  }, [eventName, options]);
 
   return setCallbackRef;
 };
