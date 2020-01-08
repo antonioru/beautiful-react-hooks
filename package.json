@@ -2,7 +2,7 @@
   "name": "beautiful-react-hooks",
   "version": "0.13.5",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint --ext .js src/",
     "build-js": "NODE_ENV=production npm test && npm run lint && gulp -f ./scripts/build.js",
