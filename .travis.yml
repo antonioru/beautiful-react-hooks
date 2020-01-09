@@ -10,8 +10,6 @@ script:
   - npm run lint
   - npm run test
   - npm run build
-  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
-  - codecov
 
 deploy:
   - provider: pages

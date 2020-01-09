@@ -234,8 +234,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `usePrev` renamed to `usePreviousValue`
 
 
-## [0.13.8] - 2020-01-07
+## [0.13.8] - 2020-01-09
 
 ### Fixed
 
 - Fix on `usePreviousValue` type
+
+## [0.13.9] - 2020-01-09
+
+### Fixed
+
+- Fixing CI

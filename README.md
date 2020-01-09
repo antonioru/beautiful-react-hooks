@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/antonioru/beautiful-react-hooks.svg?branch=master)](https://travis-ci.org/antonioru/beautiful-react-hooks)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![npm](https://img.shields.io/npm/v/beautiful-react-hooks)
+![GitHub stars](https://img.shields.io/github/stars/antonioru/beautiful-react-hooks?style=social)
+
 <div align="center">
   <p align="center">
     <img src="./logo.png" alt="Beautiful React Hooks" width="960px" />
@@ -11,13 +16,7 @@
   </p>
 </div>
 
-[![Build Status](https://travis-ci.org/antonioru/beautiful-react-hooks.svg?branch=master)](https://travis-ci.org/antonioru/beautiful-react-hooks)
-[![codecov](https://codecov.io/gh/antonioru/beautiful-react-hooks/branch/master/graph/badge.svg)](https://codecov.io/gh/antonioru/beautiful-react-hooks)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![GitHub stars](https://img.shields.io/github/stars/antonioru/beautiful-react-hooks?style=social)
 
-
-[![NPM](https://nodei.co/npm/beautiful-react-hooks.png?compact=true)](https://npmjs.org/package/beautiful-react-hooks)
 
 <div>
   <p align="center">
