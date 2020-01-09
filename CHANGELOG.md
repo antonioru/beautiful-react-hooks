@@ -112,7 +112,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- usePrev hook & tests
+- usePreviousValue hook & tests
 
 ## [0.9.1] - 2019-12-29
 
@@ -120,7 +120,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - peerDependencies
 - build was missing
-- usePrev types were missing
+- usePreviousValue types were missing
 
 ## [0.9.2] - 2019-12-29
 
@@ -226,3 +226,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - few hooks refactory
 - Improved documentation by a better use of Styleguidist
 - Improved types
+
+## [0.13.6] - 2020-01-07
+
+### Fixed
+
+- `usePrev` renamed to `usePreviousValue`

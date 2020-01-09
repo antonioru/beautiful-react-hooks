@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks';
-import usePrev from './usePrev';
+import usePreviousValue from './usePreviousValue';
 
-describe('usePrev', () => {
+describe('usePreviousValue', () => {
   beforeEach(() => {
     cleanupHooks();
     cleanupReact();
@@ -11,12 +11,12 @@ describe('usePrev', () => {
   });
 
   it('should be an arrow function', () => {
-    expect(usePrev).to.be.a('function');
-    expect(usePrev.prototype).to.be.empty;
+    expect(usePreviousValue).to.be.a('function');
+    expect(usePreviousValue.prototype).to.be.empty;
   });
 
   it('should return undefined after the first render', () => {
-    const { result } = renderHook(() => usePrev(10));
+    const { result } = renderHook(() => usePreviousValue(10));
 
     expect(result.current).to.be.undefined;
   });
@@ -25,7 +25,7 @@ describe('usePrev', () => {
     const TestComponent = (props) => {
       // eslint-disable-next-line react/prop-types
       const { value } = props;
-      const prev = usePrev(value);
+      const prev = usePreviousValue(value);
 
       return <p>{prev}</p>;
     };

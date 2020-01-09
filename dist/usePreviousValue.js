@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _react = require("react");
 
-var usePrev = function usePrev(value) {
+var usePreviousValue = function usePreviousValue(value) {
   var prevValue = (0, _react.useRef)();
   (0, _react.useEffect)(function () {
     prevValue.current = value;
@@ -18,6 +18,6 @@ var usePrev = function usePrev(value) {
   return prevValue.current;
 };
 
-var _default = usePrev;
+var _default = usePreviousValue;
 exports["default"] = _default;
-//# sourceMappingURL=usePrev.js.map
+//# sourceMappingURL=usePreviousValue.js.map

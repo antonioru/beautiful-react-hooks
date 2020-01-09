@@ -12,7 +12,7 @@ export { default as useMouseState } from './useMouseState';
 export { default as useTimeout } from './useTimeout';
 export { default as useInterval } from './useInterval';
 export { default as useGlobalEvent } from './useGlobalEvent';
-export { default as usePrev } from './usePrev';
+export { default as usePreviousValue } from './usePreviousValue';
 export { default as useGeolocation } from './useGeolocation';
 export { default as useGeolocationEvents } from './useGeolocationEvents';
 export { default as useGeolocationState } from './useGeolocationState';

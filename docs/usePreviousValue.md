@@ -1,4 +1,4 @@
-# usePrev
+# usePreviousValue
 
 Accepts a variable (*possibly a prop or a state*) and returns its previous render's value.
 
@@ -10,11 +10,11 @@ Accepts a variable (*possibly a prop or a state*) and returns its previous rende
 
 ```jsx harmony
 import { useState } from 'react'; 
-import { useInterval, usePrev } from 'beautiful-react-hooks'; 
+import { useInterval, usePreviousValue } from 'beautiful-react-hooks'; 
 
 const TestComponent = () => {
    const [seconds, setSeconds] = useState(0);
-   const prevSeconds = usePrev(seconds);
+   const prevSeconds = usePreviousValue(seconds);
    
    useInterval(() => setSeconds(1 + seconds), 1000);
    

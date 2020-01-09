@@ -87,10 +87,10 @@ Object.defineProperty(exports, "useGlobalEvent", {
     return _useGlobalEvent["default"];
   }
 });
-Object.defineProperty(exports, "usePrev", {
+Object.defineProperty(exports, "usePreviousValue", {
   enumerable: true,
   get: function get() {
-    return _usePrev["default"];
+    return _usePreviousValue["default"];
   }
 });
 Object.defineProperty(exports, "useGeolocation", {
@@ -146,7 +146,7 @@ var _useInterval = _interopRequireDefault(require("./useInterval"));
 
 var _useGlobalEvent = _interopRequireDefault(require("./useGlobalEvent"));
 
-var _usePrev = _interopRequireDefault(require("./usePrev"));
+var _usePreviousValue = _interopRequireDefault(require("./usePreviousValue"));
 
 var _useGeolocation = _interopRequireDefault(require("./useGeolocation"));
 

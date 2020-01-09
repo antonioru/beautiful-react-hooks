@@ -2,11 +2,22 @@
   <p align="center">
     <img src="./logo.png" alt="Beautiful React Hooks" width="960px" />
   </p>
+</div>
+
+<div>
   <p align="center">
     A collection of beautiful (and hopefully useful) React hooks to speed-up your 
     components and hooks development
   </p>
 </div>
+
+[![Build Status](https://travis-ci.org/antonioru/beautiful-react-hooks.svg?branch=master)](https://travis-ci.org/antonioru/beautiful-react-hooks)
+[![codecov](https://codecov.io/gh/antonioru/beautiful-react-hooks/branch/master/graph/badge.svg)](https://codecov.io/gh/antonioru/beautiful-react-hooks)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub stars](https://img.shields.io/github/stars/antonioru/beautiful-react-hooks?style=social)
+
+
+[![NPM](https://nodei.co/npm/beautiful-react-hooks.png?compact=true)](https://npmjs.org/package/beautiful-react-hooks)
 
 <div>
   <p align="center">
@@ -63,7 +74,7 @@ $ yarn add beautiful-react-hooks
 ## 🎨 Hooks
 
 * [useGlobalEvent](docs/useGlobalEvent.md)
-* [usePrev](docs/usePrev.md)
+* [usePreviousValue](docs/usePreviousValue.md)
 * [useMediaQuery](docs/useMediaQuery.md)
 * [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md) and [useGeolocationEvents](docs/useGeolocationEvents.md)
 * [useMouse](docs/useMouse.md), [useMouseState](docs/useMouseState.md) and [useMouseEvents](docs/useMouseEvents.md)
@@ -94,7 +105,7 @@ To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONT
 
 1. You have updated the package.json version and reported your changed into the [CHANGELOG](./CHANGELOG.md) file
 3. make sure you run `npm test` and `npm build` before submitting your merge request.
-4. make sure you've added the documentation of your custom hook (*you can possibly use the [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE) to document your custom hook*).
+4. make sure you've added the documentation of your custom hook (*you can possibly use the [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) to document your custom hook*).
 5. make sure you've updated the `index.d.ts` file with your hook types.
 
 ### Made with
@@ -104,7 +115,6 @@ To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONT
 * [Chai](https://www.chaijs.com/)
 * [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
 * [@testing-library/react-hooks](https://react-hooks-testing-library.com/) 
-
 
 
 ### Credits

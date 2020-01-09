@@ -121,7 +121,7 @@ type MouseState = {
 export declare const useMouseState: (ref?: MutableRefObject<MouseTarget>) => MouseState;
 
 /**
- * usePrev
+ * usePreviousValue
  */
 export declare const usePrev: (value: any) => any;
 

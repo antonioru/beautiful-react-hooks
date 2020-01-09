@@ -13,7 +13,7 @@ module.exports = {
   styleguideDir: '../../dist-ghpages',
   sections: [
     { name: 'useGlobalEvent', content: '../useGlobalEvent.md' },
-    { name: 'usePrev', content: '../usePrev.md' },
+    { name: 'usePreviousValue', content: '../usePreviousValue.md' },
     { name: 'useMediaQuery', content: '../useMediaQuery.md' },
     { name: 'useGeolocation', content: '../useGeolocation.md' },
     { name: 'useGeolocationState', content: '../useGeolocationState.md' },
