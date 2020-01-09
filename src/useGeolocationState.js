@@ -14,25 +14,6 @@ import isSamePosition from './utils/isSamePosition';
  * It possibly accepts an object of [geolocation options]
  * (https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) to be used as parameter when using the
  * `Geolocation.getCurrentPosition()` method.
- *
- * ### Usage:
- *
- * ```jsx harmony
- * const PositionReporter = () => {
- *   const {isSupported, isRetrieving, position } = useGeolocationState();
- *
- *   return (
- *    <div>
- *      The current position is:
- *      {isRetrieving && (<p>Retrieving position...</p>)}
- *      {isSupported && position && [
- *        <p key={0}>Lat: {position.coords.latitude}</p>,
- *        <p key={1}>Lng: {position.coords.longitude}</p>
- *      ]}
- *    </div>
- *   );
- * };
- * ```
  */
 const useGeolocationState = (options = geolocationStandardOptions) => {
   const [position, setPosition] = useState(null);

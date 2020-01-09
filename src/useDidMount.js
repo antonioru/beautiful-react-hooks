@@ -2,22 +2,10 @@ import { useEffect } from 'react';
 import useCallbackRef from './useCallbackRef';
 
 /**
- * Returns a callback setter for a callback to be performed when the component did mount.
- *
- * ### Usage:
- *
- * ```jsx harmony
- * const MyComponent = () => {
- *   const onDidMount = useDidMount();
- *
- *   onDidMount(() => console.log('Component did mount'));
- *
- *   return (<div />)
- * }
- * ```
+ * Returns a callback setter for a function to be performed when the component did mount.
  */
-const useDidMount = () => {
-  const [onMountHandler, setOnMountHandler] = useCallbackRef();
+const useDidMount = (handler) => {
+  const [onMountHandler, setOnMountHandler] = useCallbackRef(handler);
 
   useEffect(() => {
     if (onMountHandler.current) {

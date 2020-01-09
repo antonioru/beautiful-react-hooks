@@ -1,52 +1,51 @@
-import curryRight from 'lodash.curryright';
-import { useEffect, useMemo, useRef } from 'react';
-import useCallbackRef from './useCallbackRef';
+import { useEffect, useState, useCallback, useRef } from 'react';
 
 const defaultOptions = {
-  cancelPrevious: false,
   cancelOnUnmount: true,
 };
 
 /**
- * useTimeout is a "curry-ed" hook that accepts a function and a delay time (in milliseconds), then delays the
+ * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then delays the
  * execution of the given function by the defined time.
  */
-const useTimeout = (fn, delay, options = defaultOptions) => {
-  /* eslint-disable no-underscore-dangle */
-  const _fn = typeof fn === 'function' ? fn : undefined;
-  const _delay = typeof delay !== 'number' && typeof fn === 'number' ? fn : delay;
-  const _options = typeof options === 'object' && typeof delay === 'object' ? delay : options;
-  /* eslint-enable no-underscore-dangle */
+const useTimeout = (fn, milliseconds, options = defaultOptions) => {
+  const opts = { ...defaultOptions, ...(options || {}) };
+  const timeout = useRef();
+  const callback = useRef(fn);
+  const [isCleared, setIsCleared] = useState(false);
 
-  const [userCallback, setUserCallback] = useCallbackRef(_fn); // contains the function provided to be delayed
-  const timeoutRef = useRef(); // contains the current timeout ref
-  const opts = useMemo(() => ({ ...defaultOptions, ...(_options || {}) }), [options, delay]); // safe option object
-
-  // saves the timeout reference into the local timeoutRef
-  useEffect(() => {
-    if (!timeoutRef.current && userCallback.current) {
-      timeoutRef.current = setTimeout(() => {
-        userCallback.current();
-      }, _delay);
-    }
-  }, [fn, delay]);
-
-  // handles the options
-  useEffect(() => {
-    if (opts.cancelPrevious) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-  }, [options, delay]);
-
-  // makes sure to timeout will be cleared when component unmount
-  useEffect(() => () => {
-    if (timeoutRef.current && options.cancelOnUnmount) {
-      clearTimeout(timeoutRef.current);
+  // the clear method
+  const clear = useCallback(() => {
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+      setIsCleared(true);
     }
   }, []);
 
-  return !_fn ? setUserCallback : timeoutRef.current;
+  // if the provided function changes, change its reference
+  useEffect(() => {
+    if (typeof fn === 'function') {
+      callback.current = fn;
+    }
+  }, [fn]);
+
+  // when the milliseconds change, reset the timeout
+  useEffect(() => {
+    if (typeof milliseconds === 'number') {
+      timeout.current = setTimeout(() => {
+        callback.current();
+      }, milliseconds);
+    }
+  }, [milliseconds]);
+
+  // when component unmount clear the timeout
+  useEffect(() => () => {
+    if (opts.cancelOnUnmount) {
+      clear();
+    }
+  }, []);
+
+  return [isCleared, clear];
 };
 
-export default curryRight(useTimeout);
+export default useTimeout;

@@ -7,10 +7,6 @@ exports["default"] = void 0;
 
 var _react = require("react");
 
-var _useCallbackRef3 = _interopRequireDefault(require("./useCallbackRef"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -19,27 +15,55 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var useInterval = function useInterval() {
-  var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;
-  var intervalRef = (0, _react.useRef)();
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  var _useCallbackRef = (0, _useCallbackRef3["default"])(),
-      _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
-      callbackRef = _useCallbackRef2[0],
-      setCallbackRef = _useCallbackRef2[1];
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-  (0, _react.useEffect)(function () {
-    if (!intervalRef.current && callbackRef.current) {
-      intervalRef.current = setInterval(function () {
-        callbackRef.current();
-      }, delay);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var defaultOptions = {
+  cancelOnUnmount: true
+};
+
+var useInterval = function useInterval(fn, milliseconds) {
+  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : defaultOptions;
+
+  var opts = _objectSpread({}, defaultOptions, {}, options || {});
+
+  var timeout = (0, _react.useRef)();
+  var callback = (0, _react.useRef)(fn);
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      isCleared = _useState2[0],
+      setIsCleared = _useState2[1];
+
+  var clear = (0, _react.useCallback)(function () {
+    if (timeout.current) {
+      clearInterval(timeout.current);
+      setIsCleared(true);
     }
-
+  }, []);
+  (0, _react.useEffect)(function () {
+    if (typeof fn === 'function') {
+      callback.current = fn;
+    }
+  }, [fn]);
+  (0, _react.useEffect)(function () {
+    if (typeof milliseconds === 'number') {
+      timeout.current = setInterval(function () {
+        callback.current();
+      }, milliseconds);
+    }
+  }, [milliseconds]);
+  (0, _react.useEffect)(function () {
     return function () {
-      clearInterval(intervalRef.current);
+      if (opts.cancelOnUnmount) {
+        clear();
+      }
     };
-  }, [delay]);
-  return setCallbackRef;
+  }, []);
+  return [isCleared, clear];
 };
 
 var _default = useInterval;

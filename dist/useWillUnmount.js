@@ -19,8 +19,8 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var useWillUnmount = function useWillUnmount() {
-  var _useCallbackRef = (0, _useCallbackRef3["default"])(),
+var useWillUnmount = function useWillUnmount(handler) {
+  var _useCallbackRef = (0, _useCallbackRef3["default"])(handler),
       _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
       onUnmountHandler = _useCallbackRef2[0],
       setOnUnmount = _useCallbackRef2[1];

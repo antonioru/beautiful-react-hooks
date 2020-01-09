@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- useDebouncedCallback hook & tests
+- useDebouncedFn hook & tests
 
 ## [0.3.0] - 2019-12-21
 
@@ -70,7 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- useThrottledCallback hook & tests
+- useThrottledFn hook & tests
 - debounce and throttle utilities
 
 ## [0.7.0] - 2019-12-24
@@ -217,4 +217,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- useTimeout
+- useTimeout refactory 
+
+## [0.13.6] - 2020-01-07
+
+### Fixed
+
+- few hooks refactory
+- Improved documentation by a better use of Styleguidist
+- Improved types

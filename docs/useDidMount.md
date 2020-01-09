@@ -1,18 +1,89 @@
-<a name="useDidMount"></a>
+# useDidMount
 
-## useDidMount()
-Returns a callback setter for a callback to be performed when the component did mount.
+Accepts a function to be performed when the component did mount.
 
-### Usage:
+### Why? 💡
+
+- takes care of performing a callback when the component mount
+- It's as a shortcut to `useEffect(onMount, [])`
+
+### Basic Usage:
 
 ```jsx harmony
-const MyComponent = () => {
-  const onDidMount = useDidMount();
+import { useState } from 'react';
+import { useDidMount } from 'beautiful-react-hooks'; 
 
-  onDidMount(() => console.log('Component did mount'));
+const ComponentDidMount = () => {
+   const [mounted, setIsMounted] = useState(false);
+   
+   useDidMount(() => {
+    const timeout = setTimeout(() => {
+      setIsMounted(true);
+      clearTimeout(timeout);
+    }, 1000);
+   });
+      
+   return (
+     <DisplayDemo>
+       {mounted && (<p>Component did mount!</p>)}
+     </DisplayDemo>
+   );
+};
 
-  return (<div />)
-}
+<ComponentDidMount />
 ```
 
-**Kind**: global function  
+### Callback setter syntax:
+
+if the first parameter is not provided, the returned function (*a callback setter*) can be used to 
+set the `useDidMount` handler, as long as it is immediately invoked.
+
+**Please note**: the returned callback setter is meant to change the value of the callback reference only, it does not 
+cause the component rerender nor should not be invoked asynchronously.
+
+```jsx harmony
+import { useState } from 'react';
+import { useDidMount } from 'beautiful-react-hooks'; 
+
+const ComponentDidMount = () => {
+   const [mounted, setIsMounted] = useState(false);
+   const onMount = useDidMount(); 
+   
+   onMount(() => {
+    const timeout = setTimeout(() => {
+      setIsMounted(true);
+      clearTimeout(timeout);
+    }, 1000);
+   });
+      
+   return (
+     <DisplayDemo>
+       {mounted && (<p>Component did mount!</p>)}
+     </DisplayDemo>
+   );
+};
+
+<ComponentDidMount />
+```
+
+
+#### ✅ Pro tip:
+
+When using a React function component you should not really think of it in terms of "lifecycle".
+
+The `useDidMount` hook is indeed intended as a shortcut to  `useEffect(onMount, [])`.
+
+To deep understanding `useEffect`, what it is and how it should be properly used, please read
+"[A complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)"
+by [Dan Abramov](https://twitter.com/dan_abramov)
+
+### Mastering the hooks
+
+#### ✅ When to use
+ 
+- When in need of performing a function after the component did mount
+
+#### 🛑 When not to use
+
+- You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+- If using the callback setter, it should not be used asynchronously but immediately invoked

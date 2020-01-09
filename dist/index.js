@@ -39,16 +39,16 @@ Object.defineProperty(exports, "useWindowScroll", {
     return _useWindowScroll["default"];
   }
 });
-Object.defineProperty(exports, "useDebouncedCallback", {
+Object.defineProperty(exports, "useDebouncedFn", {
   enumerable: true,
   get: function get() {
-    return _useDebouncedCallback["default"];
+    return _useDebouncedFn["default"];
   }
 });
-Object.defineProperty(exports, "useThrottledCallback", {
+Object.defineProperty(exports, "useThrottledFn", {
   enumerable: true,
   get: function get() {
-    return _useThrottledCallback["default"];
+    return _useThrottledFn["default"];
   }
 });
 Object.defineProperty(exports, "useMouse", {
@@ -130,9 +130,9 @@ var _useWindowResize = _interopRequireDefault(require("./useWindowResize"));
 
 var _useWindowScroll = _interopRequireDefault(require("./useWindowScroll"));
 
-var _useDebouncedCallback = _interopRequireDefault(require("./useDebouncedCallback"));
+var _useDebouncedFn = _interopRequireDefault(require("./useDebouncedFn"));
 
-var _useThrottledCallback = _interopRequireDefault(require("./useThrottledCallback"));
+var _useThrottledFn = _interopRequireDefault(require("./useThrottledFn"));
 
 var _useMouse = _interopRequireDefault(require("./useMouse"));
 

@@ -1,62 +1,45 @@
 import { MutableRefObject, EffectCallback, DependencyList } from 'react';
 
-export type CallbackSetter = EffectCallback;
-
-// useCallbackRef
-export declare const useCallbackRef: () => [MutableRefObject<Function>, EffectCallback];
-// useDebouncedCallback
-export declare const useDebouncedCallback: (fn: Function, wait?: number, dependencies?: DependencyList) => EffectCallback;
-// useGlobalEvent
-export declare const useGlobalEvent: (eventName: string) => CallbackSetter;
-// useInterval
-export declare const useInterval: (delay?: number) => CallbackSetter;
-// useLifecycle
-export declare const useLifecycle: () => { onDidMount: CallbackSetter, onWillUnmount: CallbackSetter };
-// useMouseHandler
-type MouseTarget = HTMLElement | Document | Window;
-
-type MouseCallbackSetters = {
-  onMouseDown: CallbackSetter,
-  onMouseEnter: CallbackSetter,
-  onMouseLeave: CallbackSetter,
-  onMouseMove: CallbackSetter,
-  onMouseOut: CallbackSetter,
-  onMouseOver: CallbackSetter,
-  onMouseUp: CallbackSetter,
+type ThrottleOrDebounceOpts = {
+  leading: boolean,
+  trailing: boolean,
 }
-export declare const useMouseEvents: (ref?: MutableRefObject<MouseTarget>) => MouseCallbackSetters;
 
-// useMouseState
-type MouseState = {
-  clientX: number,
-  clientY: number,
-  screenX: number,
-  screenY: number,
+type TimeoutOrIntervalOpts = {
+  cancelOnUnmount: boolean,
 }
-export declare const useMouseState: (ref?: MutableRefObject<MouseTarget>) => MouseState;
-// useMouse
-export declare const useMouse: (ref?: MutableRefObject<MouseTarget>) => [MouseState, MouseCallbackSetters];
 
-// useDidMount
-export declare const useDidMount: () => CallbackSetter;
-// useWillUnmount
-export declare const useWillUnmount: () => CallbackSetter;
+type EventListenerOptions = {
+  capture: boolean,
+  once: boolean,
+  passive: boolean,
+}
 
-// usePrev
-export declare const usePrev: (value: any) => unknown;
+type CallbackSetter = EffectCallback;
 
-// useThrottledCallback
-export declare const useThrottledCallback: (fn: Function, wait?: number, dependencies?: DependencyList) => EffectCallback;
+/**
+ * useCallbackRef
+ */
+export declare const useCallbackRef: (value: Function) => [MutableRefObject<Function>, EffectCallback];
 
-// useTimeout
-export declare const useTimeout: (delay?: number) => CallbackSetter;
+/**
+ * useDebouncedFn
+ */
+export declare const useDebouncedFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => EffectCallback;
 
-// useWindowResize
-export declare const useWindowResize: () => CallbackSetter;
-// useWindowScroll
-export declare const useWindowScroll: () => CallbackSetter;
+/**
+ * useDidMount
+ */
+export declare const useDidMount: (handler: Function) => CallbackSetter;
 
-// useGeolocationEvents
+/**
+ * useGeolocation
+ */
+export declare const useGeolocation: (options?: PositionOptions) => [GeolocationState, GeolocationCallbackSetters];
+
+/**
+ * useGeolocationEvents
+ */
 type GeolocationCallbackSetters = {
   isSupported: boolean,
   onChange: CallbackSetter,
@@ -64,7 +47,9 @@ type GeolocationCallbackSetters = {
 }
 export declare const useGeolocationEvents: (options?: PositionOptions) => GeolocationCallbackSetters;
 
-// useGeolocationState
+/**
+ * useGeolocationState
+ */
 type GeolocationState = {
   isSupported: boolean,
   isRetrieving: boolean,
@@ -82,9 +67,85 @@ type GeolocationState = {
   }
 }
 export declare const useGeolocationState: (options?: PositionOptions) => GeolocationState;
-// useGeolocation
-export declare const useGeolocation: (options?: PositionOptions) => [GeolocationState, GeolocationCallbackSetters];
 
-// useMediaQuery
+/**
+ * useGlobalEvent
+ */
+export declare const useGlobalEvent: (eventName: string, options?: EventListenerOptions, handler?: Function) => CallbackSetter;
+
+/**
+ * useInterval
+ */
+export declare const useInterval: (fn: Function, milliseconds: number, options?: TimeoutOrIntervalOpts) => [boolean, EffectCallback];
+
+/**
+ * useLifecycle
+ */
+export declare const useLifecycle: (mount: Function, unmount: Function) => { onDidMount: CallbackSetter, onWillUnmount: CallbackSetter };
+
+/**
+ * useMediaQuery
+ */
 export declare const useMediaQuery: (mediaQuery: string) => boolean;
 
+/**
+ * useMouse
+ */
+export declare const useMouse: (ref?: MutableRefObject<MouseTarget>) => [MouseState, MouseCallbackSetters];
+
+/**
+ * useMouseEvents
+ */
+type MouseTarget = HTMLElement | Document | Window;
+
+type MouseCallbackSetters = {
+  onMouseDown: CallbackSetter,
+  onMouseEnter: CallbackSetter,
+  onMouseLeave: CallbackSetter,
+  onMouseMove: CallbackSetter,
+  onMouseOut: CallbackSetter,
+  onMouseOver: CallbackSetter,
+  onMouseUp: CallbackSetter,
+}
+export declare const useMouseEvents: (ref?: MutableRefObject<MouseTarget>) => MouseCallbackSetters;
+
+/**
+ * useMouseState
+ */
+type MouseState = {
+  clientX: number,
+  clientY: number,
+  screenX: number,
+  screenY: number,
+}
+export declare const useMouseState: (ref?: MutableRefObject<MouseTarget>) => MouseState;
+
+/**
+ * usePrev
+ */
+export declare const usePrev: (value: any) => any;
+
+/**
+ * useThrottledFn
+ */
+export declare const useThrottledFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => EffectCallback;
+
+/**
+ * useTimeout
+ */
+export declare const useTimeout: (fn: Function, milliseconds: number, options?: TimeoutOrIntervalOpts) => [boolean, EffectCallback];
+
+/**
+ * useWillUnmount
+ */
+export declare const useWillUnmount: (handler?: Function) => CallbackSetter;
+
+/**
+ * useWindowResize
+ */
+export declare const useWindowResize: (handler: Function) => CallbackSetter;
+
+/**
+ * useWindowScroll
+ */
+export declare const useWindowScroll: (handler: Function) => CallbackSetter;

@@ -11,9 +11,9 @@ var _useWillUnmount = _interopRequireDefault(require("./useWillUnmount"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var useLifecycle = function useLifecycle() {
-  var onDidMount = (0, _useDidMount["default"])();
-  var onWillUnmount = (0, _useWillUnmount["default"])();
+var useLifecycle = function useLifecycle(mount, unmount) {
+  var onDidMount = (0, _useDidMount["default"])(mount);
+  var onWillUnmount = (0, _useWillUnmount["default"])(unmount);
   return {
     onDidMount: onDidMount,
     onWillUnmount: onWillUnmount
