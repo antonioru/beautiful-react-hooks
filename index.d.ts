@@ -123,7 +123,7 @@ export declare const useMouseState: (ref?: MutableRefObject<MouseTarget>) => Mou
 /**
  * usePreviousValue
  */
-export declare const usePrev: (value: any) => any;
+export declare const usePreviousValue: (value: any) => any;
 
 /**
  * useThrottledFn

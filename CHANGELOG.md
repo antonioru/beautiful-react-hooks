@@ -227,8 +227,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved documentation by a better use of Styleguidist
 - Improved types
 
-## [0.13.6] - 2020-01-07
+## [0.13.7] - 2020-01-07
 
 ### Fixed
 
 - `usePrev` renamed to `usePreviousValue`
+
+
+## [0.13.8] - 2020-01-07
+
+### Fixed
+
+- Fix on `usePreviousValue` type
