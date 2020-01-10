@@ -123,6 +123,12 @@ Object.defineProperty(exports, "useValueHistory", {
     return _useValueHistory["default"];
   }
 });
+Object.defineProperty(exports, "useOnlineState", {
+  enumerable: true,
+  get: function get() {
+    return _useOnlineState["default"];
+  }
+});
 
 var _useCallbackRef = _interopRequireDefault(require("./useCallbackRef"));
 
@@ -163,6 +169,8 @@ var _useGeolocationState = _interopRequireDefault(require("./useGeolocationState
 var _useMediaQuery = _interopRequireDefault(require("./useMediaQuery"));
 
 var _useValueHistory = _interopRequireDefault(require("./useValueHistory"));
+
+var _useOnlineState = _interopRequireDefault(require("./useOnlineState"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 //# sourceMappingURL=index.js.map

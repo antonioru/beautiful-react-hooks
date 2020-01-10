@@ -89,6 +89,11 @@ export declare const useLifecycle: (mount: Function, unmount: Function) => { onD
 export declare const useMediaQuery: (mediaQuery: string) => boolean;
 
 /**
+ * useOnlineState
+ */
+export declare const useOnlineState: () => boolean;
+
+/**
  * useMouse
  */
 export declare const useMouse: (ref?: MutableRefObject<MouseTarget>) => [MouseState, MouseCallbackSetters];
