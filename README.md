@@ -76,6 +76,7 @@ $ yarn add beautiful-react-hooks
 * [usePreviousValue](docs/usePreviousValue.md)
 * [useValueHistory](docs/useValueHistory.md)
 * [useMediaQuery](docs/useMediaQuery.md)
+* [useOnlineState](docs/useOnlineState.md)
 * [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md) and [useGeolocationEvents](docs/useGeolocationEvents.md)
 * [useMouse](docs/useMouse.md), [useMouseState](docs/useMouseState.md) and [useMouseEvents](docs/useMouseEvents.md)
 * [useLifecycle](docs/useLifecycle.md), [useDidMount](docs/useDidMount.md) and [useWillUnmount](docs/useWillUnmount.md)

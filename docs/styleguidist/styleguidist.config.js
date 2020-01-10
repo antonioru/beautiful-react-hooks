@@ -16,6 +16,7 @@ module.exports = {
     { name: 'usePreviousValue', content: '../usePreviousValue.md' },
     { name: 'useValueHistory', content: '../useValueHistory.md' },
     { name: 'useMediaQuery', content: '../useMediaQuery.md' },
+    { name: 'useOnlineState', content: '../useOnlineState.md' },
     { name: 'useGeolocation', content: '../useGeolocation.md' },
     { name: 'useGeolocationState', content: '../useGeolocationState.md' },
     { name: 'useGeolocationEvents', content: '../useGeolocationEvents.md' },
