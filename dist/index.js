@@ -129,6 +129,12 @@ Object.defineProperty(exports, "useOnlineState", {
     return _useOnlineState["default"];
   }
 });
+Object.defineProperty(exports, "useViewportSpy", {
+  enumerable: true,
+  get: function get() {
+    return _useViewportSpy["default"];
+  }
+});
 
 var _useCallbackRef = _interopRequireDefault(require("./useCallbackRef"));
 
@@ -171,6 +177,8 @@ var _useMediaQuery = _interopRequireDefault(require("./useMediaQuery"));
 var _useValueHistory = _interopRequireDefault(require("./useValueHistory"));
 
 var _useOnlineState = _interopRequireDefault(require("./useOnlineState"));
+
+var _useViewportSpy = _interopRequireDefault(require("./useViewportSpy"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 //# sourceMappingURL=index.js.map

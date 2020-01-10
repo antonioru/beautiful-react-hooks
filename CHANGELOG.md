@@ -263,3 +263,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Repository ownership changed from `antonioru` to `beautifulinteractions`
+
+## [0.17.0] - 2020-01-10
+
+### Added
+
+- useViewportSpy hook & tests
+- Improved documentation

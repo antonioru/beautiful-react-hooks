@@ -23,9 +23,7 @@ const PositionReporter = () => {
   onChange(() => {
     console.log('Position changed...');
   });
-  
-  console.log('PORCO MADONNOLO', geoState);
-  
+    
   return (
    <DisplayDemo>
      The current position is:
