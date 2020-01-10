@@ -3,12 +3,13 @@
 ![npm](https://img.shields.io/npm/v/beautiful-react-hooks)
 ![GitHub stars](https://img.shields.io/github/stars/beautifulinteractions/beautiful-react-hooks?style=social)
 
+
 <div align="center">
   <p align="center">
-    <img src="./logo.png" alt="Beautiful React Hooks" width="960px" />
+    <img src="./logo.png" alt="Beautiful React Hooks" width="750px" />
   </p>
 </div>
-
+<br />
 <div>
   <p align="center">
     A collection of beautiful (and hopefully useful) React hooks to speed-up your 
@@ -76,6 +77,7 @@ $ yarn add beautiful-react-hooks
 * [useValueHistory](docs/useValueHistory.md)
 * [useMediaQuery](docs/useMediaQuery.md)
 * [useOnlineState](docs/useOnlineState.md)
+* [useViewportSpy](docs/useViewportSpy.md)
 * [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md) and [useGeolocationEvents](docs/useGeolocationEvents.md)
 * [useMouse](docs/useMouse.md), [useMouseState](docs/useMouseState.md) and [useMouseEvents](docs/useMouseEvents.md)
 * [useLifecycle](docs/useLifecycle.md), [useDidMount](docs/useDidMount.md) and [useWillUnmount](docs/useWillUnmount.md)
