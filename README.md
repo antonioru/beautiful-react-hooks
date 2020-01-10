@@ -85,8 +85,8 @@ $ yarn add beautiful-react-hooks
 * [useWindowScroll](docs/useWindowScroll.md)
 * [useTimeout](docs/useTimeout.md)
 * [useInterval](docs/useInterval.md)
-* [useDebouncedFn](docs/useDebouncedCallback.md)
-* [useThrottledFn](docs/useThrottledCallback.md)
+* [useDebouncedFn](docs/useDebouncedFn.md)
+* [useThrottledFn](docs/useDebouncedFn.md)
 
 <div>
   <p align="center">
@@ -104,7 +104,7 @@ To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONT
 
 **Before submitting** a new merge request, please make sure:
 
-1. You have updated the package.json version and reported your changed into the [CHANGELOG](./CHANGELOG.md) file
+1. You have updated the package.json version and reported your changes into the [CHANGELOG](./CHANGELOG.md) file
 3. make sure you run `npm test` and `npm build` before submitting your merge request.
 4. make sure you've added the documentation of your custom hook (*you can possibly use the [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) to document your custom hook*).
 5. make sure you've updated the `index.d.ts` file with your hook types.
@@ -133,6 +133,5 @@ This library is provided and sponsored by:
 As part of our commitment to support and provide the open source community.
 
 ---
-<div>
-  <small>Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)</small>
-</div>
+
+Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)
