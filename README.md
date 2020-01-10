@@ -16,8 +16,6 @@
   </p>
 </div>
 
-
-
 <div>
   <p align="center">
     <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
@@ -38,7 +36,8 @@ For this reason I've tried to sum up that gist into `beautiful-react-hooks`: a c
 React hooks to possibly help other developers to speed up their development process.<br /><br />
 Furthermore, I've tried to create a concise yet concrete API having in mind the code readability, focusing 
 to keep the learning curve as lower as possible so that the it can be used and shared in bigger teams.
-<br /><br />
+
+
 **-- Please before using any hook, read its documentation! --**
 
 ## ☕️ Features
@@ -60,13 +59,13 @@ to keep the learning curve as lower as possible so that the it can be used and s
 ## 🕺 Install
 
 by using `npm`:
-```js s
+```bash
 $ npm install beautiful-react-hooks
 ```
 
 by using `yarn`:
 
-```js 
+```bash
 $ yarn add beautiful-react-hooks
 ```
 

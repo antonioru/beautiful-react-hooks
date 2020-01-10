@@ -9,52 +9,21 @@ module.exports = {
     favicon: 'https://beautifulinteractions.com/favicons/bi-favicon.ico',
   },
   styles: {
-    Header: {
-      logo: {
-        padding: '0',
-      }
-    },
-    Logo: {
-      logo: {
-        padding: '0',
-      },
-    },
     SectionHeading: {
       wrapper: {
         display: 'none',
       },
     },
-    TableOfContents: {
-      search: {
-        display: 'none',
-      },
-      input: {
-        borderRadius: 0,
-        backgroundColor: 'transparent',
-        border: 0,
-        paddingLeft: 0,
-        outline: 0,
-        color: 'white',
-        borderBottom: '1px solid white',
-        '&:focus': {
-          borderColor: 'rgba(255, 255, 255, 0.25)',
-          boxShadow: 'unset',
-        },
-        '&::placeholder': {
-          color: 'rgba(255, 255, 255, 0.25)',
-        },
-      },
-    },
     Heading: {
       heading: {
-        color: '#0F8B8D',
+        color: '#1D6C8B',
         fontFamily: '\'Ubuntu\', sans-serif',
       },
     },
     Code: {
       code: {
         fontFamily: '\'Ubuntu Mono\', sans-serif',
-        backgroundColor: '#D36A81',
+        backgroundColor: '#BE496E',
         color: '#fff',
         fontWeight: '400',
         padding: '0 5px',
@@ -71,21 +40,22 @@ module.exports = {
         background: 'url(./docs-logo.png) no-repeat left center',
         borderBottom: 'none',
         backgroundSize: 'contain',
-        margin: '15px 20px',
-        height: '50px',
+        margin: '16px 16px',
+        height: '30px',
+        padding: 0,
       },
       sidebar: {
         border: 0,
-        width: '200px',
-        background: 'linear-gradient(#FFF,#F1F1F7)',
+        width: '260px',
+        background: 'white',
         boxShadow: '0 0 20px 0 rgba(20, 20, 20, 0.1)',
-        color: '#0F8B8D',
+        color: '#1D6C8B',
       },
       content: {
         maxWidth: '820px',
       },
       root: {
-        background: '#f5f8fd',
+        background: '#FBFAF9',
       },
     },
     Playground: {

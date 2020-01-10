@@ -94,6 +94,11 @@ export declare const useMediaQuery: (mediaQuery: string) => boolean;
 export declare const useOnlineState: () => boolean;
 
 /**
+ * useOnlineState
+ */
+export declare const useViewportSpy: (elementRef: MutableRefObject<HTMLElement>, options?: IntersectionObserverInit) => boolean;
+
+/**
  * useMouse
  */
 export declare const useMouse: (ref?: MutableRefObject<MouseTarget>) => [MouseState, MouseCallbackSetters];

@@ -66,7 +66,6 @@ const ComponentDidMount = () => {
 <ComponentDidMount />
 ```
 
-
 #### ✅ Pro tip:
 
 When using a React function component you should not really think of it in terms of "lifecycle".
