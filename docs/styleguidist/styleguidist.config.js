@@ -14,6 +14,7 @@ module.exports = {
   sections: [
     { name: 'useGlobalEvent', content: '../useGlobalEvent.md' },
     { name: 'usePreviousValue', content: '../usePreviousValue.md' },
+    { name: 'useValueHistory', content: '../useValueHistory.md' },
     { name: 'useMediaQuery', content: '../useMediaQuery.md' },
     { name: 'useGeolocation', content: '../useGeolocation.md' },
     { name: 'useGeolocationState', content: '../useGeolocationState.md' },
