@@ -17,3 +17,4 @@ export { default as useGeolocation } from './useGeolocation';
 export { default as useGeolocationEvents } from './useGeolocationEvents';
 export { default as useGeolocationState } from './useGeolocationState';
 export { default as useMediaQuery } from './useMediaQuery';
+export { default as useValueHistory } from './useValueHistory';

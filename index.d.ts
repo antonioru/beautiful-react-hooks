@@ -136,6 +136,12 @@ export declare const useThrottledFn: (fn: Function, wait?: number, options?: Thr
 export declare const useTimeout: (fn: Function, milliseconds: number, options?: TimeoutOrIntervalOpts) => [boolean, EffectCallback];
 
 /**
+ * useValueHistory
+ */
+export declare const useValueHistory: (value: any) => Array<any>;
+
+
+/**
  * useWillUnmount
  */
 export declare const useWillUnmount: (handler?: Function) => CallbackSetter;

@@ -117,6 +117,12 @@ Object.defineProperty(exports, "useMediaQuery", {
     return _useMediaQuery["default"];
   }
 });
+Object.defineProperty(exports, "useValueHistory", {
+  enumerable: true,
+  get: function get() {
+    return _useValueHistory["default"];
+  }
+});
 
 var _useCallbackRef = _interopRequireDefault(require("./useCallbackRef"));
 
@@ -155,6 +161,8 @@ var _useGeolocationEvents = _interopRequireDefault(require("./useGeolocationEven
 var _useGeolocationState = _interopRequireDefault(require("./useGeolocationState"));
 
 var _useMediaQuery = _interopRequireDefault(require("./useMediaQuery"));
+
+var _useValueHistory = _interopRequireDefault(require("./useValueHistory"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 //# sourceMappingURL=index.js.map
