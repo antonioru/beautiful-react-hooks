@@ -270,3 +270,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - useViewportSpy hook & tests
 - Improved documentation
+
+## [0.17.1]  - 2020-01-10
+
+### Fixed
+
+- types reference into package.json

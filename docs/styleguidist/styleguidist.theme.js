@@ -1,6 +1,5 @@
 module.exports = {
   theme: {
-    sidebarWidth: 200,
     fontFamily: {
       base: '"Ubuntu", "sans-serif", light',
     },

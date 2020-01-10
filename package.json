@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "dist/index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "dist/**",
     "index.d.ts"
   ],
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/beautifulinteractions/beautiful-react-hooks.git"
