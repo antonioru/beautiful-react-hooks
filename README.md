@@ -87,7 +87,7 @@ $ yarn add beautiful-react-hooks
 * [useTimeout](docs/useTimeout.md)
 * [useInterval](docs/useInterval.md)
 * [useDebouncedFn](docs/useDebouncedFn.md)
-* [useThrottledFn](docs/useDebouncedFn.md)
+* [useThrottledFn](docs/useThrottledFn.md)
 
 <div>
   <p align="center">
