@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "dist/index.js",
   "scripts": {
@@ -21,12 +21,15 @@
     "type": "git",
     "url": "git+https://github.com/beautifulinteractions/beautiful-react-hooks.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Antonio Russo",
+    "email": "antonio@beautifulinteractions.com"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/beautifulinteractions/beautiful-react-hooks/issues"
   },
-  "homepage": "https://github.com/beautifulinteractions/beautiful-react-hooks#readme",
+  "homepage": "https://beautifulinteractions.github.io/beautiful-react-hooks/",
   "dependencies": {
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1"

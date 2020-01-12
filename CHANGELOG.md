@@ -276,3 +276,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - types reference into package.json
+
+## [0.17.2]  - 2020-01-12
+
+### Fixed
+
+- Fixed license in package.json
