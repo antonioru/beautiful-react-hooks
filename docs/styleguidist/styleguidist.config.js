@@ -2,7 +2,7 @@ const path = require('path');
 const theme = require('./styleguidist.theme');
 
 module.exports = {
-  title: 'beautiful react hooks docs',
+  title: 'Beautiful React Hooks docs',
   /* eslint-disable global-require */
   webpackConfig: require('./webpack.config.js'),
   /* eslint-enable global-require */
