@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
-import useCallbackRef from './useCallbackRef';
+import createHandlerSetter from './utils/createHandlerSetter';
 import createCbSetterErrorProxy from './utils/createCbSetterErrorProxy';
 import hasOwnProperty from './utils/hasOwnProperty';
 
 const assignMouseEventOnMount = (targetRef, handlerRef, eventName) => {
   useEffect(() => {
-    const cb = (...args) => {
+    const cb = (mouseEvent) => {
       if (handlerRef.current) {
-        handlerRef.current(...args);
+        handlerRef.current(mouseEvent);
       }
     };
     let target;
@@ -48,13 +48,13 @@ const assignMouseEventOnMount = (targetRef, handlerRef, eventName) => {
  *
  */
 const useMouseEvents = (targetRef = null) => {
-  const [onMouseDownHandler, setOnMouseDown] = useCallbackRef();
-  const [onMouseEnterHandler, setOnMouseEnter] = useCallbackRef();
-  const [onMouseLeaveHandler, setOnMouseLeave] = useCallbackRef();
-  const [onMouseMoveHandler, setOnMouseMove] = useCallbackRef();
-  const [onMouseOutHandler, setOnMouseOut] = useCallbackRef();
-  const [onMouseOverHandler, setOnMouseOver] = useCallbackRef();
-  const [onMouseUpHandler, setOnMouseUp] = useCallbackRef();
+  const [onMouseDownHandler, setOnMouseDown] = createHandlerSetter();
+  const [onMouseEnterHandler, setOnMouseEnter] = createHandlerSetter();
+  const [onMouseLeaveHandler, setOnMouseLeave] = createHandlerSetter();
+  const [onMouseMoveHandler, setOnMouseMove] = createHandlerSetter();
+  const [onMouseOutHandler, setOnMouseOut] = createHandlerSetter();
+  const [onMouseOverHandler, setOnMouseOver] = createHandlerSetter();
+  const [onMouseUpHandler, setOnMouseUp] = createHandlerSetter();
 
   if (targetRef !== null && !hasOwnProperty(targetRef, 'current')) {
     return createCbSetterErrorProxy('Unable to assign any mouse event to the given ref');

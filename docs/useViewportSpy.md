@@ -20,7 +20,7 @@ const ViewportSpyComponent = () => {
       
    return (
      <DisplayDemo>
-       <div ref={ref} style={{padding: '20px 0', background: '#00D9C0'}}>
+       <div ref={ref} style={{padding: '20px 0', background: '#1D6C8B'}}>
           Observed element
        </div>
        <div style={{margin: '20px 0'}}>
@@ -47,7 +47,7 @@ const ViewportSpyComponent = () => {
       
    return (
      <DisplayDemo>
-       <div ref={ref} style={{padding: '20px 0', background: '#00D9C0'}}>
+       <div ref={ref} style={{padding: '20px 0', background: '#1D6C8B'}}>
           Observed element
        </div>
        <div style={{margin: '20px 0'}}>

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import useCallbackRef from './useCallbackRef';
+import createHandlerSetter from './utils/createHandlerSetter';
 import createCbSetterErrorProxy from './utils/createCbSetterErrorProxy';
 import geolocationStandardOptions from './utils/geolocationStandardOptions';
 
@@ -11,19 +11,19 @@ import geolocationStandardOptions from './utils/geolocationStandardOptions';
  */
 const useGeolocationEvents = (options = geolocationStandardOptions) => {
   const watchId = useRef();
-  const [onChangeRef, setOnChangeRef] = useCallbackRef();
-  const [onErrorRef, setOnErrorRef] = useCallbackRef();
+  const [onChangeRef, setOnChangeRef] = createHandlerSetter();
+  const [onErrorRef, setOnErrorRef] = createHandlerSetter();
   const isSupported = 'geolocation' in window.navigator; // fixme: shall this be moved outside the hook?
 
   useEffect(() => {
-    const onSuccess = (...args) => {
+    const onSuccess = (successEvent) => {
       if (onChangeRef.current) {
-        onChangeRef.current(...args);
+        onChangeRef.current(successEvent);
       }
     };
-    const onError = (...args) => {
+    const onError = (err) => {
       if (onErrorRef.current) {
-        onErrorRef.current(...args);
+        onErrorRef.current(err);
       }
     };
 

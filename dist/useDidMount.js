@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _react = require("react");
 
-var _useCallbackRef3 = _interopRequireDefault(require("./useCallbackRef"));
+var _createHandlerSetter3 = _interopRequireDefault(require("./utils/createHandlerSetter"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -20,10 +20,10 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var useDidMount = function useDidMount(handler) {
-  var _useCallbackRef = (0, _useCallbackRef3["default"])(handler),
-      _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
-      onMountHandler = _useCallbackRef2[0],
-      setOnMountHandler = _useCallbackRef2[1];
+  var _createHandlerSetter = (0, _createHandlerSetter3["default"])(handler),
+      _createHandlerSetter2 = _slicedToArray(_createHandlerSetter, 2),
+      onMountHandler = _createHandlerSetter2[0],
+      setOnMountHandler = _createHandlerSetter2[1];
 
   (0, _react.useEffect)(function () {
     if (onMountHandler.current) {

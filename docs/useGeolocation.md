@@ -1,7 +1,7 @@
 # useGeolocation
 
 Returns an array where the first item is the geolocation state from [useGeolocationState](./useGeolocation.md) 
-and the second one is an object of callback setters from the [useGeolocationEvents](./useGeolocationEvents).
+and the second one is an object of handler setters from the [useGeolocationEvents](./useGeolocationEvents).
 
 It is intended as a shortcut to those hooks.
 
@@ -73,7 +73,7 @@ const PositionReporter = () => {
 ```
 
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  

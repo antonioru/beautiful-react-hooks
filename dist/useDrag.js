@@ -7,9 +7,11 @@ exports["default"] = void 0;
 
 var _react = require("react");
 
-var _createHandlerSetter3 = _interopRequireDefault(require("./utils/createHandlerSetter"));
+var _useDragEvents2 = _interopRequireDefault(require("./useDragEvents"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -26,42 +28,47 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var defaultOptions = {
-  capture: false,
-  once: false,
-  passive: false
+  dragImage: null,
+  dragImageXOffset: 0,
+  dragImageYOffset: 0,
+  transfer: null,
+  transferFormat: 'text'
 };
 
-var useGlobalEvent = function useGlobalEvent(eventName) {
+var useDrag = function useDrag(targetRef) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultOptions;
-  var fn = arguments.length > 2 ? arguments[2] : undefined;
 
-  var _createHandlerSetter = (0, _createHandlerSetter3["default"])(fn),
-      _createHandlerSetter2 = _slicedToArray(_createHandlerSetter, 2),
-      callbackRef = _createHandlerSetter2[0],
-      setCallbackRef = _createHandlerSetter2[1];
+  var _useDragEvents = (0, _useDragEvents2["default"])(targetRef, true),
+      onDragStart = _useDragEvents.onDragStart,
+      onDragEnd = _useDragEvents.onDragEnd;
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      isDragging = _useState2[0],
+      setIsDragging = _useState2[1];
 
   var opts = _objectSpread({}, defaultOptions, {}, options || {});
 
-  (0, _react.useEffect)(function () {
-    var cb = function cb(event) {
-      if (callbackRef.current) {
-        callbackRef.current(event);
-      }
-    };
+  onDragStart(function (event) {
+    setIsDragging(true);
 
-    if (callbackRef.current && eventName) {
-      window.addEventListener(eventName, cb, opts);
+    if (opts.dragImage) {
+      var img = new Image();
+      img.src = opts.dragImage;
+      event.dataTransfer.setDragImage(img, opts.dragImageXOffset, opts.dragImageYOffset);
     }
 
-    return function () {
-      if (eventName) {
-        window.removeEventListener(eventName, cb, opts);
-      }
-    };
-  }, [eventName, options]);
-  return setCallbackRef;
+    if (opts.transfer) {
+      var data = _typeof(opts.transfer) === 'object' ? JSON.stringify(opts.transfer) : "".concat(opts.transfer);
+      event.dataTransfer.setData(opts.transferFormat, data);
+    }
+  });
+  onDragEnd(function () {
+    return setIsDragging(false);
+  });
+  return isDragging;
 };
 
-var _default = useGlobalEvent;
+var _default = useDrag;
 exports["default"] = _default;
-//# sourceMappingURL=useGlobalEvent.js.map
+//# sourceMappingURL=useDrag.js.map

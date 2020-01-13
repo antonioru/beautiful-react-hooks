@@ -3,12 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "useCallbackRef", {
-  enumerable: true,
-  get: function get() {
-    return _useCallbackRef["default"];
-  }
-});
 Object.defineProperty(exports, "useDidMount", {
   enumerable: true,
   get: function get() {
@@ -135,8 +129,18 @@ Object.defineProperty(exports, "useViewportSpy", {
     return _useViewportSpy["default"];
   }
 });
-
-var _useCallbackRef = _interopRequireDefault(require("./useCallbackRef"));
+Object.defineProperty(exports, "useDragEvents", {
+  enumerable: true,
+  get: function get() {
+    return _useDragEvents["default"];
+  }
+});
+Object.defineProperty(exports, "useDrag", {
+  enumerable: true,
+  get: function get() {
+    return _useDrag["default"];
+  }
+});
 
 var _useDidMount = _interopRequireDefault(require("./useDidMount"));
 
@@ -179,6 +183,10 @@ var _useValueHistory = _interopRequireDefault(require("./useValueHistory"));
 var _useOnlineState = _interopRequireDefault(require("./useOnlineState"));
 
 var _useViewportSpy = _interopRequireDefault(require("./useViewportSpy"));
+
+var _useDragEvents = _interopRequireDefault(require("./useDragEvents"));
+
+var _useDrag = _interopRequireDefault(require("./useDrag"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 //# sourceMappingURL=index.js.map

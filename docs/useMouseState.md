@@ -60,7 +60,7 @@ const MouseReporter = () => {
 ```
 
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  

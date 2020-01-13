@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import useCallbackRef from './useCallbackRef';
+import createHandlerSetter from './utils/createHandlerSetter';
 
 const defaultOptions = {
   capture: false,
@@ -11,11 +11,15 @@ const defaultOptions = {
  * Accepts an event name then returns a callback setter for a function to be performed when the event triggers.
  */
 const useGlobalEvent = (eventName, options = defaultOptions, fn) => {
-  const [callbackRef, setCallbackRef] = useCallbackRef(fn);
+  const [callbackRef, setCallbackRef] = createHandlerSetter(fn);
   const opts = { ...defaultOptions, ...(options || {}) };
 
   useEffect(() => {
-    const cb = (...args) => callbackRef.current(...args);
+    const cb = (event) => {
+      if (callbackRef.current) {
+        callbackRef.current(event);
+      }
+    };
 
     if (callbackRef.current && eventName) {
       window.addEventListener(eventName, cb, opts);

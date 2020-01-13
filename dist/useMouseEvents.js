@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _react = require("react");
 
-var _useCallbackRef15 = _interopRequireDefault(require("./useCallbackRef"));
+var _createHandlerSetter15 = _interopRequireDefault(require("./utils/createHandlerSetter"));
 
 var _createCbSetterErrorProxy = _interopRequireDefault(require("./utils/createCbSetterErrorProxy"));
 
@@ -25,9 +25,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var assignMouseEventOnMount = function assignMouseEventOnMount(targetRef, handlerRef, eventName) {
   (0, _react.useEffect)(function () {
-    var cb = function cb() {
+    var cb = function cb(mouseEvent) {
       if (handlerRef.current) {
-        handlerRef.current.apply(handlerRef, arguments);
+        handlerRef.current(mouseEvent);
       }
     };
 
@@ -56,40 +56,40 @@ var assignMouseEventOnMount = function assignMouseEventOnMount(targetRef, handle
 var useMouseEvents = function useMouseEvents() {
   var targetRef = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 
-  var _useCallbackRef = (0, _useCallbackRef15["default"])(),
-      _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
-      onMouseDownHandler = _useCallbackRef2[0],
-      setOnMouseDown = _useCallbackRef2[1];
+  var _createHandlerSetter = (0, _createHandlerSetter15["default"])(),
+      _createHandlerSetter2 = _slicedToArray(_createHandlerSetter, 2),
+      onMouseDownHandler = _createHandlerSetter2[0],
+      setOnMouseDown = _createHandlerSetter2[1];
 
-  var _useCallbackRef3 = (0, _useCallbackRef15["default"])(),
-      _useCallbackRef4 = _slicedToArray(_useCallbackRef3, 2),
-      onMouseEnterHandler = _useCallbackRef4[0],
-      setOnMouseEnter = _useCallbackRef4[1];
+  var _createHandlerSetter3 = (0, _createHandlerSetter15["default"])(),
+      _createHandlerSetter4 = _slicedToArray(_createHandlerSetter3, 2),
+      onMouseEnterHandler = _createHandlerSetter4[0],
+      setOnMouseEnter = _createHandlerSetter4[1];
 
-  var _useCallbackRef5 = (0, _useCallbackRef15["default"])(),
-      _useCallbackRef6 = _slicedToArray(_useCallbackRef5, 2),
-      onMouseLeaveHandler = _useCallbackRef6[0],
-      setOnMouseLeave = _useCallbackRef6[1];
+  var _createHandlerSetter5 = (0, _createHandlerSetter15["default"])(),
+      _createHandlerSetter6 = _slicedToArray(_createHandlerSetter5, 2),
+      onMouseLeaveHandler = _createHandlerSetter6[0],
+      setOnMouseLeave = _createHandlerSetter6[1];
 
-  var _useCallbackRef7 = (0, _useCallbackRef15["default"])(),
-      _useCallbackRef8 = _slicedToArray(_useCallbackRef7, 2),
-      onMouseMoveHandler = _useCallbackRef8[0],
-      setOnMouseMove = _useCallbackRef8[1];
+  var _createHandlerSetter7 = (0, _createHandlerSetter15["default"])(),
+      _createHandlerSetter8 = _slicedToArray(_createHandlerSetter7, 2),
+      onMouseMoveHandler = _createHandlerSetter8[0],
+      setOnMouseMove = _createHandlerSetter8[1];
 
-  var _useCallbackRef9 = (0, _useCallbackRef15["default"])(),
-      _useCallbackRef10 = _slicedToArray(_useCallbackRef9, 2),
-      onMouseOutHandler = _useCallbackRef10[0],
-      setOnMouseOut = _useCallbackRef10[1];
+  var _createHandlerSetter9 = (0, _createHandlerSetter15["default"])(),
+      _createHandlerSetter10 = _slicedToArray(_createHandlerSetter9, 2),
+      onMouseOutHandler = _createHandlerSetter10[0],
+      setOnMouseOut = _createHandlerSetter10[1];
 
-  var _useCallbackRef11 = (0, _useCallbackRef15["default"])(),
-      _useCallbackRef12 = _slicedToArray(_useCallbackRef11, 2),
-      onMouseOverHandler = _useCallbackRef12[0],
-      setOnMouseOver = _useCallbackRef12[1];
+  var _createHandlerSetter11 = (0, _createHandlerSetter15["default"])(),
+      _createHandlerSetter12 = _slicedToArray(_createHandlerSetter11, 2),
+      onMouseOverHandler = _createHandlerSetter12[0],
+      setOnMouseOver = _createHandlerSetter12[1];
 
-  var _useCallbackRef13 = (0, _useCallbackRef15["default"])(),
-      _useCallbackRef14 = _slicedToArray(_useCallbackRef13, 2),
-      onMouseUpHandler = _useCallbackRef14[0],
-      setOnMouseUp = _useCallbackRef14[1];
+  var _createHandlerSetter13 = (0, _createHandlerSetter15["default"])(),
+      _createHandlerSetter14 = _slicedToArray(_createHandlerSetter13, 2),
+      onMouseUpHandler = _createHandlerSetter14[0],
+      setOnMouseUp = _createHandlerSetter14[1];
 
   if (targetRef !== null && !(0, _hasOwnProperty["default"])(targetRef, 'current')) {
     return (0, _createCbSetterErrorProxy["default"])('Unable to assign any mouse event to the given ref');
