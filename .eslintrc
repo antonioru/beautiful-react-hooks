@@ -9,8 +9,7 @@
   "rules": {
     "max-len": ["error", { "code": 120 }],
     "object-curly-newline": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [ ".js", ".jsx" ] } ],
-    "import/no-extraneous-dependencies": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [ ".js", ".jsx" ] } ]
   },
   "overrides": [
     {

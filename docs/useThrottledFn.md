@@ -118,7 +118,7 @@ please read "[Debouncing and Throttling Explained Through Examples](https://css-
 by [David Corbacho](https://twitter.com/dcorbacho)
 
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  

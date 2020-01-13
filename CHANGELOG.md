@@ -271,14 +271,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - useViewportSpy hook & tests
 - Improved documentation
 
-## [0.17.1]  - 2020-01-10
+## [0.17.1] - 2020-01-10
 
 ### Fixed
 
 - types reference into package.json
 
-## [0.17.2]  - 2020-01-12
+## [0.17.2] - 2020-01-12
 
 ### Fixed
 
 - Fixed license in package.json
+
+## [0.18.0] - 2020-01-13
+
+### Added
+
+- useDragEvents hook & tests
+- useDrag hook
+
+### Fixed
+
+- event handlers uses the right parameters and avoid using (...args)
+- `useCallbackRef` has been reverted to an internal utility
+
+## [0.18.1] - 2020-01-14
+
+### Fixed
+
+- Build removed from the source package

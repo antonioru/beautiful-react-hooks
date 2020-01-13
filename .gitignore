@@ -227,3 +227,6 @@ bh_unicode_properties.cache
 GitHub.sublime-settings
 
 .idea/
+
+dist/
+dist-ghpages/

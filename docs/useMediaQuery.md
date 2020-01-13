@@ -30,7 +30,7 @@ const MediaQueryReporter = () => {
 <MediaQueryReporter />
 ```
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  

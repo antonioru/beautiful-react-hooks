@@ -35,10 +35,10 @@ const ComponentDidMount = () => {
 
 ### Callback setter syntax:
 
-if the first parameter is not provided, the returned function (*a callback setter*) can be used to 
+if the first parameter is not provided, the returned function (*a handler setter*) can be used to 
 set the `useDidMount` handler, as long as it is immediately invoked.
 
-**Please note**: the returned callback setter is meant to change the value of the callback reference only, it does not 
+**Please note**: the returned handler setter is meant to change the value of the callback reference only, it does not 
 cause the component rerender nor should not be invoked asynchronously.
 
 ```jsx harmony
@@ -76,7 +76,7 @@ To deep understanding `useEffect`, what it is and how it should be properly used
 "[A complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)"
 by [Dan Abramov](https://twitter.com/dan_abramov)
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  
@@ -85,4 +85,4 @@ by [Dan Abramov](https://twitter.com/dan_abramov)
 #### 🛑 When not to use
 
 - You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
-- If using the callback setter, it should not be used asynchronously but immediately invoked
+- If using the handler setter, it should not be used asynchronously but immediately invoked

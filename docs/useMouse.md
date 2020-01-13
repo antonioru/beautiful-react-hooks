@@ -1,7 +1,7 @@
 # useMouse
 
 Returns an array where the first item is the mouse state from [useMouseState](./useMouseState.md) and the 
-second item is the object of callback setters from [useMouseEvents](./useMouseEvents.md).
+second item is the object of handler setters from [useMouseEvents](./useMouseEvents.md).
 
 It is intended as a shortcut to those hooks.
 
@@ -72,7 +72,7 @@ const MouseReporter = () => {
 <MouseReporter />
 ```
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  
@@ -81,9 +81,9 @@ const MouseReporter = () => {
 
 #### 🛑 What not to do
 
-- You can't use the returned callback setter asynchronously, it will not have any effect but changing the callback 
+- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler 
  possibly leading to bugs in your code.
-- Absolutely avoid using `useMouse` callback setters to replace the standard mouse handler props. 
+- Absolutely avoid using `useMouse` handler setters to replace the standard mouse handler props. 
 -  `useMouse` is meant to be used to abstract more complex hooks that need to control the mouse, for example: a drag n drop hook.
 - Using `useMouse` handlers instead of the classic props approach it's just as bad as it sounds since you'll
 lose the React SyntheticEvent performance boost.<br />

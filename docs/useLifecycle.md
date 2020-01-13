@@ -42,10 +42,10 @@ const LifeCycleComponent = () => {
 
 ### Callback setter syntax:
 
-if no parameters are provided, the returned object of callback setters can be used to 
+if no parameters are provided, the returned object of handler setters can be used to 
 set the `useDidMount` and `useWillUnmount` handlers, as long as they are immediately invoked.
 
-**Please note**: the returned callback setters are meant to change the value of the callback reference only, they do not 
+**Please note**: the returned handler setters are meant to change the value of the callback reference only, they do not 
 cause the component rerender nor should not be invoked asynchronously.
 
 ```jsx harmony
@@ -83,7 +83,7 @@ To deep understanding `useEffect`, what it is and how it should be properly used
 "[A complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)"
 by [Dan Abramov](https://twitter.com/dan_abramov)
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  
@@ -94,4 +94,4 @@ by [Dan Abramov](https://twitter.com/dan_abramov)
 #### 🛑 When not to use
 
 - You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
-- If using the callback setters, they should not be used asynchronously but immediately invoked.
+- If using the handler setters, they should not be used asynchronously but immediately invoked.

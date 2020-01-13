@@ -15,12 +15,7 @@ type EventListenerOptions = {
   passive: boolean,
 }
 
-type CallbackSetter = EffectCallback;
-
-/**
- * useCallbackRef
- */
-export declare const useCallbackRef: (value: Function) => [MutableRefObject<Function>, EffectCallback];
+type HandlerSetter = (...parameters: Array<any>) => unknown;
 
 /**
  * useDebouncedFn
@@ -30,7 +25,7 @@ export declare const useDebouncedFn: (fn: Function, wait?: number, options?: Thr
 /**
  * useDidMount
  */
-export declare const useDidMount: (handler: Function) => CallbackSetter;
+export declare const useDidMount: (handler: Function) => HandlerSetter;
 
 /**
  * useGeolocation
@@ -42,8 +37,8 @@ export declare const useGeolocation: (options?: PositionOptions) => [Geolocation
  */
 type GeolocationCallbackSetters = {
   isSupported: boolean,
-  onChange: CallbackSetter,
-  onError: CallbackSetter,
+  onChange: HandlerSetter,
+  onError: HandlerSetter,
 }
 export declare const useGeolocationEvents: (options?: PositionOptions) => GeolocationCallbackSetters;
 
@@ -71,7 +66,7 @@ export declare const useGeolocationState: (options?: PositionOptions) => Geoloca
 /**
  * useGlobalEvent
  */
-export declare const useGlobalEvent: (eventName: string, options?: EventListenerOptions, handler?: Function) => CallbackSetter;
+export declare const useGlobalEvent: (eventName: string, options?: EventListenerOptions, handler?: Function) => HandlerSetter;
 
 /**
  * useInterval
@@ -81,7 +76,7 @@ export declare const useInterval: (fn: Function, milliseconds: number, options?:
 /**
  * useLifecycle
  */
-export declare const useLifecycle: (mount: Function, unmount: Function) => { onDidMount: CallbackSetter, onWillUnmount: CallbackSetter };
+export declare const useLifecycle: (mount: Function, unmount: Function) => { onDidMount: HandlerSetter, onWillUnmount: HandlerSetter };
 
 /**
  * useMediaQuery
@@ -99,6 +94,33 @@ export declare const useOnlineState: () => boolean;
 export declare const useViewportSpy: (elementRef: MutableRefObject<HTMLElement>, options?: IntersectionObserverInit) => boolean;
 
 /**
+ * useDrag
+ */
+type DragOptions = {
+  dragImage?: string,
+  dragImageXOffset?: number,
+  dragImageYOffset?: number,
+  transfer?: object | string | number,
+  transferFormat: 'text' | 'text/plain',
+};
+
+export declare const useDrag: (ref: MutableRefObject<MouseTarget>, options: DragOptions) => boolean;
+
+/**
+ * useDragEvents
+ */
+export declare const useDragEvents: (ref: MutableRefObject<MouseTarget>, setDraggable?: boolean) => ({
+  onDrag: HandlerSetter,
+  onDrop: HandlerSetter,
+  onDragEnter: HandlerSetter,
+  onDragEnd: HandlerSetter,
+  onDragExit: HandlerSetter,
+  onDragLeave: HandlerSetter,
+  onDragOver: HandlerSetter,
+  onDragStart: HandlerSetter,
+});
+
+/**
  * useMouse
  */
 export declare const useMouse: (ref?: MutableRefObject<MouseTarget>) => [MouseState, MouseCallbackSetters];
@@ -109,13 +131,13 @@ export declare const useMouse: (ref?: MutableRefObject<MouseTarget>) => [MouseSt
 type MouseTarget = HTMLElement | Document | Window;
 
 type MouseCallbackSetters = {
-  onMouseDown: CallbackSetter,
-  onMouseEnter: CallbackSetter,
-  onMouseLeave: CallbackSetter,
-  onMouseMove: CallbackSetter,
-  onMouseOut: CallbackSetter,
-  onMouseOver: CallbackSetter,
-  onMouseUp: CallbackSetter,
+  onMouseDown: HandlerSetter,
+  onMouseEnter: HandlerSetter,
+  onMouseLeave: HandlerSetter,
+  onMouseMove: HandlerSetter,
+  onMouseOut: HandlerSetter,
+  onMouseOver: HandlerSetter,
+  onMouseUp: HandlerSetter,
 }
 export declare const useMouseEvents: (ref?: MutableRefObject<MouseTarget>) => MouseCallbackSetters;
 
@@ -154,14 +176,14 @@ export declare const useValueHistory: (value: any) => Array<any>;
 /**
  * useWillUnmount
  */
-export declare const useWillUnmount: (handler?: Function) => CallbackSetter;
+export declare const useWillUnmount: (handler?: Function) => HandlerSetter;
 
 /**
  * useWindowResize
  */
-export declare const useWindowResize: (handler: Function) => CallbackSetter;
+export declare const useWindowResize: (handler: Function) => HandlerSetter;
 
 /**
  * useWindowScroll
  */
-export declare const useWindowScroll: (handler: Function) => CallbackSetter;
+export declare const useWindowScroll: (handler: Function) => HandlerSetter;

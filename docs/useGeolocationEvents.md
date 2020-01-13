@@ -1,11 +1,11 @@
 # useGeolocationEvents 
 
-Returns an object of callback setters to handle the geolocation-related events.
+Returns an object of handler setters to handle the geolocation-related events.
 So far, the supported methods are: `onChange`, invoked when the position changes and `onError`, invoked when
 an error occur while retrieving the position.<br/>
 The returned object also contains the `isSupported` boolean flag reporting whether the geolocation API is supported.
 
-**Please note:** the returned callback setters should invoked immediately in the function component's body, do not try to
+**Please note:** the returned handler setters should invoked immediately in the function component's body, do not try to
 call this functions asynchronously.
 
 ### Why? 💡
@@ -42,7 +42,7 @@ const GeoReporter = () => {
 <GeoReporter />
 ```
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  
@@ -50,5 +50,5 @@ const GeoReporter = () => {
 
 #### 🛑 What not to do
 
-- You can't use the returned callback setter asynchronously, it will not have any effect but changing the callback 
+- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler 
  possibly leading to bugs in your code.
