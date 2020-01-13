@@ -1,6 +1,6 @@
 # useGlobalEvent
 
-Accepts an event name to be attached to the window global object, then returns a callback setter 
+Accepts an event name to be attached to the window global object, then returns a handler setter 
 for that event.
 
 ### Why? 💡
@@ -10,9 +10,9 @@ for that event.
 
 ### Basic Usage:
 
-`useGlobalEvent` returns a callback setter for the defined event to be immediately invoked.
+`useGlobalEvent` returns a handler setter for the defined event to be immediately invoked.
 
-**Please note**: the callback setter is only meant to change the callback reference, it does not cause the component 
+**Please note**: the handler setter is only meant to change the callback reference, it does not cause the component 
 rerender nor not be invoked asynchronously.
 
 ```jsx harmony
@@ -67,7 +67,7 @@ const TestComponent = () => {
 
 ### Defining the callback:
 
-The third parameter allow to define the callback avoiding the use of the returned callback setter.
+The third parameter allow to define the callback avoiding the use of the returned handler setter.
 
 ```jsx harmony
 import { useState } from 'react';
@@ -90,7 +90,7 @@ const TestComponent = () => {
 <TestComponent />
 ```
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  
@@ -98,5 +98,5 @@ const TestComponent = () => {
 
 #### 🛑 What not to do
 
-- You can't use the returned callback setter asynchronously, it will not have any effect but changing the callback 
+- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler 
  possibly leading to bugs in your code

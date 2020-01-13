@@ -1,4 +1,3 @@
-export { default as useCallbackRef } from './useCallbackRef';
 export { default as useDidMount } from './useDidMount';
 export { default as useWillUnmount } from './useWillUnmount';
 export { default as useLifecycle } from './useLifecycle';
@@ -20,3 +19,5 @@ export { default as useMediaQuery } from './useMediaQuery';
 export { default as useValueHistory } from './useValueHistory';
 export { default as useOnlineState } from './useOnlineState';
 export { default as useViewportSpy } from './useViewportSpy';
+export { default as useDragEvents } from './useDragEvents';
+export { default as useDrag } from './useDrag';

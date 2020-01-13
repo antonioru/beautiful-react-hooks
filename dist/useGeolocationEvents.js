@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _react = require("react");
 
-var _useCallbackRef5 = _interopRequireDefault(require("./useCallbackRef"));
+var _createHandlerSetter5 = _interopRequireDefault(require("./utils/createHandlerSetter"));
 
 var _createCbSetterErrorProxy = _interopRequireDefault(require("./utils/createCbSetterErrorProxy"));
 
@@ -27,27 +27,27 @@ var useGeolocationEvents = function useGeolocationEvents() {
   var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _geolocationStandardOptions["default"];
   var watchId = (0, _react.useRef)();
 
-  var _useCallbackRef = (0, _useCallbackRef5["default"])(),
-      _useCallbackRef2 = _slicedToArray(_useCallbackRef, 2),
-      onChangeRef = _useCallbackRef2[0],
-      setOnChangeRef = _useCallbackRef2[1];
+  var _createHandlerSetter = (0, _createHandlerSetter5["default"])(),
+      _createHandlerSetter2 = _slicedToArray(_createHandlerSetter, 2),
+      onChangeRef = _createHandlerSetter2[0],
+      setOnChangeRef = _createHandlerSetter2[1];
 
-  var _useCallbackRef3 = (0, _useCallbackRef5["default"])(),
-      _useCallbackRef4 = _slicedToArray(_useCallbackRef3, 2),
-      onErrorRef = _useCallbackRef4[0],
-      setOnErrorRef = _useCallbackRef4[1];
+  var _createHandlerSetter3 = (0, _createHandlerSetter5["default"])(),
+      _createHandlerSetter4 = _slicedToArray(_createHandlerSetter3, 2),
+      onErrorRef = _createHandlerSetter4[0],
+      setOnErrorRef = _createHandlerSetter4[1];
 
   var isSupported = 'geolocation' in window.navigator;
   (0, _react.useEffect)(function () {
-    var onSuccess = function onSuccess() {
+    var onSuccess = function onSuccess(successEvent) {
       if (onChangeRef.current) {
-        onChangeRef.current.apply(onChangeRef, arguments);
+        onChangeRef.current(successEvent);
       }
     };
 
-    var onError = function onError() {
+    var onError = function onError(err) {
       if (onErrorRef.current) {
-        onErrorRef.current.apply(onErrorRef, arguments);
+        onErrorRef.current(err);
       }
     };
 

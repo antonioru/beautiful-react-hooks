@@ -68,7 +68,7 @@ const PositionReporter = () => {
 <PositionReporter />
 ```
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  

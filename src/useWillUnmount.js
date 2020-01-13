@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import useCallbackRef from './useCallbackRef';
+import createHandlerSetter from './utils/createHandlerSetter';
 
 /**
  * Returns a callback setter for a callback to be performed when the component will unmount.
  */
 const useWillUnmount = (handler) => {
-  const [onUnmountHandler, setOnUnmount] = useCallbackRef(handler);
+  const [onUnmountHandler, setOnUnmount] = createHandlerSetter(handler);
 
   useEffect(() => () => {
     if (onUnmountHandler.current) {

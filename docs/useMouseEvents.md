@@ -1,13 +1,13 @@
 # useMouseEvents 
 
-Returns an object of callback setters to handle the mouse events.
+Returns an object of handler setters to handle the mouse events.
 It accepts a DOM ref representing the events target (where attach the events to).
 
 If a target is not provided the events will be globally attached to the `document` object.
 
-Returned callback setters: `onMouseDown`, `onMouseEnter`, `onMouseLeave`, `onMouseMove`, `onMouseOut`, `onMouseOver`, `onMouseUp`;
+Returned handler setters: `onMouseDown`, `onMouseEnter`, `onMouseLeave`, `onMouseMove`, `onMouseOut`, `onMouseOver`, `onMouseUp`;
 
-**Please note:** the returned callback setters should invoked immediately in the function component's body, do not try to
+**Please note:** the returned handler setters should invoked immediately in the function component's body, do not try to
 call this functions asynchronously.
 
 ### Why? 💡
@@ -55,7 +55,6 @@ const MyComponent = () => {
 
 Avoid providing any argument to `useMouseEvents`
 
-
 ```jsx harmony
 import { useState } from 'react';
 import { useMouseEvents } from 'beautiful-react-hooks'; 
@@ -80,7 +79,7 @@ const MyComponent = () => {
 <MyComponent />
 ```
 
-### Mastering the hooks
+### Mastering the hook
 
 #### ✅ When to use
  
@@ -88,9 +87,9 @@ const MyComponent = () => {
 
 #### 🛑 What not to do
 
-- You can't use the returned callback setter asynchronously, it will not have any effect but changing the callback 
+- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler 
  possibly leading to bugs in your code.
-- Absolutely avoid using `useMouseEvents` callback setters to replace the standard mouse handler props. 
+- Absolutely avoid using `useMouseEvents` handler setters to replace the standard mouse handler props. 
 -  `useMouseEvents` is meant to be used to abstract more complex hooks that need to control the mouse, for example: a drag n drop hook.
 - Using `useMouseEvents` handlers instead of the classic props approach it's just as bad as it sounds since you'll
 lose the React SyntheticEvent performance boost.<br />
