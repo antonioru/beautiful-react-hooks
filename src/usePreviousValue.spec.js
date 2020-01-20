@@ -10,9 +10,8 @@ describe('usePreviousValue', () => {
     sinon.restore();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(usePreviousValue).to.be.a('function');
-    expect(usePreviousValue.prototype).to.be.empty;
   });
 
   it('should return undefined after the first render', () => {

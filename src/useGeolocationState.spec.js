@@ -19,9 +19,8 @@ describe('useGeolocationState', () => {
     delete window.navigator.geolocation;
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useGeolocationState).to.be.a('function');
-    expect(useGeolocationState.prototype).to.be.empty;
   });
 
   it('should return a frozen object containing information about the current position', () => {

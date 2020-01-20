@@ -4,9 +4,8 @@ import useValueHistory from './useValueHistory';
 describe('useValueHistory', () => {
   beforeEach(cleanup);
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useValueHistory).to.be.a('function');
-    expect(useValueHistory.prototype).to.be.empty;
   });
 
   it('should return an array', () => {

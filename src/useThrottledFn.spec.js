@@ -12,9 +12,8 @@ describe('useThrottledFn', () => {
     sinon.restore();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useThrottledFn).to.be.a('function');
-    expect(useThrottledFn.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {

@@ -13,9 +13,8 @@ describe('useViewportSpy', () => {
     delete global.IntersectionObserver;
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useViewportSpy).to.be.a('function');
-    expect(useViewportSpy.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {

@@ -11,9 +11,8 @@ describe('useInterval', () => {
     sinon.restore();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useInterval).to.be.a('function');
-    expect(useInterval.prototype).to.be.empty;
   });
 
   it('should return an array, the first item is the interval state whilst the second its clearing method', () => {

@@ -9,9 +9,8 @@ describe('useWillUnmount', () => {
     cleanupReact();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useWillUnmount).to.be.a('function');
-    expect(useWillUnmount.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {

@@ -4,9 +4,8 @@ import createHandlerSetter from './createHandlerSetter';
 describe('createHandlerSetter', () => {
   beforeEach(cleanup);
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(createHandlerSetter).to.be.a('function');
-    expect(createHandlerSetter.prototype).to.be.empty;
   });
 
   it('should return an array of 2 elements', () => {

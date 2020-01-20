@@ -295,8 +295,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - event handlers uses the right parameters and avoid using (...args)
 - `useCallbackRef` has been reverted to an internal utility
 
-## [0.18.1] - 2020-01-14
+## [0.18.2] - 2020-01-14
 
 ### Fixed
 
 - Build removed from the source package
+
+## [0.18.1] - 2020-01-20
+
+### Fixed
+
+- useOnlineState returns true when the device does not support the `online/offline` state assuming the app is already 
+online
+- Improved test

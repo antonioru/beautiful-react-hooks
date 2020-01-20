@@ -19,9 +19,8 @@ describe('useGeolocationEvents', () => {
     delete window.navigator.geolocation;
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useGeolocationEvents).to.be.a('function');
-    expect(useGeolocationEvents.prototype).to.be.empty;
   });
 
   it('should return an object of geolocation-related callback setters', () => {

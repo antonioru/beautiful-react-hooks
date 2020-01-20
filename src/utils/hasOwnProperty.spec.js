@@ -1,9 +1,8 @@
 import hasOwnProperty from './hasOwnProperty';
 
 describe('hasOwnProperty utility', () => {
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(hasOwnProperty).to.be.a('function');
-    expect(hasOwnProperty.prototype).to.be.empty;
   });
 
   it('should return false if nothing is provided', () => {

@@ -4,9 +4,8 @@ import useMouseState from './useMouseState';
 describe('useMouseState', () => {
   beforeEach(cleanup);
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useMouseState).to.be.a('function');
-    expect(useMouseState.prototype).to.be.empty;
   });
 
   it('should return a mouse coordinates reporting object', () => {

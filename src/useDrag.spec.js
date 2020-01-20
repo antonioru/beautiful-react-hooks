@@ -4,9 +4,8 @@ import useDrag from './useDrag';
 describe('useDrag', () => {
   beforeEach(cleanup);
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useDrag).to.be.a('function');
-    expect(useDrag.prototype).to.be.empty;
   });
 
   it('should return an object the state of the current dragging element', () => {

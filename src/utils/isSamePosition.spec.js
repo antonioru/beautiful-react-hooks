@@ -2,9 +2,8 @@ import isSamePosition from './isSamePosition';
 import { positionMock } from '../../test/utils/GeoLocationApiMock';
 
 describe('isSamePosition utility', () => {
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(isSamePosition).to.be.a('function');
-    expect(isSamePosition.prototype).to.be.empty;
   });
 
   it('should return false if nothing is provided', () => {

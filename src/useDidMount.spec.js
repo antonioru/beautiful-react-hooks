@@ -10,9 +10,8 @@ describe('useDidMount', () => {
     sinon.restore();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useDidMount).to.be.a('function');
-    expect(useDidMount.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {

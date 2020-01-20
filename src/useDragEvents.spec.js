@@ -10,9 +10,8 @@ describe('useDragEvents', () => {
     sinon.reset();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useDragEvents).to.be.a('function');
-    expect(useDragEvents.prototype).to.be.empty;
   });
 
   it('should return an object of mouse-related callback setters', () => {

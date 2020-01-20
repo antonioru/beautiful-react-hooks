@@ -9,9 +9,8 @@ describe('useGlobalEvent', () => {
     cleanupHooks();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useGlobalEvent).to.be.a('function');
-    expect(useGlobalEvent.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {

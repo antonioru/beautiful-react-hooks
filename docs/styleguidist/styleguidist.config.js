@@ -48,7 +48,7 @@ module.exports = {
       ],
     },
   ],
-  require: [path.join(__dirname, 'setup.js')],
+  require: [path.join(__dirname, 'setup.js'), path.join(__dirname, 'custom.css')],
   // Override Styleguidist components
   styleguideComponents: {
     LogoRenderer: path.join(__dirname, 'CustomLogo'),

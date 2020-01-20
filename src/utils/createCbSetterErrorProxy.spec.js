@@ -1,9 +1,8 @@
 import createCbSetterErrorProxy from './createCbSetterErrorProxy';
 
 describe('createCbSetterErrorProxy utility', () => {
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(createCbSetterErrorProxy).to.be.a('function');
-    expect(createCbSetterErrorProxy.prototype).to.be.empty;
   });
 
   it('should return a Proxy instance', () => {

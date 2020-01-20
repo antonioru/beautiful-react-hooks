@@ -11,9 +11,8 @@ describe('useTimeout', () => {
     sinon.restore();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useTimeout).to.be.a('function');
-    expect(useTimeout.prototype).to.be.empty;
   });
 
   it('should return an array, the first item is the timeout state whilst the second its clearing method', () => {

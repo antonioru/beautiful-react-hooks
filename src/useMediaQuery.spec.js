@@ -15,9 +15,8 @@ describe('useMediaQuery', () => {
 
   beforeEach(cleanup);
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useMediaQuery).to.be.a('function');
-    expect(useMediaQuery.prototype).to.be.empty;
   });
 
   it('should return a boolean value', () => {

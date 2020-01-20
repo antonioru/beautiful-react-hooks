@@ -9,9 +9,8 @@ describe('useWindowScroll', () => {
     cleanupHooks();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useWindowScroll).to.be.a('function');
-    expect(useWindowScroll.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {

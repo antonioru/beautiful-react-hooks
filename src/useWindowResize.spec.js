@@ -9,9 +9,8 @@ describe('useWindowResize', () => {
     cleanupHooks();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useWindowResize).to.be.a('function');
-    expect(useWindowResize.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {

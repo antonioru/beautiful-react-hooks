@@ -2,9 +2,8 @@ import makePositionObject from './makePositionObject';
 import { positionMock } from '../../test/utils/GeoLocationApiMock';
 
 describe('makePositionObject utility', () => {
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(makePositionObject).to.be.a('function');
-    expect(makePositionObject.prototype).to.be.empty;
   });
 
   it('should return null if nothing is provided', () => {

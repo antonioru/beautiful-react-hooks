@@ -12,9 +12,8 @@ describe('useDebouncedFn', () => {
     sinon.restore();
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useDebouncedFn).to.be.a('function');
-    expect(useDebouncedFn.prototype).to.be.empty;
   });
 
   it('should return a single function', () => {

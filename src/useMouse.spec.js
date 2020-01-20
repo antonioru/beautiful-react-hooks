@@ -4,9 +4,8 @@ import useMouse from './useMouse';
 describe('useMouse', () => {
   beforeEach(cleanup);
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useMouse).to.be.a('function');
-    expect(useMouse.prototype).to.be.empty;
   });
 
   it('should return an array where the first item is a mouse state and the second a group of setters', () => {

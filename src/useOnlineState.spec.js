@@ -8,9 +8,8 @@ describe('useOnlineState', () => {
     window.ononline = null;
   });
 
-  it('should be an arrow function', () => {
+  it('should be a function', () => {
     expect(useOnlineState).to.be.a('function');
-    expect(useOnlineState.prototype).to.be.empty;
   });
 
   it('should return a boolean value', () => {
