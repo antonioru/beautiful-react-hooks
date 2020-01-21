@@ -8,7 +8,7 @@ const defaultOptions = {
 
 /**
  * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then delays the
- * execution of the given function by the defined time.
+ * execution of the given function by the defined time from when the condition verifies.
  */
 const useConditionalTimeout = (fn, milliseconds, condition, options = defaultOptions) => {
   const opts = { ...defaultOptions, ...(options || {}) };
