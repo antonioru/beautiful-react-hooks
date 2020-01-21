@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.18.2",
+  "version": "0.19.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "dist/index.js",
   "scripts": {
@@ -70,6 +70,8 @@
     "jsdom-global": "^3.0.2",
     "mocha": "^6.2.2",
     "nyc": "^15.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-styleguidist": "^10.3.2",
     "react-test-renderer": "^16.12.0",
     "sinon": "^8.0.2",
