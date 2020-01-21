@@ -168,6 +168,11 @@ export declare const useThrottledFn: (fn: Function, wait?: number, options?: Thr
 export declare const useTimeout: (fn: Function, milliseconds: number, options?: TimeoutOrIntervalOpts) => [boolean, EffectCallback];
 
 /**
+ * useConditionalTimeout
+ */
+export declare const useConditionalTimeout: (fn: Function, milliseconds: number, condition: boolean, options?: TimeoutOrIntervalOpts) => [boolean, EffectCallback];
+
+/**
  * useValueHistory
  */
 export declare const useValueHistory: (value: any) => Array<any>;

@@ -318,3 +318,9 @@ online
 ### Fixed
 
 - adding react and react-dom as dev-dependencies
+
+## [0.19.1] - 2020-01-21
+
+### Fixed
+
+- adding types for useConditionalTimeout
