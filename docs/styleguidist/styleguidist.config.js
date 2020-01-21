@@ -42,6 +42,7 @@ module.exports = {
         { name: 'useWindowResize', content: '../useWindowResize.md' },
         { name: 'useWindowScroll', content: '../useWindowScroll.md' },
         { name: 'useTimeout', content: '../useTimeout.md' },
+        { name: 'useConditionalTimeout', content: '../useConditionalTimeout.md' },
         { name: 'useInterval', content: '../useInterval.md' },
         { name: 'useDebouncedFn', content: '../useDebouncedFn.md' },
         { name: 'useThrottledFn', content: '../useThrottledFn.md' },

@@ -9,6 +9,7 @@ export { default as useMouse } from './useMouse';
 export { default as useMouseEvents } from './useMouseEvents';
 export { default as useMouseState } from './useMouseState';
 export { default as useTimeout } from './useTimeout';
+export { default as useConditionalTimeout } from './useConditionalTimeout';
 export { default as useInterval } from './useInterval';
 export { default as useGlobalEvent } from './useGlobalEvent';
 export { default as usePreviousValue } from './usePreviousValue';
