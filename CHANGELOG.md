@@ -324,3 +324,9 @@ online
 ### Fixed
 
 - adding types for useConditionalTimeout
+
+## [0.19.2] - 2020-01-22
+
+### Fixed
+
+- Updated typings for cancelable functions. Updated docs.

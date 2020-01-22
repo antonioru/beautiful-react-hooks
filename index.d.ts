@@ -1,4 +1,5 @@
 import { MutableRefObject, EffectCallback, DependencyList } from 'react';
+import { Cancelable } from 'lodash';
 
 type ThrottleOrDebounceOpts = {
   leading: boolean,
@@ -20,7 +21,7 @@ type HandlerSetter = (...parameters: Array<any>) => unknown;
 /**
  * useDebouncedFn
  */
-export declare const useDebouncedFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => EffectCallback;
+export declare const useDebouncedFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => Cancelable;
 
 /**
  * useDidMount
@@ -160,7 +161,7 @@ export declare const usePreviousValue: (value: any) => any;
 /**
  * useThrottledFn
  */
-export declare const useThrottledFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => EffectCallback;
+export declare const useThrottledFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => Cancelable;
 
 /**
  * useTimeout
