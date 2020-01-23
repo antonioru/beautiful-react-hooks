@@ -1,5 +1,4 @@
 import { MutableRefObject, EffectCallback, DependencyList } from 'react';
-import { Cancelable } from 'lodash';
 
 type ThrottleOrDebounceOpts = {
   leading: boolean,
@@ -17,6 +16,11 @@ type EventListenerOptions = {
 }
 
 type HandlerSetter = (...parameters: Array<any>) => unknown;
+
+type Cancelable = {
+  cancel(): void;
+  flush(): void;
+}
 
 /**
  * useDebouncedFn
