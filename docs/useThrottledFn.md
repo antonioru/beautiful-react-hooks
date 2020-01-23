@@ -13,7 +13,7 @@ is performing
 ## Basic Usage
 
 ```jsx harmony
-import { useState } from 'react'; 
+import { useEffect, useState } from 'react'; 
 import { useWindowResize, useThrottledFn } from 'beautiful-react-hooks'; 
 
 const ThrottledFnComponent = () => {
@@ -28,6 +28,11 @@ const ThrottledFnComponent = () => {
    }, 250);
    
    useWindowResize(onWindowResizeHandler);
+   useEffect(() => {
+     // do something
+     // don't forget to cancel debounced
+     return () => onWindowResizeHandler.cancel(); // or .flush()
+   });
       
    return (
      <DisplayDemo>

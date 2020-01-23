@@ -17,10 +17,15 @@ type EventListenerOptions = {
 
 type HandlerSetter = (...parameters: Array<any>) => unknown;
 
+type Cancelable = {
+  cancel(): void;
+  flush(): void;
+}
+
 /**
  * useDebouncedFn
  */
-export declare const useDebouncedFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => EffectCallback;
+export declare const useDebouncedFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => Cancelable;
 
 /**
  * useDidMount
@@ -160,7 +165,7 @@ export declare const usePreviousValue: (value: any) => any;
 /**
  * useThrottledFn
  */
-export declare const useThrottledFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => EffectCallback;
+export declare const useThrottledFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => Cancelable;
 
 /**
  * useTimeout

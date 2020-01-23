@@ -14,7 +14,7 @@ is performing
 ## Basic Usage
 
 ```jsx harmony
-import { useState } from 'react'; 
+import { useEffect, useState } from 'react'; 
 import { useWindowResize, useDebouncedFn } from 'beautiful-react-hooks'; 
 
 const DebouncedFnComponent = () => {
@@ -29,6 +29,11 @@ const DebouncedFnComponent = () => {
    }, 250);
    
    useWindowResize(onWindowResizeHandler);
+   useEffect(() => {
+     // do something
+     // don't forget to cancel debounced
+     return () => onWindowResizeHandler.cancel(); // or .flush()
+   });
       
    return (
      <DisplayDemo>
