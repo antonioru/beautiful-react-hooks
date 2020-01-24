@@ -31,11 +31,11 @@
 ## 💡 Why? 
 
 React custom hooks allow to abstract components' business logic into single reusable functions.<br />
-So far, I've found that most of the hooks I've created and therefore shared between my projects have quite often a 
+So far, we've found that most of the hooks we've created and therefore shared between our internal projects have quite often a 
 similar gist that involves callback references, events and components' lifecycle. <br />
-For this reason I've tried to sum up that gist into `beautiful-react-hooks`: a collection of (*hopefully*) useful 
-React hooks to possibly help other developers to speed up their development process.<br /><br />
-Furthermore, I've tried to create a concise yet concrete API having in mind the code readability, focusing 
+For this reason we've tried to sum up that gist into `beautiful-react-hooks`: a collection of (*hopefully*) useful 
+React hooks to possibly help other companies and professionals to speed up their development process.<br /><br />
+Furthermore, we created a concise yet concrete API having in mind the code readability, focusing 
 to keep the learning curve as lower as possible so that the it can be used and shared in bigger teams.
 
 
