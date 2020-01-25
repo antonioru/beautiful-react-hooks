@@ -1,13 +1,13 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.19.2",
+  "version": "0.19.3",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint --ext .js src/",
-    "build-js": "NODE_ENV=production gulp -f ./scripts/build.js",
+    "build-js": "cross-env NODE_ENV=production gulp -f ./scripts/build.js",
     "build": "npm run build-js && npm run docs",
-    "test": "NODE_ENV=test nyc mocha --exit",
+    "test": "cross-env NODE_ENV=test nyc mocha --exit",
     "test:watch": "npm run test -- --watch",
     "start": "npx styleguidist server --config docs/styleguidist/styleguidist.config.js --open",
     "docs": "npx styleguidist build --config docs/styleguidist/styleguidist.config.js"
@@ -51,6 +51,7 @@
     "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-transform-require-ignore": "^0.1.1",
     "chai": "^4.2.0",
+    "cross-env": "6.0.3",
     "css-loader": "^3.4.2",
     "del": "^5.1.0",
     "eslint": "^6.8.0",
