@@ -331,8 +331,16 @@ online
 
 - Updated typings for cancelable functions. Updated docs.
 
+
 ## [0.19.3] - 2020-01-25
 
 ### Added
 
 - Support windows. Add .npmrc for saving exact version of dependencies
+
+## [0.19.4] - 2020-01-25
+
+### Fixed
+
+- Updating dependencies
+- Improving documentation by using `beautiful-react-ui` components
