@@ -330,3 +330,9 @@ online
 ### Fixed
 
 - Updated typings for cancelable functions. Updated docs.
+
+## [0.19.3] - 2020-01-25
+
+### Added
+
+- Support windows. Add .npmrc for saving exact version of dependencies
