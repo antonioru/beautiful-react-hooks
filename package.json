@@ -31,8 +31,8 @@
   },
   "homepage": "https://beautifulinteractions.github.io/beautiful-react-hooks/",
   "dependencies": {
-    "lodash.debounce": "4.0.8",
-    "lodash.throttle": "4.1.1"
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
