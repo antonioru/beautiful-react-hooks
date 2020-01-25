@@ -1,14 +1,18 @@
-## Installation
+# Getting started
 
-As simple as the follow:
 
-by using `npm`:
+Using `npm`:
 ```bash
-$ npm install beautiful-react-hooks
+$ npm i --save beautiful-react-hooks
 ```
 
-by using `yarn`:
-
+Using `yarn`:
 ```bash 
 $ yarn add beautiful-react-hooks
+```
+
+then just import any hook described by the documentation in your React component file:
+
+```js
+import { useSomeHook } from 'beautiful-react-hooks';
 ```

@@ -6,19 +6,18 @@ const SidebarItem = (props) => {
 
   return (
     <>
-      {visibleName === 'Hooks' && <Sidebar.Divider />}
       <Sidebar.Item text={visibleName} current={selected} to={href} />
-      {visibleName === 'Customise' && <Sidebar.Divider />}
+      {visibleName === 'Installation' && <Sidebar.Divider />}
     </>
   );
 };
 
 const SidebarCollapsible = (props) => {
-  const { visibleName, selected, components, href } = props;
+  const { visibleName, selected, sections, href } = props;
 
   return (
     <Sidebar.Collapsible text={visibleName} current={selected}>
-      {components.map((compProps) => (
+      {sections.map((compProps) => (
         <SidebarItem
           {...compProps}
           href={`${href}/${compProps.name}`}
