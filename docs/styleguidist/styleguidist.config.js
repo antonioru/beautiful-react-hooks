@@ -52,7 +52,11 @@ module.exports = {
   require: [path.join(__dirname, 'setup.js'), path.join(__dirname, 'custom.css')],
   // Override Styleguidist components
   styleguideComponents: {
-    LogoRenderer: path.join(__dirname, 'CustomLogo'),
+    LogoRenderer: path.join(__dirname, 'EmptyComponent'),
+    PathlineRenderer: path.join(__dirname, 'EmptyComponent'),
+    ToolbarButtonRenderer: path.join(__dirname, 'EmptyComponent'),
+    TableOfContentsRenderer: path.join(__dirname, 'CustomSidebar'),
+    ComponentsListRenderer: path.join(__dirname, 'CustomComponentListRenderer'),
   },
   ...theme,
 };
