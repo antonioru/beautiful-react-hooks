@@ -20,5 +20,6 @@ export { default as useMediaQuery } from './useMediaQuery';
 export { default as useValueHistory } from './useValueHistory';
 export { default as useOnlineState } from './useOnlineState';
 export { default as useViewportSpy } from './useViewportSpy';
+export { default as useValidatedState } from './useValidatedState';
 export { default as useDragEvents } from './useDragEvents';
 export { default as useDrag } from './useDrag';

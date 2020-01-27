@@ -344,3 +344,9 @@ online
 
 - Updating dependencies
 - Improving documentation by using `beautiful-react-ui` components
+
+## [0.20.0] - 2020-01-27
+
+### Added
+
+- useValidatedState hook & tests

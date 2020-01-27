@@ -24,6 +24,7 @@ module.exports = {
     { name: 'useMediaQuery', content: '../useMediaQuery.md' },
     { name: 'useOnlineState', content: '../useOnlineState.md' },
     { name: 'useViewportSpy', content: '../useViewportSpy.md' },
+    { name: 'useValidatedState', content: '../useValidatedState.md' },
     { name: 'useGeolocation', content: '../useGeolocation.md' },
     { name: 'useGeolocationState', content: '../useGeolocationState.md' },
     { name: 'useGeolocationEvents', content: '../useGeolocationEvents.md' },

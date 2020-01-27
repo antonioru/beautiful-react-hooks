@@ -1,4 +1,4 @@
-import { MutableRefObject, EffectCallback, DependencyList } from 'react';
+import {MutableRefObject, EffectCallback, DependencyList, Dispatch, SetStateAction} from 'react';
 
 type ThrottleOrDebounceOpts = {
   leading: boolean,
@@ -94,9 +94,19 @@ export declare const useMediaQuery: (mediaQuery: string) => boolean;
 export declare const useOnlineState: () => boolean;
 
 /**
- * useOnlineState
+ * useViewportSpy
  */
 export declare const useViewportSpy: (elementRef: MutableRefObject<HTMLElement>, options?: IntersectionObserverInit) => boolean;
+
+/**
+ * useValidatedState
+ */
+export declare const useValidatedState: (validator: Function, initialState?: any) => [
+  any,
+  Dispatch<SetStateAction<any>>,
+  { changed: boolean, valid: boolean }
+];
+
 
 /**
  * useDrag
