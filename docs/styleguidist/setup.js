@@ -1,6 +1,6 @@
 const React = require('react');
 
-const style = {
+const defaultStyle = {
   background: '#FDFEFD',
   width: '250px',
   padding: '20px',
@@ -9,4 +9,6 @@ const style = {
   margin: '10px auto',
 };
 
-const DisplayDemo = window.DisplayDemo = (props) => React.createElement('div', { style }, props.children);
+const DisplayDemo = window.DisplayDemo = ({ style, ...props }) => (
+  React.createElement('div', { style: { ...defaultStyle, ...style } }, props.children)
+);
