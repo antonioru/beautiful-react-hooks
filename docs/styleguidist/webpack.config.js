@@ -19,6 +19,8 @@ module.exports = {
     hot: false,
     liveReload: true,
     watchContentBase: true,
+    host: '0.0.0.0', 
+    disableHostCheck: true
   },
   module: {
     rules: [

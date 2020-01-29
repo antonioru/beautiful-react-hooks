@@ -1,3 +1,4 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/beautifulinteractions/beautiful-react-hooks) 
 [![Build Status](https://travis-ci.org/beautifulinteractions/beautiful-react-hooks.svg?branch=master)](https://travis-ci.org/beautifulinteractions/beautiful-react-hooks)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![npm](https://img.shields.io/npm/v/beautiful-react-hooks)
@@ -110,6 +111,12 @@ To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONT
 3. make sure you run `npm test` and `npm build` before submitting your merge request.
 4. make sure you've added the documentation of your custom hook (*you can possibly use the [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) to document your custom hook*).
 5. make sure you've updated the `index.d.ts` file with your hook types.
+
+## Contribute with one-click online setup
+
+You can use gitpod(a free online vs code like ide) with a single click it will launch a ready to code workspace with all the dependencies pre-installed and the web server running so that you can start coding straight away without wasting time on the setup.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/beautifulinteractions/beautiful-react-hooks/)
 
 ### Made with
 
