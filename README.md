@@ -75,6 +75,7 @@ $ yarn add beautiful-react-hooks
 * [useGlobalEvent](docs/useGlobalEvent.md)
 * [usePreviousValue](docs/usePreviousValue.md)
 * [useValueHistory](docs/useValueHistory.md)
+* [useValidatedState](docs/useValidatedState.md)
 * [useMediaQuery](docs/useMediaQuery.md)
 * [useOnlineState](docs/useOnlineState.md)
 * [useViewportSpy](docs/useViewportSpy.md)

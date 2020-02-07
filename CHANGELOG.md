@@ -350,3 +350,11 @@ online
 ### Added
 
 - useValidatedState hook & tests
+
+## [0.20.1] - 2020-01-27
+
+### Fixed
+
+- Adding useValidatedState into README.md
+- Rewriting README.md
+- Moved beautiful-react-ui from dependencies to dev-dependencies

@@ -15,6 +15,7 @@ is performing
 
 ```jsx harmony
 import { useEffect, useState } from 'react'; 
+import { Paragraph } from 'beautiful-react-ui';
 import { useWindowResize, useDebouncedFn } from 'beautiful-react-hooks'; 
 
 const DebouncedFnComponent = () => {
@@ -37,8 +38,8 @@ const DebouncedFnComponent = () => {
       
    return (
      <DisplayDemo>
-       <p>window width: {width}</p>
-       <p>window height: {height}</p>
+       <Paragraph>window width: <strong>{width}</strong></Paragraph>
+       <Paragraph>window height: <strong>{height}</strong></Paragraph>
      </DisplayDemo>
    );
 };
@@ -53,6 +54,7 @@ under the hood, you can possibly define few options to customise its behaviour.
 
 ```jsx harmony
 import { useState } from 'react'; 
+import { Paragraph } from 'beautiful-react-ui';
 import { useWindowResize, useDebouncedFn } from 'beautiful-react-hooks'; 
 
 const DebouncedFnComponent = () => {
@@ -74,8 +76,8 @@ const DebouncedFnComponent = () => {
       
    return (
      <DisplayDemo>
-       <p>window width: {width}</p>
-       <p>window height: {height}</p>
+       <Paragraph>window width: {width}</Paragraph>
+       <Paragraph>window height: {height}</Paragraph>
      </DisplayDemo>
    );
 };
@@ -90,6 +92,7 @@ under the hood, you can possibly define the callback dependencies.
 
 ```jsx harmony
 import { useState } from 'react'; 
+import { Paragraph } from 'beautiful-react-ui';
 import { useWindowResize, useDebouncedFn } from 'beautiful-react-hooks'; 
 
 const DebouncedFnComponent = (props) => {
@@ -108,8 +111,8 @@ const DebouncedFnComponent = (props) => {
       
    return (
      <DisplayDemo>
-       <p>window width: {width}</p>
-       <p>window height: {height}</p>
+       <Paragraph>window width: {width}</Paragraph>
+       <Paragraph>window height: {height}</Paragraph>
      </DisplayDemo>
    );
 };

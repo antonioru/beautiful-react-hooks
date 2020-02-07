@@ -1,0 +1,8 @@
+{
+  "require": [
+    "@babel/register",
+    "@babel/polyfill",
+    "jsdom-global/register",
+    "./test/setup.js"
+  ]
+}
