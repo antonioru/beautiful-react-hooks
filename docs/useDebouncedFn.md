@@ -11,7 +11,7 @@ If time is not defined, its default value will be 100ms.
 is performing
 - when we attaching listeners to a DOM event.
 
-## Basic Usage
+### Basic Usage
 
 ```jsx harmony
 import { useEffect, useState } from 'react'; 
@@ -47,7 +47,7 @@ const DebouncedFnComponent = () => {
 <DebouncedFnComponent />
 ```
 
-## Options
+### Options
 
 Since `useDebouncedFn` uses [lodash.throttle](https://www.npmjs.com/package/lodash.throttle) 
 under the hood, you can possibly define few options to customise its behaviour.
@@ -85,7 +85,7 @@ const DebouncedFnComponent = () => {
 <DebouncedFnComponent />
 ```
 
-## Dependencies
+### Dependencies
 
 Since `useDebouncedFn` uses [useCallback](https://reactjs.org/docs/hooks-reference.html#usecallback) 
 under the hood, you can possibly define the callback dependencies.

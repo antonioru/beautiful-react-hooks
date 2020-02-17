@@ -207,3 +207,11 @@ export declare const useWindowResize: (handler: Function) => HandlerSetter;
  * useWindowScroll
  */
 export declare const useWindowScroll: (handler: Function) => HandlerSetter;
+
+/**
+ * useRequestAnimationFrame
+ */
+
+type UseRequestAnimationFrameOptions = { increment: number, startAt: number, finishAt: number };
+
+export declare const useRequestAnimationFrame: (func: Function, options?: UseRequestAnimationFrameOptions) => HandlerSetter;

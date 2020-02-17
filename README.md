@@ -85,6 +85,7 @@ $ yarn add beautiful-react-hooks
 * [useLifecycle](docs/useLifecycle.md), [useDidMount](docs/useDidMount.md) and [useWillUnmount](docs/useWillUnmount.md)
 * [useWindowResize](docs/useWindowResize.md)
 * [useWindowScroll](docs/useWindowScroll.md)
+* [useRequestAnimationFrame](docs/useRequestAnimationFrame.md)
 * [useTimeout](docs/useTimeout.md)
 * [useConditionalTimeout](docs/useConditionalTimeout.md)
 * [useInterval](docs/useInterval.md)
@@ -133,7 +134,7 @@ This library is provided and sponsored by:
   </p>
 </div>
 
-As part of our commitment to support and provide the open source community.
+As part of our commitment to support and contribute to the open source community.
 
 ---
 
