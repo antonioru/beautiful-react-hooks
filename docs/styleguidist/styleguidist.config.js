@@ -38,6 +38,7 @@ module.exports = {
     { name: 'useWillUnMount', content: '../useWillUnmount.md' },
     { name: 'useWindowResize', content: '../useWindowResize.md' },
     { name: 'useWindowScroll', content: '../useWindowScroll.md' },
+    { name: 'useRequestAnimationFrame', content: '../useRequestAnimationFrame.md' },
     { name: 'useTimeout', content: '../useTimeout.md' },
     { name: 'useConditionalTimeout', content: '../useConditionalTimeout.md' },
     { name: 'useInterval', content: '../useInterval.md' },

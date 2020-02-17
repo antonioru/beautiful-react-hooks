@@ -358,3 +358,9 @@ online
 - Adding useValidatedState into README.md
 - Rewriting README.md
 - Moved beautiful-react-ui from dependencies to dev-dependencies
+
+## [0.21.0] - 2020-02-17
+
+### Added
+
+- useRequestAnimationFrame hook & tests
