@@ -10,7 +10,9 @@ import createCbSetterErrorProxy from './utils/createCbSetterErrorProxy';
  *
  */
 const useMediaQuery = (mediaQuery) => {
-  if (!('matchMedia' in window)) return createCbSetterErrorProxy('matchMedia is not supported');
+  if (typeof window === 'undefined' || !('matchMedia' in window)) {
+    return createCbSetterErrorProxy('matchMedia is not supported');
+  }
 
   const [isVerified, setIsVerified] = useState(!!window.matchMedia(mediaQuery).matches);
 

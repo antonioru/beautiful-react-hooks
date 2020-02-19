@@ -13,7 +13,7 @@ const useGeolocationEvents = (options = geolocationStandardOptions) => {
   const watchId = useRef();
   const [onChangeRef, setOnChangeRef] = createHandlerSetter();
   const [onErrorRef, setOnErrorRef] = createHandlerSetter();
-  const isSupported = 'geolocation' in window.navigator; // fixme: shall this be moved outside the hook?
+  const isSupported = typeof window !== 'undefined' && 'geolocation' in window.navigator;
 
   useEffect(() => {
     const onSuccess = (successEvent) => {
