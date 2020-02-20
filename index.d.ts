@@ -215,3 +215,8 @@ export declare const useWindowScroll: (handler: Function) => HandlerSetter;
 type UseRequestAnimationFrameOptions = { increment: number, startAt: number, finishAt: number };
 
 export declare const useRequestAnimationFrame: (func: Function, options?: UseRequestAnimationFrameOptions) => HandlerSetter;
+
+/**
+ * usePersistState
+ */
+export declare const usePersistState: (localStorageKey:any, defaultValue: any) => [any, HandlerSetter];

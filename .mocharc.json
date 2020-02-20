@@ -3,6 +3,7 @@
     "@babel/register",
     "@babel/polyfill",
     "jsdom-global/register",
+    " mock-local-storage",
     "./test/setup.js"
   ]
 }
