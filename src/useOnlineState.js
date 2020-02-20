@@ -10,7 +10,7 @@ const useOnlineState = () => {
    * If the browser doesn't support the `navigator.onLine` state, the hook will always return true
    * assuming the app is already online.
    */
-  const isSupported = 'ononline' in window;
+  const isSupported = typeof window !== 'undefined' && 'ononline' in window;
   const [isOnline, setIsOnline] = useState(isSupported ? navigator.onLine : true);
   const whenOnline = useGlobalEvent('online', { capture: true });
   const whenOffline = useGlobalEvent('offline', { capture: true });

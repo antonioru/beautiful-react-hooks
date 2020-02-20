@@ -364,3 +364,9 @@ online
 ### Added
 
 - useRequestAnimationFrame hook & tests
+
+## [0.21.1] - 2020-02-20
+
+### Fixed
+
+- Fix isSupported when window is not defined to allow SSR
