@@ -371,8 +371,8 @@ online
 
 - Fix isSupported when window is not defined to allow SSR
 
-## [0.21.2] - 2020-02-21
+## [0.22.0] - 2020-02-21
 
 ### Added
 
-- usePersistState hook & tests
+- useLocalStorage hook & tests & docs & types

@@ -24,4 +24,4 @@ export { default as useValidatedState } from './useValidatedState';
 export { default as useDragEvents } from './useDragEvents';
 export { default as useDrag } from './useDrag';
 export { default as useRequestAnimationFrame } from './useRequestAnimationFrame';
-export { default as usePersistState } from './usePersistState';
+export { default as useLocalStorage } from './useLocalStorage';

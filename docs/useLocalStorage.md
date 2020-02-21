@@ -1,19 +1,19 @@
-# usePersistState
+# useLocalStorage
 
-Your classic state hook with persisting. Uses the [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store state values. 
+A hook for storing data. Uses the [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to store values.
 
 ### 💡 Why?
 
-- Quick and alternative way to Redux-redux-persist workflow for persisting values.
+- Quick and alternative way to reading/storing data.
 
 ### Basic Usage:
 
 ```jsx harmony
-import { usePersistState } from 'beautiful-react-hooks'; 
+import { useLocalStorage } from 'beautiful-react-hooks'; 
 
 
 const YourExample = () => {
-  const [value, setValue] = usePersistState('StorageKey', 'defaultValue')
+  const [value, setValue] = useLocalStorage('StorageKey', 'defaultValue')
 
    const changeValueAndStoreIt = (v) => {
      // Sets the new value
@@ -32,15 +32,15 @@ const YourExample = () => {
 
 ### Use cases
 
-description of the use case
+At this case we want to create a kind of CRUD logic at client side.
 
 ```jsx harmony
 import React, { useEffect } from 'beautiful-react-hooks'; 
-import { usePersistState } from 'beautiful-react-hooks'; 
+import { useLocalStorage } from 'beautiful-react-hooks'; 
 
 
-const NotificationBadge = () => {
-   const [notificationCount, setNotificationCount] = usePersistState('notificationCount', 0)
+const NotificationBadge = ({ notification }) => {
+   const [notificationCount, setNotificationCount] = useLocalStorage('notificationCount', 0)
 
    // Your updating logic here
    const getNotificationCount = (count) => {
@@ -52,8 +52,8 @@ const NotificationBadge = () => {
   }
   
     useEffect(() => {
-      getNotificationCount(34)
-  }, [])
+      getNotificationCount(notification)
+  }, [notification])
 
 
   return (
@@ -63,7 +63,7 @@ const NotificationBadge = () => {
   )
 };
 
-<NotificationBadge />
+<NotificationBadge notification={34}/>
 ```
 
 ### Mastering the hooks
