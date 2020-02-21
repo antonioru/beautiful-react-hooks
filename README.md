@@ -91,6 +91,7 @@ $ yarn add beautiful-react-hooks
 * [useInterval](docs/useInterval.md)
 * [useDebouncedFn](docs/useDebouncedFn.md)
 * [useThrottledFn](docs/useThrottledFn.md)
+* [useLocalStorage](docs/useLocalStorage.md)
 
 <div>
   <p align="center">

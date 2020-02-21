@@ -370,3 +370,9 @@ online
 ### Fixed
 
 - Fix isSupported when window is not defined to allow SSR
+
+## [0.22.0] - 2020-02-21
+
+### Added
+
+- useLocalStorage hook & tests & docs & types
