@@ -7,8 +7,9 @@ describe('useLocalStorage', () => {
   beforeEach(() => {
     cleanupHooks();
     cleanupReact();
-    sinon.restore();
   });
+
+  afterEach(sinon.restore);
 
   it('should be a function', () => {
     expect(useLocalStorage).to.be.a('function');

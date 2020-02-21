@@ -1,16 +1,18 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import safelyParseJson from './utils/safelyParseJson';
 
-import safeParser from './utils/safeParser';
-
+/**
+ * Save a value on local storage
+ */
 const useLocalStorage = (localStorageKey, defaultValue) => {
-  const [value, setValue] = React.useState(
-    safeParser(
+  const [value, setValue] = useState(
+    safelyParseJson(
       window.localStorage.getItem(localStorageKey)
-        || JSON.stringify(defaultValue),
+      || JSON.stringify(defaultValue),
     ),
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.localStorage.setItem(localStorageKey, JSON.stringify(value));
   }, [localStorageKey, value]);
 

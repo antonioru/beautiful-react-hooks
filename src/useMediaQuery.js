@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
-import createCbSetterErrorProxy from './utils/createCbSetterErrorProxy';
+import isClient from './utils/isClient';
+import isAPISupported from './utils/isAPISupported';
+
+const errorMessage = 'matchMedia is not supported, this could happen both because window.matchMedia is not supported by'
+  + ' your current browser or you\'re using the useMediaQuery hook whilst server side rendering.';
 
 /**
  * Accepts a media query string then uses the
@@ -10,8 +14,10 @@ import createCbSetterErrorProxy from './utils/createCbSetterErrorProxy';
  *
  */
 const useMediaQuery = (mediaQuery) => {
-  if (typeof window === 'undefined' || !('matchMedia' in window)) {
-    return createCbSetterErrorProxy('matchMedia is not supported');
+  if (!isClient || !isAPISupported('matchMedia')) {
+    // eslint-disable-next-line no-console
+    console.warn(errorMessage);
+    return null;
   }
 
   const [isVerified, setIsVerified] = useState(!!window.matchMedia(mediaQuery).matches);

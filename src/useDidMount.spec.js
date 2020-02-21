@@ -7,8 +7,9 @@ describe('useDidMount', () => {
   beforeEach(() => {
     cleanupHooks();
     cleanupReact();
-    sinon.restore();
   });
+
+  afterEach(sinon.restore);
 
   it('should be a function', () => {
     expect(useDidMount).to.be.a('function');

@@ -7,8 +7,9 @@ describe('usePreviousValue', () => {
   beforeEach(() => {
     cleanupHooks();
     cleanupReact();
-    sinon.restore();
   });
+
+  afterEach(sinon.restore);
 
   it('should be a function', () => {
     expect(usePreviousValue).to.be.a('function');

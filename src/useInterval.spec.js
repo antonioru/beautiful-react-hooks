@@ -8,8 +8,9 @@ describe('useInterval', () => {
   beforeEach(() => {
     cleanupHooks();
     cleanupReact();
-    sinon.restore();
   });
+
+  afterEach(sinon.restore);
 
   it('should be a function', () => {
     expect(useInterval).to.be.a('function');

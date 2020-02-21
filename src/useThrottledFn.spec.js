@@ -9,8 +9,9 @@ describe('useThrottledFn', () => {
   beforeEach(() => {
     cleanupReact();
     cleanupHooks();
-    sinon.restore();
   });
+
+  afterEach(sinon.restore);
 
   it('should be a function', () => {
     expect(useThrottledFn).to.be.a('function');

@@ -8,8 +8,9 @@ describe('useConditionalTimeout', () => {
   beforeEach(() => {
     cleanupHooks();
     cleanupReact();
-    sinon.restore();
   });
+
+  afterEach(sinon.restore);
 
   it('should be a function', () => {
     expect(useConditionalTimeout).to.be.a('function');

@@ -14,6 +14,7 @@ describe('useMediaQuery', () => {
   };
 
   beforeEach(cleanup);
+  afterEach(sinon.restore);
 
   it('should be a function', () => {
     expect(useMediaQuery).to.be.a('function');
@@ -28,11 +29,11 @@ describe('useMediaQuery', () => {
     delete window.matchMedia;
   });
 
-  it('should return an error when the window.matchMedia API is not supported', () => {
+  it('should warn when the window.matchMedia API is not supported', () => {
+    const warnSpy = sinon.spy(console, 'warn');
     const { result } = renderHook(() => useMediaQuery('(min-width: 1024px)'));
 
-    expect(result.current).to.be.a('object');
-    expect(result.current.someProp).to.be.a('object').that.has.key('error');
-    expect(result.current.onSomething).to.be.a('function').that.throws;
+    expect(result.current).to.be.null;
+    expect(warnSpy.called).to.be.true;
   });
 });

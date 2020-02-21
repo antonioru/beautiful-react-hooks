@@ -376,3 +376,11 @@ online
 ### Added
 
 - useLocalStorage hook & tests & docs & types
+
+## [0.22.1] - 2020-02-21
+
+### Fixed
+
+- improving SSR check and window.* check before usage
+- adding SSR warning to `useRequestAnimationFrame`
+- improving `useLocalStorage` documentation

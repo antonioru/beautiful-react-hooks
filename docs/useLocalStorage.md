@@ -9,69 +9,37 @@ A hook for storing data. Uses the [Local Storage](https://developer.mozilla.org/
 ### Basic Usage:
 
 ```jsx harmony
+import React, { useCallback } from 'react'; 
+import { Pill, Paragraph, Icon } from 'beautiful-react-ui'; 
 import { useLocalStorage } from 'beautiful-react-hooks'; 
 
-
-const YourExample = () => {
-  const [value, setValue] = useLocalStorage('StorageKey', 'defaultValue')
-
-   const changeValueAndStoreIt = (v) => {
-     // Sets the new value
-       setValue('New Value is here')
-  }
+const NotificationBadgeExample = ({ notifications }) => {
+  const [notificationCount, setNotificationCount] = useLocalStorage('demo-notification-count', notifications);
   
-  return (
-    <YourComponent>
-      {value}
-    </YourComponent>
-  );
-};
-
-<YourExample />
-```
-
-### Use cases
-
-At this case we want to create a kind of CRUD logic at client side.
-
-```jsx harmony
-import React, { useEffect } from 'beautiful-react-hooks'; 
-import { useLocalStorage } from 'beautiful-react-hooks'; 
-
-
-const NotificationBadge = ({ notification }) => {
-   const [notificationCount, setNotificationCount] = useLocalStorage('notificationCount', 0)
-
-   // Your updating logic here
-   const getNotificationCount = (count) => {
-      setNotificationCount(count)
-  }
-
-   const clearNotificationCount = () => {
-      setNotificationCount(0)
-  }
-  
-    useEffect(() => {
-      getNotificationCount(notification)
-  }, [notification])
-
+  const clearNotifications = useCallback(() => {
+    setNotificationCount(0);
+  }, [notificationCount]);
 
   return (
-    <Badge onClick={() => clearNotificationCount()}>
-      {notificationCount}
-    </Badge>
+    <DisplayDemo>
+        <Paragraph>Click on the badge to clear from the local storage</Paragraph>
+        <Pill color="primary" onClick={clearNotifications}>
+          <Icon name="envelope" />
+          You've got {notificationCount} new messages
+        </Pill>
+    </DisplayDemo>
   )
 };
 
-<NotificationBadge notification={34}/>
+<NotificationBadgeExample notifications={100}/>
 ```
 
 ### Mastering the hooks
 
 #### ✅ When to use
  
-- Important state values you may want to save
+- When you need to get/save data from and to the local storage
 
 #### 🛑 When not to use
 
-- For storing large data
+- Do not use this hook as a state manager, the localStorage is meant to be used for small pieces of data

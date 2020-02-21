@@ -9,8 +9,9 @@ describe('useDebouncedFn', () => {
   beforeEach(() => {
     cleanupReact();
     cleanupHooks();
-    sinon.restore();
   });
+
+  afterEach(sinon.restore);
 
   it('should be a function', () => {
     expect(useDebouncedFn).to.be.a('function');

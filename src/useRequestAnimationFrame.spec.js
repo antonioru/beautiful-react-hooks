@@ -8,11 +8,12 @@ describe('useRequestAnimationFrame', () => {
   beforeEach(() => {
     cleanupReact();
     cleanupHooks();
-    sinon.restore();
     if (window.requestAnimationFrame) {
       window.requestAnimationFrame = (fn) => fn();
     }
   });
+
+  afterEach(sinon.restore);
 
   it('should be a function', () => {
     expect(useRequestAnimationFrame).to.be.a('function');
