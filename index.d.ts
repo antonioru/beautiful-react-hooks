@@ -217,6 +217,6 @@ type UseRequestAnimationFrameOptions = { increment: number, startAt: number, fin
 export declare const useRequestAnimationFrame: (func: Function, options?: UseRequestAnimationFrameOptions) => HandlerSetter;
 
 /**
- * usePersistState
+ * useLocalStorage
  */
-export declare const usePersistState: (localStorageKey:any, defaultValue: any) => [any, HandlerSetter];
+export declare const useLocalStorage: (localStorageKey:any, defaultValue: any) => [any, HandlerSetter];

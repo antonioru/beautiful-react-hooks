@@ -2,7 +2,7 @@ import React from 'react';
 
 import safeParser from './utils/safeParser';
 
-const usePersistState = (localStorageKey, defaultValue) => {
+const useLocalStorage = (localStorageKey, defaultValue) => {
   const [value, setValue] = React.useState(
     safeParser(
       window.localStorage.getItem(localStorageKey)
@@ -17,4 +17,4 @@ const usePersistState = (localStorageKey, defaultValue) => {
   return [value, setValue];
 };
 
-export default usePersistState;
+export default useLocalStorage;
