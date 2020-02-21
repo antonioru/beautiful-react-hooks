@@ -384,3 +384,10 @@ online
 - improving SSR check and window.* check before usage
 - adding SSR warning to `useRequestAnimationFrame`
 - improving `useLocalStorage` documentation
+
+
+## [0.22.2] - 2020-02-21
+
+### Fixed
+
+- dependencies update
