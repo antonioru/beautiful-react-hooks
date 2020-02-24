@@ -20,7 +20,7 @@ import { useState } from 'react';
 import { useGlobalEvent } from 'beautiful-react-hooks'; 
 
 const TestComponent = () => {
-  const [widowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const onWindowResize = useGlobalEvent('resize');
   
   onWindowResize((event) => {
@@ -29,7 +29,7 @@ const TestComponent = () => {
   
    return (
      <DisplayDemo>
-       Current window width: {widowWidth}
+       Current window width: {windowWidth}
      </DisplayDemo>
    );
 };
@@ -47,7 +47,7 @@ import { useState } from 'react';
 import { useGlobalEvent } from 'beautiful-react-hooks'; 
 
 const TestComponent = () => {
-  const [widowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const options = { capture: true, passive: true, once: true };
   const onWindowResize = useGlobalEvent('resize', options);
   
@@ -57,7 +57,7 @@ const TestComponent = () => {
   
    return (
      <DisplayDemo>
-       Current window width: {widowWidth}
+       Current window width: {windowWidth}
      </DisplayDemo>
    );
 };
@@ -74,7 +74,7 @@ import { useState } from 'react';
 import { useGlobalEvent } from 'beautiful-react-hooks'; 
 
 const TestComponent = () => {
-  const [widowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   
   useGlobalEvent('resize', null, (event) => {
     setWindowWidth(window.innerWidth);
@@ -82,7 +82,7 @@ const TestComponent = () => {
   
   return (
     <DisplayDemo>
-     Current window width: {widowWidth}
+     Current window width: {windowWidth}
     </DisplayDemo>
   );
 };
