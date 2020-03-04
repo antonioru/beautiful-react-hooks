@@ -25,6 +25,8 @@
 
 ![Usage example](../usage_example.png)
 
+<a href="https://beautifulinteractions.github.io/beautiful-react-hooks">🇦🇺English</a> | 🇨🇳 简体中文
+
 ## 💡 为什么?
 
 React hooks 让我们能把组件的业务逻辑抽象到一个可重用的函数里。<br />
