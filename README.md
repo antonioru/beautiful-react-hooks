@@ -27,7 +27,7 @@
 
 ![Usage example](./usage_example.png)
 
-🇦🇺English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/docs/README.zh-CN.md">🇨🇳 简体中文</a>
+🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a>
 
 ## 💡 Why? 
 
