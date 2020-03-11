@@ -391,3 +391,9 @@ online
 ### Fixed
 
 - dependencies update
+
+## [0.22.3] - 2020-03-11
+
+### Added
+
+- Adding Chinese translation of README.md
