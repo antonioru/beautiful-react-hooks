@@ -12,60 +12,59 @@
 <br />
 <div>
   <p align="center">
-    A collection of beautiful (and hopefully useful) React hooks to speed-up your 
-    components and hooks development
+    Una collezione di hooks leggeri (e si spera utili) per velocizzare lo sviluppo di hooks personalizzati e
+    componenti React
   </p>
 </div>
 
 <div>
   <p align="center">
     <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 Provali in azione qui 🌟
     </a>
   </p>
 </div>
 
 ![Usage example](./usage_example.png)
 
-🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a>
+<a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | 🇮🇹 Italiano
 
-## 💡 Why? 
+## 💡 Perché un'altra libreria? 
 
-React custom hooks allow to abstract components' business logic into single reusable functions.<br />
-So far, we've found that most of the hooks we've created and therefore shared between our internal projects have quite often a 
-similar gist that involves callback references, events and components' lifecycle. <br />
-For this reason we've tried to sum up that gist into `beautiful-react-hooks`: a collection of (*hopefully*) useful 
-React hooks to possibly help other companies and professionals to speed up their development process.<br /><br />
-Furthermore, we created a concise yet concrete API having in mind the code readability, focusing 
-to keep the learning curve as lower as possible so that the it can be used and shared in bigger teams.
+In un'applicazione React, gli hooks ci permettono di astrarre complesse logiche di business in singole funzioni riutilizzabili.<br />
+Fino ad ora abbiamo notato che la maggior parte degli hooks che abbiamo creato e condiviso nei nostri progetti, hanno un 
+_core_ piuttosto simile tra loro, un _core_ che coinvolge spesso gli stessi pattern di sviluppo (callback, referenze e cicli di vita).<br />
+Per queato motivo abbiamo cercato di semplificare e concentrare questo _core_ in  `beautiful-react-hooks`: una collezione di piccoli
+hooks riutilizzabili per aiutare altri sviluppatori (e società) a velocizzare i loro processi di sviluppo.<br /><br />
+Abbiamo cercato di creare una API che fosse sia concisa che coerente, concentrandoci sulla scalabilità e la leggibilità del codice,
+ mantenendo la curva d'apprendimento il più bassa possible.
 
-
-**-- Please before using any hook, read its documentation! --**
+**-- Prima di usare qualsiasi hook, leggi la documentazione! --**
 
 ## ☕️ Features
 
-* Concise API
-* Small and lightweight
-* Easy to learn
-* Functional approach
-* Fully written in JS (although TS types are supported)
+* API concisa e coerente
+* Piccole funzioni riutilizzabili
+* Facile da imparare
+* Approccio funzionale
+* Scritto completamente in JS (supporta i tipi Typescript)
 
 <div>
   <p align="center">
     <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 Provali in azione qui 🌟
     </a>
   </p>
 </div>
 
-## 🕺 Install
+## 🕺 Installazione
 
-by using `npm`:
+Usando `npm`:
 ```bash
 $ npm install beautiful-react-hooks
 ```
 
-by using `yarn`:
+oppure usando `yarn`:
 
 ```bash
 $ yarn add beautiful-react-hooks
@@ -97,25 +96,25 @@ $ yarn add beautiful-react-hooks
 <div>
   <p align="center">
     <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 Provali in azione qui 🌟
     </a>
   </p>
 </div>
 
-## Contributing
+## Contribuisci
 
-Contributions are very welcome and wanted. 
+La tua contribuzione è benvenuta!
 
-To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONTRIBUTING.md) guidelines.
+Per inviare il tuo custom hook, leggi le nostre [linee guida](./CONTRIBUTING.md) in materia di contribuzioni.
 
-**Before submitting** a new merge request, please make sure:
+**Prima di inviarci** la tua pull request, per favore sii sicuro che:
 
-1. You have updated the package.json version and reported your changes into the [CHANGELOG](./CHANGELOG.md) file
-3. make sure you run `npm test` and `npm build` before submitting your merge request.
-4. make sure you've added the documentation of your custom hook (*you can possibly use the [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) to document your custom hook*).
-5. make sure you've updated the `index.d.ts` file with your hook types.
+1. Hai aggiornato la versione nel file package.json ed hai aggiunto i cambiamenti che hai fatto nel file [CHANGELOG](./CHANGELOG.md).
+3. Hai fatto partire i testi con `npm test` ed hai fatto una build locale con `npm build`.
+4. Hai aggiunto la documentazione del tuo custom hook (*puoi partire dal template [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md), per scrivere la tua documentazione*).
+5. Hai aggiornato il file `index.d.ts` aggiungendo i tipi Typescript del tuo hook.
 
-### Made with
+### Tools utilizzati
 
 * [React](https://reactjs.org/)
 * [Mocha](https://mochajs.org/)
@@ -124,9 +123,9 @@ To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONT
 * [@testing-library/react-hooks](https://react-hooks-testing-library.com/) 
 
 
-### Credits
+### Crediti
 
-This library is provided and sponsored by: 
+La libraria è fornita e sponsorizzata da: 
 
 <div>
   <p>
@@ -136,8 +135,8 @@ This library is provided and sponsored by:
   </p>
 </div>
 
-As part of our commitment to support and contribute to the open source community.
+come parte del nostro impegno nel supportare la comunità open source.
 
 ---
 
-Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)
+Icona fatta dall'utente [Freepik](https://www.flaticon.com/authors/freepik) su [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)

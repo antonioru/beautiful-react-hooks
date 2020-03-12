@@ -398,9 +398,14 @@ online
 
 - Adding Chinese translation of README.md
 
-
 ## [0.22.4] - 2020-03-11
 
 ### Fixed
 
 - Fixing missing links between README.md files
+
+## [0.22.5] - 2020-03-11
+
+### Added
+
+- Adding Italian translation of README.md
