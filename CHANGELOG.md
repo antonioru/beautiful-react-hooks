@@ -404,8 +404,14 @@ online
 
 - Fixing missing links between README.md files
 
-## [0.22.5] - 2020-03-11
+## [0.22.5] - 2020-03-12
 
 ### Added
 
 - Adding Italian translation of README.md
+
+## [0.22.6] - 2020-03-12
+
+### Fixed
+
+- Fixing missing image links in italian Readme.md
