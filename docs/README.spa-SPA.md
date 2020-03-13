@@ -12,8 +12,7 @@
 <br />
 <div>
   <p align="center">
-    Una hermosa colección (y esperamos que sea útil) de React hooks para acelerar su 
-    componentes y el desarrollo de hooks.
+    Una colección de hermosos (y ojalá que útiles) hooks de React para acelerar tu desarrollo de componentes y hooks
   </p>
 </div>
 
