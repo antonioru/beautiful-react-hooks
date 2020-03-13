@@ -6,7 +6,7 @@
 
 <div align="center">
   <p align="center">
-    <img src="./logo.png" alt="Beautiful React Hooks" width="750px" />
+     <img src="../logo.png" alt="Beautiful React Hooks" width="750px" />
   </p>
 </div>
 <br />
@@ -25,7 +25,7 @@
   </p>
 </div>
 
-![Usage example](./usage_example.png)
+![Usage example](../usage_example.png)
 
 🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a>|
  <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.spa-SPA.md"> 🇪🇸 Español  </a>
