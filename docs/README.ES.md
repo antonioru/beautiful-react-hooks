@@ -12,60 +12,66 @@
 <br />
 <div>
   <p align="center">
-    A collection of beautiful (and hopefully useful) React hooks to speed-up your 
-    components and hooks development
+    Una colección de magníficos (y con suerte útiles) React hooks para acelerar 
+    el desarrollo de componentes.
   </p>
 </div>
 
 <div>
   <p align="center">
     <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 Mira la documentación aquí 🌟
     </a>
   </p>
 </div>
 
 ![Usage example](./usage_example.png)
 
-🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.ES.md">🇪🇦 Español</a>
+🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a> | 🇪🇦 Español</a>
 
-## 💡 Why? 
+## 💡 Por qué? 
 
-React custom hooks allow to abstract components' business logic into single reusable functions.<br />
-So far, we've found that most of the hooks we've created and therefore shared between our internal projects have quite often a 
-similar gist that involves callback references, events and components' lifecycle. <br />
-For this reason we've tried to sum up that gist into `beautiful-react-hooks`: a collection of (*hopefully*) useful 
-React hooks to possibly help other companies and professionals to speed up their development process.<br /><br />
-Furthermore, we created a concise yet concrete API having in mind the code readability, focusing 
-to keep the learning curve as lower as possible so that the it can be used and shared in bigger teams.
+React hooks personalizados permiten abstraer la lógica de negocio de los componentes, dentro de
+funciones reutilizables individuales. <br />
 
+Hasta ahora, hemos encontrado que la mayoría de los hooks que hemos creado y compartido
+dentro de nuestros proyectos internos,  a menudo tienen una funcionalidad similar que abarcan 
+callbacks, eventos y ciclo de vida de los componentes.  <br />
 
-**-- Please before using any hook, read its documentation! --**
+Por esta razón, hemos tratado de resumir esas funcionalidades dentro de `beautiful-react-hooks`: una
+colección de (*por suerte*) útiles React hooks que posibilitan ayudar a otras compañías y profesionales a acelerar sus procesos de
+desarrollo.<br /><br />
 
-## ☕️ Features
+Además, creamos una concisa pero concreta API teniendo en cuenta la legibilidad del código,
+centrándose en mantener la curva de aprendizaje lo más baja como sea posible, para que 
+pueda ser usada y compartida en equipos más grandes.
 
-* Concise API
-* Small and lightweight
-* Easy to learn
-* Functional approach
-* Fully written in JS (although TS types are supported)
+**-- Por favor, antes de usar algún hook leer su documentación! --**
+
+## ☕️ Caraterísticas
+
+* API concisa API
+* Pequeña y ligera
+* Fácil de aprender
+* Enfoque funcional
+* Completamente escrita en JS (aunque los typos (types) de TS son compatibles)
 
 <div>
   <p align="center">
     <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 Mira la documentación aquí 🌟
     </a>
   </p>
 </div>
 
-## 🕺 Install
+## 🕺 Instalación
 
-by using `npm`:
+Usando `npm`:
 ```bash
 $ npm install beautiful-react-hooks
 ```
 
-by using `yarn`:
+Usando `yarn`:
 
 ```bash
 $ yarn add beautiful-react-hooks
@@ -97,25 +103,26 @@ $ yarn add beautiful-react-hooks
 <div>
   <p align="center">
     <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 Mira la documentación aquí 🌟
     </a>
   </p>
 </div>
 
-## Contributing
+## Contribuir
 
-Contributions are very welcome and wanted. 
+Las contribuciones son muy bienvenidas y deseadas.
 
-To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONTRIBUTING.md) guidelines.
+Para enviar tu propio hook personalizado, por favor este seguro de leer nuestras instrucciones [CONTRIBUTING](./CONTRIBUTING.md)
 
-**Before submitting** a new merge request, please make sure:
+**Antes de enviar** una nueva solicitud de mezcla (merge), por favor este seguro de:
 
-1. You have updated the package.json version and reported your changes into the [CHANGELOG](./CHANGELOG.md) file
-3. make sure you run `npm test` and `npm build` before submitting your merge request.
-4. make sure you've added the documentation of your custom hook (*you can possibly use the [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) to document your custom hook*).
-5. make sure you've updated the `index.d.ts` file with your hook types.
+1. Haber actualizado la version del package.json y reportado sus cambios dentro del archivo 
+[CHANGELOG](./CHANGELOG.md)
+2. Correr `npm test` y `npm build` antes de enviar su solicitud de mezcla (merge).
+3. Haber añadido la documentación de su hook personalizado (*posiblement puedes usar el [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) para documentarlo*).
+4. Haber actualizado el archivo `index.d.ts` con los tipos (types) de su hook.
 
-### Made with
+### Realizado con
 
 * [React](https://reactjs.org/)
 * [Mocha](https://mochajs.org/)
@@ -124,9 +131,9 @@ To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONT
 * [@testing-library/react-hooks](https://react-hooks-testing-library.com/) 
 
 
-### Credits
+### Creditos
 
-This library is provided and sponsored by: 
+Esta librería is proporcionada y patrocinada por:
 
 <div>
   <p>
@@ -136,8 +143,8 @@ This library is provided and sponsored by:
   </p>
 </div>
 
-As part of our commitment to support and contribute to the open source community.
+Como parte de nuestro compromiso de apoyar y contribuir con la comunidad de código abierto.
 
 ---
 
-Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)
+Icono realizado por [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)

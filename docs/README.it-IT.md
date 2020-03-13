@@ -27,7 +27,7 @@
 
 ![Usage example](../usage_example.png)
 
-<a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | 🇮🇹 Italiano
+<a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | 🇮🇹 Italiano | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.ES.md">🇪🇦 Español</a>
 
 ## 💡 Perché un'altra libreria? 
 
