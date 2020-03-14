@@ -421,3 +421,9 @@ online
 ### Fixed
 
 - Adding Spanish translation of README.md
+
+## [0.22.8] - 2020-03-14
+
+### Fixed
+
+- Adding Ukranian translation of README.md
