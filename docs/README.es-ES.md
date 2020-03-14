@@ -1,0 +1,142 @@
+[![Build Status](https://travis-ci.org/beautifulinteractions/beautiful-react-hooks.svg?branch=master)](https://travis-ci.org/beautifulinteractions/beautiful-react-hooks)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![npm](https://img.shields.io/npm/v/beautiful-react-hooks)
+![GitHub stars](https://img.shields.io/github/stars/beautifulinteractions/beautiful-react-hooks?style=social)
+
+
+<div align="center">
+  <p align="center">
+     <img src="../logo.png" alt="Beautiful React Hooks" width="750px" />
+  </p>
+</div>
+<br />
+<div>
+  <p align="center">
+    Una colección de hermosos (y ojalá que útiles) hooks de React para acelerar tu desarrollo de componentes y hooks
+  </p>
+</div>
+
+<div>
+  <p align="center">
+    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    🌟Para probar clic aquí🌟
+    </a>
+  </p>
+</div>
+
+![Usage example](../usage_example.png)
+
+<a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a>  | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a> | 🇪🇸 Español
+
+
+## 💡 Por qué? 
+
+React custom hooks permite abstraer la lógica de negocio de los componentes en funciones únicas reutilizables.<br />
+Hasta ahora hemos notado que la mayoría de los  hooks que hemos creado y compartido en nuestros proyectos tienen un núcleo bastante similar, un núcleo que a menudo implica los mismos patrones de desarrollo (llamadas, referencias y ciclos de vida). <br />
+Por esta razón hemos tratado de resumir esa esencia en  `beautiful-react-hooks`:una colección de (*esperamos*) útiles 
+Para que React hooks sirva otras empresas y profesionales ayudando a acelerar su proceso de desarrollo.<br /><br />
+Además, creamos un API conciso pero concreto teniendo en cuenta la legibilidad del código, centrándonos en mantener la curva de aprendizaje lo más baja posible para que pueda ser usada y compartida en equipos más grandes.
+
+
+
+**-- Por favor, antes de utilizar un hook, leer su documentación! --**
+
+## ☕️ Características
+
+* API Consistente.
+* Pequeña y ligera.
+* Fácil de aprender.
+* Enfoque funcional.
+* Completamente escrito en JS (aunque se admiten los tipos de TS).
+
+<div>
+  <p align="center">
+    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    🌟 Para probar clic aquí 🌟
+    </a>
+  </p>
+</div>
+
+## 🕺 Instalar
+
+Usando `npm`:
+```bash
+$ npm install beautiful-react-hooks
+```
+
+Usando `yarn`:
+
+```bash
+$ yarn add beautiful-react-hooks
+```
+
+## 🎨 Hooks
+
+* [useGlobalEvent](docs/useGlobalEvent.md)
+* [usePreviousValue](docs/usePreviousValue.md)
+* [useValueHistory](docs/useValueHistory.md)
+* [useValidatedState](docs/useValidatedState.md)
+* [useMediaQuery](docs/useMediaQuery.md)
+* [useOnlineState](docs/useOnlineState.md)
+* [useViewportSpy](docs/useViewportSpy.md)
+* [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md) and [useGeolocationEvents](docs/useGeolocationEvents.md)
+* [useDrag](docs/useDrag.md), [useDragEvents](docs/useDragEvents.md)
+* [useMouse](docs/useMouse.md), [useMouseState](docs/useMouseState.md) and [useMouseEvents](docs/useMouseEvents.md)
+* [useLifecycle](docs/useLifecycle.md), [useDidMount](docs/useDidMount.md) and [useWillUnmount](docs/useWillUnmount.md)
+* [useWindowResize](docs/useWindowResize.md)
+* [useWindowScroll](docs/useWindowScroll.md)
+* [useRequestAnimationFrame](docs/useRequestAnimationFrame.md)
+* [useTimeout](docs/useTimeout.md)
+* [useConditionalTimeout](docs/useConditionalTimeout.md)
+* [useInterval](docs/useInterval.md)
+* [useDebouncedFn](docs/useDebouncedFn.md)
+* [useThrottledFn](docs/useThrottledFn.md)
+* [useLocalStorage](docs/useLocalStorage.md)
+
+<div>
+  <p align="center">
+    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    🌟 Para probar clic aquí🌟
+    </a>
+  </p>
+</div>
+
+## Contribuir
+
+Las contribuciones son muy bienvenidas y deseadas. 
+
+Para presentar su custom hook, por favor asegúrese de leer nuestro[CONTRIBUTING](./CONTRIBUTING.md) guidelines.
+
+**Antes de enviar** un nuevo merge request, por favor asegúrese:
+
+1. Ha actualizado el package.json version e informó de sus cambios en el [CHANGELOG] archivo (./CHANGELOG.md) 
+3. Asegúrate de ejecutar `npm test` y `npm build` antes de enviar el merge request.
+4. Asegúrate de que has añadido la documentación de tu custom hook (* puedes usar el [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md)  para documentar tu custom hook*).
+5. Asegúrate de que has actualizado el  `index.d.ts` el archivo de tus tipo de hook.
+
+### Herramientas utilizadas
+
+* [React](https://reactjs.org/)
+* [Mocha](https://mochajs.org/)
+* [Chai](https://www.chaijs.com/)
+* [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
+* [@testing-library/react-hooks](https://react-hooks-testing-library.com/) 
+
+
+### Creditos
+
+Esta biblioteca es proporcionada y patrocinada por: 
+
+<div>
+  <p>
+    <a href="https://beautifulinteractions.com/">
+      <img src="https://beautifulinteractions.com/img/logo-colorful.svg" alt="Beautiful interactions" width="140px" />
+    </a>
+  </p>
+</div>
+
+Como parte de nuestro compromiso de apoyar y contribuir a la comunidad de código abierto.
+
+---
+
+Icon desde [Freepik](https://www.flaticon.com/authors/freepik) y [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)

@@ -415,3 +415,9 @@ online
 ### Fixed
 
 - Fixing missing image links in italian Readme.md
+
+## [0.22.7] - 2020-03-12
+
+### Fixed
+
+- Adding Spanish translation of README.md
