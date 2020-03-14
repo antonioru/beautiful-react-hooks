@@ -6,7 +6,7 @@
 
 <div align="center">
   <p align="center">
-    <img src="./logo.png" alt="Beautiful React Hooks" width="750px" />
+    <img src="../logo.png" alt="Beautiful React Hooks" width="750px" />
   </p>
 </div>
 <br />
@@ -24,7 +24,7 @@
   </p>
 </div>
 
-![Exemplo de uso](./usage_example.png)
+![Exemplo de uso](../usage_example.png)
 
 
 <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a>  | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a> | 🇧🇷 Brazilian Portuguese
@@ -105,13 +105,13 @@ $ yarn add beautiful-react-hooks
 
 Contribuições são muito bem-vindas e desejadas.
 
-Para enviar sua hook, por favor, certifique-se de ler o nosso arquivo [CONTRIBUTING](./CONTRIBUTING.md).
+Para enviar sua hook, por favor, certifique-se de ler o nosso arquivo [CONTRIBUTING].(../CONTRIBUTING.md).
 
 **Antes de enviar** um novo merge request, por favor certifique-se:
 
-1. Você atualizou a versão no package.json e relatou suas alterações no arquivo [CHANGELOG](./CHANGELOG.md)
+1. Você atualizou a versão no package.json e relatou suas alterações no arquivo [CHANGELOG](../CHANGELOG.md)
 2. Certifique-se de rodar `npm test` e `npm build` antes de enviar o merge request.
-3. Certifique-se de que você adicionou a documentação da sua hook (*você pode utilizar como base o [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) para documentar sua hook*).
+3. Certifique-se de que você adicionou a documentação da sua hook (*você pode utilizar como base o [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md) para documentar sua hook*).
 4. Certifique-se de que atualizou o arquivo `index.d.ts` com os tipos da sua hook.
 
 ### Feito com
