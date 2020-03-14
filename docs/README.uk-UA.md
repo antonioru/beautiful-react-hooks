@@ -111,9 +111,9 @@ $ yarn add beautiful-react-hooks
 **Перед поданням** нового merge реквесту, будь-ласка переконайтеся:
 
 1. Ви оновили версію package.json і повідомили про свої зміни в [CHANGELOG](https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/CHANGELOG.md) файлі
-3. Переконайтеся, що ви запустили `npm test` і `npm build` перед поданням вашого merge реквесту.
-4. Переконайтеся що ви додали документацію ваших кастомних хуків(*ви також можете використовувати [HOOK_DOCUMENTATION_TEMPLATE](https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/HOOK_DOCUMENTATION_TEMPLATE.md) для документації кастомних хуків*).
-5. Переконайтеся що ви оновили `index.d.ts` файл з вашими типами хуків.
+2. Переконайтеся, що ви запустили `npm test` і `npm build` перед поданням вашого merge реквесту.
+3. Переконайтеся що ви додали документацію ваших кастомних хуків(*ви також можете використовувати [HOOK_DOCUMENTATION_TEMPLATE](https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/HOOK_DOCUMENTATION_TEMPLATE.md) для документації кастомних хуків*).
+4. Переконайтеся що ви оновили `index.d.ts` файл з вашими типами хуків.
 
 ### За сприяння
 
