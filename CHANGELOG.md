@@ -427,3 +427,9 @@ online
 ### Fixed
 
 - Adding Ukranian translation of README.md
+
+## [0.22.9] - 2020-03-14
+
+### Fixed
+
+- Fixing package version
