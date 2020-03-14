@@ -105,7 +105,7 @@ $ yarn add beautiful-react-hooks
 
 Contribuições são muito bem-vindas e desejadas.
 
-Para enviar sua hook, por favor, certifique-se de ler o nosso arquivo [CONTRIBUTING].(../CONTRIBUTING.md).
+Para enviar sua hook, por favor, certifique-se de ler o nosso arquivo [CONTRIBUTING](../CONTRIBUTING.md).
 
 **Antes de enviar** um novo merge request, por favor certifique-se:
 
