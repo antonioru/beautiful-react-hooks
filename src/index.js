@@ -23,5 +23,6 @@ export { default as useViewportSpy } from './useViewportSpy';
 export { default as useValidatedState } from './useValidatedState';
 export { default as useDragEvents } from './useDragEvents';
 export { default as useDrag } from './useDrag';
+export { default as useDropZone } from './useDropZone';
 export { default as useRequestAnimationFrame } from './useRequestAnimationFrame';
 export { default as useLocalStorage } from './useLocalStorage';
