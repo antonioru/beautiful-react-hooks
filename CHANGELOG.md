@@ -451,3 +451,9 @@ online
 ### Fixed
 
 - Fixing links to hooks in language specific README files
+
+## [0.23.0] - 2020-03-17
+
+### Added
+
+- useDropZone hook & tests
