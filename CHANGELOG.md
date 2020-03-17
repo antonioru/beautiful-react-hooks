@@ -439,3 +439,9 @@ online
 ### Fixed
 
 - Adding Polish translation of README.md
+
+## [0.22.11] - 2020-03-17
+
+### Fixed
+
+- Fixing Polish translation of README.md
