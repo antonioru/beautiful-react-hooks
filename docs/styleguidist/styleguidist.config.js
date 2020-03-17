@@ -29,6 +29,7 @@ module.exports = {
     { name: 'useGeolocationState', content: '../useGeolocationState.md' },
     { name: 'useGeolocationEvents', content: '../useGeolocationEvents.md' },
     { name: 'useDrag', content: '../useDrag.md' },
+    { name: 'useDropZone', content: '../useDropZone.md' },
     { name: 'useDragEvents', content: '../useDragEvents.md' },
     { name: 'useLocalStorage', content: '../useLocalStorage.md' },
     { name: 'useMouse', content: '../useMouse.md' },
