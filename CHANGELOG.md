@@ -445,3 +445,9 @@ online
 ### Fixed
 
 - Fixing Polish translation of README.md
+
+## [0.22.12] - 2020-03-17
+
+### Fixed
+
+- Fixing links to hooks in language specific README files
