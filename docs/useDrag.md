@@ -87,3 +87,11 @@ const MyComponent = () => {
 
 <MyComponent />
 ```
+
+
+### Mastering the hook
+
+#### ✅ When to use
+ 
+- When in need of implementing basic drag-related business logic
+
