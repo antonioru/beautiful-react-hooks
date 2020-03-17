@@ -433,3 +433,9 @@ online
 ### Fixed
 
 - Fixing package version
+
+## [0.22.10] - 2020-03-17
+
+### Fixed
+
+- Adding Polish translation of README.md
