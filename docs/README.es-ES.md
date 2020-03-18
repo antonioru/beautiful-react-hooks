@@ -80,9 +80,9 @@ $ yarn add beautiful-react-hooks
 * [useOnlineState](useOnlineState.md)
 * [useViewportSpy](useViewportSpy.md)
 * [useGeolocation](useGeolocation.md), [useGeolocationState](useGeolocationState.md) and [useGeolocationEvents](useGeolocationEvents.md)
-* [useDrag](useDrag.md), [useDropZone](useDropZone.md) and [useDragEvents](useDragEvents.md)
-* [useMouse](useMouse.md), [useMouseState](useMouseState.md) and [useMouseEvents](useMouseEvents.md)
-* [useLifecycle](useLifecycle.md), [useDidMount](useDidMount.md) and [useWillUnmount](useWillUnmount.md)
+* [useDrag](useDrag.md), [useDropZone](useDropZone.md) y [useDragEvents](useDragEvents.md)
+* [useMouse](useMouse.md), [useMouseState](useMouseState.md) y [useMouseEvents](useMouseEvents.md)
+* [useLifecycle](useLifecycle.md), [useDidMount](useDidMount.md) y [useWillUnmount](useWillUnmount.md)
 * [useWindowResize](useWindowResize.md)
 * [useWindowScroll](useWindowScroll.md)
 * [useRequestAnimationFrame](useRequestAnimationFrame.md)
@@ -105,13 +105,13 @@ $ yarn add beautiful-react-hooks
 
 Las contribuciones son muy bienvenidas y deseadas. 
 
-Para presentar su custom hook, por favor asegúrese de leer nuestro[CONTRIBUTING](./CONTRIBUTING.md) guidelines.
+Para presentar su custom hook, por favor asegúrese de leer nuestro [CONTRIBUTING](../CONTRIBUTING.md) guidelines.
 
 **Antes de enviar** un nuevo merge request, por favor asegúrese:
 
-1. Ha actualizado el package.json version e informó de sus cambios en el [CHANGELOG] archivo (./CHANGELOG.md)
+1. Ha actualizado el package.json version e informó de sus cambios en el archivo [CHANGELOG](../CHANGELOG.md)
 2. Asegúrate de ejecutar `npm test` y `npm build` antes de enviar el merge request.
-3. Asegúrate de que has añadido la documentación de tu custom hook (* puedes usar el [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md)  para documentar tu custom hook*).
+3. Asegúrate de que has añadido la documentación de tu custom hook (* puedes usar el [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md)  para documentar tu custom hook*).
 4. Asegúrate de que has actualizado el  `index.d.ts` el archivo de tus tipo de hook.
 
 ### Herramientas utilizadas
