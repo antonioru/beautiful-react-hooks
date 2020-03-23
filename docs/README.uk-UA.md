@@ -81,7 +81,7 @@ $ yarn add beautiful-react-hooks
 * [useOnlineState](useOnlineState.md)
 * [useViewportSpy](useViewportSpy.md)
 * [useGeolocation](useGeolocation.md), [useGeolocationState](useGeolocationState.md) та [useGeolocationEvents](useGeolocationEvents.md)
-* [useDrag](useDrag.md), [useDropZone](useDropZone.md) and [useDragEvents](useDragEvents.md)
+* [useDrag](useDrag.md), [useDropZone](useDropZone.md) та [useDragEvents](useDragEvents.md)
 * [useMouse](useMouse.md), [useMouseState](useMouseState.md) та [useMouseEvents](useMouseEvents.md)
 * [useLifecycle](useLifecycle.md), [useDidMount](useDidMount.md) та [useWillUnmount](useWillUnmount.md)
 * [useWindowResize](useWindowResize.md)

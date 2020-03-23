@@ -103,13 +103,13 @@ $ yarn add beautiful-react-hooks
 
 我们非常欢迎而且期待着你的开源贡献。
 
-如果想要提交你的自定义 hook，请确保你阅读过这篇 [贡献](./CONTRIBUTING.md) 守则。
+如果想要提交你的自定义 hook，请确保你阅读过这篇 [贡献](../CONTRIBUTING.md) 守则。
 
 在提交一个合并请求 **之前**，请确保:
 
-1. 你已经更新了 package.json 里的版本号，并将你的变更说明放进了 [CHANGELOG](./CHANGELOG.md) 文件里。
+1. 你已经更新了 package.json 里的版本号，并将你的变更说明放进了 [CHANGELOG](../CHANGELOG.md) 文件里。
 2. 确保你执行过 `npm test` 和 `npm build` 再提交你的合并请求。
-3. 确保你已经写好了你添加的自定义 hook 的文档 _（你可以使用[HOOK 文档模板](./HOOK_DOCUMENTATION_TEMPLATE.md) 来写你的文档 ）_
+3. 确保你已经写好了你添加的自定义 hook 的文档 _（你可以使用[HOOK 文档模板](../HOOK_DOCUMENTATION_TEMPLATE.md) 来写你的文档 ）_
 4. 确保你已经更新了 `index.d.ts` 文件，把你的 hook 的类型加进去了。
 
 ### 项目依赖

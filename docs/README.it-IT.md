@@ -79,9 +79,9 @@ $ yarn add beautiful-react-hooks
 * [useOnlineState](useOnlineState.md)
 * [useViewportSpy](useViewportSpy.md)
 * [useGeolocation](useGeolocation.md), [useGeolocationState](useGeolocationState.md) and [useGeolocationEvents](useGeolocationEvents.md)
-* [useDrag](useDrag.md), [useDropZone](useDropZone.md) and [useDragEvents](useDragEvents.md)
-* [useMouse](useMouse.md), [useMouseState](useMouseState.md) and [useMouseEvents](useMouseEvents.md)
-* [useLifecycle](useLifecycle.md), [useDidMount](useDidMount.md) and [useWillUnmount](useWillUnmount.md)
+* [useDrag](useDrag.md), [useDropZone](useDropZone.md) e [useDragEvents](useDragEvents.md)
+* [useMouse](useMouse.md), [useMouseState](useMouseState.md) e [useMouseEvents](useMouseEvents.md)
+* [useLifecycle](useLifecycle.md), [useDidMount](useDidMount.md) e [useWillUnmount](useWillUnmount.md)
 * [useWindowResize](useWindowResize.md)
 * [useWindowScroll](useWindowScroll.md)
 * [useRequestAnimationFrame](useRequestAnimationFrame.md)
@@ -104,13 +104,13 @@ $ yarn add beautiful-react-hooks
 
 La tua contribuzione è benvenuta!
 
-Per inviare il tuo custom hook, leggi le nostre [linee guida](./CONTRIBUTING.md) in materia di contribuzioni.
+Per inviare il tuo custom hook, leggi le nostre [linee guida](../CONTRIBUTING.md) in materia di contribuzioni.
 
 **Prima di inviarci** la tua pull request, per favore sii sicuro che:
 
-1. Hai aggiornato la versione nel file package.json ed hai aggiunto i cambiamenti che hai fatto nel file [CHANGELOG](./CHANGELOG.md).
+1. Hai aggiornato la versione nel file package.json ed hai aggiunto i cambiamenti che hai fatto nel file [CHANGELOG](../CHANGELOG.md).
 2. Hai fatto partire i testi con `npm test` ed hai fatto una build locale con `npm build`.
-3. Hai aggiunto la documentazione del tuo custom hook (*puoi partire dal template [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md), per scrivere la tua documentazione*).
+3. Hai aggiunto la documentazione del tuo custom hook (*puoi partire dal template [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md), per scrivere la tua documentazione*).
 4. Hai aggiornato il file `index.d.ts` aggiungendo i tipi Typescript del tuo hook.
 
 ### Tools utilizzati

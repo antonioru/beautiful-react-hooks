@@ -79,9 +79,9 @@ $ yarn add beautiful-react-hooks
 * [useOnlineState](useOnlineState.md)
 * [useViewportSpy](useViewportSpy.md)
 * [useGeolocation](useGeolocation.md), [useGeolocationState](useGeolocationState.md) and [useGeolocationEvents](useGeolocationEvents.md)
-* [useDrag](useDrag.md), [useDropZone](useDropZone.md) and [useDragEvents](useDragEvents.md)
-* [useMouse](useMouse.md), [useMouseState](useMouseState.md) and [useMouseEvents](useMouseEvents.md)
-* [useLifecycle](useLifecycle.md), [useDidMount](useDidMount.md) and [useWillUnmount](useWillUnmount.md)
+* [useDrag](useDrag.md), [useDropZone](useDropZone.md) i [useDragEvents](useDragEvents.md)
+* [useMouse](useMouse.md), [useMouseState](useMouseState.md) i [useMouseEvents](useMouseEvents.md)
+* [useLifecycle](useLifecycle.md), [useDidMount](useDidMount.md) i [useWillUnmount](useWillUnmount.md)
 * [useWindowResize](useWindowResize.md)
 * [useWindowScroll](useWindowScroll.md)
 * [useRequestAnimationFrame](useRequestAnimationFrame.md)
@@ -104,13 +104,13 @@ $ yarn add beautiful-react-hooks
 
 Współpraca jest bardzo mile widziana. 
 
-Przed dodaniem nowego hooka zapoznaj się koniecznie z zasadami projektowymi tutaj [CONTRIBUTING](./CONTRIBUTING.md)
+Przed dodaniem nowego hooka zapoznaj się koniecznie z zasadami projektowymi tutaj [CONTRIBUTING](../CONTRIBUTING.md)
 
 **Przed stworzeniem** nowego pull request, upewnij się, że:
 
-1. uaktualniłeś wersję pliku package.json oraz dodałeś zmiany w pliku [CHANGELOG](./CHANGELOG.md)
+1. uaktualniłeś wersję pliku package.json oraz dodałeś zmiany w pliku [CHANGELOG](../CHANGELOG.md)
 2. użyłeś komend `npm test` oraz `npm build`.
-3. dodałeś dokumentację do twojego nowego hooka (*możesz użyć szablon [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md)*).
+3. dodałeś dokumentację do twojego nowego hooka (*możesz użyć szablon [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md)*).
 4. uaktualniłeś plik `index.d.ts` dodając typy Typescript twojego hooka.
 
 ### Użyte narzędzia
