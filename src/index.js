@@ -26,3 +26,4 @@ export { default as useDrag } from './useDrag';
 export { default as useDropZone } from './useDropZone';
 export { default as useRequestAnimationFrame } from './useRequestAnimationFrame';
 export { default as useLocalStorage } from './useLocalStorage';
+export { default as useStorage } from './useStorage';
