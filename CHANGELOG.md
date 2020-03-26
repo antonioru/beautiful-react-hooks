@@ -98,7 +98,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Few documentation typos
 - README image
 
-### Added 
+### Added
 
 - Types support
 
@@ -139,7 +139,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Code of conduct
-- Contributing guidelines 
+- Contributing guidelines
 - issue template
 - pull request template
 
@@ -182,7 +182,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - useMediaQuery hook & tests
 - change the order of the listed hooks into the Readme.md file
 
-### Fixed 
+### Fixed
 
 - `useOnMount` renamed to `useDidMount`
 
@@ -217,7 +217,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- useTimeout refactory 
+- useTimeout refactory
 
 ## [0.13.6] - 2020-01-07
 
@@ -305,7 +305,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- useOnlineState returns true when the device does not support the `online/offline` state assuming the app is already 
+- useOnlineState returns true when the device does not support the `online/offline` state assuming the app is already
 online
 - Improved test
 
@@ -457,3 +457,9 @@ online
 ### Added
 
 - useDropZone hook & tests
+
+## [0.24.0] - 2020-03-26
+
+### Added
+
+- useStorage hook & tests
