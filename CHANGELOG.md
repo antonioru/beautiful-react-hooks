@@ -458,6 +458,12 @@ online
 
 - useDropZone hook & tests
 
+## [0.23.1] - 2020-03-18
+
+### Fixed
+
+- Fixing links in Contributing section and minor typos in language specific README files
+
 ## [0.24.0] - 2020-03-26
 
 ### Added
