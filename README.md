@@ -12,7 +12,7 @@
 <br />
 <div>
   <p align="center">
-    A collection of beautiful (and hopefully useful) React hooks to speed-up your 
+    A collection of beautiful (and hopefully useful) React hooks to speed-up your
     components and hooks development
   </p>
 </div>
@@ -30,14 +30,14 @@
 
 🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a>
 
-## 💡 Why? 
+## 💡 Why?
 
 React custom hooks allow to abstract components' business logic into single reusable functions.<br />
-So far, we've found that most of the hooks we've created and therefore shared between our internal projects have quite often a 
+So far, we've found that most of the hooks we've created and therefore shared between our internal projects have quite often a
 similar gist that involves callback references, events and components' lifecycle. <br />
-For this reason we've tried to sum up that gist into `beautiful-react-hooks`: a collection of (*hopefully*) useful 
+For this reason we've tried to sum up that gist into `beautiful-react-hooks`: a collection of (*hopefully*) useful
 React hooks to possibly help other companies and professionals to speed up their development process.<br /><br />
-Furthermore, we created a concise yet concrete API having in mind the code readability, focusing 
+Furthermore, we created a concise yet concrete API having in mind the code readability, focusing
 to keep the learning curve as lower as possible so that the it can be used and shared in bigger teams.
 
 
@@ -94,6 +94,7 @@ $ yarn add beautiful-react-hooks
 * [useDebouncedFn](docs/useDebouncedFn.md)
 * [useThrottledFn](docs/useThrottledFn.md)
 * [useLocalStorage](docs/useLocalStorage.md)
+* [useStorage](docs/useStorage.md)
 
 <div>
   <p align="center">
@@ -105,7 +106,7 @@ $ yarn add beautiful-react-hooks
 
 ## Contributing
 
-Contributions are very welcome and wanted. 
+Contributions are very welcome and wanted.
 
 To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONTRIBUTING.md) guidelines.
 
@@ -122,12 +123,12 @@ To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONT
 * [Mocha](https://mochajs.org/)
 * [Chai](https://www.chaijs.com/)
 * [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
-* [@testing-library/react-hooks](https://react-hooks-testing-library.com/) 
+* [@testing-library/react-hooks](https://react-hooks-testing-library.com/)
 
 
 ### Credits
 
-This library is provided and sponsored by: 
+This library is provided and sponsored by:
 
 <div>
   <p>
