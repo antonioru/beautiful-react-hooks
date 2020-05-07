@@ -59,7 +59,7 @@ describe('useLocalStorage', () => {
     const warnSpy = sinon.spy(console, 'warn');
     const { result } = renderHook(() => useLocalStorage('test-key'));
 
-    expect(result.current[0]).to.be.null;
+    expect(result.current[0]).to.be.undefined;
     expect(result.current[1].called).to.be.undefined;
     expect(warnSpy.called).to.be.true;
   });

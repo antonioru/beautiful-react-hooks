@@ -13,7 +13,7 @@ const useLocalStorage = (localStorageKey, defaultValue) => {
   if (!isClient || !isAPISupported('localStorage')) {
     // eslint-disable-next-line no-console
     console.warn(errorMessage);
-    return [null, () => undefined];
+    return [JSON.stringify(defaultValue), () => undefined];
   }
 
   const [value, setValue] = useState(
