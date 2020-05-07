@@ -54,7 +54,9 @@ describe('useLocalStorage', () => {
   });
 
   it('should warn when the window.localStorage API is not supported', () => {
-    Reflect.deleteProperty(window, 'localStorage');
+    const copyWindow = { ...window };
+    Reflect.deleteProperty(copyWindow, 'localStorage');
+    sinon.stub(global, 'window').value(copyWindow);
 
     const warnSpy = sinon.spy(console, 'warn');
     const { result } = renderHook(() => useLocalStorage('test-key'));
