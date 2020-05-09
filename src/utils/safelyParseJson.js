@@ -1,4 +1,4 @@
-const safeParser = (parseString) => {
+const safelyParseJson = (parseString) => {
   try {
     return JSON.parse(parseString);
   } catch (e) {
@@ -6,4 +6,4 @@ const safeParser = (parseString) => {
   }
 };
 
-export default safeParser;
+export default safelyParseJson;

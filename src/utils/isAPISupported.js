@@ -1,4 +1,6 @@
 /**
  * Exports a boolean value reporting whether the given API is supported or not
  */
-export default (api) => (api in window);
+const isApiSupported = (api) => (api in window);
+
+export default isApiSupported;

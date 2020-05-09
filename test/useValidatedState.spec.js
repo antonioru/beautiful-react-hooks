@@ -1,5 +1,5 @@
 import { cleanup, renderHook, act } from '@testing-library/react-hooks';
-import useValidatedState from '../src/useValidatedState';
+import useValidatedState from '../dist/useValidatedState';
 
 describe('useValidatedState', () => {
   const makeValidator = (value = true) => () => value;

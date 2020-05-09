@@ -1,16 +1,15 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.25.0",
+  "version": "0.25.1",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint --ext .js src/",
-    "build-js": "rollup -c",
-    "build": "npx del-cli dist dist-ghpages && npm run build-js && npm run docs",
+    "build": "npx del-cli dist && rollup -c",
+    "build-doc": "npx del-cli dist-ghpages && npx styleguidist build --config docs/styleguidist/styleguidist.config.js",
     "test": "nyc mocha --recursive --exit \"./test/**/*.spec.+(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
-    "start": "npx styleguidist server --config docs/styleguidist/styleguidist.config.js --open",
-    "docs": "npx styleguidist build --config docs/styleguidist/styleguidist.config.js"
+    "start": "npx styleguidist server --config docs/styleguidist/styleguidist.config.js --open"
   },
   "files": [
     "dist/**",
@@ -44,6 +43,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@babel/register": "^7.9.0",
+    "@rollup/plugin-node-resolve": "7.1.3",
     "@testing-library/react": "10.0.4",
     "@testing-library/react-hooks": "^3.2.1",
     "babel-eslint": "^10.1.0",

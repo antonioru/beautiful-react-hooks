@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 node_js:
-  - "12"
+  - 12
 
 install:
   - npm ci
@@ -9,8 +9,11 @@ install:
 
 script:
   - npm run lint
-  - npm run test
   - npm run build
+  - npm run test
+
+before_deploy:
+  - npm run build-doc
 
 deploy:
   - provider: pages

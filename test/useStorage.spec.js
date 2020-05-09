@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks';
-import useStorage from '../src/useStorage';
+import useStorage from '../dist/useStorage';
 
 describe('useStorage', () => {
   beforeEach(() => {

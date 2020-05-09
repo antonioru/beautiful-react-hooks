@@ -1,5 +1,5 @@
 import { renderHook, cleanup, act } from '@testing-library/react-hooks';
-import useMouse from '../src/useMouse';
+import useMouse from '../dist/useMouse';
 
 describe('useMouse', () => {
   beforeEach(cleanup);

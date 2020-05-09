@@ -485,3 +485,9 @@ online
 - Improved build system by removing gulp and introducing rollup
 - tests directory from `src` to `tests`
 - Dependencies updated
+
+## [0.25.1] - 2020-05-10
+
+### Changed
+
+- Tests improved by running them from the dist folder

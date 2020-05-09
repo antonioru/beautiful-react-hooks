@@ -1,5 +1,5 @@
 import { renderHook, cleanup } from '@testing-library/react-hooks';
-import useMediaQuery from '../src/useMediaQuery';
+import useMediaQuery from '../dist/useMediaQuery';
 
 describe('useMediaQuery', () => {
   const mediaQueryListMock = {

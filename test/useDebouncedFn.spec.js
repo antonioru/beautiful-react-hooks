@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
-import useDebouncedFn from '../src/useDebouncedFn';
+import useDebouncedFn from '../dist/useDebouncedFn';
 import promiseDelay from './utils/promiseDelay';
 
 

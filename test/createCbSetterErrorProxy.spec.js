@@ -1,4 +1,4 @@
-import createCbSetterErrorProxy from '../src/utils/createCbSetterErrorProxy';
+import createCbSetterErrorProxy from '../dist/utils/createCbSetterErrorProxy';
 
 describe('createCbSetterErrorProxy utility', () => {
   it('should be a function', () => {

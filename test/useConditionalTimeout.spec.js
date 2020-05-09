@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { cleanup as cleanupHooks, renderHook, act } from '@testing-library/react-hooks';
-import useConditionalTimeout from '../src/useConditionalTimeout';
+import useConditionalTimeout from '../dist/useConditionalTimeout';
 import promiseDelay from './utils/promiseDelay';
 
 describe('useConditionalTimeout', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks';
-import useDidMount from '../src/useDidMount';
+import useDidMount from '../dist/useDidMount';
 
 describe('useDidMount', () => {
   beforeEach(() => {

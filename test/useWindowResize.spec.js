@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, cleanup as cleanupReact } from '@testing-library/react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
-import useWindowResize from '../src/useWindowResize';
+import useWindowResize from '../dist/useWindowResize';
 
 describe('useWindowResize', () => {
   beforeEach(() => {
