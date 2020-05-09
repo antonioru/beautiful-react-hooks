@@ -52,4 +52,17 @@ describe('useLocalStorage', () => {
 
     expect(container.querySelector('p').innerHTML).to.equal('200');
   });
+
+  it('should warn when the window.localStorage API is not supported', () => {
+    const copyWindow = { ...window };
+    Reflect.deleteProperty(copyWindow, 'localStorage');
+    sinon.stub(global, 'window').value(copyWindow);
+
+    const warnSpy = sinon.spy(console, 'warn');
+    const { result } = renderHook(() => useLocalStorage('test-key'));
+
+    expect(result.current[0]).to.be.undefined;
+    expect(result.current[1].called).to.be.undefined;
+    expect(warnSpy.called).to.be.true;
+  });
 });

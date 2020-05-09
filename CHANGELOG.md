@@ -469,3 +469,11 @@ online
 ### Added
 
 - useStorage hook & tests
+
+## [0.24.1] - 2020-03-26
+
+### Fixed
+
+- adding SSR warning to `useLocalStorage` hook
+- adding warning to `useLocalStorage` hook if `localStorage` is not in `window` object
+- adding new test for `useLocalStorage` hook that checks that `localStorage` in `window` object
