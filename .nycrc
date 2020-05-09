@@ -1,10 +1,9 @@
 {
-  "require": [ "@babel/register" ],
   "all": true,
   "check-coverage": true,
   "extension": [ ".js" ],
   "include": [ "src/**/*.js" ],
-  "exclude": [ "src/**/index.js", "**/*.spec.js" ],
+  "exclude": [ "src/index.js" ],
   "branches": 85,
   "lines": 85,
   "functions": 85,

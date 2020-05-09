@@ -1,9 +1,8 @@
 {
   "require": [
-    "@babel/register",
-    "@babel/polyfill",
     "jsdom-global/register",
+    "@babel/register",
     "mock-local-storage",
-    "./test/setup.js"
+    "./test/_setup.js"
   ]
 }

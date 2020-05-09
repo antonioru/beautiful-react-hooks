@@ -470,10 +470,18 @@ online
 
 - useStorage hook & tests
 
-## [0.24.1] - 2020-03-26
+## [0.24.1] - 2020-05-09
 
 ### Fixed
 
 - adding SSR warning to `useLocalStorage` hook
 - adding warning to `useLocalStorage` hook if `localStorage` is not in `window` object
 - adding new test for `useLocalStorage` hook that checks that `localStorage` in `window` object
+
+## [0.25.0] - 2020-05-09
+
+### Changed
+
+- Improved build system by removing gulp and introducing rollup
+- tests directory from `src` to `tests`
+- Dependencies updated
