@@ -11,9 +11,7 @@ script:
   - npm run lint
   - npm run build
   - npm run test
-
-before_deploy:
-  - npm run build-doc
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then echo 'Building doc...' && npm run build-doc; fi
 
 deploy:
   - provider: pages
@@ -29,4 +27,3 @@ deploy:
     api_key: $NPM_TOKEN
     on:
       branch: master
-

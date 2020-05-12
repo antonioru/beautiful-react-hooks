@@ -491,3 +491,9 @@ online
 ### Changed
 
 - Tests improved by running them from the dist folder
+
+## [0.25.2] - 2020-05-12
+
+### Changed
+
+- Fixed double `npm run build-doc` script run before deploy
