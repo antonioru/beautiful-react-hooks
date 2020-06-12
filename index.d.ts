@@ -23,9 +23,12 @@ type Cancelable = {
 }
 
 /**
- * useDebouncedFn
+ * Accepts a function and returns a new debounced yet memoized version of that same function that delays
+ * its invoking by the defined time.
+ *
+ * If `wait` is not defined, its default value will be 250ms.
  */
-export declare const useDebouncedFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => Cancelable;
+export declare const useDebouncedFn: <F extends Function>(fn: F, wait?: number, options?: Partial<ThrottleOrDebounceOpts>, dependencies?: DependencyList) => F & Cancelable;
 
 /**
  * useDidMount
