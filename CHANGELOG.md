@@ -503,3 +503,10 @@ online
 ### Fixed
 
 - Type declaration fix for `useDebouncedFn` and `useThrottledFn`
+
+
+## [0.25.4] - 2020-06-16
+
+### Fixed
+
+- useInterval, clear the previous interval when the milliseconds value changes.

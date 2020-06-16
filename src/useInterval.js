@@ -33,7 +33,7 @@ const useInterval = (fn, milliseconds, options = defaultOptions) => {
   useEffect(() => {
     // cleanup previous interval
     clear();
-    
+
     if (typeof milliseconds === 'number') {
       timeout.current = setInterval(() => {
         callback.current();
