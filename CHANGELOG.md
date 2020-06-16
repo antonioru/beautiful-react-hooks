@@ -497,3 +497,9 @@ online
 ### Changed
 
 - Fixed double `npm run build-doc` script run before deploy
+
+## [0.25.3] - 2020-06-16
+
+### Fixed
+
+- Type declaration fix for `useDebouncedFn` and `useThrottledFn`

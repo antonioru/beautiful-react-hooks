@@ -178,7 +178,7 @@ export declare const usePreviousValue: (value: any) => any;
 /**
  * useThrottledFn
  */
-export declare const useThrottledFn: (fn: Function, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => Cancelable;
+export declare const useThrottledFn: <F extends Function>(fn: F, wait?: number, options?: ThrottleOrDebounceOpts, dependencies?: DependencyList) => F & Cancelable;
 
 /**
  * useTimeout
