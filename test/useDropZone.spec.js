@@ -1,5 +1,5 @@
 import { renderHook, cleanup } from '@testing-library/react-hooks';
-import useDropZone from '../dist/useDropZone';
+import useDropZone from '../dist/cjs/useDropZone';
 
 describe('useDropZone', () => {
   beforeEach(cleanup);

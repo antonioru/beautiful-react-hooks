@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks';
-import useRequestAnimationFrame from '../dist/useRequestAnimationFrame';
+import useRequestAnimationFrame from '../dist/cjs/useRequestAnimationFrame';
 import promiseDelay from './utils/promiseDelay';
 
 describe('useRequestAnimationFrame', () => {

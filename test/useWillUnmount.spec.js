@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
-import useWillUnmount from '../dist/useWillUnmount';
+import useWillUnmount from '../dist/cjs/useWillUnmount';
 
 describe('useWillUnmount', () => {
   beforeEach(() => {

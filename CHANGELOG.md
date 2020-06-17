@@ -510,3 +510,9 @@ online
 ### Fixed
 
 - useInterval, clear the previous interval when the milliseconds value changes.
+
+## [0.25.5] - 2020-06-17
+
+### Fixed
+
+- Introducing ESModules build

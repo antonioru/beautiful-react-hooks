@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
-import useThrottledFn from '../dist/useThrottledFn';
+import useThrottledFn from '../dist/cjs/useThrottledFn';
 import promiseDelay from './utils/promiseDelay';
 
 

@@ -1,5 +1,5 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks';
-import useValueHistory from '../dist/useValueHistory';
+import useValueHistory from '../dist/cjs/useValueHistory';
 
 describe('useValueHistory', () => {
   beforeEach(cleanup);

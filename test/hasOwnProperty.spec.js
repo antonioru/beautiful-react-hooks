@@ -1,4 +1,4 @@
-import hasOwnProperty from '../dist/utils/hasOwnProperty';
+import hasOwnProperty from '../dist/cjs/utils/hasOwnProperty';
 
 describe('hasOwnProperty utility', () => {
   it('should be a function', () => {

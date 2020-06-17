@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { cleanup as cleanupHooks, renderHook, act } from '@testing-library/react-hooks';
-import useTimeout from '../dist/useTimeout';
+import useTimeout from '../dist/cjs/useTimeout';
 import promiseDelay from './utils/promiseDelay';
 
 describe('useTimeout', () => {

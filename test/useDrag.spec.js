@@ -1,5 +1,5 @@
 import { renderHook, cleanup } from '@testing-library/react-hooks';
-import useDrag from '../dist/useDrag';
+import useDrag from '../dist/cjs/useDrag';
 
 describe('useDrag', () => {
   beforeEach(cleanup);

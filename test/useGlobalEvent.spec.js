@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, cleanup as cleanupReact } from '@testing-library/react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
-import useGlobalEvent from '../dist/useGlobalEvent';
+import useGlobalEvent from '../dist/cjs/useGlobalEvent';
 
 describe('useGlobalEvent', () => {
   beforeEach(() => {

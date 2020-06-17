@@ -1,5 +1,5 @@
 import { renderHook, cleanup } from '@testing-library/react-hooks';
-import useLifecycle from '../dist/useLifecycle';
+import useLifecycle from '../dist/cjs/useLifecycle';
 
 describe('useLifecycle', () => {
   beforeEach(cleanup);
