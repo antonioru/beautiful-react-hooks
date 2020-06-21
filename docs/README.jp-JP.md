@@ -57,7 +57,7 @@ React custom hooksは抽象的なコンポーネントのビジネスロジッ�
   </p>
 </div>
 
-## 🕺 Install
+## 🕺 インストール
 
 `npm`:を利用する場合:
 ```bash
