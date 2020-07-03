@@ -1,5 +1,5 @@
 import { renderHook, act, cleanup } from '@testing-library/react-hooks';
-import createHandlerSetter from '../dist/cjs/utils/createHandlerSetter';
+import createHandlerSetter from '../dist/utils/createHandlerSetter';
 
 describe('createHandlerSetter', () => {
   beforeEach(cleanup);

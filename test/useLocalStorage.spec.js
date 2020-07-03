@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks';
-import useLocalStorage from '../dist/cjs/useLocalStorage';
+import useLocalStorage from '../dist/useLocalStorage';
 
 describe('useLocalStorage', () => {
   beforeEach(() => {

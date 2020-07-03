@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { render, fireEvent, cleanup as cleanupReact } from '@testing-library/react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
-import useDragEvents from '../dist/cjs/useDragEvents';
+import useDragEvents from '../dist/useDragEvents';
 
 describe('useDragEvents', () => {
   beforeEach(() => {

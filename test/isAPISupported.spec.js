@@ -1,4 +1,4 @@
-import isAPISupported from '../dist/cjs/utils/isAPISupported';
+import isAPISupported from '../dist/utils/isAPISupported';
 
 describe('isAPISupported utility', () => {
   it('should be a function', () => {

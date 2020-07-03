@@ -1,8 +1,14 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.25.5",
+  "version": "0.25.6",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
-  "main": "dist/cjs/index.js",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist/**",
+    "index.d.ts"
+  ],
+  "typings": "index.d.ts",
   "scripts": {
     "lint": "eslint --ext .js src/",
     "build": "npx del-cli dist && rollup -c",
@@ -11,11 +17,6 @@
     "test:watch": "npm run test -- --watch",
     "start": "npx styleguidist server --config docs/styleguidist/styleguidist.config.js --open"
   },
-  "files": [
-    "dist/**",
-    "index.d.ts"
-  ],
-  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/beautifulinteractions/beautiful-react-hooks.git"
@@ -24,6 +25,10 @@
     "name": "Antonio Russo",
     "email": "antonio@beautifulinteractions.com"
   },
+  "keywords": [
+    "react",
+    "react-hooks"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/beautifulinteractions/beautiful-react-hooks/issues"

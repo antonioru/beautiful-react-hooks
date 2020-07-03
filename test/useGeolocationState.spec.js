@@ -2,7 +2,7 @@ import React from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
 import GeoLocationApi, { positionMock, watchPositionSpy } from './utils/GeoLocationApiMock';
-import useGeolocationState from '../dist/cjs/useGeolocationState';
+import useGeolocationState from '../dist/useGeolocationState';
 
 describe('useGeolocationState', () => {
   before(() => {

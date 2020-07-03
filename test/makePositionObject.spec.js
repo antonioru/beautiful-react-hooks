@@ -1,4 +1,4 @@
-import makePositionObject from '../dist/cjs/utils/makePositionObject';
+import makePositionObject from '../dist/utils/makePositionObject';
 import { positionMock } from './utils/GeoLocationApiMock';
 
 describe('makePositionObject utility', () => {

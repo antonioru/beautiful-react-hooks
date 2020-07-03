@@ -516,3 +516,9 @@ online
 ### Fixed
 
 - Introducing ESModules build
+
+## [0.25.6] - 2020-07-03
+
+### Fixed
+
+- `module` property added to `package.jsoin` to support ESModules

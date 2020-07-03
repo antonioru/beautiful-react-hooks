@@ -1,6 +1,6 @@
 import { fireEvent } from '@testing-library/react';
 import { renderHook, cleanup } from '@testing-library/react-hooks';
-import useOnlineState from '../dist/cjs/useOnlineState';
+import useOnlineState from '../dist/useOnlineState';
 
 describe('useOnlineState', () => {
   beforeEach(() => {

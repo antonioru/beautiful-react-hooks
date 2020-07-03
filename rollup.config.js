@@ -17,8 +17,8 @@ const config = [{
   preserveModules: true,
   strictDeprecations: true,
   output: [
-    { name, banner, dir: 'dist/cjs', format: 'cjs', exports: 'named', minifyInternalExports: true },
-    { name, banner, dir: 'dist/esm', format: 'esm', exports: 'named', minifyInternalExports: true }
+    { name, banner, dir: 'dist', format: 'cjs', exports: 'named', minifyInternalExports: true },
+    { name, banner, dir: 'dist/esm', format: 'esm', exports: 'named', minifyInternalExports: true },
   ],
   external: ['react', 'react-dom', 'lodash.debounce', 'lodash.throttle'],
   plugins: [

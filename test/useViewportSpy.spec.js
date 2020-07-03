@@ -1,5 +1,5 @@
 import { renderHook, cleanup, act } from '@testing-library/react-hooks';
-import useViewportSpy from '../dist/cjs/useViewportSpy';
+import useViewportSpy from '../dist/useViewportSpy';
 import IntersectionObserverMock from './utils/IntersectionObserverMock';
 
 describe('useViewportSpy', () => {

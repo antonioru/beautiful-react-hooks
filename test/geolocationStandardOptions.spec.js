@@ -1,4 +1,4 @@
-import geolocationStandardOptions from '../dist/cjs/utils/geolocationStandardOptions';
+import geolocationStandardOptions from '../dist/utils/geolocationStandardOptions';
 
 describe('geolocationStandardOptions utility', () => {
   it('should be an object without any prototype', () => {
