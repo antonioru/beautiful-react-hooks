@@ -1,4 +1,4 @@
-import {MutableRefObject, EffectCallback, DependencyList, Dispatch, SetStateAction} from 'react';
+import { MutableRefObject, EffectCallback, DependencyList, Dispatch, SetStateAction } from 'react';
 
 type ThrottleOrDebounceOpts = {
   leading: boolean,
@@ -222,22 +222,14 @@ export declare const useRequestAnimationFrame: (func: Function, options?: UseReq
 /**
  * useLocalStorage
  */
-export declare const useLocalStorage: (localStorageKey:any, defaultValue: any) => [any, HandlerSetter];
+export declare const useLocalStorage: (localStorageKey: string, defaultValue: any) => [any, HandlerSetter];
+
+/**
+ * useSessionStorage
+ */
+export declare const useSessionStorage: (localStorageKey: string, defaultValue: any) => [any, HandlerSetter];
 
 /**
  * useStorage
  */
-type StorageType = 'local' | 'session';
-type SetValueFn<T> = ((item: T) => T) | T;
-interface StorageModifiers<T extends {}> {
-	set: <K extends keyof T = keyof T>(key: K, value: SetValueFn<T[K]>) => void;
-	get: <K extends keyof T = keyof T>(key?: K) => T[K];
-}
-
-type Storage<T> = T & StorageModifiers<T>;
-export declare const useStorage: <T extends {} = any>(storageType: StorageType) => (initialValue?: T) => Storage<T>
-
-/**
- * useStorageKey
- */
-export declare const useStorageKey: <T extends {} = any>(storageType: StorageType) => (key: keyof T, initialValue?: T) => [T, Dispatch<SetStateAction<T>>]
+export declare const useStorage: (type: 'local' | 'session') => typeof useSessionStorage | typeof useLocalStorage;

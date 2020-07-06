@@ -522,3 +522,13 @@ online
 ### Fixed
 
 - `module` property added to `package.jsoin` to support ESModules
+
+
+## [0.26.0] - 2020-07-06
+
+### Added
+
+- useSessionStorage hook & documentation
+- useStorage refactory
+- useStorage types refactory
+

@@ -1,45 +1,40 @@
 # useStorage
 
-A hook for storing data. Uses the [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) or [Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) to store values.
+A hook utility that quickly creates a hook to access both [Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) and [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 
 ### 💡 Why?
 
-- Quick and alternative way to reading/storing data.
-
-### Basic Usage:
+- A thunk function to abstract [useLocalStorage](./useLocalStorage.md) and [useSessionStorage](./useSessionStorage.md) onto.
 
 ```jsx harmony
-import React, { useCallback } from 'react';
-import { Button } from 'beautiful-react-ui';
-import { useStorage } from 'beautiful-react-hooks';
+import React, { useCallback } from 'react'; 
+import { Pill, Paragraph, Icon } from 'beautiful-react-ui'; 
+import { useStorage } from 'beautiful-react-hooks'; 
 
-const Counter = ({ defaultValue }) => {
-  const localStorage = useStorage('local')({ counter: defaultValue });
-
-  const incrementCounter = useCallback(() => {
-    localStorage.set('counter', value => value + 1)
-  }, [defaultValue]);
+const NotificationBadgeExample = ({ notifications }) => {
+  const useLocalStorage = useStorage('local');
+  const [notificationCount, setNotificationCount] = useLocalStorage('demo-notification-count', notifications);
+  
+  const clearNotifications = useCallback(() => {
+    setNotificationCount(0);
+  }, [notificationCount]);
 
   return (
     <DisplayDemo>
-        <Button onClick={incrementCounter}>
-          Counter {localStorage.counter}
-        </Button>
+        <Paragraph>Click on the badge to clear from the local storage</Paragraph>
+        <Pill color="primary" onClick={clearNotifications}>
+          <Icon name="envelope" />
+          You've got {notificationCount} new messages
+        </Pill>
     </DisplayDemo>
   )
 };
 
-<Counter defaultValue={0}/>
+<NotificationBadgeExample notifications={100}/>
 ```
 
 ### Mastering the hooks
 
 #### ✅ When to use
-
-- When you need to get/save data from and to the local/session storage
-
-#### 🛑 When not to use
-
-- Do not use this hook as a state manager:
-  - the `localStorage` is meant to be used for small pieces of data
-  - the `sessionStorage` is meant to be used for small pieces of data and it resets when the user leave the wesbite or closes the tab.
+ 
+- It's internally use to create [useLocalStorage](./useLocalStorage.md) and [useSessionStorage](./useSessionStorage.md).

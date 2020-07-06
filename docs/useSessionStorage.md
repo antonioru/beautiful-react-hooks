@@ -1,20 +1,20 @@
-# useLocalStorage
+# useSessionStorage
 
-A hook for storing values into [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+A hook for storing values into [Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage).
 
 ### 💡 Why?
 
-- A quick way to use the `localStorage` in your React components.
+- A quick way to use the `sessionStorage` in your React components.
 
 ### Basic Usage:
 
 ```jsx harmony
 import React, { useCallback } from 'react'; 
 import { Pill, Paragraph, Icon } from 'beautiful-react-ui'; 
-import { useLocalStorage } from 'beautiful-react-hooks'; 
+import { useSessionStorage } from 'beautiful-react-hooks'; 
 
 const NotificationBadgeExample = ({ notifications }) => {
-  const [notificationCount, setNotificationCount] = useLocalStorage('demo-notification-count', notifications);
+  const [notificationCount, setNotificationCount] = useSessionStorage('demo-notification-count', notifications);
   
   const clearNotifications = useCallback(() => {
     setNotificationCount(0);
@@ -22,7 +22,7 @@ const NotificationBadgeExample = ({ notifications }) => {
 
   return (
     <DisplayDemo>
-        <Paragraph>Click on the badge to clear from the local storage</Paragraph>
+        <Paragraph>Click on the badge to clear from the session storage</Paragraph>
         <Pill color="primary" onClick={clearNotifications}>
           <Icon name="envelope" />
           You've got {notificationCount} new messages
@@ -38,8 +38,8 @@ const NotificationBadgeExample = ({ notifications }) => {
 
 #### ✅ When to use
  
-- When you need to get/set values from and to the `localStorage` 
+- When you need to get/set values from and to the `sessionStorage` 
 
 #### 🛑 When not to use
 
-- Do not use this hook as a state manager, the `localStorage` is meant to be used for small pieces of data
+- Do not use this hook as a state manager, the `sessionStorage` is meant to be used for small pieces of data

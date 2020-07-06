@@ -32,6 +32,8 @@ module.exports = {
     { name: 'useDropZone', content: '../useDropZone.md' },
     { name: 'useDragEvents', content: '../useDragEvents.md' },
     { name: 'useLocalStorage', content: '../useLocalStorage.md' },
+    { name: 'useSessionStorage', content: '../useSessionStorage.md' },
+    { name: 'useStorage', content: '../useStorage.md' },
     { name: 'useMouse', content: '../useMouse.md' },
     { name: 'useMouseState', content: '../useMouseState.md' },
     { name: 'useMouseEvents', content: '../useMouseEvents.md' },

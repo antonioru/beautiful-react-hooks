@@ -1,52 +1,42 @@
 import { useState, useEffect } from 'react';
 import safelyParseJson from './utils/safelyParseJson';
 import isClient from './utils/isClient';
+import isAPISupported from './utils/isAPISupported';
+import isDevelopment from './utils/isDevelopment';
 
+/**
+ *
+ */
+const useStorage = (type) => {
+  const storageName = `${type}Storage`;
+  const storage = window[storageName];
 
-const useStorage = (type) => (initialValue) => {
-  const [store, setStore] = useState(initialValue);
-
-  let storageType = type;
-
-  if (storageType !== 'local' && storageType !== 'session') {
-    storageType = 'local';
+  if (isClient && !isAPISupported(storageName)) {
+    // eslint-disable-next-line no-console
+    console.warn(`${storageName} is not supported`);
   }
 
-  storageType += 'Storage';
-
-  // Setters and Getters
-  const get = (key) => safelyParseJson(isClient ? window[storageType].getItem(key) : store[key]);
-  const set = (key, value) => {
-    const valueToStore = value instanceof Function ? value(safelyParseJson(store[key])) : value;
-
-    if (isClient) {
-      window[storageType].setItem(key, JSON.stringify(valueToStore));
+  /**
+   * hook
+   */
+  return (storageKey, defaultValue) => {
+    if (!isClient) {
+      if (isDevelopment) {
+        // eslint-disable-next-line no-console
+        console.warn(`Please be aware that ${storageName} could not be available during SSR`);
+      }
+      return [JSON.stringify(defaultValue), () => undefined];
     }
 
-    return setStore((x) => ({
-      ...x,
-      [key]: valueToStore,
-    }));
-  };
+    const [value, setValue] = useState(
+      safelyParseJson(storage.getItem(storageKey) || JSON.stringify(defaultValue)),
+    );
 
-  useEffect(() => {
-    if (isClient) {
-      Object
-        .keys(store)
-        .map((k) => window[storageType].setItem(k, JSON.stringify(store[k])));
-    }
-  }, [store]);
+    useEffect(() => {
+      storage.setItem(storageKey, JSON.stringify(value));
+    }, [storageKey, value]);
 
-  let storage = store;
-
-  if (isClient) {
-    storage = window[storageType];
-  }
-
-  return {
-    ...storage,
-    get,
-    set,
+    return [value, setValue];
   };
 };
 

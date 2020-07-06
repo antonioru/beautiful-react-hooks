@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks';
-import useLocalStorage from '../dist/useLocalStorage';
+import useSessionStorage from '../dist/useSessionStorage';
 
-describe('useLocalStorage', () => {
+describe('useSessionStorage', () => {
   beforeEach(() => {
     cleanupHooks();
     cleanupReact();
@@ -14,11 +14,11 @@ describe('useLocalStorage', () => {
   });
 
   it('should be a function', () => {
-    expect(useLocalStorage).to.be.a('function');
+    expect(useSessionStorage).to.be.a('function');
   });
 
   it('should return null when no default value defined', () => {
-    const { result, rerender } = renderHook(() => useLocalStorage('storageKey_1'));
+    const { result, rerender } = renderHook(() => useSessionStorage('storageKey_1'));
     const [value] = result.current;
 
     rerender();
@@ -28,7 +28,7 @@ describe('useLocalStorage', () => {
 
 
   it('should return default value', () => {
-    const { result, rerender } = renderHook(() => useLocalStorage('storageKey_2', 100));
+    const { result, rerender } = renderHook(() => useSessionStorage('storageKey_2', 100));
     const [value] = result.current;
 
     rerender();
@@ -40,7 +40,7 @@ describe('useLocalStorage', () => {
     const TestComponent = (props) => {
       // eslint-disable-next-line react/prop-types
       const { newValue } = props;
-      const [value, setValue] = useLocalStorage('storageKey_2', 100);
+      const [value, setValue] = useSessionStorage('storageKey_2', 100);
 
       const setNewState = (v) => {
         setValue(v);

@@ -94,6 +94,7 @@ $ yarn add beautiful-react-hooks
 * [useDebouncedFn](docs/useDebouncedFn.md)
 * [useThrottledFn](docs/useThrottledFn.md)
 * [useLocalStorage](docs/useLocalStorage.md)
+* [useSessionStorage](docs/useSessionStorage.md)
 * [useStorage](docs/useStorage.md)
 
 <div>
