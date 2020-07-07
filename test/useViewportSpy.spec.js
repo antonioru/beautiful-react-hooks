@@ -17,14 +17,14 @@ describe('useViewportSpy', () => {
     expect(useViewportSpy).to.be.a('function');
   });
 
-  it('should return a single function', () => {
+  it('should return a single boolean value', () => {
     const refMock = { current: document.createElement('div') };
     const { result } = renderHook(() => useViewportSpy(refMock));
 
     expect(result.current).to.be.a('boolean');
   });
 
-  it('should return a single function', () => {
+  it('should spy on the viewport', () => {
     const refMock = { current: document.createElement('div') };
     const { result } = renderHook(() => useViewportSpy(refMock, { threshold: 0.2 }));
 
