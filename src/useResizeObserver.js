@@ -18,6 +18,7 @@ const useResizeObserver = (elementRef, debounceTimeout = 100) => {
   const [DOMRect, setDOMRect] = useState();
 
   if (isClient && !isSupported) {
+    // eslint-disable-next-line no-console
     console.warn(errorMessage);
   }
 
