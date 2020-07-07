@@ -85,6 +85,7 @@ $ yarn add beautiful-react-hooks
 * [useWindowResize](docs/useWindowResize.md)
 * [useWindowScroll](docs/useWindowScroll.md)
 * [useRequestAnimationFrame](docs/useRequestAnimationFrame.md)
+* [useResizeObserver](docs/useResizeObserver.md)
 * [useTimeout](docs/useTimeout.md)
 * [useConditionalTimeout](docs/useConditionalTimeout.md)
 * [useInterval](docs/useInterval.md)

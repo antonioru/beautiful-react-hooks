@@ -1,4 +1,4 @@
-import { MutableRefObject, EffectCallback, DependencyList, Dispatch, SetStateAction } from 'react';
+import { MutableRefObject, EffectCallback, DependencyList, Dispatch, SetStateAction, Ref } from 'react';
 
 type ThrottleOrDebounceOpts = {
   leading: boolean,
@@ -233,3 +233,10 @@ export declare const useSessionStorage: (localStorageKey: string, defaultValue: 
  * useStorage
  */
 export declare const useStorage: (type: 'local' | 'session') => typeof useSessionStorage | typeof useLocalStorage;
+
+type DOMRect = { bottom: number, height: number, left: number, right: number, top: number, width: number };
+
+/**
+ * useResizeObserver
+ */
+export declare const useResizeObserver: (elementRef: MutableRefObject<HTMLElement>, timeout?: number) => DOMRect | undefined;
