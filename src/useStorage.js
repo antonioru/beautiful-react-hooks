@@ -9,7 +9,6 @@ import isDevelopment from './utils/isDevelopment';
  */
 const useStorage = (type) => {
   const storageName = `${type}Storage`;
-  const storage = window[storageName];
 
   if (isClient && !isAPISupported(storageName)) {
     // eslint-disable-next-line no-console
@@ -28,6 +27,7 @@ const useStorage = (type) => {
       return [JSON.stringify(defaultValue), () => undefined];
     }
 
+    const storage = window[storageName];
     const [value, setValue] = useState(
       safelyParseJson(storage.getItem(storageKey) || JSON.stringify(defaultValue)),
     );

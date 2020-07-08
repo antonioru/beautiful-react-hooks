@@ -537,3 +537,8 @@ online
 
 - useResizeObserver hook & documentation
 
+## [0.27.1] - 2020-07-08
+
+### Fixed
+
+- useStorage throws an error on server side rendering as the window object is not defined yet
