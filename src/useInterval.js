@@ -42,7 +42,7 @@ const useInterval = (fn, milliseconds, options = defaultOptions) => {
   }, [milliseconds]);
 
   // when component unmount clear the timeout
-  useEffect(() => () => {
+  useEffect(() => {
     if (opts.cancelOnUnmount) {
       clear();
     }
