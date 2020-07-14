@@ -48,7 +48,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@babel/register": "^7.9.0",
-    "@rollup/plugin-node-resolve": "7.1.3",
+    "@rollup/plugin-node-resolve": "8.4.0",
     "@testing-library/react": "10.0.4",
     "@testing-library/react-hooks": "^3.2.1",
     "babel-eslint": "^10.1.0",
