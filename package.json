@@ -70,7 +70,7 @@
     "jsdoc-to-markdown": "^6.0.1",
     "jsdom": "^16.2.2",
     "jsdom-global": "^3.0.2",
-    "mocha": "7.1.2",
+    "mocha": "8.0.1",
     "mock-local-storage": "1.1.12",
     "nyc": "^15.0.1",
     "react": "^16.12.0",
