@@ -8,4 +8,10 @@ updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "monday"
+    reviewers:
+      - "antonioru"
+    commit-message:
+      # Prefix all commit messages with "npm"
+      prefix: "[skip ci] "
