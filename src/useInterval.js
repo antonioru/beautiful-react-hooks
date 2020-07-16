@@ -31,14 +31,13 @@ const useInterval = (fn, milliseconds, options = defaultOptions) => {
 
   // when the milliseconds change, reset the timeout
   useEffect(() => {
-    // cleanup previous interval
-    clear();
-
     if (typeof milliseconds === 'number') {
       timeout.current = setInterval(() => {
         callback.current();
       }, milliseconds);
     }
+    // cleanup previous interval
+    return () => clear();
   }, [milliseconds]);
 
   // when component unmount clear the timeout
