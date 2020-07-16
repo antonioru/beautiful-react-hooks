@@ -17,8 +17,8 @@ const useInterval = (fn, milliseconds, options = defaultOptions) => {
   // the clear method
   const clear = useCallback(() => {
     if (timeout.current) {
-      clearInterval(timeout.current);
       setIsCleared(true);
+      clearInterval(timeout.current);
     }
   }, []);
 
@@ -36,8 +36,9 @@ const useInterval = (fn, milliseconds, options = defaultOptions) => {
         callback.current();
       }, milliseconds);
     }
+
     // cleanup previous interval
-    return () => clear();
+    return clear;
   }, [milliseconds]);
 
   // when component unmount clear the timeout

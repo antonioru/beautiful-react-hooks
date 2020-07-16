@@ -17,5 +17,4 @@ const useDebouncedFn = (fn, wait = 100, options = defaultOptions, dependencies) 
   return useCallback(debounced, dependencies);
 };
 
-
 export default useDebouncedFn;

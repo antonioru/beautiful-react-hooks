@@ -542,3 +542,10 @@ online
 ### Fixed
 
 - useStorage throws an error on server side rendering as the window object is not defined yet
+
+## [0.27.2] - 2020-07-16
+
+### Fixed
+
+- useInterval clear function is now correctly used as useEffect cleanup
+- Rollup configuration `preserveModules` bug

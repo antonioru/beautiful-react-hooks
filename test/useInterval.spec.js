@@ -1,18 +1,10 @@
 import React from 'react';
-import { render, cleanup as cleanupReact } from '@testing-library/react';
-import { cleanup as cleanupHooks, renderHook, act } from '@testing-library/react-hooks';
+import { cleanup, renderHook, act } from '@testing-library/react-hooks';
 import useInterval from '../dist/useInterval';
-import promiseDelay from './utils/promiseDelay';
 
 describe('useInterval', () => {
-  beforeEach(() => {
-    cleanupHooks();
-    cleanupReact();
-  });
-
-  afterEach(() => {
-    sinon.restore()
-  });
+  beforeEach(cleanup);
+  afterEach(sinon.restore);
 
   it('should be a function', () => {
     expect(useInterval).to.be.a('function');
@@ -44,29 +36,23 @@ describe('useInterval', () => {
     expect(spy.callCount).to.be.at.least(2);
   }); */
 
-  it('should allow to define whether the interval should be cleared on unmount', async () => {
-    const ms = 50;
-    const spy = sinon.spy();
-
-    const TestComponent = () => {
-      useInterval(spy, ms, { cancelOnUnmount: false });
-
-      return <div />;
-    };
-
-    const { rerender } = render(<TestComponent />);
-    rerender(null);
-
-    await promiseDelay(10 + ms);
-
-    expect(spy.called).to.be.true;
-  });
-
   it('even if the provided options is null, it should keep working', () => {
     const { result } = renderHook(() => useInterval(() => null, 1000, null));
 
     expect(result.current).to.be.an('array');
   });
+
+
+  /*it('should allow to define whether the interval should be cleared on unmount', async () => {
+    const noop = () => void 0;
+    const { result, unmount, wait } = renderHook(() => useInterval(noop, 10, { cancelOnUnmount: true }));
+
+    await wait(() => true, { timeout: 250 });
+
+    unmount();
+
+    expect(result.current[0]).to.be.true;
+  });*/
 
   it('should allow to clear the created interval', () => {
     const spy = sinon.spy();

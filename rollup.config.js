@@ -6,6 +6,10 @@ import { version } from './package.json';
 const name = 'beautiful-react-hooks';
 const banner = `/* ${name} version: ${version} */`;
 
+const standardOpts = {
+  name, banner, exports: 'named', minifyInternalExports: true, preserveModules: true,
+};
+
 // CommonJS (for Node) and ES module (for bundlers) build.
 // (We could have three entries in the configuration array
 // instead of two, but it's quicker to generate multiple
@@ -14,11 +18,10 @@ const banner = `/* ${name} version: ${version} */`;
 // `file` and `format` for each target)
 const config = [{
   input: glob.sync('./src/**/*.js'),
-  preserveModules: true,
   strictDeprecations: true,
   output: [
-    { name, banner, dir: 'dist', format: 'cjs', exports: 'named', minifyInternalExports: true },
-    { name, banner, dir: 'dist/esm', format: 'esm', exports: 'named', minifyInternalExports: true },
+    { ...standardOpts, dir: 'dist', format: 'cjs' },
+    { ...standardOpts, dir: 'dist/esm', format: 'esm' },
   ],
   external: ['react', 'react-dom', 'lodash.debounce', 'lodash.throttle'],
   plugins: [
