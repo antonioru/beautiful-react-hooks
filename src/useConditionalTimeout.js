@@ -39,6 +39,7 @@ const useConditionalTimeout = (fn, milliseconds, condition, options = defaultOpt
         callback.current();
       }, milliseconds);
     }
+    return () => clear();
   }, [condition, milliseconds]);
 
   // when the condition change, clear the timeout
