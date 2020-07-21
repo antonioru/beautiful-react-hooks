@@ -75,7 +75,7 @@ describe('useConditionalTimeout', () => {
 
     await promiseDelay(10 + delay);
 
-    expect(spy.called).to.be.true;
+    expect(spy.called).to.be.false;
   });
 
   it('should allow to define whether the timeout should be cleared on condition change', async () => {
