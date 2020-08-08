@@ -230,3 +230,4 @@ GitHub.sublime-settings
 
 dist/
 dist-ghpages/
+coverage.lcov

@@ -12,10 +12,10 @@
   "scripts": {
     "lint": "eslint --ext .js src/",
     "build": "npx del-cli dist && rollup -c",
-    "build-doc": "npx del-cli dist-ghpages && npx styleguidist build --config docs/styleguidist/styleguidist.config.js",
+    "build-doc": "npx del-cli dist-ghpages && styleguidist build --config docs/styleguidist/styleguidist.config.js",
     "test": "nyc mocha --recursive --exit \"./test/**/*.spec.+(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
-    "start": "npx styleguidist server --config docs/styleguidist/styleguidist.config.js --open"
+    "start": "styleguidist server --config docs/styleguidist/styleguidist.config.js --open"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,51 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  ci-cd:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+
+      - name: NPM CI
+        run: npm ci
+
+      - name: Repository build
+        run: npm run build
+
+      - name: Tests (with coverage)
+        run: npm test -- --coverage
+
+      - name: Build website (Github pages)
+        run: npm run build-doc --if-present
+
+      - name: Publish website on GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2.1.2
+        with:
+          build_dir: dist-ghpages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload code coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          name: beautiful-react-hooks coverage report
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/coverage-final.json
+          directory: ./coverage
+          flags: unittests
+          path_to_write_report: ./coverage/codecov_report.gz
+
+
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
