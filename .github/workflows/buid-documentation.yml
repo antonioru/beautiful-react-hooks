@@ -1,0 +1,27 @@
+name: Documentation CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  github-pages:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: npm ci
+      - run: npm run build-doc --if-present
+
+      - name: GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2.1.2
+        with:
+          build_dir: dist-ghpages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
