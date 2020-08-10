@@ -1,0 +1,22 @@
+name: covearge
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  coverage:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: cat ./coverage/lcov.info | npm run coverage -- -t ${{ secrets.CODECOV_TOKEN }}
