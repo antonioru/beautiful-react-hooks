@@ -15,7 +15,6 @@
     "build-doc": "npx del-cli dist-ghpages && styleguidist build --config docs/styleguidist/styleguidist.config.js",
     "test": "nyc mocha --recursive --exit \"./test/**/*.spec.+(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
-    "coverage": "npx codecov",
     "start": "styleguidist server --config docs/styleguidist/styleguidist.config.js --open"
   },
   "repository": {
