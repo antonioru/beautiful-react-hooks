@@ -1,9 +1,14 @@
 name: CI/CD
 
+env:
+  CI: true
+
 on:
   push:
     branches: [master]
-
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
 jobs:
   ci-cd:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
@@ -34,18 +39,24 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload code coverage to Codecov
-        uses: codecov/codecov-action@v1
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v1.1.1
         with:
-          name: beautiful-react-hooks coverage report
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage/coverage-final.json
-          directory: ./coverage
-          flags: unittests
-          path_to_write_report: ./coverage/codecov_report.gz
-
+          github-token: ${{ secrets.COVERALLS_TOKEN }}
+          parallel: true
 
       - name: Publish
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  coverage-end:
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    needs: ci-cd
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls End
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.COVERALLS_TOKEN }}
+          parallel-finished: true

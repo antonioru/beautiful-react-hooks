@@ -5,7 +5,7 @@ import isAPISupported from './utils/isAPISupported';
 import isDevelopment from './utils/isDevelopment';
 
 /**
- *
+ * An utility to quickly create hooks to access both Session Storage and Local Storage
  */
 const useStorage = (type) => {
   const storageName = `${type}Storage`;

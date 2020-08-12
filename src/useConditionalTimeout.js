@@ -14,8 +14,8 @@ const useConditionalTimeout = (fn, milliseconds, condition, options = defaultOpt
   const opts = { ...defaultOptions, ...(options || {}) };
   const timeout = useRef();
   const callback = useRef(fn);
-  const [isCleared, setIsCleared] = useState(false);
   const prevCondition = usePreviousValue(condition);
+  const [isCleared, setIsCleared] = useState(false);
 
   // the clear method
   const clear = useCallback(() => {
@@ -39,6 +39,7 @@ const useConditionalTimeout = (fn, milliseconds, condition, options = defaultOpt
         callback.current();
       }, milliseconds);
     }
+    return clear;
   }, [condition, milliseconds]);
 
   // when the condition change, clear the timeout

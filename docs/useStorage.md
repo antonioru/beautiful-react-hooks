@@ -1,6 +1,6 @@
 # useStorage
 
-A hook utility that quickly creates a hook to access both [Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) and [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+An utility to quickly create hooks to access both [Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) and [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 
 ### 💡 Why?
 

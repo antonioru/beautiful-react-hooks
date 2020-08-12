@@ -1,7 +1,5 @@
-![build](https://github.com/beautifulinteractions/beautiful-react-hooks/workflows/build/badge.svg)
-![npm publish](https://github.com/beautifulinteractions/beautiful-react-hooks/workflows/npm%20publish/badge.svg)
-[![codecov](https://codecov.io/gh/beautifulinteractions/beautiful-react-hooks/branch/master/graph/badge.svg)](https://codecov.io/gh/beautifulinteractions/beautiful-react-hooks)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![CI/CD](https://github.com/beautifulinteractions/beautiful-react-hooks/workflows/CI/CD/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/beautifulinteractions/beautiful-react-hooks/badge.svg?branch=master)](https://coveralls.io/github/beautifulinteractions/beautiful-react-hooks?branch=master)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![npm](https://img.shields.io/npm/v/beautiful-react-hooks)
 ![GitHub stars](https://img.shields.io/github/stars/beautifulinteractions/beautiful-react-hooks?style=social)
 
