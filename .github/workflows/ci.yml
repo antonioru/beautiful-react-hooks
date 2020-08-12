@@ -44,8 +44,19 @@ jobs:
           flags: unittests
           path_to_write_report: ./coverage/codecov_report.gz
 
-
       - name: Publish
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Create Github Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Release automatically created by Github actions
+          draft: false
+          prerelease: false

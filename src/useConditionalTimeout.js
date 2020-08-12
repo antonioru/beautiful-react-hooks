@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
+import usePreviousValue from './usePreviousValue';
 
 const defaultOptions = {
   cancelOnUnmount: true,
@@ -13,6 +14,7 @@ const useConditionalTimeout = (fn, milliseconds, condition, options = defaultOpt
   const opts = { ...defaultOptions, ...(options || {}) };
   const timeout = useRef();
   const callback = useRef(fn);
+  const prevCondition = usePreviousValue(condition);
   const [isCleared, setIsCleared] = useState(false);
 
   // the clear method
@@ -37,12 +39,12 @@ const useConditionalTimeout = (fn, milliseconds, condition, options = defaultOpt
         callback.current();
       }, milliseconds);
     }
-    return () => clear();
+    return clear;
   }, [condition, milliseconds]);
 
   // when the condition change, clear the timeout
   useEffect(() => {
-    if (!condition && opts.cancelOnConditionChange) {
+    if (prevCondition && condition !== prevCondition && opts.cancelOnConditionChange) {
       clear();
     }
   }, [condition, options]);
