@@ -4,13 +4,13 @@ import IntersectionObserverMock from './utils/IntersectionObserverMock';
 
 describe('useViewportSpy', () => {
   before(() => {
-    global.IntersectionObserver = IntersectionObserverMock;
+    window.IntersectionObserver = IntersectionObserverMock;
   });
 
   beforeEach(cleanup);
 
   after(() => {
-    delete global.IntersectionObserver;
+    delete window.IntersectionObserver;
   });
 
   it('should be a function', () => {

@@ -549,3 +549,11 @@ online
 
 - useInterval clear function is now correctly used as useEffect cleanup
 - Rollup configuration `preserveModules` bug
+
+## [0.27.3] - 2020-08-12
+
+### Fixed
+
+- useTimeout clear function is now correctly used as useEffect cleanup
+- CI minor issues
+

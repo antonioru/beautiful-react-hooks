@@ -1,6 +1,6 @@
 {
   "all": true,
-  "reporter": ["json"],
+  "reporter": ["lcov"],
   "check-coverage": true,
   "extension": [ ".js" ],
   "include": [ "dist/*.js" ],
