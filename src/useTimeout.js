@@ -36,6 +36,7 @@ const useTimeout = (fn, milliseconds, options = defaultOptions) => {
         callback.current();
       }, milliseconds);
     }
+    return () => clear();
   }, [milliseconds]);
 
   // when component unmount clear the timeout

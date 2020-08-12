@@ -56,7 +56,7 @@ describe('useTimeout', () => {
 
     await promiseDelay(10 + delay);
 
-    expect(spy.called).to.be.true;
+    expect(spy.called).to.be.false;
   });
 
   it('even if the provided options is null, it should keep working', () => {
