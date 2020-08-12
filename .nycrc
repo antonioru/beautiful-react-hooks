@@ -1,5 +1,6 @@
 {
   "all": true,
+  "reporter": ["clover", "json"],
   "check-coverage": true,
   "extension": [ ".js" ],
   "include": [ "dist/*.js" ],
