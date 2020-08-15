@@ -42,21 +42,9 @@ jobs:
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v1.1.1
         with:
-          github-token: ${{ secrets.COVERALLS_TOKEN }}
-          parallel: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-  coverage-end:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
-    needs: ci-cd
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls End
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.COVERALLS_TOKEN }}
-          parallel-finished: true
