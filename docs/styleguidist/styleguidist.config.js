@@ -49,6 +49,7 @@ module.exports = {
     { name: 'useDebouncedFn', content: '../useDebouncedFn.md' },
     { name: 'useThrottledFn', content: '../useThrottledFn.md' },
     { name: 'useResizeObserver', content: '../useResizeObserver.md' },
+    { name: 'useDefaultedState', content: '../useDefaultedState.md' },
   ],
   require: [path.join(__dirname, 'setup.js'), path.join(__dirname, 'custom.css')],
   // Override Styleguidist components

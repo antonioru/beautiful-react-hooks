@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.27.4",
+  "version": "0.28.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -15,7 +15,8 @@
     "build-doc": "npx del-cli dist-ghpages && styleguidist build --config docs/styleguidist/styleguidist.config.js",
     "test": "nyc mocha --recursive --exit \"./test/**/*.spec.+(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
-    "start": "styleguidist server --config docs/styleguidist/styleguidist.config.js --open"
+    "start": "styleguidist server --config docs/styleguidist/styleguidist.config.js --open",
+    "pre-commit": "echo huuuu"
   },
   "repository": {
     "type": "git",
@@ -57,7 +58,6 @@
     "babel-plugin-transform-require-ignore": "^0.1.1",
     "beautiful-react-ui": "^0.56.14",
     "chai": "^4.2.0",
-    "coveralls": "3.1.0",
     "css-loader": "^4.2.1",
     "eslint": "^7.7.0",
     "eslint-config-airbnb": "^18.2.0",

@@ -1,4 +1,4 @@
-import { MutableRefObject, EffectCallback, DependencyList, Dispatch, SetStateAction, Ref } from 'react';
+import { MutableRefObject, EffectCallback, DependencyList, Dispatch, SetStateAction } from 'react';
 
 type ThrottleOrDebounceOpts = {
   leading: boolean,
@@ -193,7 +193,7 @@ export declare const useConditionalTimeout: (fn: Function, milliseconds: number,
 /**
  * useValueHistory
  */
-export declare const useValueHistory: (value: any, distinct?: boolean) => Array<any>;
+export declare const useValueHistory:<S = unknown> (value: any, distinct?: boolean) => Array<S>;
 
 
 /**
@@ -240,3 +240,8 @@ type DOMRect = { bottom: number, height: number, left: number, right: number, to
  * useResizeObserver
  */
 export declare const useResizeObserver: (elementRef: MutableRefObject<HTMLElement>, timeout?: number) => DOMRect | undefined;
+
+/**
+ * useDefaultedState
+ */
+export declare const useDefaultedState:<S = unknown> (defaultValue: S, initialState?: S) => [S, SetStateAction<S>];
