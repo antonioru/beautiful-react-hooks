@@ -1,2 +1,0 @@
-service_name: actions
-repo_token: ${{ secrets.COVERALLS_TOKEN }}

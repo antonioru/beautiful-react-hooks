@@ -193,7 +193,7 @@ export declare const useConditionalTimeout: (fn: Function, milliseconds: number,
 /**
  * useValueHistory
  */
-export declare const useValueHistory: (value: any) => Array<any>;
+export declare const useValueHistory: (value: any, distinct?: boolean) => Array<any>;
 
 
 /**

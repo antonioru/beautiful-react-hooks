@@ -557,3 +557,13 @@ online
 - useTimeout clear function is now correctly used as useEffect cleanup
 - CI minor issues
 
+## [0.27.4] - 2020-08-15
+
+### Added
+- `useValueHistory` can now be used with distinct history
+
+### Fixed
+
+- dependencies update
+- CI minor issues
+
