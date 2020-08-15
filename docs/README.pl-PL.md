@@ -93,6 +93,7 @@ $ yarn add beautiful-react-hooks
 * [useLocalStorage](./useLocalStorage.md)
 * [useSessionStorage](./useSessionStorage.md)
 * [useStorage](./useStorage.md)
+* [useDefaultedState](docs/useDefaultedState.md)
 
 <div>
   <p align="center">
