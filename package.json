@@ -78,7 +78,7 @@
     "react-dom": "^16.12.0",
     "react-styleguidist": "^11.0.8",
     "react-test-renderer": "^16.13.1",
-    "rollup": "2.26.3",
+    "rollup": "2.26.5",
     "rollup-plugin-babel": "4.4.0",
     "sinon": "^9.0.3",
     "style-loader": "1.2.1",
