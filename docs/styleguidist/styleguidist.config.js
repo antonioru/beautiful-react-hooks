@@ -1,5 +1,6 @@
 const path = require('path');
 const theme = require('./styleguidist.theme');
+const getHooksDocFiles = require('./getHooksDocFiles');
 
 module.exports = {
   title: 'Beautiful React Hooks docs',
@@ -18,38 +19,7 @@ module.exports = {
   sections: [
     { name: 'Introduction', content: '../Introduction.md', sectionDepth: 1, },
     { name: 'Installation', content: '../Installation.md', sectionDepth: 1, },
-    { name: 'useGlobalEvent', content: '../useGlobalEvent.md' },
-    { name: 'usePreviousValue', content: '../usePreviousValue.md' },
-    { name: 'useValueHistory', content: '../useValueHistory.md' },
-    { name: 'useMediaQuery', content: '../useMediaQuery.md' },
-    { name: 'useOnlineState', content: '../useOnlineState.md' },
-    { name: 'useViewportSpy', content: '../useViewportSpy.md' },
-    { name: 'useValidatedState', content: '../useValidatedState.md' },
-    { name: 'useGeolocation', content: '../useGeolocation.md' },
-    { name: 'useGeolocationState', content: '../useGeolocationState.md' },
-    { name: 'useGeolocationEvents', content: '../useGeolocationEvents.md' },
-    { name: 'useDrag', content: '../useDrag.md' },
-    { name: 'useDropZone', content: '../useDropZone.md' },
-    { name: 'useDragEvents', content: '../useDragEvents.md' },
-    { name: 'useLocalStorage', content: '../useLocalStorage.md' },
-    { name: 'useSessionStorage', content: '../useSessionStorage.md' },
-    { name: 'useStorage', content: '../useStorage.md' },
-    { name: 'useMouse', content: '../useMouse.md' },
-    { name: 'useMouseState', content: '../useMouseState.md' },
-    { name: 'useMouseEvents', content: '../useMouseEvents.md' },
-    { name: 'useLifecycle', content: '../useLifecycle.md' },
-    { name: 'useDidMount', content: '../useDidMount.md' },
-    { name: 'useWillUnMount', content: '../useWillUnmount.md' },
-    { name: 'useWindowResize', content: '../useWindowResize.md' },
-    { name: 'useWindowScroll', content: '../useWindowScroll.md' },
-    { name: 'useRequestAnimationFrame', content: '../useRequestAnimationFrame.md' },
-    { name: 'useTimeout', content: '../useTimeout.md' },
-    { name: 'useConditionalTimeout', content: '../useConditionalTimeout.md' },
-    { name: 'useInterval', content: '../useInterval.md' },
-    { name: 'useDebouncedFn', content: '../useDebouncedFn.md' },
-    { name: 'useThrottledFn', content: '../useThrottledFn.md' },
-    { name: 'useResizeObserver', content: '../useResizeObserver.md' },
-    { name: 'useDefaultedState', content: '../useDefaultedState.md' },
+    ...getHooksDocFiles(),
   ],
   require: [path.join(__dirname, 'setup.js'), path.join(__dirname, 'custom.css')],
   // Override Styleguidist components
@@ -62,3 +32,4 @@ module.exports = {
   },
   ...theme,
 };
+
