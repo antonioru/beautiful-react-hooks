@@ -30,3 +30,4 @@ export { default as useSessionStorage } from './useSessionStorage';
 export { default as useStorage } from './useStorage';
 export { default as useResizeObserver } from './useResizeObserver';
 export { default as useDefaultedState } from './useDefaultedState';
+export { default as useObservable } from './useObservable';
