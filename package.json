@@ -41,8 +41,7 @@
   },
   "peerDependencies": {
     "react": ">=16.13.1",
-    "react-dom": ">=16.13.1",
-    "rxjs": "6.6.2"
+    "react-dom": ">=16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -81,6 +80,7 @@
     "react-test-renderer": "^16.13.1",
     "rollup": "2.26.5",
     "rollup-plugin-babel": "4.4.0",
+    "rxjs": "6.6.2",
     "sinon": "^9.0.3",
     "style-loader": "1.2.1",
     "url-loader": "^4.1.0",
