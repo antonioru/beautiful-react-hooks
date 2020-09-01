@@ -1,4 +1,5 @@
 import { MutableRefObject, EffectCallback, DependencyList, Dispatch, SetStateAction } from 'react';
+import { Observable } from 'rxjs';
 
 type ThrottleOrDebounceOpts = {
   leading: boolean,
@@ -245,3 +246,8 @@ export declare const useResizeObserver: (elementRef: MutableRefObject<HTMLElemen
  * useDefaultedState
  */
 export declare const useDefaultedState:<S = unknown> (defaultValue: S, initialState?: S) => [S, SetStateAction<S>];
+
+/**
+ * useObservable
+ */
+export declare const useObservable: <T = unknown> (observable: Observable<T>, setter: Dispatch<SetStateAction<T>>) => void;
