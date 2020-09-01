@@ -72,6 +72,7 @@ $ yarn add beautiful-react-hooks
 
 ## 🎨 Хуки
 
+* [useObservable](./useObservable.md)
 * [useGlobalEvent](./useGlobalEvent.md)
 * [usePreviousValue](./usePreviousValue.md)
 * [useValueHistory](./useValueHistory.md)

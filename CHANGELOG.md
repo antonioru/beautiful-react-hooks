@@ -580,4 +580,6 @@ online
 
 - `useObservable` hook and tests
 
+### Fixed
 
+- CI minor issues
