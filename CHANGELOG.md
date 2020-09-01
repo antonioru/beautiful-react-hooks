@@ -574,4 +574,10 @@ online
 
 - `useDefaultedState` hook and tests
 
+## [0.29.0] - 2020-08-15
+
+### Added
+
+- `useObservable` hook and tests
+
 
