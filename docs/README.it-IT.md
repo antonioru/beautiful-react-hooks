@@ -78,7 +78,7 @@ $ yarn add beautiful-react-hooks
 * [useMediaQuery](./useMediaQuery.md)
 * [useOnlineState](./useOnlineState.md)
 * [useViewportSpy](./useViewportSpy.md)
-* [useSystemVoices](./useSystemVoices.md)
+* [useSpeechSynthesis](./useSpeechSynthesis.md) and [useSystemVoices](./useSystemVoices.md)
 * [useGeolocation](./useGeolocation.md), [useGeolocationState](./useGeolocationState.md) and [useGeolocationEvents](./useGeolocationEvents.md)
 * [useDrag](./useDrag.md), [useDropZone](./useDropZone.md) and [useDragEvents](./useDragEvents.md)
 * [useMouse](./useMouse.md), [useMouseState](./useMouseState.md) and [useMouseEvents](./useMouseEvents.md)
@@ -96,7 +96,6 @@ $ yarn add beautiful-react-hooks
 * [useSessionStorage](./useSessionStorage.md)
 * [useStorage](./useStorage.md)
 * [useDefaultedState](./useDefaultedState.md)
-
 <div>
   <p align="center">
     <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">

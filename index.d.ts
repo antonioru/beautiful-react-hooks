@@ -194,7 +194,7 @@ export declare const useConditionalTimeout: (fn: Function, milliseconds: number,
 /**
  * useValueHistory
  */
-export declare const useValueHistory:<S = unknown> (value: any, distinct?: boolean) => Array<S>;
+export declare const useValueHistory: <S = unknown> (value: any, distinct?: boolean) => Array<S>;
 
 
 /**
@@ -245,9 +245,26 @@ export declare const useResizeObserver: (elementRef: MutableRefObject<HTMLElemen
 /**
  * useDefaultedState
  */
-export declare const useDefaultedState:<S = unknown> (defaultValue: S, initialState?: S) => [S, SetStateAction<S>];
+export declare const useDefaultedState: <S = unknown> (defaultValue: S, initialState?: S) => [S, SetStateAction<S>];
 
 /**
  * useObservable
  */
 export declare const useObservable: <T = unknown> (observable: Observable<T>, setter: Dispatch<SetStateAction<T>>) => void;
+
+/**
+ * useSystemVoices
+ */
+export declare const useSystemVoices: () => Array<SpeechSynthesisVoice>;
+
+/**
+ * useSpeechSynthesis
+ */
+type SpeechOptions = {
+  voice?: SpeechSynthesisVoice,
+  pitch?: number,
+  volume?: number,
+  rate?: number,
+}
+
+export declare const useSpeechSynthesis: (text: string, options?: SpeechOptions) => ({ speak: Function, speechSynthUtterance: SpeechSynthesisUtterance });

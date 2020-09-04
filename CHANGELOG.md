@@ -590,3 +590,4 @@ online
 ### Added
 
 - `useSystemVoices` hook and tests
+- `useSpeechSynthesis` hook and tests

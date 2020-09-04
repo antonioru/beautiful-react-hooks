@@ -71,6 +71,7 @@ $ yarn add beautiful-react-hooks
 
 ## 🎨 Hooks
 
+
 * [useObservable](./useObservable.md)
 * [useGlobalEvent](./useGlobalEvent.md)
 * [usePreviousValue](./usePreviousValue.md)
@@ -79,7 +80,7 @@ $ yarn add beautiful-react-hooks
 * [useMediaQuery](./useMediaQuery.md)
 * [useOnlineState](./useOnlineState.md)
 * [useViewportSpy](./useViewportSpy.md)
-* [useSystemVoices](./useSystemVoices.md)
+* [useSpeechSynthesis](./useSpeechSynthesis.md) and [useSystemVoices](./useSystemVoices.md)
 * [useGeolocation](./useGeolocation.md), [useGeolocationState](./useGeolocationState.md) and [useGeolocationEvents](./useGeolocationEvents.md)
 * [useDrag](./useDrag.md), [useDropZone](./useDropZone.md) and [useDragEvents](./useDragEvents.md)
 * [useMouse](./useMouse.md), [useMouseState](./useMouseState.md) and [useMouseEvents](./useMouseEvents.md)
