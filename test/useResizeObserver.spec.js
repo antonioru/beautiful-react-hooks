@@ -1,6 +1,6 @@
 import { renderHook, cleanup, act } from '@testing-library/react-hooks';
 import useResizeObserver from '../dist/useResizeObserver';
-import ResizeObserverMock from './utils/ResizeObserverMock';
+import ResizeObserverMock from './mocks/ResizeObserver.mock';
 import promiseDelay from './utils/promiseDelay';
 
 describe('useResizeObserver', () => {

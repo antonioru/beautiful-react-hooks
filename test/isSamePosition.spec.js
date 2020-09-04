@@ -1,5 +1,5 @@
 import isSamePosition from '../dist/utils/isSamePosition';
-import { positionMock } from './utils/GeoLocationApiMock';
+import { positionMock } from './mocks/GeoLocationApi.mock';
 
 describe('isSamePosition utility', () => {
   it('should be a function', () => {

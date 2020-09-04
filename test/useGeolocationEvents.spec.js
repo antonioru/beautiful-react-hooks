@@ -2,7 +2,7 @@ import React from 'react';
 import { render, cleanup as cleanupReact } from '@testing-library/react';
 import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
 import useGeolocationEvents from '../dist/useGeolocationEvents';
-import GeoLocationApiMock, { watchPositionSpy } from './utils/GeoLocationApiMock';
+import GeoLocationApiMock, { watchPositionSpy } from './mocks/GeoLocationApi.mock';
 
 describe('useGeolocationEvents', () => {
   before(() => {
@@ -76,7 +76,7 @@ describe('useGeolocationEvents', () => {
 
     const { result } = renderHook(() => useGeolocationEvents());
 
-    window.navigator.geolocation = GeoLocationApiMock; // reset to the "original" mock
+    window.navigator.geolocation = GeoLocationApiMock; // reset to the "original" mocks
 
     expect(result.current.onSomething).to.throw();
     expect(result.current.proprety).to.be.an('object').that.has.key('error');

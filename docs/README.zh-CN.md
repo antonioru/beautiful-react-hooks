@@ -78,6 +78,7 @@ $ yarn add beautiful-react-hooks
 * [useMediaQuery](./useMediaQuery.md)
 * [useOnlineState](./useOnlineState.md)
 * [useViewportSpy](./useViewportSpy.md)
+* [useSystemVoices](./useSystemVoices.md)
 * [useGeolocation](./useGeolocation.md), [useGeolocationState](./useGeolocationState.md) and [useGeolocationEvents](./useGeolocationEvents.md)
 * [useDrag](./useDrag.md), [useDropZone](./useDropZone.md) and [useDragEvents](./useDragEvents.md)
 * [useMouse](./useMouse.md), [useMouseState](./useMouseState.md) and [useMouseEvents](./useMouseEvents.md)
@@ -94,7 +95,7 @@ $ yarn add beautiful-react-hooks
 * [useLocalStorage](./useLocalStorage.md)
 * [useSessionStorage](./useSessionStorage.md)
 * [useStorage](./useStorage.md)
-* [useDefaultedState](docs/useDefaultedState.md)
+* [useDefaultedState](./useDefaultedState.md)
 
 <div>
   <p align="center">

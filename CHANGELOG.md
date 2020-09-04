@@ -574,7 +574,7 @@ online
 
 - `useDefaultedState` hook and tests
 
-## [0.29.0] - 2020-08-15
+## [0.29.0] - 2020-08-31
 
 ### Added
 
@@ -583,3 +583,10 @@ online
 ### Fixed
 
 - CI minor issues
+
+
+## [0.30.0] - 2020-09-04
+
+### Added
+
+- `useSystemVoices` hook and tests

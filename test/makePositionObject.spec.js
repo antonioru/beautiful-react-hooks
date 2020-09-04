@@ -1,5 +1,5 @@
 import makePositionObject from '../dist/utils/makePositionObject';
-import { positionMock } from './utils/GeoLocationApiMock';
+import { positionMock } from './mocks/GeoLocationApi.mock';
 
 describe('makePositionObject utility', () => {
   it('should be a function', () => {

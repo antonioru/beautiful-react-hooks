@@ -31,3 +31,5 @@ export { default as useStorage } from './useStorage';
 export { default as useResizeObserver } from './useResizeObserver';
 export { default as useDefaultedState } from './useDefaultedState';
 export { default as useObservable } from './useObservable';
+export { default as useSpeechSynthesis } from './useSpeechSynthesis';
+export { default as useSystemVoices } from './useSystemVoices';

@@ -1,6 +1,6 @@
 import { renderHook, cleanup } from '@testing-library/react-hooks';
 import useGeolocation from '../dist/useGeolocation';
-import GeoLocationApiMock, { watchPositionSpy } from './utils/GeoLocationApiMock';
+import GeoLocationApiMock, { watchPositionSpy } from './mocks/GeoLocationApi.mock';
 
 describe('useGeolocation', () => {
   before(() => {
