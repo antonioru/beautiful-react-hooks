@@ -591,3 +591,9 @@ online
 
 - `useSystemVoices` hook and tests
 - `useSpeechSynthesis` hook and tests
+
+## [0.30.1] - 2020-09-11
+
+### Fixed
+
+- `useLocalStoreage` types fix
