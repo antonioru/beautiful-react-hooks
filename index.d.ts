@@ -16,8 +16,8 @@ type EventListenerOptions = {
   passive: boolean,
 }
 
-type HandlerSetter = (...parameters: Array<any>) => unknown;
-
+type HandlerSetter <T = Array<any>> = (a: T) => void;
+                    
 type Cancelable = {
   cancel(): void;
   flush(): void;
@@ -223,12 +223,12 @@ export declare const useRequestAnimationFrame: (func: Function, options?: UseReq
 /**
  * useLocalStorage
  */
-export declare const useLocalStorage: (localStorageKey: string, defaultValue: any) => [any, HandlerSetter];
+export declare function useLocalStorage<T = any>(localStorageKey: string, defaultValue: T): [T, HandlerSetter<T>];
 
 /**
  * useSessionStorage
  */
-export declare const useSessionStorage: (localStorageKey: string, defaultValue: any) => [any, HandlerSetter];
+export declare function useSessionStorage<T = any>(localStorageKey: string, defaultValue: T): [T, HandlerSetter<T>];
 
 /**
  * useStorage
