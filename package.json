@@ -1,13 +1,9 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.30.3",
+  "version": "0.30.4",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
-  "main": "dist/index.js",
-  "module": "dist/esm/index.js",
-  "files": [
-    "dist/**",
-    "index.d.ts"
-  ],
+  "main": "index.js",
+  "module": "esm/index.js",
   "typings": "index.d.ts",
   "scripts": {
     "lint": "eslint --ext .js src/",
