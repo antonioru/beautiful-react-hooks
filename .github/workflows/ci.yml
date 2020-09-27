@@ -44,7 +44,13 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Prepare distribution
+        run: cp package.json index.d.ts README.md LICENSE CHANGELOG.md CONTRIBUTING.md CODE_OF_CONDUCT.md ./dist
+
       - name: Publish
-        run: npm publish
+        run: |
+          npm pack
+          npm publish
+        working-directory: ./dist
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

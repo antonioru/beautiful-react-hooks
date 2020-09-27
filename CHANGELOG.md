@@ -615,3 +615,9 @@ online
 ### Fixed
 
 - Wrong path settings in package.json causes the library to be empty
+
+## [0.30.5] - 2020-09-27
+
+### Fixed
+
+- Wrong CI settings causes the library to be empty
