@@ -598,8 +598,14 @@ online
 
 - `useLocalStoreage` types fix
 
-## [0.30.1] - 2020-09-27
+## [0.30.2] - 2020-09-27
 
 ### Added
 
 - Better dist package
+
+## [0.30.3] - 2020-09-27
+
+### Fixed
+
+- CI bugfix
