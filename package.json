@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "0.30.1",
+  "version": "0.30.2",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -12,6 +12,7 @@
   "scripts": {
     "lint": "eslint --ext .js src/",
     "build": "npx del-cli dist && rollup -c",
+    "prepublishOnly": "cp package.json index.d.ts README.md LICENSE CHANGELOG.md CONTRIBUTING.md CODE_OF_CONDUCT.md ./dist",
     "build-doc": "npx del-cli dist-ghpages && styleguidist build --config docs/styleguidist/styleguidist.config.js",
     "test": "nyc mocha --recursive --exit \"./test/**/*.spec.+(js|jsx)\"",
     "test:watch": "npm run test -- --watch",

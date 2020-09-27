@@ -597,3 +597,9 @@ online
 ### Fixed
 
 - `useLocalStoreage` types fix
+
+## [0.30.1] - 2020-09-27
+
+### Added
+
+- Better dist package
