@@ -621,3 +621,9 @@ online
 ### Fixed
 
 - Wrong CI settings causes the library to be empty
+
+## [0.30.6] - 2020-10-09
+
+### Fixed
+
+- Webpack 5 error with the `isDevelopment` constant
