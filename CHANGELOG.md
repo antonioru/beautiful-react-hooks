@@ -627,3 +627,10 @@ online
 ### Fixed
 
 - Webpack 5 error with the `isDevelopment` constant
+
+
+## [0.31.0] - 2020-10-09
+
+### Added
+
+- `useRenderInfo` hook and tests

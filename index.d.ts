@@ -16,8 +16,8 @@ type EventListenerOptions = {
   passive: boolean,
 }
 
-type HandlerSetter <T = Array<any>> = (a: T) => void;
-                    
+type HandlerSetter<T = Array<any>> = (a: T) => void;
+
 type Cancelable = {
   cancel(): void;
   flush(): void;
@@ -268,3 +268,13 @@ type SpeechOptions = {
 }
 
 export declare const useSpeechSynthesis: (text: string, options?: SpeechOptions) => ({ speak: Function, speechSynthUtterance: SpeechSynthesisUtterance });
+
+
+type RenderInfo = {
+  module: string,
+  renders: number,
+  timestamp: number,
+  sinceLast: string,
+}
+
+export declare const useRenderInfo: (name?: string, log?: boolean) => RenderInfo;
