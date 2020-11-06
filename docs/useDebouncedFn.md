@@ -49,7 +49,7 @@ const DebouncedFnComponent = () => {
 
 ### Options
 
-Since `useDebouncedFn` uses [lodash.throttle](https://www.npmjs.com/package/lodash.throttle) 
+Since `useDebouncedFn` uses [lodash.debounce](https://www.npmjs.com/package/lodash.debounce);
 under the hood, you can possibly define few options to customise its behaviour.
 
 ```jsx harmony
