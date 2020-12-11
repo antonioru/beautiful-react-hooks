@@ -3,7 +3,7 @@ import safelyParseJson from './utils/safelyParseJson';
 import isClient from './utils/isClient';
 import isAPISupported from './utils/isAPISupported';
 import isDevelopment from './utils/isDevelopment';
-
+//可以加入对于时间的验证
 /**
  * An utility to quickly create hooks to access both Session Storage and Local Storage
  */
