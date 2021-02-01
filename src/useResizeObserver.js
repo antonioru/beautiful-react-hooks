@@ -46,7 +46,7 @@ const useResizeObserver = (elementRef, debounceTimeout = 100) => {
     if (isSupported && elementRef.current) {
       observerRef.current.observe(elementRef.current);
     }
-  }, [elementRef]);
+  }, [elementRef.current]);
 
   return DOMRect;
 };
