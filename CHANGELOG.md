@@ -634,3 +634,14 @@ online
 ### Added
 
 - `useRenderInfo` hook and tests
+
+
+## [0.31.1] - 2020-10-09
+
+### Added
+
+- Support for SSR in `isAPISupport`
+
+### Fixed
+
+- Documentation link
