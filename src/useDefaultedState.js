@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const maybeState = (state, defaultValue) => (state === null || state === undefined ? defaultValue : state);
+const maybeState = (state, defaultValue) => (state ?? defaultValue);
 
 /**
  * Returns a safe state by making sure the given value is not null or undefined
