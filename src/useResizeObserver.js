@@ -32,13 +32,14 @@ const useResizeObserver = (elementRef, debounceTimeout = 100) => {
       }, debounceTimeout);
 
       observerRef.current = new ResizeObserver(fn);
+
+      return () => {
+        fn.cancel();
+        observerRef.current.disconnect();
+      };
     }
 
-    return () => {
-      if (isSupported && observerRef.current && elementRef.current) {
-        observerRef.current.unobserve(elementRef.current);
-      }
-    };
+    return () => {};
   }, []);
 
   // observes on the provided element ref
