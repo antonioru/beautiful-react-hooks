@@ -15,7 +15,7 @@ const errorMessage = 'IntersectionObserver is not supported, this could happen b
  * Uses the IntersectionObserverMock API to tell whether the given DOM Element (from useRef) is visible within the
  * viewport.
  */
-const useViewportSpy = (elementRef, options = defaultOptions) => {
+const useViewportSpy = (elementRef, options = defaultOptions, unsubscribeEarly= false) => {
   if (!isClient || !isApiSupported('IntersectionObserver')) {
     // eslint-disable-next-line no-console
     console.warn(errorMessage);
@@ -33,7 +33,7 @@ const useViewportSpy = (elementRef, options = defaultOptions) => {
           setIsVisible(nextValue);
         }
       }), options);
-      if (isVisibleRef.current) {
+      if (isVisibleRef.current && unsubscribeEarly) {
         observer.disconnect();
         disconnected.current = true;
       }
