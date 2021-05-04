@@ -100,7 +100,7 @@ export declare const useOnlineState: () => boolean;
 /**
  * useViewportSpy
  */
-export declare const useViewportSpy: (elementRef: MutableRefObject<HTMLElement>, options?: IntersectionObserverInit) => boolean;
+export declare const useViewportSpy: (elementRef: MutableRefObject<HTMLElement | null | undefined>, options?: IntersectionObserverInit) => boolean;
 
 /**
  * useValidatedState
@@ -123,12 +123,12 @@ type DragOptions = {
   transferFormat: 'text' | 'text/plain',
 };
 
-export declare const useDrag: (ref: MutableRefObject<MouseTarget>, options: DragOptions) => boolean;
+export declare const useDrag: (ref: MutableRefObject<MouseTarget | null | undefined>, options: DragOptions) => boolean;
 
 /**
  * useDragEvents
  */
-export declare const useDragEvents: (ref: MutableRefObject<MouseTarget>, setDraggable?: boolean) => ({
+export declare const useDragEvents: (ref: MutableRefObject<MouseTarget | null | undefined>, setDraggable?: boolean) => ({
   onDrag: HandlerSetter,
   onDrop: HandlerSetter,
   onDragEnter: HandlerSetter,
@@ -142,7 +142,7 @@ export declare const useDragEvents: (ref: MutableRefObject<MouseTarget>, setDrag
 /**
  * useMouse
  */
-export declare const useMouse: (ref?: MutableRefObject<MouseTarget>) => [MouseState, MouseCallbackSetters];
+export declare const useMouse: (ref?: MutableRefObject<MouseTarget | null | undefined>) => [MouseState, MouseCallbackSetters];
 
 /**
  * useMouseEvents
@@ -158,7 +158,7 @@ type MouseCallbackSetters = {
   onMouseOver: HandlerSetter,
   onMouseUp: HandlerSetter,
 }
-export declare const useMouseEvents: (ref?: MutableRefObject<MouseTarget>) => MouseCallbackSetters;
+export declare const useMouseEvents: (ref?: MutableRefObject<MouseTarget | null | undefined>) => MouseCallbackSetters;
 
 /**
  * useMouseState
@@ -169,7 +169,7 @@ type MouseState = {
   screenX: number,
   screenY: number,
 }
-export declare const useMouseState: (ref?: MutableRefObject<MouseTarget>) => MouseState;
+export declare const useMouseState: (ref?: MutableRefObject<MouseTarget | null | undefined>) => MouseState;
 
 /**
  * usePreviousValue
@@ -240,7 +240,7 @@ type DOMRect = { bottom: number, height: number, left: number, right: number, to
 /**
  * useResizeObserver
  */
-export declare const useResizeObserver: (elementRef: MutableRefObject<HTMLElement>, timeout?: number) => DOMRect | undefined;
+export declare const useResizeObserver: (elementRef: MutableRefObject<HTMLElement | null | undefined>, timeout?: number) => DOMRect | undefined;
 
 /**
  * useDefaultedState
