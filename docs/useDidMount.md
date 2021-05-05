@@ -12,7 +12,7 @@ Accepts a function to be performed when the component did mount.
 ```jsx harmony
 import { useState } from 'react';
 import { Paragraph } from 'beautiful-react-ui';
-import { useDidMount } from 'beautiful-react-hooks'; 
+import useDidMount from 'beautiful-react-hooks/useDidMount'; 
 
 const ComponentDidMount = () => {
    const [mounted, setIsMounted] = useState(false);
@@ -45,7 +45,7 @@ cause the component rerender nor should not be invoked asynchronously.
 ```jsx harmony
 import { useState } from 'react';
 import { Paragraph } from 'beautiful-react-ui';
-import { useDidMount } from 'beautiful-react-hooks'; 
+import useDidMount from 'beautiful-react-hooks/useDidMount'; 
 
 const ComponentDidMount = () => {
    const [mounted, setIsMounted] = useState(false);

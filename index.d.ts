@@ -1,4 +1,4 @@
-import { MutableRefObject, EffectCallback, DependencyList, Dispatch, SetStateAction } from 'react';
+import { DependencyList, Dispatch, EffectCallback, MutableRefObject, SetStateAction } from 'react';
 import { Observable } from 'rxjs';
 
 type ThrottleOrDebounceOpts = {
@@ -171,6 +171,29 @@ type MouseState = {
 }
 export declare const useMouseState: (ref?: MutableRefObject<MouseTarget | null | undefined>) => MouseState;
 
+
+/**
+ * useTouch
+ */
+export declare const useTouch: (ref?: MutableRefObject<MouseTarget | null | undefined>) => [TouchList, TouchCallbackSetters];
+
+/**
+ * useTouchEvents
+ */
+type TouchCallbackSetters = {
+  onTouchStart: HandlerSetter,
+  onTouchEnd: HandlerSetter,
+  onTouchMove: HandlerSetter,
+  onTouchCancel: HandlerSetter,
+}
+export declare const useTouchEvents: (ref?: MutableRefObject<MouseTarget | null | undefined>) => MouseCallbackSetters;
+
+/**
+ * useTouchState
+ */
+export declare const useTouchState: (ref?: MutableRefObject<MouseTarget | null | undefined>) => TouchList;
+
+
 /**
  * usePreviousValue
  */
@@ -278,3 +301,18 @@ type RenderInfo = {
 }
 
 export declare const useRenderInfo: (name?: string, log?: boolean) => RenderInfo;
+
+type UseSwipeOptions = Partial<{
+  direction: 'both' | 'vertical' | 'horizontal',
+  threshold: number,
+  preventDefault: boolean,
+}>
+
+type SwipeState = {
+  swiping: boolean,
+  direction: 'left' | 'right' | 'up' | 'down' | null,
+  alpha: number | number[],
+  count: number,
+}
+
+export declare const useSwipe: (ref?: MutableRefObject<MouseTarget | null | undefined>, options?: UseSwipeOptions) => SwipeState

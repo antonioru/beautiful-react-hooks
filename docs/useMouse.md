@@ -10,7 +10,7 @@ It is intended as a shortcut to those hooks.
 - allow to easily receive the mouse position 
 - takes care of adding the mouse events listeners globally or to the defined target
 - takes care of cleaning the listener when the component will unmount
-- allow to perform abstractions on mouse related events
+- allows performing abstractions on mouse related events
 
 ### Basic Usage:
 
