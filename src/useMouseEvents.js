@@ -1,36 +1,7 @@
-import { useEffect } from 'react';
 import createHandlerSetter from './utils/createHandlerSetter';
 import createCbSetterErrorProxy from './utils/createCbSetterErrorProxy';
 import hasOwnProperty from './utils/hasOwnProperty';
-
-const assignMouseEventOnMount = (targetRef, handlerRef, eventName) => {
-  useEffect(() => {
-    const cb = (mouseEvent) => {
-      if (handlerRef.current) {
-        handlerRef.current(mouseEvent);
-      }
-    };
-    let target;
-
-    if (targetRef !== null && !!targetRef.current) {
-      target = targetRef.current;
-    }
-
-    if (targetRef === null) {
-      target = document;
-    }
-
-    if (target && target.addEventListener) {
-      target.addEventListener(eventName, cb);
-    }
-
-    return () => {
-      if (target && target.removeEventListener) {
-        target.removeEventListener(eventName, cb);
-      }
-    };
-  }, []);
-};
+import assignEventCallbackOnMountEffect from './utils/assignEventCallbackOnMountEffect';
 
 /**
  * Returns a frozen object of callback setters to handle the mouse events.<br/>
@@ -60,13 +31,13 @@ const useMouseEvents = (targetRef = null) => {
     return createCbSetterErrorProxy('Unable to assign any mouse event to the given ref');
   }
 
-  assignMouseEventOnMount(targetRef, onMouseDownHandler, 'mousedown');
-  assignMouseEventOnMount(targetRef, onMouseEnterHandler, 'mouseenter');
-  assignMouseEventOnMount(targetRef, onMouseLeaveHandler, 'mouseleave');
-  assignMouseEventOnMount(targetRef, onMouseMoveHandler, 'mousemove');
-  assignMouseEventOnMount(targetRef, onMouseOutHandler, 'mouseout');
-  assignMouseEventOnMount(targetRef, onMouseOverHandler, 'mouseover');
-  assignMouseEventOnMount(targetRef, onMouseUpHandler, 'mouseup');
+  assignEventCallbackOnMountEffect(targetRef, onMouseDownHandler, 'mousedown');
+  assignEventCallbackOnMountEffect(targetRef, onMouseEnterHandler, 'mouseenter');
+  assignEventCallbackOnMountEffect(targetRef, onMouseLeaveHandler, 'mouseleave');
+  assignEventCallbackOnMountEffect(targetRef, onMouseMoveHandler, 'mousemove');
+  assignEventCallbackOnMountEffect(targetRef, onMouseOutHandler, 'mouseout');
+  assignEventCallbackOnMountEffect(targetRef, onMouseOverHandler, 'mouseover');
+  assignEventCallbackOnMountEffect(targetRef, onMouseUpHandler, 'mouseup');
 
   return Object.freeze({
     onMouseDown: setOnMouseDown,

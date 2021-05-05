@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import isClient from './utils/isClient';
 import isAPISupported from './utils/isAPISupported';
 
@@ -26,11 +26,11 @@ const useMediaQuery = (mediaQuery) => {
     const mediaQueryList = window.matchMedia(mediaQuery);
     const documentChangeHandler = () => setIsVerified(!!mediaQueryList.matches);
 
-    mediaQueryList.addEventListener("change", documentChangeHandler);
+    mediaQueryList.addEventListener('change', documentChangeHandler);
 
     documentChangeHandler();
     return () => {
-      mediaQueryList.removeEventListener("change", documentChangeHandler);
+      mediaQueryList.removeEventListener('change', documentChangeHandler);
     };
   }, [mediaQuery]);
 

@@ -5,7 +5,7 @@ describe('useMediaQuery', () => {
   const mediaQueryListMock = {
     listeners: {},
     matches: true,
-    addListener(cb) {
+    addEventListener(cb) {
       this.listeners.cb = cb;
     },
     removeListener() {

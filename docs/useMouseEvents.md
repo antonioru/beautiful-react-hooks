@@ -1,20 +1,19 @@
 # useMouseEvents 
 
-Returns an object of handler setters to handle the mouse events.
-It accepts a DOM ref representing the events target (where attach the events to).
+Returns a set of handler setters to control mouse events.<br/>
+It possibly accepts a DOM ref to target the event(s) to.
+If the target is not provided the events will be globally attached to the `document` object.
 
-If a target is not provided the events will be globally attached to the `document` object.
+Available handler setters: `onMouseDown`, `onMouseEnter`, `onMouseLeave`, `onMouseMove`, `onMouseOut`, `onMouseOver`, `onMouseUp`;
 
-Returned handler setters: `onMouseDown`, `onMouseEnter`, `onMouseLeave`, `onMouseMove`, `onMouseOut`, `onMouseOver`, `onMouseUp`;
-
-**Please note:** the returned handler setters should invoked immediately in the function component's body, do not try to
-call this functions asynchronously.
+**Please note:** the returned handler setters should be immediately invoked in the component's body, do not try to call this functions
+asynchronously.
 
 ### Why? 💡
 
-- takes care of adding the mouse events listeners globally or to the defined target
-- takes care of cleaning the listener when the component will unmount
-- allow to perform abstractions on mouse related events
+- takes care of adding the mouse events listeners globally or to a defined target
+- takes care of cleaning the listener when the component unmounts
+- allows performing abstractions on mouse related events
 
 ### Basic Usage:
 
@@ -22,7 +21,7 @@ Provide a DOM ref as first parameter to `useMouseEvents`
 
 ```jsx harmony
 import { useRef, useState } from 'react';
-import { useMouseEvents } from 'beautiful-react-hooks'; 
+import useMouseEvents from 'beautiful-react-hooks/useMouseEvents'; 
 
 const MyComponent = () => {
   const [coordinates, setCoordinates] = useState();
@@ -53,11 +52,11 @@ const MyComponent = () => {
 
 ### Global events
 
-Avoid providing any argument to `useMouseEvents`
+Avoid providing any argument to `useMouseEvents` to attach the events globally
 
 ```jsx harmony
 import { useState } from 'react';
-import { useMouseEvents } from 'beautiful-react-hooks'; 
+import useMouseEvents from 'beautiful-react-hooks/useMouseEvents'; 
 
 const MyComponent = () => {
   const [coordinates, setCoordinates] = useState([0, 0]);
@@ -82,8 +81,8 @@ const MyComponent = () => {
 ### Mastering the hook
 
 #### ✅ When to use
- 
-- If in need to abstract some mouse related logic into a custom hooks
+
+- When need to abstract touch related logics into custom hooks(s)
 
 #### 🛑 What not to do
 

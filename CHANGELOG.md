@@ -645,3 +645,19 @@ online
 ### Fixed
 
 - Documentation link
+
+## [0.32.0] - 2020-10-09
+
+### Added
+
+- `useTouchEvents`, `useTouchState` hook
+- `useSwipe`, `useHorizontalSwipe` and `useVerticalSwipe` hook
+
+### Fixed
+
+- `useMouseEvents` flaws 
+- improved docs
+
+### Removed
+
+- `useConditionalTimeout` hook 

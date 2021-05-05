@@ -86,13 +86,13 @@ $ yarn add beautiful-react-hooks
 * [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md) and [useGeolocationEvents](docs/useGeolocationEvents.md)
 * [useDrag](docs/useDrag.md), [useDropZone](docs/useDropZone.md) and [useDragEvents](docs/useDragEvents.md)
 * [useMouse](docs/useMouse.md), [useMouseState](docs/useMouseState.md) and [useMouseEvents](docs/useMouseEvents.md)
+* [useTouch](docs/useTouch.md), [useTouchState](docs/useTouchState.md) and [useTouchEvents](docs/useTouchEvents.md)
 * [useLifecycle](docs/useLifecycle.md), [useDidMount](docs/useDidMount.md) and [useWillUnmount](docs/useWillUnmount.md)
 * [useWindowResize](docs/useWindowResize.md)
 * [useWindowScroll](docs/useWindowScroll.md)
 * [useRequestAnimationFrame](docs/useRequestAnimationFrame.md)
 * [useResizeObserver](docs/useResizeObserver.md)
 * [useTimeout](docs/useTimeout.md)
-* [useConditionalTimeout](docs/useConditionalTimeout.md)
 * [useInterval](docs/useInterval.md)
 * [useDebouncedFn](docs/useDebouncedFn.md)
 * [useThrottledFn](docs/useThrottledFn.md)
@@ -101,6 +101,8 @@ $ yarn add beautiful-react-hooks
 * [useStorage](docs/useStorage.md)
 * [useDefaultedState](docs/useDefaultedState.md)
 * [useRenderInfo](docs/useRenderInfo.md)
+* [useSwipe](docs/useSwipe.md), [useHorizontalSwipe](docs/useHorizontalSwipe.md) and [useVerticalSwipe](docs/useVerticalSwipe.md)
+
 
 <div>
   <p align="center">
