@@ -123,12 +123,12 @@ type DragOptions = {
   transferFormat: 'text' | 'text/plain',
 };
 
-export declare const useDrag: (ref: MutableRefObject<MouseTarget | null | undefined>, options: DragOptions) => boolean;
+export declare const useDrag: (ref: MutableRefObject<MouseTarget | undefined>, options: DragOptions) => boolean;
 
 /**
  * useDragEvents
  */
-export declare const useDragEvents: (ref: MutableRefObject<MouseTarget | null | undefined>, setDraggable?: boolean) => ({
+export declare const useDragEvents: (ref: MutableRefObject<MouseTarget | undefined>, setDraggable?: boolean) => ({
   onDrag: HandlerSetter,
   onDrop: HandlerSetter,
   onDragEnter: HandlerSetter,
@@ -142,7 +142,7 @@ export declare const useDragEvents: (ref: MutableRefObject<MouseTarget | null | 
 /**
  * useMouse
  */
-export declare const useMouse: (ref?: MutableRefObject<MouseTarget | null | undefined>) => [MouseState, MouseCallbackSetters];
+export declare const useMouse: (ref?: MutableRefObject<MouseTarget | undefined>) => [MouseState, MouseCallbackSetters];
 
 /**
  * useMouseEvents
@@ -158,7 +158,7 @@ type MouseCallbackSetters = {
   onMouseOver: HandlerSetter,
   onMouseUp: HandlerSetter,
 }
-export declare const useMouseEvents: (ref?: MutableRefObject<MouseTarget | null | undefined>) => MouseCallbackSetters;
+export declare const useMouseEvents: (ref?: MutableRefObject<MouseTarget | undefined>) => MouseCallbackSetters;
 
 /**
  * useMouseState
@@ -169,13 +169,13 @@ type MouseState = {
   screenX: number,
   screenY: number,
 }
-export declare const useMouseState: (ref?: MutableRefObject<MouseTarget | null | undefined>) => MouseState;
+export declare const useMouseState: (ref?: MutableRefObject<MouseTarget | undefined>) => MouseState;
 
 
 /**
  * useTouch
  */
-export declare const useTouch: (ref?: MutableRefObject<MouseTarget | null | undefined>) => [TouchList, TouchCallbackSetters];
+export declare const useTouch: (ref?: MutableRefObject<MouseTarget | undefined>) => [TouchList, TouchCallbackSetters];
 
 /**
  * useTouchEvents
@@ -186,12 +186,12 @@ type TouchCallbackSetters = {
   onTouchMove: HandlerSetter,
   onTouchCancel: HandlerSetter,
 }
-export declare const useTouchEvents: (ref?: MutableRefObject<MouseTarget | null | undefined>) => MouseCallbackSetters;
+export declare const useTouchEvents: (ref?: MutableRefObject<MouseTarget | undefined>) => MouseCallbackSetters;
 
 /**
  * useTouchState
  */
-export declare const useTouchState: (ref?: MutableRefObject<MouseTarget | null | undefined>) => TouchList;
+export declare const useTouchState: (ref?: MutableRefObject<MouseTarget | undefined>) => TouchList;
 
 
 /**
@@ -292,7 +292,6 @@ type SpeechOptions = {
 
 export declare const useSpeechSynthesis: (text: string, options?: SpeechOptions) => ({ speak: Function, speechSynthUtterance: SpeechSynthesisUtterance });
 
-
 type RenderInfo = {
   module: string,
   renders: number,
@@ -302,11 +301,11 @@ type RenderInfo = {
 
 export declare const useRenderInfo: (name?: string, log?: boolean) => RenderInfo;
 
-type UseSwipeOptions = Partial<{
-  direction: 'both' | 'vertical' | 'horizontal',
-  threshold: number,
-  preventDefault: boolean,
-}>
+type UseSwipeOptions = {
+  direction?: 'both' | 'vertical' | 'horizontal',
+  threshold?: number,
+  preventDefault?: boolean,
+}
 
 type SwipeState = {
   swiping: boolean,
@@ -315,4 +314,4 @@ type SwipeState = {
   count: number,
 }
 
-export declare const useSwipe: (ref?: MutableRefObject<MouseTarget | null | undefined>, options?: UseSwipeOptions) => SwipeState
+export declare const useSwipe: (ref?: MutableRefObject<MouseTarget | undefined>, options?: UseSwipeOptions) => SwipeState

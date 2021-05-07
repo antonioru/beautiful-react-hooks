@@ -646,7 +646,7 @@ online
 
 - Documentation link
 
-## [0.32.0] - 2020-10-09
+## [0.32.0] - 2021-05-06
 
 ### Added
 
@@ -657,6 +657,16 @@ online
 
 - `useMouseEvents` flaws 
 - improved docs
+
+### Removed
+
+- `useConditionalTimeout` hook 
+
+## [0.32.1] - 2021-05-07
+
+### Fixed
+
+- `useSwipe` typings
 
 ### Removed
 
