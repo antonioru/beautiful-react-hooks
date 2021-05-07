@@ -64,10 +64,9 @@ const useSwipe = (targetRef = null, options = defaultOptions) => {
 
     if (startingPointRef.current[0] !== -1 && startingPointRef.current[1] !== -1) {
       const alpha = [startingPointRef.current[0] - clientX, startingPointRef.current[1] - clientY];
+      isDraggingRef.current = true;
 
       if (opts.direction === 'both' && (Math.abs(alpha[0]) > opts.threshold || Math.abs(alpha[1]) > opts.threshold)) {
-        isDraggingRef.current = true;
-
         setState((prevState) => ({
           ...prevState,
           swiping: true,
@@ -77,8 +76,6 @@ const useSwipe = (targetRef = null, options = defaultOptions) => {
       }
 
       if (opts.direction === 'horizontal' && Math.abs(alpha[0]) > opts.threshold) {
-        isDraggingRef.current = true;
-
         setState((prevState) => ({
           ...prevState,
           swiping: true,
@@ -88,8 +85,6 @@ const useSwipe = (targetRef = null, options = defaultOptions) => {
       }
 
       if (opts.direction === 'vertical' && Math.abs(alpha[1]) > opts.threshold) {
-        isDraggingRef.current = true;
-
         setState((prevState) => ({
           ...prevState,
           swiping: true,
@@ -107,15 +102,15 @@ const useSwipe = (targetRef = null, options = defaultOptions) => {
         event.stopPropagation();
       }
 
-      startingPointRef.current = [-1, -1];
-      isDraggingRef.current = false;
-
       setState((prevState) => ({
         ...prevState,
         swiping: false,
         count: state.count + 1,
       }));
     }
+
+    startingPointRef.current = [-1, -1];
+    isDraggingRef.current = false;
   };
 
   onMouseDown(startSwipe);

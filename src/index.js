@@ -33,3 +33,5 @@ export { default as useObservable } from './useObservable';
 export { default as useSpeechSynthesis } from './useSpeechSynthesis';
 export { default as useSystemVoices } from './useSystemVoices';
 export { default as useRenderInfo } from './useRenderInfo';
+export { default as useSwipe } from './useSwipe';
+export { default as useConditionalTimeout } from './useConditionalTimeout';

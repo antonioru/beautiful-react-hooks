@@ -18,7 +18,6 @@ jobs:
         node-version: [14.x]
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
-
     steps:
       - uses: actions/checkout@v2
       - name: Testing branch on Node version ${{ matrix.node-version }}
