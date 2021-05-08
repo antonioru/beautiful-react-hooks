@@ -98,7 +98,8 @@ $ yarn add beautiful-react-hooks
 * [useDefaultedState](docs/useDefaultedState.md)
 * [useRenderInfo](docs/useRenderInfo.md)
 * [useSwipe](docs/useSwipe.md), [useHorizontalSwipe](docs/useHorizontalSwipe.md) and [useVerticalSwipe](docs/useVerticalSwipe.md)
-
+* [useSwipeEvents](docs/useSwipeEvents.md)
+* [useConditionalTimeout](docs/useConditionalTimeout.md)
 <div>
   <p align="center">
     <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
