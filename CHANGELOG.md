@@ -672,7 +672,7 @@ online
 
 - `useConditionalTimeout` hook 
 
-## [0.33.0] - 2021-05-07
+## [0.33.0] - 2021-05-08
 
 ### Added
 
@@ -681,3 +681,9 @@ online
 ### Fixed
 
 - typings module
+
+## [0.33.1] - 2021-05-09
+
+### Fixed
+
+- `useSwipe` types 
