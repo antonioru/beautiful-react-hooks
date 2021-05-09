@@ -694,9 +694,14 @@ online
 
 - converted `HandlerSetter` type to better generic type
 
-
 ## [0.33.3] - 2021-05-09
 
 ### Fixed
 
 - `useSwipeEvents` swipe performing only once in the same direction
+
+## [0.33.4] - 2021-05-09
+
+### Fixed
+
+- `HandlerSetter` types a function taking another function as parameter

@@ -9,7 +9,7 @@ declare module 'beautiful-react-hooks' {
     cancelOnUnmount: boolean,
   }
 
-  type HandlerSetter<T = unknown, R = unknown> = (arg: T) => R;
+  type HandlerSetter<T = unknown, R = unknown> = (fn: (arg: T) => R) => unknown;
 
   /**
    * useMouseEvents
