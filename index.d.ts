@@ -9,7 +9,7 @@ declare module 'beautiful-react-hooks' {
     cancelOnUnmount: boolean,
   }
 
-  type HandlerSetter<T = unknown, R = unknown> = (...args: T[]) => R;
+  type HandlerSetter<T = unknown, R = unknown> = (arg: T) => R;
 
   /**
    * useMouseEvents
@@ -263,10 +263,10 @@ declare module 'beautiful-react-hooks' {
   export const useSwipe: <T = MouseTarget>(ref?: MutableRefObject<T | undefined> | null | undefined, options?: UseSwipeOptions) => SwipeState
 
   export const useSwipeEvents: <T = MouseTarget>(ref?: MutableRefObject<T | undefined> | null | undefined, options?: OrientedSwipeOptions) => ({
-    onSwipeLeft: HandlerSetter,
-    onSwipeRight: HandlerSetter,
-    onSwipeUp: HandlerSetter,
-    onSwipeDown: HandlerSetter,
+    onSwipeLeft: HandlerSetter<Pick<SwipeState, 'direction' | 'alpha'>>,
+    onSwipeRight: HandlerSetter<Pick<SwipeState, 'direction' | 'alpha'>>,
+    onSwipeUp: HandlerSetter<Pick<SwipeState, 'direction' | 'alpha'>>,
+    onSwipeDown: HandlerSetter<Pick<SwipeState, 'direction' | 'alpha'>>,
   })
 
   /**

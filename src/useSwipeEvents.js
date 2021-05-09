@@ -19,10 +19,11 @@ const useSilentSwipeState = (targetRef = null, options = defaultOptions) => {
   const startingPointRef = useRef([-1, -1]);
   const directionRef = useRef(null);
   const isDraggingRef = useRef(false);
+  const alphaRef = useRef(false);
   const opts = { ...defaultOptions, ...(options || {}) };
   const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents(targetRef);
   const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents(targetRef);
-  const [direction, setDirection] = useState();
+  const [state, setState] = useState();
 
   const startSwipe = (event) => {
     const [clientX, clientY] = getPointerCoordinates(event);
@@ -49,6 +50,7 @@ const useSilentSwipeState = (targetRef = null, options = defaultOptions) => {
       if (Math.abs(alpha[0]) > opts.threshold || Math.abs(alpha[1]) > opts.threshold) {
         isDraggingRef.current = true;
         directionRef.current = getDirection([clientX, clientY], startingPointRef.current, alpha);
+        alphaRef.current = alpha;
       }
     }
   };
@@ -60,7 +62,10 @@ const useSilentSwipeState = (targetRef = null, options = defaultOptions) => {
         event.stopPropagation();
       }
 
-      setDirection(directionRef.current);
+      setState({
+        direction: directionRef.current,
+        alpha: alphaRef.current,
+      });
     }
 
     startingPointRef.current = [-1, -1];
@@ -80,7 +85,7 @@ const useSilentSwipeState = (targetRef = null, options = defaultOptions) => {
   onMouseLeave(endSwipe);
   onTouchCancel(endSwipe);
 
-  return direction;
+  return state;
 };
 
 /**
@@ -94,7 +99,7 @@ const useSwipeEvents = (targetRef = null, options = defaultOptions) => {
   const [onSwipeRight, setOnSwipeRight] = createHandlerSetter();
   const [onSwipeUp, setOnSwipeUp] = createHandlerSetter();
   const [onSwipeDown, setOnSwipeDown] = createHandlerSetter();
-  const direction = useSilentSwipeState(targetRef, opts);
+  const state = useSilentSwipeState(targetRef, opts);
 
   const fnMap = {
     right: onSwipeRight.current,
@@ -104,14 +109,14 @@ const useSwipeEvents = (targetRef = null, options = defaultOptions) => {
   };
 
   useEffect(() => {
-    if (direction) {
-      const cb = fnMap[direction];
+    if (state && state.direction) {
+      const cb = fnMap[state.direction];
 
       if (cb && typeof cb === 'function') {
-        cb(direction);
+        cb(state);
       }
     }
-  }, [direction]);
+  }, [state]);
 
   return Object.freeze({
     onSwipeLeft: setOnSwipeLeft,

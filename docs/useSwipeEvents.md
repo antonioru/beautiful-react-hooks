@@ -30,14 +30,17 @@ const SwipeReporter = () => {
   onSwipeUp(setLastSwipeInfo);
   onSwipeDown(setLastSwipeInfo);
 
+  console.log(lastSwipeInfo);
+  
   return (
     <DisplayDemo>
       <div ref={ref} style={{ padding: 20, background: '#CF7A95' }}>
         Swipe me!
       </div>
-      {lastSwipeInfo && (
-        <p>Last swipe direction: {lastSwipeInfo}</p>
-      )}
+      {lastSwipeInfo && (<>
+        <p>Last swipe direction: {lastSwipeInfo.direction}</p>
+        <p>Alpha - x: {lastSwipeInfo.alpha[0]}, y: {lastSwipeInfo.alpha[1]}</p>
+      </>)}
     </DisplayDemo>
   );
 };
@@ -67,9 +70,10 @@ const SwipeReporter = () => {
       <div style={{ padding: 20, background: '#CF7A95' }}>
         Swipe around!
       </div>
-      {lastSwipeInfo && (
-        <p>Last swipe direction: {lastSwipeInfo}</p>
-      )}
+      {lastSwipeInfo && (<>
+        <p>Last swipe direction: {lastSwipeInfo.direction}</p>
+        <p>Alpha - x: {lastSwipeInfo.alpha[0]}, y: {lastSwipeInfo.alpha[1]}</p>
+      </>)}
     </DisplayDemo>
   );
 };
@@ -103,9 +107,10 @@ const SwipeReporter = () => {
       <div ref={ref} style={{ padding: 20, background: '#CF7A95' }}>
         Swipe me!
       </div>
-      {lastSwipeInfo && (
-        <p>Last swipe direction: {lastSwipeInfo}</p>
-      )}
+      {lastSwipeInfo && (<>
+        <p>Last swipe direction: {lastSwipeInfo.direction}</p>
+        <p>Alpha - x: {lastSwipeInfo.alpha[0]}, y: {lastSwipeInfo.alpha[1]}</p>
+      </>)}
     </DisplayDemo>
   );
 };
