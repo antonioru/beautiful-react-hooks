@@ -142,7 +142,7 @@ declare module 'beautiful-react-hooks' {
 
   type OrientedSwipeOptions = Pick<UseSwipeOptions, 'threshold' | 'preventDefault'>
 
-  export const useHorizontalSwipe: <T = MouseTarget>(ref?: MutableRefObject<T> | null | undefined, options?: OrientedSwipeOptions) => SwipeState
+  export const useHorizontalSwipe: <T = MouseTarget>(ref?: MutableRefObject<T | undefined> | null | undefined, options?: OrientedSwipeOptions) => SwipeState
 
   /**
    * useInterval
@@ -167,7 +167,7 @@ declare module 'beautiful-react-hooks' {
   /**
    * useMouse
    */
-  export const useMouse: <T = MouseTarget>(ref?: MutableRefObject<T>) => [MouseState, MouseHandlerSetters];
+  export const useMouse: <T = MouseTarget>(ref?: MutableRefObject<T | undefined>) => [MouseState, MouseHandlerSetters];
 
   /**
    * useMouseEvents
@@ -260,9 +260,9 @@ declare module 'beautiful-react-hooks' {
     count: number,
   }
 
-  export const useSwipe: <T = MouseTarget>(ref?: MutableRefObject<T> | null | undefined, options?: UseSwipeOptions) => SwipeState
+  export const useSwipe: <T = MouseTarget>(ref?: MutableRefObject<T | undefined> | null | undefined, options?: UseSwipeOptions) => SwipeState
 
-  export const useSwipeEvents: <T = MouseTarget>(ref?: MutableRefObject<T> | null | undefined, options?: OrientedSwipeOptions) => ({
+  export const useSwipeEvents: <T = MouseTarget>(ref?: MutableRefObject<T | undefined> | null | undefined, options?: OrientedSwipeOptions) => ({
     onSwipeLeft: HandlerSetter,
     onSwipeRight: HandlerSetter,
     onSwipeUp: HandlerSetter,
@@ -320,7 +320,7 @@ declare module 'beautiful-react-hooks' {
    */
   export const useValueHistory: <S = unknown> (value: any, distinct?: boolean) => Array<S>;
 
-  export const useVerticalSwipe: <T = MouseTarget>(ref?: MutableRefObject<T> | null | undefined, options?: OrientedSwipeOptions) => SwipeState
+  export const useVerticalSwipe: <T = MouseTarget>(ref?: MutableRefObject<T | undefined> | null | undefined, options?: OrientedSwipeOptions) => SwipeState
   /**
    * useViewportSpy
    */
@@ -339,6 +339,4 @@ declare module 'beautiful-react-hooks' {
    * useWindowScroll
    */
   export const useWindowScroll: (handler: Function) => HandlerSetter;
-
-
 }
