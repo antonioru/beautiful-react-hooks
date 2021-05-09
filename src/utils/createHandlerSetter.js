@@ -6,15 +6,12 @@ import { useCallback, useRef } from 'react';
  *
  * Although it function looks quite similar to the [useState](https://reactjs.org/docs/hooks-reference.html#usestate),
  * hook, in this case the setter just makes sure the given callback is indeed a new function.<br /><br />
- * **Setting a callback ref does not imply your component to re-render.**<br /><br />
+ * **Setting a callback ref does not force your component to re-render.**<br /><br />
  *
  * `createHandlerSetter` is useful when abstracting other hooks to possibly implement handlers setters.
  */
 const createHandlerSetter = (handlerValue) => {
   const handlerRef = useRef(handlerValue);
-
-  // since useRef accepts an initial-value only, this is needed to make sure
-  handlerRef.current = handlerValue;
 
   const setHandler = useCallback((nextCallback) => {
     if (typeof nextCallback !== 'function') {
@@ -22,7 +19,7 @@ const createHandlerSetter = (handlerValue) => {
     }
 
     handlerRef.current = nextCallback;
-  });
+  }, [handlerRef]);
 
   return [handlerRef, setHandler];
 };

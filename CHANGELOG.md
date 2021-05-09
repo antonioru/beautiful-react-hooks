@@ -671,3 +671,13 @@ online
 ### Removed
 
 - `useConditionalTimeout` hook 
+
+## [0.33.0] - 2021-05-07
+
+### Added
+
+- `useSwipeEvents` hook
+
+### Fixed
+
+- typings module
