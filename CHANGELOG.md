@@ -687,3 +687,9 @@ online
 ### Fixed
 
 - `useSwipe` types 
+
+## [0.33.2] - 2021-05-09
+
+### Fixed
+
+- converted `HandlerSetter` type to better generic type
