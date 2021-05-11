@@ -26,11 +26,25 @@ const useMediaQuery = (mediaQuery) => {
     const mediaQueryList = window.matchMedia(mediaQuery);
     const documentChangeHandler = () => setIsVerified(!!mediaQueryList.matches);
 
-    mediaQueryList.addEventListener('change', documentChangeHandler);
+    try {
+      mediaQueryList.addEventListener('change', documentChangeHandler);
+    } catch (e) {
+      //Safari isn't supporting mediaQueryList.addEventListener
+      console.error(e);
+      mediaQueryList.addListener(documentChangeHandler);
+    }
 
     documentChangeHandler();
     return () => {
-      mediaQueryList.removeEventListener('change', documentChangeHandler);
+      try {
+        mediaQueryList.removeEventListener('change', documentChangeHandler);
+    } catch (e) {
+        //Safari isn't supporting mediaQueryList.removeEventListener
+        console.error(e);
+        mediaQueryList.removeListener(documentChangeHandler);
+    }
+      
+      
     };
   }, [mediaQuery]);
 
