@@ -11,11 +11,9 @@ const defaultOptions = {
 
 /**
  * Very similar to useSwipe but doesn't cause re-rendering during swipe
- * @param targetRef
- * @param options
- * @return {undefined}
+
  */
-const useSilentSwipeState = (targetRef = null, options = defaultOptions) => {
+const useSilentSwipeState = (targetRef = null, options = defaultOptions, onSwipeMove) => {
   const startingPointRef = useRef([-1, -1]);
   const directionRef = useRef(null);
   const isDraggingRef = useRef(false);
@@ -51,6 +49,14 @@ const useSilentSwipeState = (targetRef = null, options = defaultOptions) => {
         isDraggingRef.current = true;
         directionRef.current = getDirection([clientX, clientY], startingPointRef.current, alpha);
         alphaRef.current = alpha;
+
+        onSwipeMove({
+          clientX,
+          clientY,
+          direction: directionRef.current,
+          alphaX: alphaRef.current[0],
+          alphaY: alphaRef.current[1],
+        });
       }
     }
   };
@@ -100,7 +106,8 @@ const useSwipeEvents = (targetRef = null, options = defaultOptions) => {
   const [onSwipeRight, setOnSwipeRight] = createHandlerSetter();
   const [onSwipeUp, setOnSwipeUp] = createHandlerSetter();
   const [onSwipeDown, setOnSwipeDown] = createHandlerSetter();
-  const state = useSilentSwipeState(targetRef, opts);
+  const [onSwipeMove, setOnSwipeMove] = createHandlerSetter();
+  const state = useSilentSwipeState(targetRef, opts, onSwipeMove);
 
   const fnMap = {
     right: onSwipeRight.current,
@@ -124,6 +131,7 @@ const useSwipeEvents = (targetRef = null, options = defaultOptions) => {
     onSwipeRight: setOnSwipeRight,
     onSwipeUp: setOnSwipeUp,
     onSwipeDown: setOnSwipeDown,
+    onSwipeMove: setOnSwipeMove,
   });
 };
 

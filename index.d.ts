@@ -268,6 +268,7 @@ declare module 'beautiful-react-hooks' {
     onSwipeRight: HandlerSetter<Pick<SwipeState, 'direction' | 'alphaX' | 'alphaY'>>,
     onSwipeUp: HandlerSetter<Pick<SwipeState, 'direction' | 'alphaX' | 'alphaY'>>,
     onSwipeDown: HandlerSetter<Pick<SwipeState, 'direction' | 'alphaX' | 'alphaY'>>,
+    onSwipeMove: HandlerSetter<{ clientX: number, clientY: number } & Pick<SwipeState, 'direction' | 'alphaX' | 'alphaY'>>,
   })
 
   /**

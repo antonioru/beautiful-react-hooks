@@ -712,8 +712,12 @@ online
 
 - index exports `useHorizontalSwipe` and  `useVerticalSwipe`
 
-## [0.33.6] - 2021-05-12
+## [0.34.0] - 2021-05-12
+
+### Added
+
+- `useSwipeEvents` exports `onSwipeMove`
 
 ### Fixed
 
-- `useSwipe` and `useSwipeEvents` alpha calculus
+- `useMediaQuery` addEventListener bug
