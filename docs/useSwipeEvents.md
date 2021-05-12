@@ -22,15 +22,15 @@ import useSwipeEvents from 'beautiful-react-hooks/useSwipeEvents';
 
 const SwipeReporter = () => {
   const ref = useRef();
-  const { onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown } = useSwipeEvents(ref);
+  const { onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeMove, onSwipeDown } = useSwipeEvents(ref);
   const [lastSwipeInfo, setLastSwipeInfo] = useState();
-
+  
   onSwipeLeft(setLastSwipeInfo);
   onSwipeRight(setLastSwipeInfo);
   onSwipeUp(setLastSwipeInfo);
   onSwipeDown(setLastSwipeInfo);
 
-  console.log(lastSwipeInfo);
+  onSwipeMove(console.log);
   
   return (
     <DisplayDemo>
@@ -39,7 +39,7 @@ const SwipeReporter = () => {
       </div>
       {lastSwipeInfo && (<>
         <p>Last swipe direction: {lastSwipeInfo.direction}</p>
-        <p>Alpha - x: {lastSwipeInfo.alpha[0]}, y: {lastSwipeInfo.alpha[1]}</p>
+        <p>Alpha-x: {lastSwipeInfo.alphaX}, Alpha-y: {lastSwipeInfo.alphaY} </p>
       </>)}
     </DisplayDemo>
   );
@@ -72,7 +72,7 @@ const SwipeReporter = () => {
       </div>
       {lastSwipeInfo && (<>
         <p>Last swipe direction: {lastSwipeInfo.direction}</p>
-        <p>Alpha - x: {lastSwipeInfo.alpha[0]}, y: {lastSwipeInfo.alpha[1]}</p>
+        <p>Alpha-x: {lastSwipeInfo.alphaX}, Alpha-y: {lastSwipeInfo.alphaY} </p>
       </>)}
     </DisplayDemo>
   );
@@ -109,7 +109,7 @@ const SwipeReporter = () => {
       </div>
       {lastSwipeInfo && (<>
         <p>Last swipe direction: {lastSwipeInfo.direction}</p>
-        <p>Alpha - x: {lastSwipeInfo.alpha[0]}, y: {lastSwipeInfo.alpha[1]}</p>
+        <p>Alpha-x: {lastSwipeInfo.alphaX}, Alpha-y: {lastSwipeInfo.alphaY} </p>
       </>)}
     </DisplayDemo>
   );

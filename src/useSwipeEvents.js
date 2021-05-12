@@ -50,13 +50,15 @@ const useSilentSwipeState = (targetRef = null, options = defaultOptions, onSwipe
         directionRef.current = getDirection([clientX, clientY], startingPointRef.current, alpha);
         alphaRef.current = alpha;
 
-        onSwipeMove({
-          clientX,
-          clientY,
-          direction: directionRef.current,
-          alphaX: alphaRef.current[0],
-          alphaY: alphaRef.current[1],
-        });
+        if (onSwipeMove) {
+          onSwipeMove({
+            clientX,
+            clientY,
+            direction: directionRef.current,
+            alphaX: alphaRef.current[0],
+            alphaY: alphaRef.current[1],
+          });
+        }
       }
     }
   };
@@ -107,7 +109,7 @@ const useSwipeEvents = (targetRef = null, options = defaultOptions) => {
   const [onSwipeUp, setOnSwipeUp] = createHandlerSetter();
   const [onSwipeDown, setOnSwipeDown] = createHandlerSetter();
   const [onSwipeMove, setOnSwipeMove] = createHandlerSetter();
-  const state = useSilentSwipeState(targetRef, opts, onSwipeMove);
+  const state = useSilentSwipeState(targetRef, opts, onSwipeMove.current);
 
   const fnMap = {
     right: onSwipeRight.current,

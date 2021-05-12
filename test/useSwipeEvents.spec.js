@@ -8,9 +8,9 @@ describe('useSwipeEvents', () => {
     expect(useSwipeEvents).to.be.a('function');
   });
 
-  it('should return the swipe state', () => {
+  it('should return the swipe handler setters', () => {
     const { result } = renderHook(() => useSwipeEvents());
 
-    expect(result.current).to.be.an('object').that.has.all.keys('onSwipeLeft', 'onSwipeRight', 'onSwipeUp', 'onSwipeDown');
+    expect(result.current).to.be.an('object').that.has.all.keys('onSwipeLeft', 'onSwipeRight', 'onSwipeMove', 'onSwipeUp', 'onSwipeDown');
   });
 });

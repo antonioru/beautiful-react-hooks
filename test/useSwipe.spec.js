@@ -13,7 +13,7 @@ describe('useSwipe', () => {
   it('should return the swipe state', () => {
     const { result } = renderHook(() => useSwipe());
 
-    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alpha', 'count');
+    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count');
   });
 });
 
