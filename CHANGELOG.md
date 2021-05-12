@@ -1,8 +1,9 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
+to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
@@ -174,7 +175,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - useGeolocationState hook & tests
 - useGeolocation hook & tests
 
-
 ## [0.13.0] - 2020-01-02
 
 ### Added
@@ -185,7 +185,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - `useOnMount` renamed to `useDidMount`
-
 
 ## [0.13.1] - 2020-01-02
 
@@ -232,7 +231,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - `usePrev` renamed to `usePreviousValue`
-
 
 ## [0.13.8] - 2020-01-09
 
@@ -305,8 +303,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- useOnlineState returns true when the device does not support the `online/offline` state assuming the app is already
-online
+- useOnlineState returns true when the device does not support the `online/offline` state assuming the app is already online
 - Improved test
 
 ## [0.19.0] - 2020-01-21
@@ -330,7 +327,6 @@ online
 ### Fixed
 
 - Updated typings for cancelable functions. Updated docs.
-
 
 ## [0.19.3] - 2020-01-25
 
@@ -384,7 +380,6 @@ online
 - improving SSR check and window.* check before usage
 - adding SSR warning to `useRequestAnimationFrame`
 - improving `useLocalStorage` documentation
-
 
 ## [0.22.2] - 2020-02-21
 
@@ -504,7 +499,6 @@ online
 
 - Type declaration fix for `useDebouncedFn` and `useThrottledFn`
 
-
 ## [0.25.4] - 2020-06-16
 
 ### Fixed
@@ -584,7 +578,6 @@ online
 
 - CI minor issues
 
-
 ## [0.30.0] - 2020-09-04
 
 ### Added
@@ -628,13 +621,11 @@ online
 
 - Webpack 5 error with the `isDevelopment` constant
 
-
 ## [0.31.0] - 2020-10-09
 
 ### Added
 
 - `useRenderInfo` hook and tests
-
 
 ## [0.31.1] - 2020-10-09
 
@@ -655,12 +646,12 @@ online
 
 ### Fixed
 
-- `useMouseEvents` flaws 
+- `useMouseEvents` flaws
 - improved docs
 
 ### Removed
 
-- `useConditionalTimeout` hook 
+- `useConditionalTimeout` hook
 
 ## [0.32.1] - 2021-05-07
 
@@ -670,7 +661,7 @@ online
 
 ### Removed
 
-- `useConditionalTimeout` hook 
+- `useConditionalTimeout` hook
 
 ## [0.33.0] - 2021-05-08
 
@@ -686,7 +677,7 @@ online
 
 ### Fixed
 
-- `useSwipe` types 
+- `useSwipe` types
 
 ## [0.33.2] - 2021-05-09
 
@@ -721,3 +712,11 @@ online
 ### Fixed
 
 - `useMediaQuery` addEventListener bug
+
+
+## [0.34.1] - 2021-05-12
+
+
+### Fixed
+
+- removed useless console.log from `useSwipe`

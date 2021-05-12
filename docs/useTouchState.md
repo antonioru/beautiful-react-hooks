@@ -22,8 +22,6 @@ const TouchReporter = () => {
   const ref = useRef();
   const touches = useTouchState(ref);
 
-  console.log(touches);
-
   return (
     <DisplayDemo>
       <div ref={ref}>

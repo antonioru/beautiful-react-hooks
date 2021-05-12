@@ -78,8 +78,6 @@ const useSwipe = (targetRef = null, options = defaultOptions) => {
           direction: getHorizontalDirection(alpha[0]),
         };
 
-        console.log(state, nextState, isEqual(nextState, state));
-
         if (!isEqual(nextState, state)) {
           setState(nextState);
         }
