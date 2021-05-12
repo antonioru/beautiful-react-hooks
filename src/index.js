@@ -34,5 +34,7 @@ export { default as useSpeechSynthesis } from './useSpeechSynthesis';
 export { default as useSystemVoices } from './useSystemVoices';
 export { default as useRenderInfo } from './useRenderInfo';
 export { default as useSwipe } from './useSwipe';
+export { default as useHorizontalSwipe } from './useHorizontalSwipe';
+export { default as useVerticalSwipe } from './useVerticalSwipe';
 export { default as useSwipeEvents } from './useSwipeEvents';
 export { default as useConditionalTimeout } from './useConditionalTimeout';

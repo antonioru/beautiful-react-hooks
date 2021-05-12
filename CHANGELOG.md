@@ -705,3 +705,9 @@ online
 ### Fixed
 
 - `HandlerSetter` types a function taking another function as parameter
+
+## [0.33.5] - 2021-05-12
+
+### Fixed
+
+- index exports `useHorizontalSwipe` and  `useVerticalSwipe`
