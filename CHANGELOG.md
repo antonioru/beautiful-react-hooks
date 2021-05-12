@@ -716,7 +716,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.34.1] - 2021-05-12
 
-
 ### Fixed
 
 - removed useless console.log from `useSwipe`
+
+## [0.35.0] - 2021-05-12
+
+### Added
+
+- `useSwipeEvents` exports`onSwipeEnd`,`onSwipeStart`

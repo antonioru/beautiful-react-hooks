@@ -4,7 +4,7 @@ Returns a set of handler setters to control swipe events.<br/>
 It possibly accepts a DOM ref to target the event(s) to. If the target is not provided the events will be globally attached to
 the `document` object.
 
-Available handler setters: `onSwipeLeft`, `onSwipeRight`, `onSwipeUp`, `onSwipeDown`;
+Available handler setters: `onSwipeLeft`, `onSwipeRight`, `onSwipeUp`, `onSwipeDown`,  `onSwipeStart`,  `onSwipeMove`,  `onSwipeEnd`;
 
 ### Why? 💡
 

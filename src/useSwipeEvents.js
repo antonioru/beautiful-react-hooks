@@ -13,7 +13,7 @@ const defaultOptions = {
  * Very similar to useSwipe but doesn't cause re-rendering during swipe
 
  */
-const useSilentSwipeState = (targetRef = null, options = defaultOptions, onSwipeMove) => {
+const useSilentSwipeState = (targetRef = null, options = defaultOptions, onSwipeStart, onSwipeMove, onSwipeEnd) => {
   const startingPointRef = useRef([-1, -1]);
   const directionRef = useRef(null);
   const isDraggingRef = useRef(false);
@@ -27,6 +27,10 @@ const useSilentSwipeState = (targetRef = null, options = defaultOptions, onSwipe
     const [clientX, clientY] = getPointerCoordinates(event);
     startingPointRef.current = [clientX, clientY];
     directionRef.current = null;
+
+    if (onSwipeStart) {
+      onSwipeStart({ clientX, clientY });
+    }
 
     if (opts.preventDefault) {
       event.preventDefault();
@@ -75,6 +79,14 @@ const useSilentSwipeState = (targetRef = null, options = defaultOptions, onSwipe
         alphaX: alphaRef.current[0],
         alphaY: alphaRef.current[1],
       });
+
+      if (onSwipeEnd) {
+        onSwipeEnd({
+          direction: directionRef.current,
+          alphaX: alphaRef.current[0],
+          alphaY: alphaRef.current[1],
+        });
+      }
     }
 
     startingPointRef.current = [-1, -1];
@@ -108,8 +120,10 @@ const useSwipeEvents = (targetRef = null, options = defaultOptions) => {
   const [onSwipeRight, setOnSwipeRight] = createHandlerSetter();
   const [onSwipeUp, setOnSwipeUp] = createHandlerSetter();
   const [onSwipeDown, setOnSwipeDown] = createHandlerSetter();
+  const [onSwipeStart, setOnSwipeStart] = createHandlerSetter();
   const [onSwipeMove, setOnSwipeMove] = createHandlerSetter();
-  const state = useSilentSwipeState(targetRef, opts, onSwipeMove.current);
+  const [onSwipeEnd, setOnSwipeEnd] = createHandlerSetter();
+  const state = useSilentSwipeState(targetRef, opts, onSwipeStart.current, onSwipeMove.current, onSwipeEnd.current);
 
   const fnMap = {
     right: onSwipeRight.current,
@@ -134,6 +148,8 @@ const useSwipeEvents = (targetRef = null, options = defaultOptions) => {
     onSwipeUp: setOnSwipeUp,
     onSwipeDown: setOnSwipeDown,
     onSwipeMove: setOnSwipeMove,
+    onSwipeStart: setOnSwipeStart,
+    onSwipeEnd: setOnSwipeEnd,
   });
 };
 
