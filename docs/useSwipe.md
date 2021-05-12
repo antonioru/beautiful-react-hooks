@@ -31,11 +31,7 @@ const SwipeReporter = () => {
             <p>Swipe information:</p>
             <p>Is swiping: {swipeState.swiping ? 'yes' : 'no'}</p>
             <p>Direction: {swipeState.direction}</p>
-            <p>Alpha: {Array.isArray(swipeState.alpha)
-              ? (<span>x: {swipeState.alpha[0]}, y: {swipeState.alpha[1]} </span>)
-              : (<span>{swipeState.alpha}</span>)
-            }
-            </p>
+            <p>Alpha-x: {swipeState.alphaX}, Alpha-y: {swipeState.alphaY} </p>
             <p>Swipe count: {swipeState.count}</p>
           </div>
         )}
@@ -68,11 +64,7 @@ const SwipeReporter = () => {
             <p>Swipe information:</p>
             <p>Is swiping: {swipeState.swiping ? 'yes' : 'no'}</p>
             <p>Direction: {swipeState.direction}</p>
-            <p>Alpha: {Array.isArray(swipeState.alpha)
-              ? (<span>x: {swipeState.alpha[0]}, y: {swipeState.alpha[1]} </span>)
-              : (<span>{swipeState.alpha}</span>)
-            }
-            </p>
+            <p>Alpha-x: {swipeState.alphaX}, Alpha-y: {swipeState.alphaY} </p>
             <p>Swipe count: {swipeState.count}</p>
           </div>
         )}
@@ -109,11 +101,7 @@ const SwipeReporter = () => {
             <p>Swipe information:</p>
             <p>Is swiping: {swipeState.swiping ? 'yes' : 'no'}</p>
             <p>Direction: {swipeState.direction}</p>
-            <p>Alpha: {Array.isArray(swipeState.alpha)
-              ? (<span>x: {swipeState.alpha[0]}, y: {swipeState.alpha[1]} </span>)
-              : (<span>{swipeState.alpha}</span>)
-            }
-            </p>
+            <p>Alpha-x: {swipeState.alphaX}, Alpha-y: {swipeState.alphaY} </p>
             <p>Swipe count: {swipeState.count}</p>
           </div>
         )}

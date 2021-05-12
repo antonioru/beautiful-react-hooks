@@ -711,3 +711,9 @@ online
 ### Fixed
 
 - index exports `useHorizontalSwipe` and  `useVerticalSwipe`
+
+## [0.33.6] - 2021-05-12
+
+### Fixed
+
+- `useSwipe` and `useSwipeEvents` alpha calculus

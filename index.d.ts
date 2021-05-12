@@ -256,17 +256,18 @@ declare module 'beautiful-react-hooks' {
   type SwipeState = {
     swiping: boolean,
     direction: 'left' | 'right' | 'up' | 'down' | null,
-    alpha: number | number[],
+    alphaX: number,
+    alphaY: number,
     count: number,
   }
 
   export const useSwipe: <T = MouseTarget>(ref?: MutableRefObject<T | undefined> | null | undefined, options?: UseSwipeOptions) => SwipeState
 
   export const useSwipeEvents: <T = MouseTarget>(ref?: MutableRefObject<T | undefined> | null | undefined, options?: OrientedSwipeOptions) => ({
-    onSwipeLeft: HandlerSetter<Pick<SwipeState, 'direction' | 'alpha'>>,
-    onSwipeRight: HandlerSetter<Pick<SwipeState, 'direction' | 'alpha'>>,
-    onSwipeUp: HandlerSetter<Pick<SwipeState, 'direction' | 'alpha'>>,
-    onSwipeDown: HandlerSetter<Pick<SwipeState, 'direction' | 'alpha'>>,
+    onSwipeLeft: HandlerSetter<Pick<SwipeState, 'direction' | 'alphaX' | 'alphaY'>>,
+    onSwipeRight: HandlerSetter<Pick<SwipeState, 'direction' | 'alphaX' | 'alphaY'>>,
+    onSwipeUp: HandlerSetter<Pick<SwipeState, 'direction' | 'alphaX' | 'alphaY'>>,
+    onSwipeDown: HandlerSetter<Pick<SwipeState, 'direction' | 'alphaX' | 'alphaY'>>,
   })
 
   /**

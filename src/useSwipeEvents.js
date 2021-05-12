@@ -64,7 +64,8 @@ const useSilentSwipeState = (targetRef = null, options = defaultOptions) => {
 
       setState({
         direction: directionRef.current,
-        alpha: alphaRef.current,
+        alphaX: alphaRef.current[0],
+        alphaY: alphaRef.current[1],
       });
     }
 
