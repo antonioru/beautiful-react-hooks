@@ -48,23 +48,26 @@ const MouseReporter = () => {
 Avoid providing any argument to `useMouse`
 
 ```jsx harmony
-import { useRef, useState } from 'react';
-import { useMouse } from 'beautiful-react-hooks'; 
+import { useState } from 'react';
+import { useMouse } from 'beautiful-react-hooks';
 
 const MouseReporter = () => {
-  const ref = useRef();
-  const [ mouseIsOver, setMouseHover] = useState(false);
-  const [position, { onMouseEnter, onMouseLeave }] = useMouse(ref); 
-  
-  onMouseEnter(() => setMouseHover(true));
-  onMouseLeave(() => setMouseHover(false));
-  
+  const [showCoords, setShowCoords] = useState(false);
+  const [position, { onMouseDown, onMouseUp }] = useMouse();
+
+  onMouseDown(() => setShowCoords(true));
+  onMouseUp(() => setShowCoords(false));
+
   return (
     <DisplayDemo>
-     <div ref={ref} style={{background: mouseIsOver ? '#FF4365' : 'white'}}>
-       The current mouse coordinates are:
-       <p>{position.clientX}, {position.clientY}</p>
-     </div>
+      <div>
+        The current mouse coordinates are:
+        {showCoords && (
+          <p>
+            {position.clientX}, {position.clientY}
+          </p>
+        )}
+      </div>
     </DisplayDemo>
   );
 };
