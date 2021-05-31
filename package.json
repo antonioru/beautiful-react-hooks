@@ -74,7 +74,7 @@
     "react-styleguidist": "^11.1.6",
     "react-test-renderer": "^17.0.2",
     "regenerator-runtime": "0.13.7",
-    "rollup": "2.47.0",
+    "rollup": "2.50.5",
     "rollup-plugin-babel": "4.4.0",
     "rxjs": "7.0.0",
     "sinon": "^10.0.0",
