@@ -1,25 +1,25 @@
 import React from 'react';
 import { cleanup as cleanupHooks } from '@testing-library/react-hooks';
-import useStorage from '../dist/useStorage';
+import createStorageHook from '../dist/shared/createStorageHook';
 
-describe('useStorage', () => {
+describe('createStorageHook', () => {
   beforeEach(cleanupHooks);
 
   afterEach(sinon.restore);
 
   it('should be a function', () => {
-    expect(useStorage).to.be.a('function');
+    expect(createStorageHook).to.be.a('function');
   });
 
   it('should return a function', () => {
-    const useLocalStorage = useStorage('local');
+    const useLocalStorage = createStorageHook('local');
     expect(useLocalStorage).to.be.a('function');
   });
 
   it('should warn when an invalid storage name is provided', () => {
     const warnSpy = sinon.spy(console, 'warn');
 
-    useStorage('foo');
+    createStorageHook('foo');
 
     expect(warnSpy.called).to.be.true;
   });

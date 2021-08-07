@@ -1,4 +1,4 @@
-import isSamePosition from '../dist/utils/isSamePosition';
+import isSamePosition from '../dist/shared/isSamePosition';
 import { positionMock } from './mocks/GeoLocationApi.mock';
 
 describe('isSamePosition utility', () => {
