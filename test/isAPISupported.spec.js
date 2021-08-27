@@ -1,4 +1,4 @@
-import isAPISupported from '../dist/utils/isAPISupported';
+import isAPISupported from '../dist/shared/isAPISupported';
 
 describe('isAPISupported utility', () => {
   it('should be a function', () => {

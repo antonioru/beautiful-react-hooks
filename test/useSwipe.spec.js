@@ -1,7 +1,7 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks';
 import useSwipe from '../dist/useSwipe';
-import useHorizontalSwipe from '../src/useHorizontalSwipe';
-import useVerticalSwipe from '../src/useVerticalSwipe';
+import useHorizontalSwipe from '../dist/useHorizontalSwipe';
+import useVerticalSwipe from '../dist/useVerticalSwipe';
 
 describe('useSwipe', () => {
   beforeEach(cleanup);

@@ -725,3 +725,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - `useSwipeEvents` exports`onSwipeEnd`,`onSwipeStart`
+
+## [1.0.0] - 2021-08-27
+
+### Change
+
+- Complete typescript rewrite

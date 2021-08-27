@@ -1,4 +1,4 @@
-import isClient from '../dist/utils/isClient';
+import isClient from '../dist/shared/isClient';
 
 describe('isClient utility', () => {
   it('should be a boolean', () => expect(isClient).to.be.a('boolean'));

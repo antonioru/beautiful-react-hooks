@@ -48,8 +48,6 @@ to keep the learning curve as lower as possible so that the it can be used and s
 * Concise API
 * Small and lightweight
 * Easy to learn
-* Functional approach
-* Fully written in JS (although TS types are supported)
 
 <div>
   <p align="center">
@@ -133,21 +131,6 @@ To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONT
 * [Chai](https://www.chaijs.com/)
 * [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
 * [@testing-library/react-hooks](https://react-hooks-testing-library.com/)
-
-
-### Credits
-
-This library is provided and sponsored by:
-
-<div>
-  <p>
-    <a href="https://beautifulinteractions.com/">
-      <img src="https://beautifulinteractions.com/img/logo-colorful.svg" alt="Beautiful interactions" width="140px" />
-    </a>
-  </p>
-</div>
-
-As part of our commitment to support and contribute to the open source community.
 
 ---
 

@@ -1,16 +1,28 @@
 {
-  "extends": "airbnb",
-  "parser": "babel-eslint",
-  "plugins": ["chai-expect", "react-hooks"],
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "project": "./tsconfig.esm.json"
+  },
+  "plugins": [
+    "chai-expect",
+    "react-hooks"
+  ],
   "env": {
     "browser": true,
     "mocha": true
   },
   "rules": {
-    "max-len": ["error", { "code": 120 }],
+    "max-len": ["error", {"code": 140}],
+    "semi": [2, "never"],
+    "@typescript-eslint/semi": "off",
     "linebreak-style": "off",
     "object-curly-newline": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [ ".js", ".jsx" ] } ]
+    "react/jsx-filename-extension": "off"
   },
   "overrides": [
     {
