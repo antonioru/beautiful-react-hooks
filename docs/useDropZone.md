@@ -26,7 +26,7 @@ const MyComponent = () => {
   onDrop((event) => {
     event.preventDefault();
     const nextData = event.dataTransfer.getData('text');
-    setData(nextData);__
+    setData(nextData);
   });
 
   return (
