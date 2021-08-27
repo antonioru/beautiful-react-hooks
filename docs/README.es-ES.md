@@ -17,7 +17,7 @@
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟Para probar clic aquí🌟
     </a>
   </p>
@@ -45,12 +45,10 @@ Además, creamos un API conciso pero concreto teniendo en cuenta la legibilidad 
 * API Consistente.
 * Pequeña y ligera.
 * Fácil de aprender.
-* Enfoque funcional.
-* Completamente escrito en JS (aunque se admiten los tipos de TS).
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Para probar clic aquí 🌟
     </a>
   </p>
@@ -103,7 +101,7 @@ $ yarn add beautiful-react-hooks
 * [useConditionalTimeout](useConditionalTimeout.md)
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Para probar clic aquí🌟
     </a>
   </p>
@@ -129,21 +127,6 @@ Para presentar su custom hook, por favor asegúrese de leer nuestro [CONTRIBUTIN
 * [Chai](https://www.chaijs.com/)
 * [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
 * [@testing-library/react-hooks](https://react-hooks-testing-library.com/) 
-
-
-### Creditos
-
-Esta biblioteca es proporcionada y patrocinada por: 
-
-<div>
-  <p>
-    <a href="https://beautifulinteractions.com/">
-      <img src="https://beautifulinteractions.com/img/logo-colorful.svg" alt="Beautiful interactions" width="140px" />
-    </a>
-  </p>
-</div>
-
-Como parte de nuestro compromiso de apoyar y contribuir a la comunidad de código abierto.
 
 ---
 

@@ -17,7 +17,7 @@
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Спробуйте їх у дії тут 🌟
     </a>
   </p>
@@ -37,8 +37,6 @@
 Крім того, ми створили лаконічний, але конкретний API, з точки зору читабельності коду, маючи на меті
 тримати криву вивчення настільки низькою, наскільки це можливо, тому це може бути використано та поширено у великих командах.
 
-
-
 **-- Будь-ласка, перед використанням будь-яких хуків, прочитайте їхню документацію! --**
 
 ## ☕️ Особливості
@@ -46,12 +44,10 @@
 * Лаконічний API
 * Малий розмір та легкість
 * Простий у вивченні
-* Функціональний підхід
-* Повністю написаний на JS(також TS типи підтримуються)
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Спробуйте їх у дії тут 🌟
     </a>
   </p>
@@ -105,7 +101,7 @@ $ yarn add beautiful-react-hooks
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Спробуйте їх у дії тут 🌟
     </a>
   </p>
@@ -131,21 +127,6 @@ $ yarn add beautiful-react-hooks
 * [Chai](https://www.chaijs.com/)
 * [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
 * [@testing-library/react-hooks](https://react-hooks-testing-library.com/) 
-
-
-### Спонсорство
-
-Ця бібліотека надана та спонсорується: 
-
-<div>
-  <p>
-    <a href="https://beautifulinteractions.com/">
-      <img src="https://beautifulinteractions.com/img/logo-colorful.svg" alt="Beautiful interactions" width="140px" />
-    </a>
-  </p>
-</div>
-
-У рамках нашого зобов'язання по підтримці та сприяння опенсорс спільноти.
 
 ---
 

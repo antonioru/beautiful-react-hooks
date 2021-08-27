@@ -17,7 +17,7 @@
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Live playground here 🌟
     </a>
   </p>
@@ -45,12 +45,10 @@ React custom hooksは抽象的なコンポーネントのビジネスロジッ�
 * 簡潔なAPI
 * 軽量
 * 学習が容易
-* 機能的なアプローチ
-* 全てJSで記述されています (TSの型もサポートされています)
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Live playground here 🌟
     </a>
   </p>
@@ -104,7 +102,7 @@ $ yarn add beautiful-react-hooks
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Live playground here 🌟
     </a>
   </p>
@@ -134,22 +132,6 @@ You have updated the package.json version and reported your changes into the [CH
 * [Chai](https://www.chaijs.com/)
 * [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
 * [@testing-library/react-hooks](https://react-hooks-testing-library.com/)
-
-
-### クレジット
-
-このライブラリはBeautiful Interactionsより提供・協賛されています
-
-<div>
-  <p>
-    <a href="https://beautifulinteractions.com/">
-      <img src="https://beautifulinteractions.com/img/logo-colorful.svg" alt="Beautiful interactions" width="140px" />
-    </a>
-  </p>
-</div>
-
-オープンソースコミュニティをサポートし、貢献するというコミットメントの一環として。
-
 
 ---
 

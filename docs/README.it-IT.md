@@ -18,7 +18,7 @@
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Provali in azione qui 🌟
     </a>
   </p>
@@ -44,12 +44,10 @@ Abbiamo cercato di creare una API che fosse sia concisa che coerente, concentran
 * API concisa e coerente
 * Piccole funzioni riutilizzabili
 * Facile da imparare
-* Approccio funzionale
-* Scritto completamente in JS (supporta i tipi Typescript)
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Provali in azione qui 🌟
     </a>
   </p>
@@ -103,7 +101,7 @@ $ yarn add beautiful-react-hooks
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 Provali in azione qui 🌟
     </a>
   </p>
@@ -129,21 +127,6 @@ Per inviare il tuo custom hook, leggi le nostre [linee guida](../CONTRIBUTING.md
 * [Chai](https://www.chaijs.com/)
 * [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
 * [@testing-library/react-hooks](https://react-hooks-testing-library.com/) 
-
-
-### Crediti
-
-La libraria è fornita e sponsorizzata da: 
-
-<div>
-  <p>
-    <a href="https://beautifulinteractions.com/">
-      <img src="https://beautifulinteractions.com/img/logo-colorful.svg" alt="Beautiful interactions" width="140px" />
-    </a>
-  </p>
-</div>
-
-come parte del nostro impegno nel supportare la comunità open source.
 
 ---
 

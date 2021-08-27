@@ -17,7 +17,7 @@
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 在线演示 🌟
     </a>
   </p>
@@ -43,12 +43,10 @@ React hooks —— 来帮助其他公司和专家们加速他们的开发。<br 
 - 简明的 API
 - 小巧轻量
 - 易于学习
-- 函数式方法
-- 完全使用 JS 书写（但我们也支持了 TS 类型）
 
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 在线演示 🌟
     </a>
   </p>
@@ -102,7 +100,7 @@ $ yarn add beautiful-react-hooks
 * [useConditionalTimeout](useConditionalTimeout.md)
 <div>
   <p align="center">
-    <a href="https://beautifulinteractions.github.io/beautiful-react-hooks/" target="_blank">
+    <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
     🌟 在线演示 🌟
     </a>
   </p>
@@ -128,20 +126,6 @@ $ yarn add beautiful-react-hooks
 - [Chai](https://www.chaijs.com/)
 - [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
 - [@testing-library/react-hooks](https://react-hooks-testing-library.com/)
-
-### 感谢
-
-这个库由 Beautiful Interactions 提供支持和赞助：
-
-<div>
-  <p>
-    <a href="https://beautifulinteractions.com/">
-      <img src="https://beautifulinteractions.com/img/logo-colorful.svg" alt="Beautiful interactions" width="140px" />
-    </a>
-  </p>
-</div>
-
-这个库是我们支持和回报开源社区的承诺的一部分。
 
 ---
 
