@@ -1,38 +1,38 @@
-import React from 'react';
-import { render, cleanup as cleanupReact } from '@testing-library/react';
-import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks';
-import usePreviousValue from '../dist/usePreviousValue';
+import React from 'react'
+import { cleanup as cleanupReact, render } from '@testing-library/react'
+import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
+import usePreviousValue from '../dist/usePreviousValue'
 
 describe('usePreviousValue', () => {
   beforeEach(() => {
-    cleanupHooks();
-    cleanupReact();
-  });
+    cleanupHooks()
+    cleanupReact()
+  })
 
-  afterEach(sinon.restore);
+  afterEach(sinon.restore)
 
   it('should be a function', () => {
-    expect(usePreviousValue).to.be.a('function');
-  });
+    expect(usePreviousValue).to.be.a('function')
+  })
 
   it('should return undefined after the first render', () => {
-    const { result } = renderHook(() => usePreviousValue(10));
+    const { result } = renderHook(() => usePreviousValue(10))
 
-    expect(result.current).to.be.undefined;
-  });
+    expect(result.current).to.be.undefined
+  })
 
   it('should return the previous value of a given variable', () => {
     const TestComponent = (props) => {
       // eslint-disable-next-line react/prop-types
-      const { value } = props;
-      const prev = usePreviousValue(value);
+      const { value } = props
+      const prev = usePreviousValue(value)
 
-      return <p>{prev}</p>;
-    };
+      return <p>{prev}</p>
+    }
 
-    const { container, rerender } = render(<TestComponent value={1} />);
-    rerender(<TestComponent value={2} />);
+    const { container, rerender } = render(<TestComponent value={1} />)
+    rerender(<TestComponent value={2} />)
 
-    expect(container.querySelector('p').innerHTML).to.equal('1');
-  });
-});
+    expect(container.querySelector('p').innerHTML).to.equal('1')
+  })
+})

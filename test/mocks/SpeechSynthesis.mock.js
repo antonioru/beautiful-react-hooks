@@ -1,6 +1,6 @@
 export default {
   getVoices() {
-    return [];
+    return []
   }
-};
+}
 

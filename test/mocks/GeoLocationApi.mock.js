@@ -1,5 +1,5 @@
-export const watchPositionSpy = sinon.spy();
-export const getCurrentPosition = sinon.spy();
+export const watchPositionSpy = sinon.spy()
+export const getCurrentPosition = sinon.spy()
 
 export const positionMock = {
   timestamp: 1,
@@ -10,27 +10,27 @@ export const positionMock = {
     accuracy: 1,
     altitudeAccuracy: 10,
     heading: 10,
-    speed: 0,
-  },
-};
+    speed: 0
+  }
+}
 
 const GeoLocationApiMock = {
   listeners: {},
   getCurrentPosition(fn) {
-    this.listeners.gcp = fn;
-    this.listeners.gcp(positionMock);
-    getCurrentPosition(positionMock);
+    this.listeners.gcp = fn
+    this.listeners.gcp(positionMock)
+    getCurrentPosition(positionMock)
   },
   watchPosition(success, error, options) {
-    watchPositionSpy(options);
+    watchPositionSpy(options)
 
-    this.listeners.s = success;
-    this.listeners.e = error;
+    this.listeners.s = success
+    this.listeners.e = error
   },
   clearWatch() {
-    this.listeners = {};
-  },
-};
+    this.listeners = {}
+  }
+}
 
-export default GeoLocationApiMock;
+export default GeoLocationApiMock
 
