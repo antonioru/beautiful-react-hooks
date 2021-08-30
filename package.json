@@ -82,7 +82,7 @@
     "nyc": "^15.1.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-styleguidist": "^9.0.0",
+    "react-styleguidist": "^11.1.7",
     "regenerator-runtime": "0.13.9",
     "rxjs": "7.3.0",
     "sinon": "^11.1.2",
