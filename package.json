@@ -81,7 +81,7 @@
     "mocha": "9.1.0",
     "mock-local-storage": "1.1.17",
     "nyc": "^15.1.0",
-    "react": "^16.0.0",
+    "react": "^17.0.2",
     "react-dom": "^16.0.0",
     "react-styleguidist": "^9.0.0",
     "regenerator-runtime": "0.13.9",
