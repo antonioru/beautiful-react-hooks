@@ -22,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beautifulinteractions/beautiful-react-hooks.git"
+    "url": "git+https://github.com/antonioru/beautiful-react-hooks.git"
   },
   "author": {
     "name": "Antonio Russo",
@@ -34,9 +34,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/beautifulinteractions/beautiful-react-hooks/issues"
+    "url": "https://github.com/antonioru/beautiful-react-hooks/issues"
   },
-  "homepage": "https://beautifulinteractions.github.io/beautiful-react-hooks/",
+  "homepage": "https://antonioru.github.io/beautiful-react-hooks/",
   "dependencies": {
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1"

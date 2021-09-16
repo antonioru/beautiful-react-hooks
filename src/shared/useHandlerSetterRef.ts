@@ -8,7 +8,7 @@ type HandlerPair<T> = readonly [
 
 /**
  * Returns an object where the first item is the [ref](https://reactjs.org/docs/hooks-reference.html#useref) to a
- * callback function and the second one is setter for that function.<br /><br />
+ * callback function and the second one is setter for that function.
  *
  * Although it function looks quite similar to the [useState](https://reactjs.org/docs/hooks-reference.html#usestate),
  * hook, in this case the setter just makes sure the given callback is indeed a new function.<br /><br />
