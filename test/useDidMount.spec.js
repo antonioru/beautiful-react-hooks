@@ -1,39 +1,39 @@
-import React from 'react';
-import { render, cleanup as cleanupReact } from '@testing-library/react';
-import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks';
-import useDidMount from '../dist/useDidMount';
+import React from 'react'
+import { cleanup as cleanupReact, render } from '@testing-library/react'
+import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
+import useDidMount from '../dist/useDidMount'
 
 describe('useDidMount', () => {
   beforeEach(() => {
-    cleanupHooks();
-    cleanupReact();
-  });
+    cleanupHooks()
+    cleanupReact()
+  })
 
-  afterEach(sinon.restore);
+  afterEach(sinon.restore)
 
   it('should be a function', () => {
-    expect(useDidMount).to.be.a('function');
-  });
+    expect(useDidMount).to.be.a('function')
+  })
 
   it('should return a single function', () => {
-    const { result } = renderHook(() => useDidMount());
+    const { result } = renderHook(() => useDidMount())
 
-    expect(result.current).to.be.a('function');
-  });
+    expect(result.current).to.be.a('function')
+  })
 
   it('the returned function should be a setter for a callback to be performed when component did mount', () => {
-    const spy = sinon.spy();
+    const spy = sinon.spy()
 
     const TestComponent = () => {
-      const onMount = useDidMount();
+      const onMount = useDidMount()
 
-      onMount(spy);
+      onMount(spy)
 
-      return null;
-    };
+      return null
+    }
 
-    render(<TestComponent />);
+    render(<TestComponent />)
 
-    expect(spy.called).to.be.true;
-  });
-});
+    expect(spy.called).to.be.true
+  })
+})

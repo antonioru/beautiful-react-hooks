@@ -1,47 +1,47 @@
-import { cleanup, renderHook } from '@testing-library/react-hooks';
-import useSwipe from '../dist/useSwipe';
-import useHorizontalSwipe from '../dist/useHorizontalSwipe';
-import useVerticalSwipe from '../dist/useVerticalSwipe';
+import { cleanup, renderHook } from '@testing-library/react-hooks'
+import useSwipe from '../dist/useSwipe'
+import useHorizontalSwipe from '../dist/useHorizontalSwipe'
+import useVerticalSwipe from '../dist/useVerticalSwipe'
 
 describe('useSwipe', () => {
-  beforeEach(cleanup);
+  beforeEach(cleanup)
 
   it('should be a function', () => {
-    expect(useSwipe).to.be.a('function');
-  });
+    expect(useSwipe).to.be.a('function')
+  })
 
   it('should return the swipe state', () => {
-    const { result } = renderHook(() => useSwipe());
+    const { result } = renderHook(() => useSwipe())
 
-    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count');
-  });
-});
+    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count')
+  })
+})
 
 describe('useHorizontalSwipe', () => {
-  beforeEach(cleanup);
+  beforeEach(cleanup)
 
   it('should be a function', () => {
-    expect(useHorizontalSwipe).to.be.a('function');
-  });
+    expect(useHorizontalSwipe).to.be.a('function')
+  })
 
   it('should return the swipe state', () => {
-    const { result } = renderHook(() => useHorizontalSwipe());
+    const { result } = renderHook(() => useHorizontalSwipe())
 
-    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count');
-  });
-});
+    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count')
+  })
+})
 
 
 describe('useVerticalSwipe', () => {
-  beforeEach(cleanup);
+  beforeEach(cleanup)
 
   it('should be a function', () => {
-    expect(useVerticalSwipe).to.be.a('function');
-  });
+    expect(useVerticalSwipe).to.be.a('function')
+  })
 
   it('should return the swipe state', () => {
-    const { result } = renderHook(() => useVerticalSwipe());
+    const { result } = renderHook(() => useVerticalSwipe())
 
-    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count');
-  });
-});
+    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count')
+  })
+})

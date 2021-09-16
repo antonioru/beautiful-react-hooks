@@ -1,26 +1,26 @@
 class IntersectionObserverMock {
   constructor(fn) {
-    this.connected = true;
-    this.fn = fn;
+    this.connected = true
+    this.fn = fn
 
-    IntersectionObserverMock.instances.push(this);
+    IntersectionObserverMock.instances.push(this)
   }
 
   observe() {
     if (this.connected) {
-      this.fn([{ isIntersecting: true }]);
+      this.fn([{ isIntersecting: true }])
     }
   }
 
   disconnect() {
-    this.connected = false;
+    this.connected = false
   }
 }
 
-IntersectionObserverMock.instances = [];
+IntersectionObserverMock.instances = []
 IntersectionObserverMock.simulateObservation = () => {
-  IntersectionObserverMock.instances.forEach((item) => item.observe());
-};
+  IntersectionObserverMock.instances.forEach((item) => item.observe())
+}
 
-export default IntersectionObserverMock;
+export default IntersectionObserverMock
 

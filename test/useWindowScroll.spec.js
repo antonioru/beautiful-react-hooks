@@ -1,42 +1,42 @@
-import React from 'react';
-import { render, fireEvent, cleanup as cleanupReact } from '@testing-library/react';
-import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
-import useWindowScroll from '../dist/useWindowScroll';
+import React from 'react'
+import { cleanup as cleanupReact, fireEvent, render } from '@testing-library/react'
+import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
+import useWindowScroll from '../dist/useWindowScroll'
 
 describe('useWindowScroll', () => {
   beforeEach(() => {
-    cleanupReact();
-    cleanupHooks();
-  });
+    cleanupReact()
+    cleanupHooks()
+  })
 
   it('should be a function', () => {
-    expect(useWindowScroll).to.be.a('function');
-  });
+    expect(useWindowScroll).to.be.a('function')
+  })
 
   it('should return a single function', () => {
-    const { result } = renderHook(() => useWindowScroll());
+    const { result } = renderHook(() => useWindowScroll())
 
-    expect(result.current).to.be.a('function');
-  });
+    expect(result.current).to.be.a('function')
+  })
 
   it('the returned function should be a setter for a callback to be performed when window scrolls', () => {
-    const spy = sinon.spy();
+    const spy = sinon.spy()
 
     const TestComponent = () => {
-      const onWindowScroll = useWindowScroll();
+      const onWindowScroll = useWindowScroll()
 
-      onWindowScroll(spy);
+      onWindowScroll(spy)
 
-      return null;
-    };
+      return null
+    }
 
-    render(<TestComponent />);
+    render(<TestComponent />)
 
-    const resizeEvent = window.document.createEvent('UIEvents');
-    resizeEvent.initUIEvent('scroll', true, false, window, 0);
+    const resizeEvent = window.document.createEvent('UIEvents')
+    resizeEvent.initUIEvent('scroll', true, false, window, 0)
 
-    fireEvent(window, resizeEvent);
+    fireEvent(window, resizeEvent)
 
-    expect(spy.called).to.be.true;
-  });
-});
+    expect(spy.called).to.be.true
+  })
+})

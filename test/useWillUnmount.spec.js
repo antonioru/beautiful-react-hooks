@@ -1,39 +1,39 @@
-import React from 'react';
-import { render, cleanup as cleanupReact } from '@testing-library/react';
-import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
-import useWillUnmount from '../dist/useWillUnmount';
+import React from 'react'
+import { cleanup as cleanupReact, render } from '@testing-library/react'
+import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
+import useWillUnmount from '../dist/useWillUnmount'
 
 describe('useWillUnmount', () => {
   beforeEach(() => {
-    cleanupHooks();
-    cleanupReact();
-  });
+    cleanupHooks()
+    cleanupReact()
+  })
 
   it('should be a function', () => {
-    expect(useWillUnmount).to.be.a('function');
-  });
+    expect(useWillUnmount).to.be.a('function')
+  })
 
   it('should return a single function', () => {
-    const { result } = renderHook(() => useWillUnmount());
+    const { result } = renderHook(() => useWillUnmount())
 
-    expect(result.current).to.be.a('function');
-  });
+    expect(result.current).to.be.a('function')
+  })
 
   it('the returned function should be a setter for a callback to be performed when component will unmount', () => {
-    const spy = sinon.spy();
+    const spy = sinon.spy()
 
     const TestComponent = () => {
-      const onUnmount = useWillUnmount();
+      const onUnmount = useWillUnmount()
 
-      onUnmount(spy);
+      onUnmount(spy)
 
-      return null;
-    };
+      return null
+    }
 
-    const { rerender } = render(<TestComponent />);
+    const { rerender } = render(<TestComponent />)
 
-    rerender(null);
+    rerender(null)
 
-    expect(spy.called).to.be.true;
-  });
-});
+    expect(spy.called).to.be.true
+  })
+})

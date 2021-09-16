@@ -1,52 +1,52 @@
-import React from 'react';
-import { renderHook, cleanup as cleanupHooks } from '@testing-library/react-hooks';
-import { render, cleanup as cleanupReact } from '@testing-library/react';
-import useDebouncedFn from '../dist/useDebouncedFn';
-import promiseDelay from './utils/promiseDelay';
+import React from 'react'
+import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
+import { cleanup as cleanupReact, render } from '@testing-library/react'
+import useDebouncedFn from '../dist/useDebouncedFn'
+import promiseDelay from './utils/promiseDelay'
 
 
 describe('useDebouncedFn', () => {
   beforeEach(() => {
-    cleanupReact();
-    cleanupHooks();
-  });
+    cleanupReact()
+    cleanupHooks()
+  })
 
-  afterEach(sinon.restore);
+  afterEach(sinon.restore)
 
   it('should be a function', () => {
-    expect(useDebouncedFn).to.be.a('function');
-  });
+    expect(useDebouncedFn).to.be.a('function')
+  })
 
   it('should return a single function', () => {
-    const fn = () => 0;
-    const { result } = renderHook(() => useDebouncedFn(fn));
+    const fn = () => 0
+    const { result } = renderHook(() => useDebouncedFn(fn))
 
-    expect(result.current).to.be.a('function');
-  });
+    expect(result.current).to.be.a('function')
+  })
 
   it('should return a debounced function', async () => {
-    const spy = sinon.spy();
+    const spy = sinon.spy()
 
     const TestComponent = () => {
       const debouncedCallback = useDebouncedFn(() => {
-        spy();
-      }, 250);
+        spy()
+      }, 250)
 
       React.useEffect(() => {
-        debouncedCallback();
-        debouncedCallback();
-        debouncedCallback();
-        debouncedCallback();
-      }, []);
+        debouncedCallback()
+        debouncedCallback()
+        debouncedCallback()
+        debouncedCallback()
+      }, [])
 
-      return <div />;
-    };
+      return <div />
+    }
 
-    render(<TestComponent />);
+    render(<TestComponent />)
 
-    await promiseDelay(300);
+    await promiseDelay(300)
 
-    expect(spy.called).to.be.true;
-    expect(spy.callCount).to.equal(1);
-  });
-});
+    expect(spy.called).to.be.true
+    expect(spy.callCount).to.equal(1)
+  })
+})

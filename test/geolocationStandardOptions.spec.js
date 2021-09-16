@@ -1,10 +1,10 @@
-import geolocationStandardOptions from '../dist/shared/geolocationStandardOptions';
+import geolocationStandardOptions from '../dist/shared/geolocationStandardOptions'
 
 describe('geolocationStandardOptions utility', () => {
   it('should be an object without any prototype', () => {
     expect(geolocationStandardOptions).to.be.an('object').that.has.all.deep.keys(
-      'enableHighAccuracy', 'timeout', 'maximumAge',
-    );
-    expect(geolocationStandardOptions).to.be.frozen;
-  });
-});
+      'enableHighAccuracy', 'timeout', 'maximumAge'
+    )
+    expect(geolocationStandardOptions).to.be.frozen
+  })
+})
