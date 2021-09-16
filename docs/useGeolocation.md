@@ -82,4 +82,4 @@ const PositionReporter = () => {
 #### 🛑 What not to do
 
 - Don't use this hook to try to guess the user's device capabilities
-- Don't access the geolocation state before checking hte `isSupported` flag
+- Don't access the geolocation state before checking the `isSupported` flag
