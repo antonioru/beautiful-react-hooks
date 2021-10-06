@@ -737,3 +737,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - Changing to the handler function do not cause the handler setter refs to update
+
+## [1.0.2] - 2021-10-06
+
+### Fixed
+
+- Updating useGlobalEvent ref to the provided function

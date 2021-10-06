@@ -6,6 +6,7 @@ import useHandlerSetterRef from './shared/useHandlerSetterRef'
  */
 const useGlobalEvent = <E extends Event>(eventName: keyof WindowEventMap, fn?: (event: E) => void, opts?: AddEventListenerOptions) => {
   const [handler, setHandler] = useHandlerSetterRef(fn)
+  handler.current = fn
 
   useEffect(() => {
     const cb: EventListenerOrEventListenerObject = (event: E) => {
