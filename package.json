@@ -78,7 +78,7 @@
     "jsdoc-to-markdown": "^7.0.1",
     "jsdom": "^17.0.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "9.1.1",
+    "mocha": "9.1.3",
     "mock-local-storage": "1.1.17",
     "nyc": "^15.1.0",
     "react": "17.0.2",
