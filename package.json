@@ -57,7 +57,7 @@
     "@types/lodash.debounce": "4.0.6",
     "@types/lodash.throttle": "4.1.6",
     "@typescript-eslint/eslint-plugin": "4.31.1",
-    "@typescript-eslint/parser": "4.31.1",
+    "@typescript-eslint/parser": "4.33.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-istanbul": "^6.0.0",
