@@ -743,3 +743,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - Updating useGlobalEvent ref to the provided function
+
+## [1.0.3] - 2022-01-26
+
+### Fixed
+
+- Updating useValueHistory's misuse of array.prototype.filter to update history.current
