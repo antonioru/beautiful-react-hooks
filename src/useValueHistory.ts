@@ -13,7 +13,7 @@ const useValueHistory = <T = unknown>(value: T, distinct = false): T[] => {
     history.current.push(value)
 
     if (distinct) {
-      history.current.filter(distinctValues)
+      history.current = history.current.filter(distinctValues)
     }
   }, [value])
 
