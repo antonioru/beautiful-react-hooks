@@ -713,7 +713,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - `useMediaQuery` addEventListener bug
 
-
 ## [0.34.1] - 2021-05-12
 
 ### Fixed
@@ -748,4 +747,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-- Updating useValueHistory's misuse of array.prototype.filter to update history.current
+- Updating useValueHistory's misuse of Array.prototype.filter to update history.current
+
+## [1.0.4] - 2022-01-27
+
+### Fixed
+
+- Type definitions on useResizeObserver
