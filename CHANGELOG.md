@@ -754,3 +754,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - Type definitions on useResizeObserver
+
+## [1.0.4] - 2022-01-27
+
+### Fixed
+
+- Refs are typed as RefObject<T>, which is more correct as they are React-managed refs.
