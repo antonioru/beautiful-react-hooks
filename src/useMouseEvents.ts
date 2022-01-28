@@ -1,4 +1,4 @@
-import { MutableRefObject } from 'react'
+import { RefObject } from 'react'
 import useHandlerSetterRef from './shared/useHandlerSetterRef'
 import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
 import safeHasOwnProperty from './shared/safeHasOwnProperty'
@@ -31,7 +31,7 @@ export type MouseEventsMap = {
  * lose the React SyntheticEvent performance boost.<br />
  * If you were doing something like the following:
  */
-const useMouseEvents = <T extends HTMLElement>(targetRef: MutableRefObject<T> = null): MouseEventsMap => {
+const useMouseEvents = <T extends HTMLElement>(targetRef: RefObject<T> = null): MouseEventsMap => {
   const [onMouseDownHandler, setOnMouseDown] = useHandlerSetterRef<MouseEventCallback>()
   const [onMouseEnterHandler, setOnMouseEnter] = useHandlerSetterRef<MouseEventCallback>()
   const [onMouseLeaveHandler, setOnMouseLeave] = useHandlerSetterRef<MouseEventCallback>()

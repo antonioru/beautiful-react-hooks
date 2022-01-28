@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from 'react'
+import { RefObject, useEffect, useRef, useState } from 'react'
 import useHandlerSetterRef from './shared/useHandlerSetterRef'
 import useMouseEvents from './useMouseEvents'
 import useTouchEvents from './useTouchEvents'
@@ -28,7 +28,7 @@ const defaultOptions: UseEventsSwipeOptions = {
  * Very similar to useSwipe but doesn't cause re-rendering during swipe
  */
 const useSilentSwipeState = <T extends HTMLElement>(
-  targetRef: MutableRefObject<T> = null,
+  targetRef: RefObject<T> = null,
   options: UseEventsSwipeOptions = defaultOptions,
   onSwipeStart: (...args: any[]) => any,
   onSwipeMove: (...args: any[]) => any,
@@ -133,7 +133,7 @@ const useSilentSwipeState = <T extends HTMLElement>(
  * @param targetRef
  * @param options
  */
-const useSwipeEvents = <T extends HTMLElement>(targetRef: MutableRefObject<T> = null, options: UseEventsSwipeOptions = defaultOptions) => {
+const useSwipeEvents = <T extends HTMLElement>(targetRef: RefObject<T> = null, options: UseEventsSwipeOptions = defaultOptions) => {
   const opts = { ...defaultOptions, ...(options || {}) }
   const [onSwipeLeft, setOnSwipeLeft] = useHandlerSetterRef<SwipeCallback>()
   const [onSwipeRight, setOnSwipeRight] = useHandlerSetterRef<SwipeCallback>()

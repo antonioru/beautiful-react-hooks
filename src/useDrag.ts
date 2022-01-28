@@ -1,4 +1,4 @@
-import { MutableRefObject, useState } from 'react'
+import { RefObject, useState } from 'react'
 import useDragEvents from './useDragEvents'
 
 export type UseDragOptions = {
@@ -15,7 +15,7 @@ const defaultOptions: UseDragOptions = {
   transferFormat: 'text',
 }
 
-const useDrag = <T extends HTMLElement>(targetRef: MutableRefObject<T>, options = defaultOptions): boolean => {
+const useDrag = <T extends HTMLElement>(targetRef: RefObject<T>, options = defaultOptions): boolean => {
   const { onDragStart, onDragEnd } = useDragEvents<T>(targetRef, true)
   const [isDragging, setIsDragging] = useState<boolean>(false)
   const opts: UseDragOptions = { ...defaultOptions, ...(options || {}) }

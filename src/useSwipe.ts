@@ -1,4 +1,4 @@
-import { MutableRefObject, useRef, useState } from 'react'
+import { RefObject, useRef, useState } from 'react'
 import useMouseEvents from './useMouseEvents'
 import useTouchEvents from './useTouchEvents'
 import { Direction, getDirection, getHorizontalDirection, getPointerCoordinates, getVerticalDirection } from './shared/swipeUtils'
@@ -36,7 +36,7 @@ const isEqual = (prev: LocalSwipeState, next: LocalSwipeState): boolean => (
 /**
  * useSwipe hook
  */
-const useSwipe = <T extends HTMLElement>(targetRef: MutableRefObject<T> = null, options: UseSwipeOptions = defaultOptions) => {
+const useSwipe = <T extends HTMLElement>(targetRef: RefObject<T> = null, options: UseSwipeOptions = defaultOptions) => {
   const [state, setState] = useState(initialState)
   const startingPointRef = useRef<[number, number]>([-1, -1])
   const isDraggingRef = useRef(false)

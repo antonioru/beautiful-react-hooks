@@ -1,4 +1,4 @@
-import { MutableRefObject, useLayoutEffect, useState } from 'react'
+import { RefObject, useLayoutEffect, useState } from 'react'
 import isClient from './shared/isClient'
 import isApiSupported from './shared/isAPISupported'
 import isDevelopment from './shared/isDevelopment'
@@ -17,7 +17,7 @@ const errorMessage = 'IntersectionObserver is not supported, this could happen b
  * Uses the IntersectionObserverMock API to tell whether the given DOM Element (from useRef) is visible within the
  * viewport.
  */
-const useViewportSpy = <T extends HTMLElement>(elementRef: MutableRefObject<T>, options: IntersectionObserverInit = defaultOptions) => {
+const useViewportSpy = <T extends HTMLElement>(elementRef: RefObject<T>, options: IntersectionObserverInit = defaultOptions) => {
   if (!isClient || !isApiSupported('IntersectionObserver')) {
     if (isDevelopment) {
       // eslint-disable-next-line no-console

@@ -1,10 +1,10 @@
-import { MutableRefObject, useState } from 'react'
+import { RefObject, useState } from 'react'
 import useDragEvents from './useDragEvents'
 import { CallbackSetter } from './shared/types'
 
 export type DropZoneState = { isOver: boolean, onDrop: CallbackSetter<(event: DragEvent) => any> }
 
-const useDropZone = <T extends HTMLElement>(targetRef: MutableRefObject<T>): DropZoneState => {
+const useDropZone = <T extends HTMLElement>(targetRef: RefObject<T>): DropZoneState => {
   const { onDrop, onDragOver, onDragLeave } = useDragEvents<T>(targetRef, false)
   const [isOver, setIsOver] = useState<boolean>(false)
 
