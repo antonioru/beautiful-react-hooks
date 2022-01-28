@@ -1,4 +1,5 @@
 import { act, cleanup, renderHook } from '@testing-library/react-hooks'
+import { expect } from 'chai'
 import useResizeObserver from '../dist/useResizeObserver'
 import ResizeObserverMock from './mocks/ResizeObserver.mock'
 import promiseDelay from './utils/promiseDelay'
@@ -40,5 +41,27 @@ describe('useResizeObserver', () => {
     await promiseDelay(250) // wait 250ms to let the debounced fn to perform
 
     expect(result.current).to.be.an('object')
+  })
+
+  describe('When the API is not supported', () => {
+    beforeEach(() => {
+      delete global.ResizeObserver
+      delete window.ResizeObserver
+    })
+  
+    afterEach(() => {
+      global.ResizeObserver = window.ResizeObserver = originalRO
+      sinon.restore()
+    })
+    
+    it('should not observe anything', async () => {
+      const refMock = { current: document.createElement('div') }
+      const warnSpy = sinon.spy(console, 'warn');
+     
+      const {result} = renderHook(() => useResizeObserver(refMock))
+
+      expect(warnSpy.called).to.be.true
+      expect(result.current).to.be.undefined
+    })
   })
 })
