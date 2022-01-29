@@ -1,7 +1,7 @@
-import { MutableRefObject, useEffect } from 'react'
+import { MutableRefObject, RefObject, useEffect } from 'react'
 
 const assignEventOnMount = <T extends HTMLElement, E extends Event = Event>
-  (targetRef: MutableRefObject<T>, handler: MutableRefObject<(e: E) => unknown>, eventName: string) => {
+  (targetRef: RefObject<T>, handler: MutableRefObject<(e: E) => unknown>, eventName: string) => {
   useEffect(() => {
     const cb = (mouseEvent: E) => {
       if (handler && handler.current) {

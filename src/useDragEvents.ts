@@ -1,11 +1,11 @@
-import { MutableRefObject, useEffect } from 'react'
+import { MutableRefObject, RefObject, useEffect } from 'react'
 import safeHasOwnProperty from './shared/safeHasOwnProperty'
 import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
 import useHandlerSetterRef from './shared/useHandlerSetterRef'
 import { CallbackSetter } from './shared/types'
 
 const assignDragEventOnMount = <T extends HTMLElement>
-  (targetRef: MutableRefObject<T>, handlerRef: MutableRefObject<CallbackSetter<DragEvent>>, eventName: string) => {
+  (targetRef: RefObject<T>, handlerRef: MutableRefObject<CallbackSetter<DragEvent>>, eventName: string) => {
   useEffect(() => {
     const cb = (dragEvent: DragEvent) => {
       if (handlerRef && handlerRef.current) {
@@ -45,7 +45,7 @@ type DragEventsMap = {
  * Returned callback setters: `onDrag`, `onDrop`, `onDragEnter`, `onDragEnd`, `onDragExit`, `onDragLeave`,
  * `onDragOver`, `onDragStart`;
  */
-const useDragEvents = <T extends HTMLElement>(targetRef: MutableRefObject<T>, setDraggable: boolean = true): DragEventsMap => {
+const useDragEvents = <T extends HTMLElement>(targetRef: RefObject<T>, setDraggable: boolean = true): DragEventsMap => {
   const [onDrag, setOnDrag] = useHandlerSetterRef<DragEventCallback>()
   const [onDrop, setOnDrop] = useHandlerSetterRef<DragEventCallback>()
   const [onDragEnter, setOnDragEnter] = useHandlerSetterRef<DragEventCallback>()

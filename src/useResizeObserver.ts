@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, useState } from 'react'
+import { RefObject, useEffect, useRef, useState } from 'react'
 import debounce from 'lodash.debounce'
 import isApiSupported from './shared/isAPISupported'
 import isClient from './shared/isClient'
@@ -14,9 +14,9 @@ export type DOMRectValues = Pick<DOMRectReadOnly, 'bottom' | 'height' | 'left' |
  * @param debounceTimeout
  * @returns {undefined}
  */
-const useResizeObserver = <T extends HTMLElement>(elementRef: MutableRefObject<T>, debounceTimeout: number = 100): DOMRectValues | undefined => {
+const useResizeObserver = <T extends HTMLElement>(elementRef: RefObject<T>, debounceTimeout: number = 100): DOMRectValues | undefined => {
   const isSupported = isApiSupported('ResizeObserver')
-  const observerRef = useRef<ResizeObserver>(null)
+  const observerRef = useRef<ResizeObserver | null>(null)
   const [DOMRect, setDOMRect] = useState<DOMRectValues>()
 
   if (isClient && !isSupported) {
@@ -37,7 +37,7 @@ const useResizeObserver = <T extends HTMLElement>(elementRef: MutableRefObject<T
 
       return () => {
         fn.cancel()
-        observerRef.current.disconnect()
+        observerRef.current?.disconnect()
       }
     }
 
@@ -48,7 +48,7 @@ const useResizeObserver = <T extends HTMLElement>(elementRef: MutableRefObject<T
   // observes on the provided element ref
   useEffect(() => {
     if (isSupported && elementRef.current) {
-      observerRef.current.observe(elementRef.current)
+      observerRef.current?.observe(elementRef.current)
     }
   }, [elementRef.current])
 

@@ -1,4 +1,4 @@
-import { MutableRefObject } from 'react'
+import { RefObject } from 'react'
 import useTouchEvents, { TouchEventsMap } from './useTouchEvents'
 import useTouchState, { TouchState } from './useTouchState'
 
@@ -7,7 +7,7 @@ import useTouchState, { TouchState } from './useTouchState'
  * is the object of callback setters from the `useTouchEvents` hook.
  * It is intended as a shortcut to those hooks.
  */
-const useTouch = <T extends HTMLElement>(targetRef: MutableRefObject<T> = null): [TouchState, TouchEventsMap] => {
+const useTouch = <T extends HTMLElement>(targetRef: RefObject<T> = null): [TouchState, TouchEventsMap] => {
   const state = useTouchState(targetRef)
   const events = useTouchEvents(targetRef)
 

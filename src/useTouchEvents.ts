@@ -1,4 +1,4 @@
-import { MutableRefObject } from 'react'
+import { RefObject } from 'react'
 import useHandlerSetterRef from './shared/useHandlerSetterRef'
 import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
 import safeHasOwnProperty from './shared/safeHasOwnProperty'
@@ -29,7 +29,7 @@ export type TouchEventsMap = {
  * If you were doing something like the following:
  *
  */
-const useTouchEvents = <T extends HTMLElement>(targetRef: MutableRefObject<T> = null): TouchEventsMap => {
+const useTouchEvents = <T extends HTMLElement>(targetRef: RefObject<T> = null): TouchEventsMap => {
   const [onTouchStartHandler, setOnTouchStartHandler] = useHandlerSetterRef<TouchCallback>()
   const [onTouchEndHandler, setOnTouchEndHandler] = useHandlerSetterRef<TouchCallback>()
   const [onTouchCancelHandler, setOnTouchCancelHandler] = useHandlerSetterRef<TouchCallback>()
