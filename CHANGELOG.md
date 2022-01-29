@@ -755,7 +755,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Type definitions on useResizeObserver
 
-## [1.0.4] - 2022-01-27
+## [1.0.5] - 2022-01-27
 
 ### Fixed
 
