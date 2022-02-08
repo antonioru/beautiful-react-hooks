@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, useRef } from 'react'
 import debounce from 'lodash.debounce'
 import { DebouncedFunc } from './shared/types'
 
@@ -18,11 +18,12 @@ const defaultOptions: DebounceOptions = {
  * its invoking by the defined time.
  * If time is not defined, its default value will be 100ms.
  */
-const useDebouncedFn = <T extends (...args: any) => any>
+const useDebouncedFn = <T extends (...args: any[]) => any>
   (fn: T, wait: number = 100, options: DebounceOptions = defaultOptions, dependencies?: any[]): DebouncedFunc<T> => {
-  const debounced = debounce(fn, wait, options)
+  const debounced = useRef(debounce(fn, wait, options))
+  debounced.current = debounce(fn, wait, options)
 
-  return useCallback(debounced, dependencies)
+  return useCallback(debounced.current, dependencies)
 }
 
 export default useDebouncedFn
