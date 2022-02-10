@@ -9,3 +9,6 @@ export interface DebouncedFunc<T extends (...args: any[]) => any> {
 
   flush(): ReturnType<T> | undefined;
 }
+
+export interface ThrottledFunc<T extends (...args: any[]) => any> extends DebouncedFunc<T> {
+}
