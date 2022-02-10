@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "1.0.6",
+  "version": "1.2.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
