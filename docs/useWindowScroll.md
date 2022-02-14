@@ -66,16 +66,16 @@ const WindowScrollReporter = () => {
 
 if you're using a `setState` function in your `useWindowScroll` callback, you probably want to optimise your component 
 performances by preventing too many useless renders, please take into account using
-[useThrottledCallback](useThrottledCallback.md).
+[useThrottledFn](useThrottledFn.md).
 
 ```jsx harmony
-import { useState } from 'react';
-import { useWindowScroll, useThrottledCallback } from 'beautiful-react-hooks'; 
+import { useState } from 'react';
+import { useWindowScroll, useThrottledFn } from 'beautiful-react-hooks'; 
 
 const WindowScrollReporter = () => {
    const [scrollY, setScrollY] = useState(window.scrollY);
   
-  useWindowScroll(useThrottledCallback((event) => {
+  useWindowScroll(useThrottledFn((event) => {
     setScrollY(window.scrollY);
   }));
   

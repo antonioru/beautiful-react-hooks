@@ -761,15 +761,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Refs are typed as RefObject<T>, which is more correct as they are React-managed refs.
 
-## [1.0.6] - 2022-01-27
+## [1.0.5] - 2022-01-27
 
 ### Fixed
 
 - `useDebouncedFn` and `useThrottledFn` refs
-
-## [1.2.0] - 2022-01-27
-
-### Added
-
-- rewriting `useDebouncedFn` and `useThrottledFn` as `useDebouncedCallback` and `useThrottledCallback` 
-- `useDebouncedCallback` and `useThrottledCallback` improvements
