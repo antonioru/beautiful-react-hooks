@@ -72,17 +72,17 @@ const WindowSizeReporter = () => {
 
 if you're using a `setState` function in your `useWindowResize` callback, you probably want to optimise your component 
 performances by preventing too many useless renders, please take into account using
-[useThrottledFn](useThrottledFn.md).
+[useThrottledCallback](useThrottledCallback.md).
 
 ```jsx harmony
-import { useState } from 'react';
-import { useWindowResize, useThrottledFn } from 'beautiful-react-hooks'; 
+import { useState } from 'react';
+import { useWindowResize, useThrottledCallback } from 'beautiful-react-hooks'; 
 
 const WindowSizeReporter = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
   
-  useWindowResize(useThrottledFn((event) => {
+  useWindowResize(useThrottledCallback((event) => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
   }));

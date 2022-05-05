@@ -1,6 +1,6 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import throttle from 'lodash.throttle'
-import { DebouncedFunc } from './shared/types'
+import { ThrottledFunc } from './shared/types'
 
 interface ThrottleSettings {
   leading?: boolean | undefined;
@@ -15,14 +15,17 @@ const defaultOptions: ThrottleSettings = {
 /**
  * Accepts a function and returns a new throttled yet memoized version of that same function that waits the defined time
  * before allowing the next execution.
- * If time is not defined, its default value will be 100ms.
+ * If time is not defined, its default value will be 250ms.
  */
-const useThrottledFn = <T extends (...args: any[]) => any>
-  (fn: T, wait: number = 100, options: ThrottleSettings = defaultOptions, dependencies?: any[]): DebouncedFunc<T> => {
+const useThrottledCallback = <T extends (...args: any[]) => any>
+  (fn: T, dependencies: any[] = [], wait: number = 250, options: ThrottleSettings = defaultOptions): ThrottledFunc<T> => {
   const throttled = useRef(throttle(fn, wait, options))
-  throttled.current = throttle(fn, wait, options)
+
+  useEffect(() => {
+    throttled.current = throttle(fn, wait, options)
+  }, [fn, wait, options])
 
   return useCallback(throttled.current, dependencies)
 }
 
-export default useThrottledFn
+export default useThrottledCallback

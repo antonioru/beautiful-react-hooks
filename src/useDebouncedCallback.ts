@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import debounce from 'lodash.debounce'
 import { DebouncedFunc } from './shared/types'
 
@@ -16,14 +16,17 @@ const defaultOptions: DebounceOptions = {
 /**
  * Accepts a function and returns a new debounced yet memoized version of that same function that delays
  * its invoking by the defined time.
- * If time is not defined, its default value will be 100ms.
+ * If time is not defined, its default value will be 250ms.
  */
-const useDebouncedFn = <T extends (...args: any[]) => any>
-  (fn: T, wait: number = 100, options: DebounceOptions = defaultOptions, dependencies?: any[]): DebouncedFunc<T> => {
+const useDebouncedCallback = <T extends (...args: any[]) => any>
+  (fn: T, dependencies: any[] = [], wait: number = 250, options: DebounceOptions = defaultOptions): DebouncedFunc<T> => {
   const debounced = useRef(debounce(fn, wait, options))
-  debounced.current = debounce(fn, wait, options)
+
+  useEffect(() => {
+    debounced.current = debounce(fn, wait, options)
+  }, [fn, wait, options])
 
   return useCallback(debounced.current, dependencies)
 }
 
-export default useDebouncedFn
+export default useDebouncedCallback
