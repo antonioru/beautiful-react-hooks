@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -65,7 +65,7 @@
     "beautiful-react-ui": "^0.57.1",
     "chai": "^4.3.4",
     "css-loader": "^6.2.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.14.0",
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-config-airbnb-typescript": "14.0.0",
     "eslint-plugin-chai-expect": "^2.2.0",
