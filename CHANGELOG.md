@@ -779,3 +779,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - Reverted rewrite of `useDebouncedFn` and `useThrottledFn`, as they were breaking changes. Will release those as `2.0.0`.
+
+## [2.0.0] - 2022-05-05
+
+### Added
+
+- rewriting `useDebouncedFn` and `useThrottledFn` as `useDebouncedCallback` and `useThrottledCallback` - BREAKING CHANGE
+- `useDebouncedCallback` and `useThrottledCallback` improvements
