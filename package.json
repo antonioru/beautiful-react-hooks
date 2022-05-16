@@ -73,7 +73,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "4.2.0",
-    "glob": "^7.1.7",
+    "glob": "^8.0.3",
     "husky": "^7.0.2",
     "jsdoc-to-markdown": "^7.0.1",
     "jsdom": "^17.0.0",
