@@ -50,7 +50,7 @@ jobs:
       - name: Publish
         run: |
           npm pack
-          npm publish
+          npm run semantic-release
         working-directory: ./dist
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
