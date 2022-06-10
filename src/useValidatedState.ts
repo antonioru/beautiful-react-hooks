@@ -8,7 +8,7 @@ const useValidatedState = <T = unknown, V extends (value: T) => boolean = (value
   const [state, setState] = useState<T>(initialValue)
   const validation = useRef<{ changed: boolean, valid?: boolean }>({ changed: false })
 
-  const onChange = useCallback((nextValue) => {
+  const onChange = useCallback((nextValue: T) => {
     setState(nextValue)
     validation.current = { changed: true, valid: validator(nextValue) }
   }, [validator])
