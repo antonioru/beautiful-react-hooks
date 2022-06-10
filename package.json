@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "1.2.0",
+  "version": "0.0.0-development",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -13,7 +13,8 @@
     "build-doc": "npx del-cli dist-ghpages && npx styleguidist build",
     "test": "nyc mocha --recursive --exit \"./test/**/*.spec.+(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
-    "start": "npx styleguidist server"
+    "start": "npx styleguidist server",
+    "semantic-release": "semantic-release"
   },
   "browserslist": [
     ">1%",
@@ -23,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antonioru/beautiful-react-hooks.git"
+    "url": "https://github.com/antonioru/beautiful-react-hooks.git"
   },
   "author": {
     "name": "Antonio Russo",
@@ -86,6 +87,7 @@
     "react-styleguidist": "^11.1.7",
     "regenerator-runtime": "0.13.9",
     "rxjs": "7.3.0",
+    "semantic-release": "^19.0.3",
     "sinon": "^11.1.2",
     "style-loader": "^3.2.1",
     "ts-loader": "9.2.5",
