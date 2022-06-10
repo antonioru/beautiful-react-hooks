@@ -16,7 +16,7 @@ const defaultOptions: UseConditionalTimeoutOptions = {
  * execution of the given function by the defined time from when the condition verifies.
  */
 const useConditionalTimeout = <T extends (...args: any[]) => any>
-  (fn: T, milliseconds: number, condition: boolean, options: UseConditionalTimeoutOptions = defaultOptions): [boolean, () => void] => {
+(fn: T, milliseconds: number, condition: boolean, options: UseConditionalTimeoutOptions = defaultOptions): [boolean, () => void] => {
   const opts = { ...defaultOptions, ...(options || {}) }
   const timeout = useRef<any>()
   const callback = useRef(fn)
@@ -45,7 +45,6 @@ const useConditionalTimeout = <T extends (...args: any[]) => any>
         callback.current()
       }, milliseconds)
     }
-    return clear
   }, [condition, milliseconds])
 
   // when the condition change, clear the timeout
