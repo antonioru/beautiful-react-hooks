@@ -45,6 +45,7 @@ const useConditionalTimeout = <T extends (...args: any[]) => any>
         callback.current()
       }, milliseconds)
     }
+    return clear
   }, [condition, milliseconds])
 
   // when the condition change, clear the timeout
