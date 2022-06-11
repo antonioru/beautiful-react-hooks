@@ -3,7 +3,7 @@ import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hook
 import { cleanup as cleanupReact, render } from '@testing-library/react'
 import useThrottledCallback from '../dist/useThrottledCallback'
 import promiseDelay from './utils/promiseDelay'
-
+import assertHook from './utils/assertHook'
 
 describe('useThrottledCallback', () => {
   beforeEach(() => {
@@ -13,9 +13,7 @@ describe('useThrottledCallback', () => {
 
   afterEach(sinon.restore)
 
-  it('should be a function', () => {
-    expect(useThrottledCallback).to.be.a('function')
-  })
+  assertHook(useThrottledCallback)
 
   it('should return a single function', () => {
     const fn = () => 0

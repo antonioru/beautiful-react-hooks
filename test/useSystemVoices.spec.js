@@ -1,6 +1,7 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useSystemVoices from '../dist/useSystemVoices'
 import SpeechSynthesisMock from './mocks/SpeechSynthesis.mock'
+import assertHook from './utils/assertHook'
 
 describe('useSystemVoices', () => {
   const originalSpeechSynth = window.speechSynthesis
@@ -9,15 +10,13 @@ describe('useSystemVoices', () => {
     window.speechSynthesis = SpeechSynthesisMock
   })
 
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
   after(() => {
     window.speechSynthesis = originalSpeechSynth
   })
 
-  it('should be a function', () => {
-    expect(useSystemVoices).to.be.a('function')
-  })
+  assertHook(useSystemVoices)
 
   it('should return the list of all available system voices', () => {
     const { result } = renderHook(() => useSystemVoices())

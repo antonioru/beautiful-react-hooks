@@ -1,12 +1,11 @@
 import { act, cleanup, renderHook } from '@testing-library/react-hooks'
 import useMouse from '../dist/useMouse'
+import assertHook from './utils/assertHook'
 
 describe('useMouse', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
-  it('should be a function', () => {
-    expect(useMouse).to.be.a('function')
-  })
+  assertHook(useMouse)
 
   it('should return an array where the first item is a mouse state and the second a group of setters', () => {
     const ref = { current: document.createElement('div') }

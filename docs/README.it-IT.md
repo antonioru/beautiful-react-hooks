@@ -1,5 +1,6 @@
 ![CI/CD](https://github.com/beautifulinteractions/beautiful-react-hooks/workflows/CI/CD/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/beautifulinteractions/beautiful-react-hooks/badge.svg?branch=master)](https://coveralls.io/github/beautifulinteractions/beautiful-react-hooks?branch=master)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Coverage Status](https://coveralls.io/repos/github/beautifulinteractions/beautiful-react-hooks/badge.svg?branch=master)](https://coveralls.io/github/beautifulinteractions/beautiful-react-hooks?branch=master)[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![npm](https://img.shields.io/npm/v/beautiful-react-hooks)
 ![GitHub stars](https://img.shields.io/github/stars/beautifulinteractions/beautiful-react-hooks?style=social)
 
@@ -26,16 +27,21 @@
 
 ![Usage example](../usage_example.png)
 
-<a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | 🇮🇹 Italiano | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">&#x1f1ef;&#x1f1f5; 日本語 </a>
-
+<a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | 🇮🇹 Italiano
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">&#x1f1ef;&#x1f1f5; 日本語 </a>
 
 In un'applicazione React, gli hooks ci permettono di astrarre complesse logiche di business in singole funzioni riutilizzabili.<br />
-Fino ad ora abbiamo notato che la maggior parte degli hooks che abbiamo creato e condiviso nei nostri progetti, hanno un 
+Fino ad ora abbiamo notato che la maggior parte degli hooks che abbiamo creato e condiviso nei nostri progetti, hanno un
 _core_ piuttosto simile tra loro, un _core_ che coinvolge spesso gli stessi pattern di sviluppo (callback, referenze e cicli di vita).<br />
-Per queato motivo abbiamo cercato di semplificare e concentrare questo _core_ in  `beautiful-react-hooks`: una collezione di piccoli
-hooks riutilizzabili per aiutare altri sviluppatori (e società) a velocizzare i loro processi di sviluppo.<br /><br />
+Per queato motivo abbiamo cercato di semplificare e concentrare questo _core_ in  `beautiful-react-hooks`: una collezione di piccoli hooks
+riutilizzabili per aiutare altri sviluppatori (e società) a velocizzare i loro processi di sviluppo.<br /><br />
 Abbiamo cercato di creare una API che fosse sia concisa che coerente, concentrandoci sulla scalabilità e la leggibilità del codice,
- mantenendo la curva d'apprendimento il più bassa possible.
+mantenendo la curva d'apprendimento il più bassa possible.
 
 **-- Prima di usare qualsiasi hook, leggi la documentazione! --**
 
@@ -56,6 +62,7 @@ Abbiamo cercato di creare una API che fosse sia concisa che coerente, concentran
 ## 🕺 Installazione
 
 Usando `npm`:
+
 ```bash
 $ npm install beautiful-react-hooks
 ```
@@ -68,6 +75,7 @@ $ yarn add beautiful-react-hooks
 
 ## 🎨 Hooks
 
+* [useInfiniteScroll](useInfiniteScroll.md)
 * [useObservable](useObservable.md)
 * [useGlobalEvent](useGlobalEvent.md)
 * [usePreviousValue](usePreviousValue.md)
@@ -117,7 +125,8 @@ Per inviare il tuo custom hook, leggi le nostre [linee guida](../CONTRIBUTING.md
 
 1. Hai aggiornato la versione nel file package.json ed hai aggiunto i cambiamenti che hai fatto nel file [CHANGELOG](../CHANGELOG.md).
 2. Hai fatto partire i testi con `npm test` ed hai fatto una build locale con `npm build`.
-3. Hai aggiunto la documentazione del tuo custom hook (*puoi partire dal template [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md), per scrivere la tua documentazione*).
+3. Hai aggiunto la documentazione del tuo custom hook (*puoi partire dal
+   template [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md), per scrivere la tua documentazione*).
 4. Hai aggiornato il file `index.d.ts` aggiungendo i tipi Typescript del tuo hook.
 
 ### Tools utilizzati
@@ -126,8 +135,9 @@ Per inviare il tuo custom hook, leggi le nostre [linee guida](../CONTRIBUTING.md
 * [Mocha](https://mochajs.org/)
 * [Chai](https://www.chaijs.com/)
 * [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
-* [@testing-library/react-hooks](https://react-hooks-testing-library.com/) 
+* [@testing-library/react-hooks](https://react-hooks-testing-library.com/)
 
 ---
 
-Icona fatta dall'utente [Freepik](https://www.flaticon.com/authors/freepik) su [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)
+Icona fatta dall'utente [Freepik](https://www.flaticon.com/authors/freepik)
+su [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)

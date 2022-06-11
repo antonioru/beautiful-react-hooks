@@ -1,5 +1,6 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useMediaQuery from '../dist/useMediaQuery'
+import assertHook from './utils/assertHook'
 
 describe('useMediaQuery', () => {
   const mediaQueryListMock = {
@@ -21,9 +22,7 @@ describe('useMediaQuery', () => {
     sinon.restore()
   })
 
-  it('should be a function', () => {
-    expect(useMediaQuery).to.be.a('function')
-  })
+  assertHook(useMediaQuery)
 
   it('should return a boolean value', () => {
     window.matchMedia = () => (mediaQueryListMock)

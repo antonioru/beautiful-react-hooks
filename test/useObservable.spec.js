@@ -2,15 +2,14 @@ import React from 'react'
 import { from } from 'rxjs'
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useObservable from '../dist/useObservable'
+import assertHook from './utils/assertHook'
 
 describe('useObservable', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
   afterEach(sinon.restore)
 
-  it('should be a function', () => {
-    expect(useObservable).to.be.a('function')
-  })
+  assertHook(useObservable)
 
   it('should return a function', (done) => {
     const observer = renderHook(() => useObservable(from([1]), () => done()))

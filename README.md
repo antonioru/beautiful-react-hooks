@@ -1,5 +1,6 @@
 ![CI/CD](https://github.com/beautifulinteractions/beautiful-react-hooks/workflows/CI/CD/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/beautifulinteractions/beautiful-react-hooks/badge.svg?branch=master)](https://coveralls.io/github/beautifulinteractions/beautiful-react-hooks?branch=master)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Coverage Status](https://coveralls.io/repos/github/beautifulinteractions/beautiful-react-hooks/badge.svg?branch=master)](https://coveralls.io/github/beautifulinteractions/beautiful-react-hooks?branch=master)[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![npm](https://img.shields.io/npm/v/beautiful-react-hooks)
 ![GitHub stars](https://img.shields.io/github/stars/beautifulinteractions/beautiful-react-hooks?style=social)
 
@@ -27,19 +28,23 @@
 
 ![Usage example](./usage_example.png)
 
-
-🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">&#x1f1ef;&#x1f1f5; 日本語 </a>
+🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">&#x1f1ef;&#x1f1f5; 日本語 </a>
 
 ## 💡 Why?
 
 React custom hooks allow to abstract components' business logic into single reusable functions.<br />
-So far, we've found that most of the hooks we've created and therefore shared between our internal projects have quite often a
-similar gist that involves callback references, events and components' lifecycle. <br />
-For this reason we've tried to sum up that gist into `beautiful-react-hooks`: a collection of (*hopefully*) useful
-React hooks to possibly help other companies and professionals to speed up their development process.<br /><br />
-Furthermore, we created a concise yet concrete API having in mind the code readability, focusing
-to keep the learning curve as lower as possible so that the it can be used and shared in bigger teams.
-
+So far, we've found that most of the hooks we've created and therefore shared between our internal projects have quite often a similar gist
+that involves callback references, events and components' lifecycle. <br />
+For this reason we've tried to sum up that gist into `beautiful-react-hooks`: a collection of (*hopefully*) useful React hooks to possibly
+help other companies and professionals to speed up their development process.<br /><br />
+Furthermore, we created a concise yet concrete API having in mind the code readability, focusing to keep the learning curve as lower as
+possible so that the it can be used and shared in bigger teams.
 
 **-- Please before using any hook, read its documentation! --**
 
@@ -60,6 +65,7 @@ to keep the learning curve as lower as possible so that the it can be used and s
 ## 🕺 Install
 
 by using `npm`:
+
 ```bash
 $ npm install beautiful-react-hooks
 ```
@@ -72,6 +78,7 @@ $ yarn add beautiful-react-hooks
 
 ## 🎨 Hooks
 
+* [useInfiniteScroll](docs/useInfiniteScroll.md)
 * [useObservable](docs/useObservable.md)
 * [useGlobalEvent](docs/useGlobalEvent.md)
 * [usePreviousValue](docs/usePreviousValue.md)
@@ -81,7 +88,8 @@ $ yarn add beautiful-react-hooks
 * [useOnlineState](docs/useOnlineState.md)
 * [useViewportSpy](docs/useViewportSpy.md)
 * [useSpeechSynthesis](docs/useSpeechSynthesis.md) and [useSystemVoices](docs/useSystemVoices.md)
-* [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md) and [useGeolocationEvents](docs/useGeolocationEvents.md)
+* [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md)
+  and [useGeolocationEvents](docs/useGeolocationEvents.md)
 * [useDrag](docs/useDrag.md), [useDropZone](docs/useDropZone.md) and [useDragEvents](docs/useDragEvents.md)
 * [useMouse](docs/useMouse.md), [useMouseState](docs/useMouseState.md) and [useMouseEvents](docs/useMouseEvents.md)
 * [useTouch](docs/useTouch.md), [useTouchState](docs/useTouchState.md) and [useTouchEvents](docs/useTouchEvents.md)
@@ -121,7 +129,8 @@ To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONT
 
 1. You have updated the package.json version and reported your changes into the [CHANGELOG](./CHANGELOG.md) file
 2. make sure you run `npm test` and `npm build` before submitting your merge request.
-3. make sure you've added the documentation of your custom hook (*you can possibly use the [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) to document your custom hook*).
+3. make sure you've added the documentation of your custom hook (*you can possibly use
+   the [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) to document your custom hook*).
 4. make sure you've updated the `index.d.ts` file with your hook types.
 
 ### Made with

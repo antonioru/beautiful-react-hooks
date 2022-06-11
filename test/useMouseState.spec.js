@@ -1,12 +1,11 @@
 import { act, cleanup, renderHook } from '@testing-library/react-hooks'
 import useMouseState from '../dist/useMouseState'
+import assertHook from './utils/assertHook'
 
 describe('useMouseState', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
-  it('should be a function', () => {
-    expect(useMouseState).to.be.a('function')
-  })
+  assertHook(useMouseState)
 
   it('should return a mouse coordinates reporting object', () => {
     const { result } = renderHook(() => useMouseState())

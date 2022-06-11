@@ -1,5 +1,6 @@
 ![CI/CD](https://github.com/beautifulinteractions/beautiful-react-hooks/workflows/CI/CD/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/beautifulinteractions/beautiful-react-hooks/badge.svg?branch=master)](https://coveralls.io/github/beautifulinteractions/beautiful-react-hooks?branch=master)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Coverage Status](https://coveralls.io/repos/github/beautifulinteractions/beautiful-react-hooks/badge.svg?branch=master)](https://coveralls.io/github/beautifulinteractions/beautiful-react-hooks?branch=master)[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![npm](https://img.shields.io/npm/v/beautiful-react-hooks)
 ![GitHub stars](https://img.shields.io/github/stars/beautifulinteractions/beautiful-react-hooks?style=social)
 
@@ -25,15 +26,19 @@
 
 ![Usage example](../usage_example.png)
 
-<a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a> | 🇨🇳 简体中文 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a>| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">&#x1f1ef;&#x1f1f5; 日本語 </a>
-
+<a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a> | 🇨🇳 简体中文
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">&#x1f1ef;&#x1f1f5; 日本語 </a>
 
 ## 💡 为什么?
 
 React hooks 让我们能把组件的业务逻辑抽象到一个可重用的函数里。<br />
 根据到目前为止的使用经验，我们发现：我们创建并在内部项目之间复用的大多数 hooks 通常都有一些共同的写法，涉及回调引用、事件或是组件生命周期。<br />
-发现这一点后，我们尝试把这些常用的写法抽出来放进 `beautiful-react-hooks` —— 一系列 _（说不定）_ 有用的
-React hooks —— 来帮助其他公司和专家们加速他们的开发。<br /><br />
+发现这一点后，我们尝试把这些常用的写法抽出来放进 `beautiful-react-hooks` —— 一系列 _（说不定）_ 有用的 React hooks —— 来帮助其他公司和专家们加速他们的开发。<br /><br />
 此外，我们创建了简明而稳固的 API，时刻牢记代码可阅读性，专注于保持学习曲线越低越好，以便它们可以被更大的团队分享和使用。
 
 **-- 请在使用任何 hook 之前读完它的文档！ --**
@@ -68,6 +73,7 @@ $ yarn add beautiful-react-hooks
 
 ## 🎨 Hooks
 
+* [useInfiniteScroll](useInfiniteScroll.md)
 * [useObservable](useObservable.md)
 * [useGlobalEvent](useGlobalEvent.md)
 * [usePreviousValue](usePreviousValue.md)
@@ -98,6 +104,7 @@ $ yarn add beautiful-react-hooks
 * [useSwipe](useSwipe.md), [useHorizontalSwipe](useHorizontalSwipe.md) and [useVerticalSwipe](useVerticalSwipe.md)
 * [useSwipeEvents](useSwipeEvents.md)
 * [useConditionalTimeout](useConditionalTimeout.md)
+
 <div>
   <p align="center">
     <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">

@@ -1,12 +1,11 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useValueHistory from '../dist/useValueHistory'
+import assertHook from './utils/assertHook'
 
 describe('useValueHistory', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
-  it('should be a function', () => {
-    expect(useValueHistory).to.be.a('function')
-  })
+  assertHook(useValueHistory)
 
   it('should return an array', () => {
     const { result } = renderHook(() => useValueHistory(10))

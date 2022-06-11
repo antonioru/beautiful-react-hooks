@@ -1,10 +1,9 @@
 import makePositionObject from '../dist/shared/makePositionObject'
 import { positionMock } from './mocks/GeoLocationApi.mock'
+import assertFunction from './utils/assertFunction'
 
 describe('makePositionObject utility', () => {
-  it('should be a function', () => {
-    expect(makePositionObject).to.be.a('function')
-  })
+  assertFunction(makePositionObject)
 
   it('should return null if nothing is provided', () => {
     const result = makePositionObject()

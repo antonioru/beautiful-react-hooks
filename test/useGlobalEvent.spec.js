@@ -2,6 +2,7 @@ import React from 'react'
 import { cleanup as cleanupReact, fireEvent, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useGlobalEvent from '../dist/useGlobalEvent'
+import assertHook from './utils/assertHook'
 
 describe('useGlobalEvent', () => {
   beforeEach(() => {
@@ -9,9 +10,7 @@ describe('useGlobalEvent', () => {
     cleanupHooks()
   })
 
-  it('should be a function', () => {
-    expect(useGlobalEvent).to.be.a('function')
-  })
+  assertHook(useGlobalEvent)
 
   it('should return a single function', () => {
     const { result } = renderHook(() => useGlobalEvent('resize'))
@@ -39,7 +38,6 @@ describe('useGlobalEvent', () => {
 
     expect(spy.called).to.be.true
   })
-
 
   it('should change function when provided', () => {
     const firstSpy = sinon.spy()

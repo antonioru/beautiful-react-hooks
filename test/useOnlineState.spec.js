@@ -1,6 +1,7 @@
 import { fireEvent } from '@testing-library/react'
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useOnlineState from '../dist/useOnlineState'
+import assertHook from './utils/assertHook'
 
 describe('useOnlineState', () => {
   beforeEach(() => {
@@ -8,9 +9,7 @@ describe('useOnlineState', () => {
     window.ononline = null
   })
 
-  it('should be a function', () => {
-    expect(useOnlineState).to.be.a('function')
-  })
+  assertHook(useOnlineState)
 
   it('should return a boolean value', () => {
     const { result } = renderHook(() => useOnlineState('resize'))

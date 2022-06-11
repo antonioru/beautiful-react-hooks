@@ -1,5 +1,6 @@
 ![CI/CD](https://github.com/beautifulinteractions/beautiful-react-hooks/workflows/CI/CD/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/beautifulinteractions/beautiful-react-hooks/badge.svg?branch=master)](https://coveralls.io/github/beautifulinteractions/beautiful-react-hooks?branch=master)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Coverage Status](https://coveralls.io/repos/github/beautifulinteractions/beautiful-react-hooks/badge.svg?branch=master)](https://coveralls.io/github/beautifulinteractions/beautiful-react-hooks?branch=master)[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![npm](https://img.shields.io/npm/v/beautiful-react-hooks)
 ![GitHub stars](https://img.shields.io/github/stars/beautifulinteractions/beautiful-react-hooks?style=social)
 
@@ -25,18 +26,22 @@
 
 ![Usage example](../usage_example.png)
 
-
-🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a>| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">&#x1f1ef;&#x1f1f5; 日本語 </a>
+🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">&#x1f1ef;&#x1f1f5; 日本語 </a>
 
 ## 💡 なぜ?
+
 React custom hooksは抽象的なコンポーネントのビジネスロジックを単一な再利用可能な関数とする事が出来ます。<br />
 これまでのところ、私たちが作成し、内部で共有されているhookの大半はかなりの頻度でコールバック参照、イベントとコンポーネントのライフサイクルに関して類似する点がある事が分かっています。<br />
 このため、私たちはそん知見を企業や専門家が開発プロセスをスピードアップするのに役立つ（できれば）便利なReact hookのコレクションとして
 `beautiful-react-hooks`にまとめました。
 <br /><br />
-さらに、コードの読みやすさを考慮して、簡潔かつ具体的なAPIを作成しました。
-より大きなチームで使用し、共有できるように、学習曲線を可能な限り低く抑える事が可能です。
-
+さらに、コードの読みやすさを考慮して、簡潔かつ具体的なAPIを作成しました。 より大きなチームで使用し、共有できるように、学習曲線を可能な限り低く抑える事が可能です。
 
 **-- hookを利用する前に、ドキュメントを確認して下さい！ --**
 
@@ -57,6 +62,7 @@ React custom hooksは抽象的なコンポーネントのビジネスロジッ�
 ## 🕺 インストール
 
 `npm`:を利用する場合:
+
 ```bash
 $ npm install beautiful-react-hooks
 ```
@@ -69,6 +75,7 @@ $ yarn add beautiful-react-hooks
 
 ## 🎨 Hooks
 
+* [useInfiniteScroll](useInfiniteScroll.md)
 * [useObservable](useObservable.md)
 * [useGlobalEvent](useGlobalEvent.md)
 * [usePreviousValue](usePreviousValue.md)
@@ -116,12 +123,12 @@ $ yarn add beautiful-react-hooks
 
 **PRを送る前に** 下記を確認してください:
 
-1. package.jsonのバージョンが更新されている事そして[CHANGELOG](../CHANGELOG.md)に変更について記述を報告している事
-You have updated the package.json version and reported your changes into the [CHANGELOG](./CHANGELOG.md) file
+1. package.jsonのバージョンが更新されている事そして[CHANGELOG](../CHANGELOG.md)に変更について記述を報告している事 You have updated the package.json version and reported your
+   changes into the [CHANGELOG](./CHANGELOG.md) file
 2. PRを送る前に、 `npm test` と `npm build`を実行し問題がない事
 
 3. あなたのカスタムhookの`doc`フォルダに追加している事  
- (*カスタムhookのドキュメントテンプレートを用意しています [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md)*).
+   (*カスタムhookのドキュメントテンプレートを用意しています [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md)*).
 
 4. あたなのhookの型のため、`index.d.ts`ファイルを更新している事
 

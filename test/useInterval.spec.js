@@ -1,14 +1,13 @@
 import React from 'react'
 import { act, cleanup, renderHook } from '@testing-library/react-hooks'
 import useInterval from '../dist/useInterval'
+import assertHook from './utils/assertHook'
 
 describe('useInterval', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
   afterEach(sinon.restore)
 
-  it('should be a function', () => {
-    expect(useInterval).to.be.a('function')
-  })
+  assertHook(useInterval)
 
   it('should return an array, the first item is the interval state whilst the second its clearing method', () => {
     const { result } = renderHook(() => useInterval(() => null, 1000))

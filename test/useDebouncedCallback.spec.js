@@ -3,7 +3,7 @@ import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hook
 import { cleanup as cleanupReact, render } from '@testing-library/react'
 import useDebouncedCallback from '../dist/useDebouncedCallback'
 import promiseDelay from './utils/promiseDelay'
-
+import assertHook from './utils/assertHook'
 
 describe('useDebouncedCallback', () => {
   beforeEach(() => {
@@ -13,9 +13,7 @@ describe('useDebouncedCallback', () => {
 
   afterEach(sinon.restore)
 
-  it('should be a function', () => {
-    expect(useDebouncedCallback).to.be.a('function')
-  })
+  assertHook(useDebouncedCallback)
 
   it('should return a single function', () => {
     const fn = () => 0

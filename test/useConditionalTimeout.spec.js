@@ -3,6 +3,7 @@ import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { act, cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useConditionalTimeout from '../dist/useConditionalTimeout'
 import promiseDelay from './utils/promiseDelay'
+import assertHook from './utils/assertHook'
 
 describe('useConditionalTimeout', () => {
   beforeEach(() => {
@@ -14,9 +15,7 @@ describe('useConditionalTimeout', () => {
     sinon.restore()
   })
 
-  it('should be a function', () => {
-    expect(useConditionalTimeout).to.be.a('function')
-  })
+  assertHook(useConditionalTimeout)
 
   it('should return an array, the first item is the timeout state whilst the second its clearing method', () => {
     const { result } = renderHook(() => useConditionalTimeout(() => null, 1000, true))
@@ -79,23 +78,22 @@ describe('useConditionalTimeout', () => {
   })
 
   /*it('should allow to define whether the timeout should be cleared on condition change', async () => {
-    const delay = 50;
-    const spy = sinon.spy();
+   const delay = 50;
+   const spy = sinon.spy();
 
-    const TestComponent = () => {
-      const [condition, setCondition] = useState(true);
-      useConditionalTimeout(spy, delay, condition);
-      useConditionalTimeout(() => setCondition(false), (delay - 10), true);
-      return <div />;
-    };
+   const TestComponent = () => {
+   const [condition, setCondition] = useState(true);
+   useConditionalTimeout(spy, delay, condition);
+   useConditionalTimeout(() => setCondition(false), (delay - 10), true);
+   return <div />;
+   };
 
-    render(<TestComponent />);
+   render(<TestComponent />);
 
-    await promiseDelay(10 + delay);
+   await promiseDelay(10 + delay);
 
-    expect(spy.called).to.be.false;
-  });*/
-
+   expect(spy.called).to.be.false;
+   });*/
 
   it('even if the provided options is null, it should keep working', () => {
     const { result } = renderHook(() => useConditionalTimeout(() => null, 1000, true, null))

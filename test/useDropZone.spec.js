@@ -1,12 +1,11 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useDropZone from '../dist/useDropZone'
+import assertHook from './utils/assertHook'
 
 describe('useDropZone', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
-  it('should be a function', () => {
-    expect(useDropZone).to.be.a('function')
-  })
+  assertHook(useDropZone)
 
   it('should return an object the state of the current dragging element', () => {
     const targetRef = { current: document.createElement('div') }

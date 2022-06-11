@@ -1,15 +1,14 @@
 import React from 'react'
 import { cleanup as cleanupHooks } from '@testing-library/react-hooks'
 import createStorageHook from '../dist/shared/createStorageHook'
+import assertFunction from './utils/assertFunction'
 
 describe('createStorageHook', () => {
   beforeEach(cleanupHooks)
 
   afterEach(sinon.restore)
 
-  it('should be a function', () => {
-    expect(createStorageHook).to.be.a('function')
-  })
+  assertFunction(createStorageHook)
 
   it('should return a function', () => {
     const useLocalStorage = createStorageHook('local')

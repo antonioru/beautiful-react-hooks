@@ -34,6 +34,16 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Build website (Github pages)
+        run: npm run build-doc --if-present
+
+      - name: Publish website on GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2.1.2
+        with:
+          build_dir: dist-ghpages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Prepare distribution
         run: cp package.json README.md LICENSE CHANGELOG.md CONTRIBUTING.md CODE_OF_CONDUCT.md ./dist
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useWillUnmount from '../dist/useWillUnmount'
+import assertHook from './utils/assertHook'
 
 describe('useWillUnmount', () => {
   beforeEach(() => {
@@ -9,9 +10,7 @@ describe('useWillUnmount', () => {
     cleanupReact()
   })
 
-  it('should be a function', () => {
-    expect(useWillUnmount).to.be.a('function')
-  })
+  assertHook(useWillUnmount)
 
   it('should return a single function', () => {
     const { result } = renderHook(() => useWillUnmount())

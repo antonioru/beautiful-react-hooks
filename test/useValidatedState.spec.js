@@ -1,14 +1,13 @@
 import { act, cleanup, renderHook } from '@testing-library/react-hooks'
 import useValidatedState from '../dist/useValidatedState'
+import assertHook from './utils/assertHook'
 
 describe('useValidatedState', () => {
   const makeValidator = (value = true) => () => value
 
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
-  it('should be a function', () => {
-    expect(useValidatedState).to.be.a('function')
-  })
+  assertHook(useValidatedState)
 
   it('should return an array of state, setState and validation', () => {
     const initialState = 10

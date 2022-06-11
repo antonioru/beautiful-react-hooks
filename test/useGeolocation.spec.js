@@ -1,21 +1,20 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useGeolocation from '../dist/useGeolocation'
 import GeoLocationApiMock, { watchPositionSpy } from './mocks/GeoLocationApi.mock'
+import assertHook from './utils/assertHook'
 
 describe('useGeolocation', () => {
   before(() => {
     window.navigator.geolocation = GeoLocationApiMock
   })
 
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
   after(() => {
     delete window.navigator.geolocation
   })
 
-  it('should be a function', () => {
-    expect(useGeolocation).to.be.a('function')
-  })
+  assertHook(useGeolocation)
 
   it('should return an array where the first item is a geolocation state and the second an object of setters', () => {
     const { result } = renderHook(() => useGeolocation())

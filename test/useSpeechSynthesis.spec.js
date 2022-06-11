@@ -2,6 +2,7 @@ import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useSpeechSynthesis from '../dist/useSpeechSynthesis'
 import SpeechSynthesisUtteranceMock from './mocks/SpeechSynthesisUtterance.mock'
 import SpeechSynthesisMock from './mocks/SpeechSynthesis.mock'
+import assertHook from './utils/assertHook'
 
 describe('useSpeechSynthesis', () => {
   const originalSpeechSynth = global.speechSynthesis
@@ -12,16 +13,14 @@ describe('useSpeechSynthesis', () => {
     global.SpeechSynthesisUtterance = SpeechSynthesisUtteranceMock
   })
 
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
   after(() => {
     global.SpeechSynthesisUtterance = originalSpeechSynthesisUtterance
     global.speechSynthesis = originalSpeechSynth
   })
 
-  it('should be a function', () => {
-    expect(useSpeechSynthesis).to.be.a('function')
-  })
+  assertHook(useSpeechSynthesis)
 
   it('should return an object containing the speak function and the utter', () => {
     const { result } = renderHook(() => useSpeechSynthesis('text', { volume: 1, pitch: 1, rate: 1 }))

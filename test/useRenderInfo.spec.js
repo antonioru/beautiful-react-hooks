@@ -1,15 +1,14 @@
 import React from 'react'
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useRenderInfo from '../dist/useRenderInfo'
+import assertHook from './utils/assertHook'
 
 describe('useRenderInfo', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
   afterEach(sinon.restore)
 
-  it('should be a function', () => {
-    expect(useRenderInfo).to.be.a('function')
-  })
+  assertHook(useRenderInfo)
 
   it('should return an information object', () => {
     const name = 'Foo'

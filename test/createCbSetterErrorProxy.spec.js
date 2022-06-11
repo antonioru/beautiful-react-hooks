@@ -1,9 +1,8 @@
 import createCbSetterErrorProxy from '../dist/shared/createCbSetterErrorProxy'
+import assertFunction from './utils/assertFunction'
 
 describe('createCbSetterErrorProxy utility', () => {
-  it('should be a function', () => {
-    expect(createCbSetterErrorProxy).to.be.a('function')
-  })
+  assertFunction(createCbSetterErrorProxy)
 
   it('should return a Proxy instance', () => {
     const result = createCbSetterErrorProxy('foo')
