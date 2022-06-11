@@ -771,7 +771,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- rewriting `useDebouncedFn` and `useThrottledFn` as `useDebouncedCallback` and `useThrottledCallback` 
+- rewriting `useDebouncedFn` and `useThrottledFn` as `useDebouncedCallback` and `useThrottledCallback`
 - `useDebouncedCallback` and `useThrottledCallback` improvements
 
 ## [1.2.1] - 2022-02-14
@@ -786,3 +786,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - rewriting `useDebouncedFn` and `useThrottledFn` as `useDebouncedCallback` and `useThrottledCallback` - BREAKING CHANGE
 - `useDebouncedCallback` and `useThrottledCallback` improvements
+
+## [2.0.1] - 2022-06-11
+
+### Fixed
+
+- fixes useConditionalTimeout clearing function
