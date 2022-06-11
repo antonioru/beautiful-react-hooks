@@ -3,6 +3,7 @@ import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import GeoLocationApi, { positionMock, watchPositionSpy } from './mocks/GeoLocationApi.mock'
 import useGeolocationState from '../dist/useGeolocationState'
+import assertHook from './utils/assertHook'
 
 describe('useGeolocationState', () => {
   before(() => {
@@ -19,9 +20,7 @@ describe('useGeolocationState', () => {
     delete window.navigator.geolocation
   })
 
-  it('should be a function', () => {
-    expect(useGeolocationState).to.be.a('function')
-  })
+  assertHook(useGeolocationState)
 
   it('should return a frozen object containing information about the current position', () => {
     const { result } = renderHook(() => useGeolocationState())
@@ -30,7 +29,6 @@ describe('useGeolocationState', () => {
     expect(result.current).to.be.an('object').that.has.all.deep.keys('isSupported', 'isRetrieving', 'position')
     expect(result.current.position).to.deep.equal(positionMock)
   })
-
 
   it('should accept an options object to be used as a parameter when calling watchPosition', () => {
     const optionsMock = { foo: 'bar' }

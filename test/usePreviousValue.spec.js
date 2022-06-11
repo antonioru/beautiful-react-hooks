@@ -2,6 +2,7 @@ import React from 'react'
 import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import usePreviousValue from '../dist/usePreviousValue'
+import assertHook from './utils/assertHook'
 
 describe('usePreviousValue', () => {
   beforeEach(() => {
@@ -11,9 +12,7 @@ describe('usePreviousValue', () => {
 
   afterEach(sinon.restore)
 
-  it('should be a function', () => {
-    expect(usePreviousValue).to.be.a('function')
-  })
+  assertHook(usePreviousValue)
 
   it('should return undefined after the first render', () => {
     const { result } = renderHook(() => usePreviousValue(10))

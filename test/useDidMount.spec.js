@@ -2,6 +2,7 @@ import React from 'react'
 import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useDidMount from '../dist/useDidMount'
+import assertHook from './utils/assertHook'
 
 describe('useDidMount', () => {
   beforeEach(() => {
@@ -11,9 +12,7 @@ describe('useDidMount', () => {
 
   afterEach(sinon.restore)
 
-  it('should be a function', () => {
-    expect(useDidMount).to.be.a('function')
-  })
+  assertHook(useDidMount)
 
   it('should return a single function', () => {
     const { result } = renderHook(() => useDidMount())

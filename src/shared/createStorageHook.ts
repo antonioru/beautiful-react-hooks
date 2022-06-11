@@ -18,7 +18,7 @@ const createStorageHook = (type: 'session' | 'local') => {
   /**
    * the hook
    */
-  return <T>(storageKey: string, defaultValue?: any): [T, Dispatch<SetStateAction<T>>] => {
+  return function useStorageCreatedHook<T>(storageKey: string, defaultValue?: any): [T, Dispatch<SetStateAction<T>>] {
     if (!isClient) {
       if (isDevelopment) {
         // eslint-disable-next-line no-console

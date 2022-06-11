@@ -1,12 +1,11 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useSwipeEvents from '../dist/useSwipeEvents'
+import assertHook from './utils/assertHook'
 
 describe('useSwipeEvents', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
-  it('should be a function', () => {
-    expect(useSwipeEvents).to.be.a('function')
-  })
+  assertHook(useSwipeEvents)
 
   it('should return the swipe handler setters', () => {
     const { result } = renderHook(() => useSwipeEvents())

@@ -9,7 +9,7 @@ const useWillUnmount = <T extends (...args: any[]) => void = Noop>(callback?: T)
   const [handler, setHandler] = useHandlerSetterRef<T>(callback)
 
   useEffect(() => () => {
-    if (handler) {
+    if (handler && handler.current && typeof handler.current === 'function') {
       handler.current()
     }
   }, [])

@@ -1,12 +1,11 @@
 import { act, cleanup, renderHook } from '@testing-library/react-hooks'
 import useHandlerSetterRef from '../dist/shared/useHandlerSetterRef'
+import assertHook from './utils/assertHook'
 
 describe('useHandlerSetterRef', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
-  it('should be a function', () => {
-    expect(useHandlerSetterRef).to.be.a('function')
-  })
+  assertHook(useHandlerSetterRef)
 
   it('should return an array of 2 elements', () => {
     const { result } = renderHook(() => useHandlerSetterRef())

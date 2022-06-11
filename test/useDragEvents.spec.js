@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { cleanup as cleanupReact, fireEvent, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useDragEvents from '../dist/useDragEvents'
+import assertHook from './utils/assertHook'
 
 describe('useDragEvents', () => {
   beforeEach(() => {
@@ -10,9 +11,7 @@ describe('useDragEvents', () => {
     sinon.reset()
   })
 
-  it('should be a function', () => {
-    expect(useDragEvents).to.be.a('function')
-  })
+  assertHook(useDragEvents)
 
   it('should return an object of mouse-related callback setters', () => {
     const targetRef = { current: document.createElement('div') }
@@ -32,7 +31,6 @@ describe('useDragEvents', () => {
     }
 
     const { container } = render(<TestComponent />)
-
 
     expect(container.querySelector('#target').getAttribute('draggable')).to.equal('true')
   })

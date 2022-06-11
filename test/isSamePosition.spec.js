@@ -1,10 +1,9 @@
 import isSamePosition from '../dist/shared/isSamePosition'
 import { positionMock } from './mocks/GeoLocationApi.mock'
+import assertFunction from './utils/assertFunction'
 
 describe('isSamePosition utility', () => {
-  it('should be a function', () => {
-    expect(isSamePosition).to.be.a('function')
-  })
+  assertFunction(isSamePosition)
 
   it('should return false if nothing is provided', () => {
     const result = isSamePosition()

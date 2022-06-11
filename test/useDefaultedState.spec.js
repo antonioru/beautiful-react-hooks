@@ -1,12 +1,11 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useDefaultedState from '../dist/useDefaultedState'
+import assertHook from './utils/assertHook'
 
 describe('useDefaultedState', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
-  it('should be a function', () => {
-    expect(useDefaultedState).to.be.a('function')
-  })
+  assertHook(useDefaultedState)
 
   it('should return an array', () => {
     const { result } = renderHook(() => useDefaultedState(10))

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useSessionStorage from '../dist/useSessionStorage'
+import assertHook from './utils/assertHook'
 
 describe('useSessionStorage', () => {
   beforeEach(() => {
@@ -13,9 +14,7 @@ describe('useSessionStorage', () => {
     sinon.restore()
   })
 
-  it('should be a function', () => {
-    expect(useSessionStorage).to.be.a('function')
-  })
+  assertHook(useSessionStorage)
 
   it('should return null when no default value defined', () => {
     const { result, rerender } = renderHook(() => useSessionStorage('storageKey_1'))
@@ -25,7 +24,6 @@ describe('useSessionStorage', () => {
 
     expect(value).to.equal(null)
   })
-
 
   it('should return default value', () => {
     const { result, rerender } = renderHook(() => useSessionStorage('storageKey_2', 100))

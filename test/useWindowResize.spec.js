@@ -2,6 +2,7 @@ import React from 'react'
 import { cleanup as cleanupReact, fireEvent, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useWindowResize from '../dist/useWindowResize'
+import assertHook from './utils/assertHook'
 
 describe('useWindowResize', () => {
   beforeEach(() => {
@@ -9,9 +10,7 @@ describe('useWindowResize', () => {
     cleanupHooks()
   })
 
-  it('should be a function', () => {
-    expect(useWindowResize).to.be.a('function')
-  })
+  assertHook(useWindowResize)
 
   it('should return a single function', () => {
     const { result } = renderHook(() => useWindowResize())

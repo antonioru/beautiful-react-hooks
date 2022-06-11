@@ -2,6 +2,7 @@ import React from 'react'
 import { cleanup as cleanupReact, fireEvent, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useWindowScroll from '../dist/useWindowScroll'
+import assertHook from './utils/assertHook'
 
 describe('useWindowScroll', () => {
   beforeEach(() => {
@@ -9,9 +10,7 @@ describe('useWindowScroll', () => {
     cleanupHooks()
   })
 
-  it('should be a function', () => {
-    expect(useWindowScroll).to.be.a('function')
-  })
+  assertHook(useWindowScroll)
 
   it('should return a single function', () => {
     const { result } = renderHook(() => useWindowScroll())

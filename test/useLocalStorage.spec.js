@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useLocalStorage from '../dist/useLocalStorage'
+import assertHook from './utils/assertHook'
 
 describe('useLocalStorage', () => {
   beforeEach(() => {
@@ -13,9 +14,7 @@ describe('useLocalStorage', () => {
     sinon.restore()
   })
 
-  it('should be a function', () => {
-    expect(useLocalStorage).to.be.a('function')
-  })
+  assertHook(useLocalStorage)
 
   it('should return null when no default value defined', () => {
     const { result, rerender } = renderHook(() => useLocalStorage('storageKey_1'))
@@ -25,7 +24,6 @@ describe('useLocalStorage', () => {
 
     expect(value).to.equal(null)
   })
-
 
   it('should return default value', () => {
     const { result, rerender } = renderHook(() => useLocalStorage('storageKey_2', 100))

@@ -2,6 +2,7 @@ import React from 'react'
 import { cleanup as cleanupReact, fireEvent, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useMouseEvents from '../dist/useMouseEvents'
+import assertHook from './utils/assertHook'
 
 describe('useMouseEvents', () => {
   beforeEach(() => {
@@ -10,9 +11,7 @@ describe('useMouseEvents', () => {
     sinon.reset()
   })
 
-  it('should be a function', () => {
-    expect(useMouseEvents).to.be.a('function')
-  })
+  assertHook(useMouseEvents)
 
   it('should return an object of mouse-related callback setters', () => {
     const { result } = renderHook(() => useMouseEvents())

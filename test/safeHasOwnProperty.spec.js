@@ -1,9 +1,8 @@
 import safeHasOwnProperty from '../dist/shared/safeHasOwnProperty'
+import assertFunction from './utils/assertFunction'
 
 describe('safeHasOwnProperty utility', () => {
-  it('should be a function', () => {
-    expect(safeHasOwnProperty).to.be.a('function')
-  })
+  assertFunction(safeHasOwnProperty)
 
   it('should return false if nothing is provided', () => {
     const result = safeHasOwnProperty()

@@ -1,12 +1,11 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks'
 import useTouchState from '../dist/useTouchState'
+import assertHook from './utils/assertHook'
 
 describe('useTouchState', () => {
-  beforeEach(cleanup)
+  beforeEach(() => cleanup())
 
-  it('should be a function', () => {
-    expect(useTouchState).to.be.a('function')
-  })
+  assertHook(useTouchState)
 
   it('should return a TouchList object', () => {
     const { result } = renderHook(() => useTouchState())

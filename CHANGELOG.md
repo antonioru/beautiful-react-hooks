@@ -792,3 +792,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - fixes useConditionalTimeout clearing function
+
+## [2.1.0] - 2022-06-11
+
+### Added
+
+- introduces `useInfiniteScroll`

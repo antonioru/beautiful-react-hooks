@@ -3,6 +3,7 @@ import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useRequestAnimationFrame from '../dist/useRequestAnimationFrame'
 import promiseDelay from './utils/promiseDelay'
+import assertHook from './utils/assertHook'
 
 describe('useRequestAnimationFrame', () => {
   beforeEach(() => {
@@ -15,9 +16,7 @@ describe('useRequestAnimationFrame', () => {
 
   afterEach(sinon.restore)
 
-  it('should be a function', () => {
-    expect(useRequestAnimationFrame).to.be.a('function')
-  })
+  assertHook(useRequestAnimationFrame)
 
   it('should immediately perform the given function', () => {
     window.requestAnimationFrame = (fn) => fn()

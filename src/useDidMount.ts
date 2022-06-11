@@ -9,7 +9,7 @@ const useDidMount = <T extends (...args: any[]) => any = Noop>(callback?: T): Ca
   const [handler, setHandler] = useHandlerSetterRef<T>(callback)
 
   useEffect(() => {
-    if (handler.current) {
+    if (handler && handler.current && typeof handler.current === 'function') {
       handler.current()
     }
   }, [])

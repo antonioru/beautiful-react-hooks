@@ -3,6 +3,7 @@ import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useGeolocationEvents from '../dist/useGeolocationEvents'
 import GeoLocationApiMock, { watchPositionSpy } from './mocks/GeoLocationApi.mock'
+import assertHook from './utils/assertHook'
 
 describe('useGeolocationEvents', () => {
   before(() => {
@@ -19,9 +20,7 @@ describe('useGeolocationEvents', () => {
     delete window.navigator.geolocation
   })
 
-  it('should be a function', () => {
-    expect(useGeolocationEvents).to.be.a('function')
-  })
+  assertHook(useGeolocationEvents)
 
   it('should return an object of geolocation-related callback setters', () => {
     const { result } = renderHook(() => useGeolocationEvents())

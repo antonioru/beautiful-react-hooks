@@ -37,7 +37,9 @@ const useResizeObserver = <T extends HTMLElement>(elementRef: RefObject<T>, debo
 
       return () => {
         fn.cancel()
-        observerRef.current?.disconnect()
+        if (observerRef && observerRef.current && observerRef.current.disconnect && typeof observerRef.current.disconnect === 'function') {
+          observerRef.current.disconnect()
+        }
       }
     }
 
@@ -48,7 +50,9 @@ const useResizeObserver = <T extends HTMLElement>(elementRef: RefObject<T>, debo
   // observes on the provided element ref
   useEffect(() => {
     if (isSupported && elementRef.current) {
-      observerRef.current?.observe(elementRef.current)
+      if (observerRef && observerRef.current && observerRef.current.observe && typeof observerRef.current.observe === 'function') {
+        observerRef.current.observe(elementRef.current)
+      }
     }
   }, [elementRef.current])
 

@@ -3,6 +3,7 @@ import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { act, cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import useTimeout from '../dist/useTimeout'
 import promiseDelay from './utils/promiseDelay'
+import assertHook from './utils/assertHook'
 
 describe('useTimeout', () => {
   beforeEach(() => {
@@ -12,9 +13,7 @@ describe('useTimeout', () => {
 
   afterEach(sinon.restore)
 
-  it('should be a function', () => {
-    expect(useTimeout).to.be.a('function')
-  })
+  assertHook(useTimeout)
 
   it('should return an array, the first item is the timeout state whilst the second its clearing method', () => {
     const { result } = renderHook(() => useTimeout(() => null, 1000))
