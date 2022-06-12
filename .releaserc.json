@@ -5,18 +5,8 @@
   "tagFormat": "v${version}",
   "plugins": [
     "@semantic-release/commit-analyzer",
-    [
-      "@semantic-release/changelog",
-      {
-        "changelogFile": "./CHANGELOG.md"
-      }
-    ],
-    [
-      "@semantic-release/npm",
-      {
-        "pkgRoot": ".."
-      }
-    ],
+    "@semantic-release/npm",
+    "@semantic-release/changelog",
     [
       "@semantic-release/git",
       {

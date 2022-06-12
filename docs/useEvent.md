@@ -46,8 +46,8 @@ Since `useEvent` uses [addEventListener](https://developer.mozilla.org/en-US/doc
 under the hood, it's possible to specify the listener characteristics by passing an options object as third parameter.
 
 ```jsx harmony
-import { useState } from 'react';
-import { useGlobalEvent } from 'beautiful-react-hooks';
+import { useState, useRef } from 'react';
+import useEvent from 'beautiful-react-hooks/useEvent';
 
 const TestComponent = () => {
   const targetRef = useRef()
