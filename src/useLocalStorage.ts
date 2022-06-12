@@ -1,4 +1,4 @@
-import createStorageHook from './shared/createStorageHook'
+import createStorageHook from './factory/createStorageHook'
 
 /**
  * Save a value on local storage

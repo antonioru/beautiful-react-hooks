@@ -8,7 +8,7 @@ export type TouchState = TouchList | { length: 0 }
  * It possibly accepts a DOM ref representing the mouse target.
  * If a target is not provided the state will be caught globally.
  */
-const useTouchState = <T extends HTMLElement>(targetRef: RefObject<T> = null): TouchState => {
+const useTouchState = <T extends HTMLElement>(targetRef?: RefObject<T>): TouchState => {
   const [state, setState] = useState<TouchState>({ length: 0 })
   const { onTouchMove } = useTouchEvents(targetRef)
 

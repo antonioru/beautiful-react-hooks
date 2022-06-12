@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import useHandlerSetterRef from './shared/useHandlerSetterRef'
+import createHandlerSetter from './factory/createHandlerSetter'
 import { Noop } from './shared/types'
 
 /**
@@ -7,7 +7,7 @@ import { Noop } from './shared/types'
  */
 const useWillUnmount = <T extends (...args: any[]) => void = Noop>(callback?: T) => {
   const mountRef = useRef(false)
-  const [handler, setHandler] = useHandlerSetterRef<T>(callback)
+  const [handler, setHandler] = createHandlerSetter<T>(callback)
 
   useEffect(() => {
     mountRef.current = true

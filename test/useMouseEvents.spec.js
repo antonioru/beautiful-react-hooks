@@ -16,9 +16,7 @@ describe('useMouseEvents', () => {
   it('should return an object of mouse-related callback setters', () => {
     const { result } = renderHook(() => useMouseEvents())
 
-    expect(result.current).to.be.an('object').that.has.all.keys(
-      'onMouseDown', 'onMouseEnter', 'onMouseLeave', 'onMouseMove', 'onMouseOut', 'onMouseOver', 'onMouseUp'
-    )
+    expect(result.current).to.be.an('object').that.has.all.keys('onMouseDown', 'onMouseEnter', 'onMouseLeave', 'onMouseMove', 'onMouseOut', 'onMouseOver', 'onMouseUp')
   })
 
   it('if no ref is provided, should perform the set callback when a mouse event occurs globally', () => {
@@ -108,14 +106,6 @@ describe('useMouseEvents', () => {
     expect(mouseOutSpy.called).to.be.true
     expect(mouseUpSpy.called).to.be.true
     expect(mouseOverSpy.called).to.be.true
-  })
-
-  it('if an invalid ref is provided, should not perform the callback', () => {
-    const { result } = renderHook(() => useMouseEvents({ invalid: true }))
-
-    expect(result.current.onSomething).to.be.a('function')
-    expect(result.current.onSomething).to.throw()
-    expect(result.current.someProperty).to.be.an('object').that.has.key('error')
   })
 
   it('if the provided ref is not an instance of HTMLElement should not add any listener', () => {

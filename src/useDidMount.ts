@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import useHandlerSetterRef from './shared/useHandlerSetterRef'
+import createHandlerSetter from './factory/createHandlerSetter'
 import { CallbackSetter, Noop } from './shared/types'
 
 /**
@@ -7,7 +7,7 @@ import { CallbackSetter, Noop } from './shared/types'
  */
 const useDidMount = <T extends (...args: any[]) => any = Noop>(callback?: T): CallbackSetter<T> => {
   const mountRef = useRef(false)
-  const [handler, setHandler] = useHandlerSetterRef<T>(callback)
+  const [handler, setHandler] = createHandlerSetter<T>(callback)
 
   useEffect(() => {
     if (handler && handler.current && typeof handler.current === 'function' && !mountRef.current) {

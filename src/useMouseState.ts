@@ -1,14 +1,7 @@
 import { RefObject, useState } from 'react'
 import useMouseEvents from './useMouseEvents'
 
-export type MouseStateSummary = {
-  clientX: number,
-  clientY: number,
-  screenX: number,
-  screenY: number
-}
-
-const createStateObject = (event: MouseEvent): MouseStateSummary => ({
+const createStateObject = (event: MouseEvent) => ({
   clientX: event.clientX,
   clientY: event.clientY,
   screenX: event.screenX,
@@ -20,11 +13,11 @@ const createStateObject = (event: MouseEvent): MouseStateSummary => ({
  * It possibly accepts a DOM ref representing the mouse target.
  * If a target is not provided the state will be caught globally.
  */
-const useMouseState = <T extends HTMLElement>(targetRef: RefObject<T> = null): MouseStateSummary => {
-  const [state, setState] = useState<MouseStateSummary>({ clientX: 0, clientY: 0, screenX: 0, screenY: 0 })
+const useMouseState = <T extends HTMLElement>(targetRef?: RefObject<T>) => {
+  const [state, setState] = useState({ clientX: 0, clientY: 0, screenX: 0, screenY: 0 })
   const { onMouseMove } = useMouseEvents(targetRef)
 
-  onMouseMove((event) => {
+  onMouseMove((event: MouseEvent) => {
     const nextState = createStateObject(event)
     setState(nextState)
   })

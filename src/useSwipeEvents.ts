@@ -1,5 +1,5 @@
 import { RefObject, useEffect, useRef, useState } from 'react'
-import useHandlerSetterRef from './shared/useHandlerSetterRef'
+import createHandlerSetter from './factory/createHandlerSetter'
 import useMouseEvents from './useMouseEvents'
 import useTouchEvents from './useTouchEvents'
 import { getDirection, getPointerCoordinates } from './shared/swipeUtils'
@@ -135,13 +135,13 @@ const useSilentSwipeState = <T extends HTMLElement>(
  */
 const useSwipeEvents = <T extends HTMLElement>(targetRef: RefObject<T> = null, options: UseEventsSwipeOptions = defaultOptions) => {
   const opts = { ...defaultOptions, ...(options || {}) }
-  const [onSwipeLeft, setOnSwipeLeft] = useHandlerSetterRef<SwipeCallback>()
-  const [onSwipeRight, setOnSwipeRight] = useHandlerSetterRef<SwipeCallback>()
-  const [onSwipeUp, setOnSwipeUp] = useHandlerSetterRef<SwipeCallback>()
-  const [onSwipeDown, setOnSwipeDown] = useHandlerSetterRef<SwipeCallback>()
-  const [onSwipeStart, setOnSwipeStart] = useHandlerSetterRef<SwipeCallback>()
-  const [onSwipeMove, setOnSwipeMove] = useHandlerSetterRef<SwipeCallback>()
-  const [onSwipeEnd, setOnSwipeEnd] = useHandlerSetterRef<SwipeCallback>()
+  const [onSwipeLeft, setOnSwipeLeft] = createHandlerSetter<SwipeCallback>()
+  const [onSwipeRight, setOnSwipeRight] = createHandlerSetter<SwipeCallback>()
+  const [onSwipeUp, setOnSwipeUp] = createHandlerSetter<SwipeCallback>()
+  const [onSwipeDown, setOnSwipeDown] = createHandlerSetter<SwipeCallback>()
+  const [onSwipeStart, setOnSwipeStart] = createHandlerSetter<SwipeCallback>()
+  const [onSwipeMove, setOnSwipeMove] = createHandlerSetter<SwipeCallback>()
+  const [onSwipeEnd, setOnSwipeEnd] = createHandlerSetter<SwipeCallback>()
   const state: SwipeState = useSilentSwipeState(targetRef, opts, onSwipeStart.current, onSwipeMove.current, onSwipeEnd.current)
 
   const fnMap = {

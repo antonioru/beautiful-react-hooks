@@ -1,5 +1,5 @@
 import { useCallback, useRef } from 'react'
-import useHandlerSetterRef from './shared/useHandlerSetterRef'
+import createHandlerSetter from './factory/createHandlerSetter'
 import isClient from './shared/isClient'
 import isAPISupported from './shared/isAPISupported'
 import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
@@ -28,7 +28,7 @@ const useRequestAnimationFrame = <T extends (...args: any[]) => any>(func: T, op
 
   const opts = { ...defaultOptions, ...options }
   const progress = useRef(opts.startAt)
-  const [onFinish, setOnFinish] = useHandlerSetterRef()
+  const [onFinish, setOnFinish] = createHandlerSetter()
 
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   const next = () => window.requestAnimationFrame(step)

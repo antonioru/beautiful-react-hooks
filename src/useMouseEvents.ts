@@ -1,21 +1,5 @@
 import { RefObject } from 'react'
-import useHandlerSetterRef from './shared/useHandlerSetterRef'
-import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
-import safeHasOwnProperty from './shared/safeHasOwnProperty'
-import { CallbackSetter } from './shared/types'
-import assignEventOnMount from './shared/assignEventOnMount'
-
-type MouseEventCallback = (event: MouseEvent) => any
-
-export type MouseEventsMap = {
-  readonly onMouseDown: CallbackSetter<MouseEventCallback>,
-  readonly onMouseEnter: CallbackSetter<MouseEventCallback>,
-  readonly onMouseLeave: CallbackSetter<MouseEventCallback>,
-  readonly onMouseMove: CallbackSetter<MouseEventCallback>,
-  readonly onMouseOut: CallbackSetter<MouseEventCallback>,
-  readonly onMouseOver: CallbackSetter<MouseEventCallback>,
-  readonly onMouseUp: CallbackSetter<MouseEventCallback>,
-}
+import useEvent from './useEvent'
 
 /**
  * Returns a frozen object of callback setters to handle the mouse events.<br/>
@@ -31,35 +15,24 @@ export type MouseEventsMap = {
  * lose the React SyntheticEvent performance boost.<br />
  * If you were doing something like the following:
  */
-const useMouseEvents = <T extends HTMLElement>(targetRef: RefObject<T> = null): MouseEventsMap => {
-  const [onMouseDownHandler, setOnMouseDown] = useHandlerSetterRef<MouseEventCallback>()
-  const [onMouseEnterHandler, setOnMouseEnter] = useHandlerSetterRef<MouseEventCallback>()
-  const [onMouseLeaveHandler, setOnMouseLeave] = useHandlerSetterRef<MouseEventCallback>()
-  const [onMouseMoveHandler, setOnMouseMove] = useHandlerSetterRef<MouseEventCallback>()
-  const [onMouseOutHandler, setOnMouseOut] = useHandlerSetterRef<MouseEventCallback>()
-  const [onMouseOverHandler, setOnMouseOver] = useHandlerSetterRef<MouseEventCallback>()
-  const [onMouseUpHandler, setOnMouseUp] = useHandlerSetterRef<MouseEventCallback>()
-
-  if (targetRef !== null && !safeHasOwnProperty(targetRef, 'current')) {
-    return createCbSetterErrorProxy('Unable to assign any mouse event to the given ref')
-  }
-
-  assignEventOnMount(targetRef, onMouseDownHandler, 'mousedown')
-  assignEventOnMount(targetRef, onMouseEnterHandler, 'mouseenter')
-  assignEventOnMount(targetRef, onMouseLeaveHandler, 'mouseleave')
-  assignEventOnMount(targetRef, onMouseMoveHandler, 'mousemove')
-  assignEventOnMount(targetRef, onMouseOutHandler, 'mouseout')
-  assignEventOnMount(targetRef, onMouseOverHandler, 'mouseover')
-  assignEventOnMount(targetRef, onMouseUpHandler, 'mouseup')
+const useMouseEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>) => {
+  const target = targetRef || { current: window.document } as unknown as RefObject<HTMLElement>
+  const onMouseDown = useEvent(target, 'mousedown')
+  const onMouseEnter = useEvent(target, 'mouseenter')
+  const onMouseLeave = useEvent(target, 'mouseleave')
+  const onMouseMove = useEvent(target, 'mousemove')
+  const onMouseOut = useEvent(target, 'mouseout')
+  const onMouseOver = useEvent(target, 'mouseover')
+  const onMouseUp = useEvent(target, 'mouseup')
 
   return Object.freeze({
-    onMouseDown: setOnMouseDown,
-    onMouseEnter: setOnMouseEnter,
-    onMouseLeave: setOnMouseLeave,
-    onMouseMove: setOnMouseMove,
-    onMouseOut: setOnMouseOut,
-    onMouseOver: setOnMouseOver,
-    onMouseUp: setOnMouseUp,
+    onMouseDown,
+    onMouseEnter,
+    onMouseLeave,
+    onMouseMove,
+    onMouseOut,
+    onMouseOver,
+    onMouseUp,
   })
 }
 

@@ -12,8 +12,8 @@ const useOnlineState = (): boolean => {
    */
   const isSupported = typeof window !== 'undefined' && 'ononline' in window
   const [isOnline, setIsOnline] = useState(isSupported ? navigator.onLine : true)
-  const whenOnline = useGlobalEvent('online', undefined, { capture: true })
-  const whenOffline = useGlobalEvent('offline', undefined, { capture: true })
+  const whenOnline = useGlobalEvent('online', { capture: true })
+  const whenOffline = useGlobalEvent('offline', { capture: true })
 
   if (!isSupported) {
     // eslint-disable-next-line max-len, no-console

@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
-import safelyParseJson from './safelyParseJson'
-import isClient from './isClient'
-import isAPISupported from './isAPISupported'
-import isDevelopment from './isDevelopment'
+import safelyParseJson from '../shared/safelyParseJson'
+import isClient from '../shared/isClient'
+import isAPISupported from '../shared/isAPISupported'
+import isDevelopment from '../shared/isDevelopment'
 
 /**
  * An utility to quickly create hooks to access both Session Storage and Local Storage

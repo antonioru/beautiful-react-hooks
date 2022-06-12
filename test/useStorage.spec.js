@@ -1,6 +1,6 @@
 import React from 'react'
 import { cleanup as cleanupHooks } from '@testing-library/react-hooks'
-import createStorageHook from '../dist/shared/createStorageHook'
+import createStorageHook from '../dist/factory/createStorageHook'
 import assertFunction from './utils/assertFunction'
 
 describe('createStorageHook', () => {

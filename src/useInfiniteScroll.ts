@@ -1,20 +1,22 @@
-import { RefObject, useCallback, useEffect } from 'react'
-import useHandlerSetterRef from './shared/useHandlerSetterRef'
+import { RefObject, useCallback } from 'react'
+import createHandlerSetter from './factory/createHandlerSetter'
 import safeHasOwnProperty from './shared/safeHasOwnProperty'
 import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
+import useEvent from './useEvent'
 
 /**
  * Accepts an HTML Element ref, then returns a function that allows you to handle the infinite
  * scroll for that specific element.
  */
 const useInfiniteScroll = <T extends HTMLElement>(ref: RefObject<T>, delay = 250) => {
-  const [onScrollEnd, setOnScrollEnd] = useHandlerSetterRef<() => void>()
+  const onScroll = useEvent(ref, 'scroll')
+  const [onScrollEnd, setOnScrollEnd] = createHandlerSetter<() => void>()
 
   if (ref && !safeHasOwnProperty(ref, 'current')) {
     return createCbSetterErrorProxy('Unable to assign any scroll event to the given ref')
   }
 
-  const onDropdownScroll = useCallback(({ target }: Event) => {
+  const handleScroll = useCallback(({ target }: Event) => {
     const el = target as HTMLDivElement
     if (el) {
       const isBottom = el.scrollHeight - el.scrollTop === el.clientHeight
@@ -24,20 +26,7 @@ const useInfiniteScroll = <T extends HTMLElement>(ref: RefObject<T>, delay = 250
     }
   }, [])
 
-  // infinite scroll
-  useEffect(() => {
-    let scrollingEl: Element | null
-
-    if (ref.current) {
-      scrollingEl = ref.current
-
-      scrollingEl?.addEventListener('scroll', onDropdownScroll)
-    }
-
-    return () => {
-      scrollingEl?.removeEventListener('scroll', onDropdownScroll)
-    }
-  }, [ref.current, onDropdownScroll])
+  onScroll(handleScroll)
 
   return setOnScrollEnd
 }

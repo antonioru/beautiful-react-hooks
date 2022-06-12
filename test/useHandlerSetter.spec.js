@@ -1,21 +1,21 @@
 import { act, cleanup, renderHook } from '@testing-library/react-hooks'
-import useHandlerSetterRef from '../dist/shared/useHandlerSetterRef'
-import assertHook from './utils/assertHook'
+import createHandlerSetter from '../dist/factory/createHandlerSetter'
+import assertFunction from './utils/assertFunction'
 
-describe('useHandlerSetterRef', () => {
+describe('createHandlerSetter', () => {
   beforeEach(() => cleanup())
 
-  assertHook(useHandlerSetterRef)
+  assertFunction(createHandlerSetter)
 
   it('should return an array of 2 elements', () => {
-    const { result } = renderHook(() => useHandlerSetterRef())
+    const { result } = renderHook(() => createHandlerSetter())
 
     expect(result.current).to.be.an.instanceOf(Array)
     expect(result.current.length).to.equal(2)
   })
 
   it('should return the reference to a handler', () => {
-    const { result } = renderHook(() => useHandlerSetterRef())
+    const { result } = renderHook(() => createHandlerSetter())
     const [handlerRef] = result.current
 
     expect(handlerRef.current).to.be.undefined
@@ -23,7 +23,7 @@ describe('useHandlerSetterRef', () => {
   })
 
   it('should return a handler setter', () => {
-    const { result } = renderHook(() => useHandlerSetterRef())
+    const { result } = renderHook(() => createHandlerSetter())
     const [handlerRef, setHandlerRef] = result.current
 
     const fooCallback = () => undefined
@@ -38,7 +38,7 @@ describe('useHandlerSetterRef', () => {
   })
 
   it('the setter should throw when changing the handler to an invalid value', () => {
-    const { result } = renderHook(() => useHandlerSetterRef())
+    const { result } = renderHook(() => createHandlerSetter())
     const [, setHandlerRef] = result.current
 
     const shouldThrow = () => {

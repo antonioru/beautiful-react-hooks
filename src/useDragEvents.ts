@@ -1,7 +1,7 @@
 import { MutableRefObject, RefObject, useEffect } from 'react'
 import safeHasOwnProperty from './shared/safeHasOwnProperty'
 import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
-import useHandlerSetterRef from './shared/useHandlerSetterRef'
+import createHandlerSetter from './factory/createHandlerSetter'
 import { CallbackSetter } from './shared/types'
 
 const assignDragEventOnMount = <T extends HTMLElement>
@@ -46,14 +46,14 @@ type DragEventsMap = {
  * `onDragOver`, `onDragStart`;
  */
 const useDragEvents = <T extends HTMLElement>(targetRef: RefObject<T>, setDraggable: boolean = true): DragEventsMap => {
-  const [onDrag, setOnDrag] = useHandlerSetterRef<DragEventCallback>()
-  const [onDrop, setOnDrop] = useHandlerSetterRef<DragEventCallback>()
-  const [onDragEnter, setOnDragEnter] = useHandlerSetterRef<DragEventCallback>()
-  const [onDragEnd, setOnDragEnd] = useHandlerSetterRef<DragEventCallback>()
-  const [onDragExit, setOnDragExit] = useHandlerSetterRef<DragEventCallback>()
-  const [onDragLeave, setOnDragLeave] = useHandlerSetterRef<DragEventCallback>()
-  const [onDragOver, setOnDragOver] = useHandlerSetterRef<DragEventCallback>()
-  const [onDragStart, setOnDragStart] = useHandlerSetterRef<DragEventCallback>()
+  const [onDrag, setOnDrag] = createHandlerSetter<DragEventCallback>()
+  const [onDrop, setOnDrop] = createHandlerSetter<DragEventCallback>()
+  const [onDragEnter, setOnDragEnter] = createHandlerSetter<DragEventCallback>()
+  const [onDragEnd, setOnDragEnd] = createHandlerSetter<DragEventCallback>()
+  const [onDragExit, setOnDragExit] = createHandlerSetter<DragEventCallback>()
+  const [onDragLeave, setOnDragLeave] = createHandlerSetter<DragEventCallback>()
+  const [onDragOver, setOnDragOver] = createHandlerSetter<DragEventCallback>()
+  const [onDragStart, setOnDragStart] = createHandlerSetter<DragEventCallback>()
 
   if (targetRef !== null && !safeHasOwnProperty(targetRef, 'current')) {
     return createCbSetterErrorProxy('Unable to assign any drag event to the given ref')

@@ -1,9 +1,6 @@
 import { RefObject } from 'react'
-import useHandlerSetterRef from './shared/useHandlerSetterRef'
-import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
-import safeHasOwnProperty from './shared/safeHasOwnProperty'
-import assignEventOnMount from './shared/assignEventOnMount'
 import { CallbackSetter } from './shared/types'
+import useEvent from './useEvent'
 
 export type TouchCallback = (touchEvent: TouchEvent) => any;
 
@@ -29,26 +26,18 @@ export type TouchEventsMap = {
  * If you were doing something like the following:
  *
  */
-const useTouchEvents = <T extends HTMLElement>(targetRef: RefObject<T> = null): TouchEventsMap => {
-  const [onTouchStartHandler, setOnTouchStartHandler] = useHandlerSetterRef<TouchCallback>()
-  const [onTouchEndHandler, setOnTouchEndHandler] = useHandlerSetterRef<TouchCallback>()
-  const [onTouchCancelHandler, setOnTouchCancelHandler] = useHandlerSetterRef<TouchCallback>()
-  const [onTouchMoveHandler, setOnTouchMoveHandler] = useHandlerSetterRef<TouchCallback>()
-
-  if (targetRef !== null && !safeHasOwnProperty(targetRef, 'current')) {
-    return createCbSetterErrorProxy('Unable to assign any touch event to the given ref')
-  }
-
-  assignEventOnMount(targetRef, onTouchStartHandler, 'touchstart')
-  assignEventOnMount(targetRef, onTouchEndHandler, 'touchend')
-  assignEventOnMount(targetRef, onTouchCancelHandler, 'touchcancel')
-  assignEventOnMount(targetRef, onTouchMoveHandler, 'touchmove')
+const useTouchEvents = <T extends HTMLElement>(targetRef?: RefObject<T>): TouchEventsMap => {
+  const target = targetRef || { current: window.document } as unknown as RefObject<HTMLElement>
+  const onTouchStart = useEvent(target, 'touchstart')
+  const onTouchEnd = useEvent(target, 'touchend')
+  const onTouchCancel = useEvent(target, 'touchcancel')
+  const onTouchMove = useEvent(target, 'touchmove')
 
   return Object.freeze({
-    onTouchStart: setOnTouchStartHandler,
-    onTouchEnd: setOnTouchEndHandler,
-    onTouchCancel: setOnTouchCancelHandler,
-    onTouchMove: setOnTouchMoveHandler,
+    onTouchStart,
+    onTouchEnd,
+    onTouchCancel,
+    onTouchMove,
   })
 }
 

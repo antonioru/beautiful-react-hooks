@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import useHandlerSetterRef from './shared/useHandlerSetterRef'
+import createHandlerSetter from './factory/createHandlerSetter'
 import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
 import geolocationStandardOptions from './shared/geolocationStandardOptions'
 import { CallbackSetter } from './shared/types'
@@ -18,8 +18,8 @@ export type GeolocationEventsMap = {
  */
 const useGeolocationEvents = (options: PositionOptions = geolocationStandardOptions): GeolocationEventsMap => {
   const watchId = useRef<number>()
-  const [onChangeRef, setOnChangeRef] = useHandlerSetterRef<PositionCallback>()
-  const [onErrorRef, setOnErrorRef] = useHandlerSetterRef<PositionErrorCallback>()
+  const [onChangeRef, setOnChangeRef] = createHandlerSetter<PositionCallback>()
+  const [onErrorRef, setOnErrorRef] = createHandlerSetter<PositionErrorCallback>()
   const isSupported: boolean = typeof window !== 'undefined' && 'geolocation' in window.navigator
 
   useEffect(() => {
