@@ -75,3 +75,14 @@ const TestComponent = () => {
 
 <TestComponent />
 ```
+
+### Mastering the hook
+
+#### ✅ When to use
+
+- When in need of abstracting your own infinite scroll business logic
+
+#### 🛑 What not to do
+
+- Don't rely on this hook to debounce/throttling your functions, if you're implementing a pagination-like infinite scroll you should
+  debounce/throttle your own functions

@@ -4,7 +4,8 @@ import safeHasOwnProperty from './shared/safeHasOwnProperty'
 import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
 
 /**
- *
+ * Accepts an HTML Element ref, then returns a function that allows you to handle the infinite
+ * scroll for that specific element.
  */
 const useInfiniteScroll = <T extends HTMLElement>(ref: RefObject<T>, delay = 250) => {
   const [onScrollEnd, setOnScrollEnd] = useHandlerSetterRef<() => void>()

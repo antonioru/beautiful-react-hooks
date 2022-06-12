@@ -42,6 +42,7 @@
   "dependencies": {
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
+    "react-router-dom": "6.3.0",
     "rxjs": "7.5.5"
   },
   "peerDependencies": {

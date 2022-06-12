@@ -1,4 +1,4 @@
-import { MutableRefObject, useCallback, useRef } from 'react'
+import { MutableRefObject, useRef } from 'react'
 import { CallbackSetter } from './types'
 
 type HandlerPair<T> = readonly [
@@ -19,13 +19,13 @@ type HandlerPair<T> = readonly [
 const useHandlerSetterRef = <T extends (...args: any[]) => any>(handler?: T): HandlerPair<T> => {
   const handlerRef: MutableRefObject<T> = useRef(handler)
 
-  const setHandler: CallbackSetter<T> = useCallback((nextCallback: T): void => {
+  const setHandler: CallbackSetter<T> = (nextCallback: T): void => {
     if (typeof nextCallback !== 'function') {
       throw new Error('the argument supplied to the \'setHandler\' function should be of type function')
     }
 
     handlerRef.current = nextCallback
-  }, [handlerRef.current])
+  }
 
   return [handlerRef, setHandler]
 }
