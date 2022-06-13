@@ -5,7 +5,7 @@ import useGlobalEvent from './useGlobalEvent'
  * Uses the [Navigator online API](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine) to define
  * whether the browser is connected or not.
  */
-const useOnlineState = (): boolean => {
+const useOnlineState = () => {
   /**
    * If the browser doesn't support the `navigator.onLine` state, the hook will always return true
    * assuming the app is already online.

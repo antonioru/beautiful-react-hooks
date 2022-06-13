@@ -1,15 +1,5 @@
 import { RefObject } from 'react'
-import { CallbackSetter } from './shared/types'
 import useEvent from './useEvent'
-
-export type TouchCallback = (touchEvent: TouchEvent) => any;
-
-export type TouchEventsMap = {
-  onTouchStart: CallbackSetter<TouchCallback>,
-  onTouchEnd: CallbackSetter<TouchCallback>,
-  onTouchCancel: CallbackSetter<TouchCallback>,
-  onTouchMove: CallbackSetter<TouchCallback>,
-}
 
 /**
  * Returns a frozen object of callback setters to handle the touch events.<br/>
@@ -26,12 +16,12 @@ export type TouchEventsMap = {
  * If you were doing something like the following:
  *
  */
-const useTouchEvents = <T extends HTMLElement>(targetRef?: RefObject<T>): TouchEventsMap => {
-  const target = targetRef || { current: window.document } as unknown as RefObject<HTMLElement>
-  const onTouchStart = useEvent(target, 'touchstart')
-  const onTouchEnd = useEvent(target, 'touchend')
-  const onTouchCancel = useEvent(target, 'touchcancel')
-  const onTouchMove = useEvent(target, 'touchmove')
+const useTouchEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>) => {
+  const target = targetRef || { current: window.document } as unknown as RefObject<TElement> // hackish but works
+  const onTouchStart = useEvent<TouchEvent, TElement>(target, 'touchstart')
+  const onTouchEnd = useEvent<TouchEvent, TElement>(target, 'touchend')
+  const onTouchCancel = useEvent<TouchEvent, TElement>(target, 'touchcancel')
+  const onTouchMove = useEvent<TouchEvent, TElement>(target, 'touchmove')
 
   return Object.freeze({
     onTouchStart,

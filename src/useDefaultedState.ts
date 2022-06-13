@@ -1,14 +1,14 @@
-import { Dispatch, SetStateAction, useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 
-const maybeState = <T>(state: T, defaultValue?: T) => (state ?? defaultValue)
+const maybeState = <TValue>(state: TValue, defaultValue?: TValue) => (state ?? defaultValue)
 
 /**
  * Returns a safe state by making sure the given value is not null or undefined
  */
-const useDefaultedState = <T>(defaultValue: T, initialState?: T): [T, Dispatch<SetStateAction<T>>] => {
-  const [state, setState] = useState(maybeState(initialState, defaultValue))
+const useDefaultedState = <TValue>(defaultValue: TValue, initialState?: TValue) => {
+  const [state, setState] = useState<TValue>(maybeState(initialState, defaultValue))
 
-  const setStateSafe = useCallback((nextState: T) => {
+  const setStateSafe = useCallback((nextState: TValue) => {
     setState(maybeState(nextState, defaultValue))
   }, [setState])
 

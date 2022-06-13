@@ -18,17 +18,17 @@ const createStorageHook = (type: 'session' | 'local') => {
   /**
    * the hook
    */
-  return function useStorageCreatedHook<T>(storageKey: string, defaultValue?: any): [T, Dispatch<SetStateAction<T>>] {
+  return function useStorageCreatedHook<TValue>(storageKey: string, defaultValue?: any): [TValue, Dispatch<SetStateAction<TValue>>] {
     if (!isClient) {
       if (isDevelopment) {
         // eslint-disable-next-line no-console
         console.warn(`Please be aware that ${storageName} could not be available during SSR`)
       }
-      return [JSON.stringify(defaultValue) as unknown as T, () => undefined]
+      return [JSON.stringify(defaultValue) as unknown as TValue, () => undefined]
     }
 
     const storage = (window as any)[storageName]
-    const [value, setValue] = useState<T>(
+    const [value, setValue] = useState<TValue>(
       safelyParseJson(storage.getItem(storageKey) || JSON.stringify(defaultValue)),
     )
 

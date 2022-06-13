@@ -5,8 +5,8 @@ const distinctValues = <T>(value: T, current: number, array: T[]): boolean => ar
 /**
  * Accepts a variable (possibly a prop or a state) and returns its history (changes through updates).
  */
-const useValueHistory = <T = unknown>(value: T, distinct = false): T[] => {
-  const history = useRef<T[]>([])
+const useValueHistory = <TValue = unknown>(value: TValue, distinct = false) => {
+  const history = useRef<TValue[]>([])
 
   // quite simple
   useEffect(() => {

@@ -1,18 +1,17 @@
 import { RefObject, useEffect } from 'react'
 import createHandlerSetter from './factory/createHandlerSetter'
 import safeHasOwnProperty from './shared/safeHasOwnProperty'
-import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
 
 /**
  * Accepts the reference to an HTML Element and an event name then performs the necessary operations to listen to the event
  * when fired from that HTML Element.
  */
-const useEvent = <TElement extends HTMLElement, TEvent extends Event>
-  (targetRef: RefObject<TElement>, eventName: string, options?: AddEventListenerOptions) => {
-  const [handler, setHandler] = createHandlerSetter()
+const useEvent = <TEvent extends Event, TElement extends HTMLElement = HTMLElement>
+  (ref: RefObject<TElement>, eventName: string, options?: AddEventListenerOptions) => {
+  const [handler, setHandler] = createHandlerSetter<TEvent>()
 
-  if (!!targetRef && !safeHasOwnProperty(targetRef, 'current')) {
-    return createCbSetterErrorProxy('Unable to assign any scroll event to the given ref')
+  if (!!ref && !safeHasOwnProperty(ref, 'current')) {
+    throw new Error('Unable to assign any scroll event to the given ref')
   }
 
   useEffect(() => {
@@ -22,16 +21,16 @@ const useEvent = <TElement extends HTMLElement, TEvent extends Event>
       }
     }
 
-    if (targetRef.current && targetRef.current.addEventListener && handler.current) {
-      targetRef.current.addEventListener(eventName, cb, options)
+    if (ref.current && ref.current.addEventListener && handler.current) {
+      ref.current.addEventListener(eventName, cb, options)
     }
 
     return () => {
-      if (targetRef.current && targetRef.current.addEventListener && handler.current) {
-        targetRef.current.removeEventListener(eventName, cb, options)
+      if (ref.current && ref.current.addEventListener && handler.current) {
+        ref.current.removeEventListener(eventName, cb, options)
       }
     }
-  }, [eventName, targetRef.current, options])
+  }, [eventName, ref.current, options])
 
   return setHandler
 }

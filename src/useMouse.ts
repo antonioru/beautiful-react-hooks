@@ -8,8 +8,8 @@ import useMouseState from './useMouseState'
  * It is intended as a shortcut to those hooks.
  */
 const useMouse = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>) => {
-  const state = useMouseState(targetRef)
-  const events = useMouseEvents(targetRef)
+  const state = useMouseState<TElement>(targetRef)
+  const events = useMouseEvents<TElement>(targetRef)
 
   return [state, events]
 }

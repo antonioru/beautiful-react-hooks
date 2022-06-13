@@ -1,5 +1,5 @@
-import useGeolocationState, { GeolocationState } from './useGeolocationState'
-import useGeolocationEvents, { GeolocationEventsMap } from './useGeolocationEvents'
+import useGeolocationState from './useGeolocationState'
+import useGeolocationEvents from './useGeolocationEvents'
 import geolocationStandardOptions from './shared/geolocationStandardOptions'
 
 /**
@@ -7,7 +7,7 @@ import geolocationStandardOptions from './shared/geolocationStandardOptions'
  * second one is the object of callback setters from the `useGeolocationEvents` hook.
  * It is intended as a shortcut to those hooks.
  */
-const useGeolocation = (options: PositionOptions = geolocationStandardOptions): [GeolocationState, GeolocationEventsMap] => {
+const useGeolocation = (options: PositionOptions = geolocationStandardOptions) => {
   const state = useGeolocationState(options)
   const events = useGeolocationEvents(options)
 

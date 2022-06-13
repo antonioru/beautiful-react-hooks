@@ -33,4 +33,10 @@ If you are in a TypeScript project, you should declare your ref as a `RefObject<
 const ref = useRef<HTMLDivElement>(null);
 ```
 
-See [here](https://dev.to/wojciechmatuszewski/mutable-and-immutable-useref-semantics-with-react-typescript-30c9) for information on the difference between a `MutableRefObject` and a `RefObject`.
+See [here](https://dev.to/wojciechmatuszewski/mutable-and-immutable-useref-semantics-with-react-typescript-30c9) for information on the
+difference between a `MutableRefObject` and a `RefObject`.
+
+## Peer dependencies
+
+Some hooks are built on top of third-party libraries, therefore you will notice those libraries listed as peer dependencies. Keep in you
+don't have to install these dependencies unless you use those hooks.

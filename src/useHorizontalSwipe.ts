@@ -9,10 +9,10 @@ const defaultOptions: UseSwipeOptions = {
 /**
  * A shortcut to useSwipe (with horizontal options)
  */
-const useHorizontalSwipe = <T extends HTMLElement>(ref?: RefObject<T>, options: UseSwipeOptions = defaultOptions) => {
+const useHorizontalSwipe = <TElement extends HTMLElement>(ref?: RefObject<TElement>, options: UseSwipeOptions = defaultOptions) => {
   const opts: UseSwipeOptions = { ...defaultOptions, ...(options || {}), ...{ direction: 'horizontal' } }
 
-  return useSwipe(ref, opts)
+  return useSwipe<TElement>(ref, opts)
 }
 
 export default useHorizontalSwipe

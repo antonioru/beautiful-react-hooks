@@ -798,3 +798,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - introduces `useInfiniteScroll`
+
+## [3.0.0] - 2022-06-12
+
+### Added
+
+- rewrite of useEvent and useGlobalEvent as well as the hooks using those

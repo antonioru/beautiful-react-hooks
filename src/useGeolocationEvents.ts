@@ -1,14 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import createHandlerSetter from './factory/createHandlerSetter'
-import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
 import geolocationStandardOptions from './shared/geolocationStandardOptions'
-import { CallbackSetter } from './shared/types'
-
-export type GeolocationEventsMap = {
-  readonly isSupported: boolean,
-  readonly onChange: CallbackSetter<PositionCallback>
-  readonly onError: CallbackSetter<PositionErrorCallback>
-}
 
 /**
  * Returns a frozen object of callback setters to handle the geolocation events.<br/>
@@ -16,11 +8,15 @@ export type GeolocationEventsMap = {
  * an error occur while retrieving the position.<br/>
  * The returned object also contains the `isSupported` boolean flag reporting whether the geolocation API is supported.
  */
-const useGeolocationEvents = (options: PositionOptions = geolocationStandardOptions): GeolocationEventsMap => {
+const useGeolocationEvents = (options: PositionOptions = geolocationStandardOptions) => {
   const watchId = useRef<number>()
-  const [onChangeRef, setOnChangeRef] = createHandlerSetter<PositionCallback>()
-  const [onErrorRef, setOnErrorRef] = createHandlerSetter<PositionErrorCallback>()
-  const isSupported: boolean = typeof window !== 'undefined' && 'geolocation' in window.navigator
+  const [onChangeRef, setOnChangeRef] = createHandlerSetter<GeolocationPosition>()
+  const [onErrorRef, setOnErrorRef] = createHandlerSetter<GeolocationPositionError>()
+  const isSupported = useMemo(() => typeof window !== 'undefined' && 'geolocation' in window.navigator, [])
+
+  if (!isSupported) {
+    throw new Error('The Geolocation API is not supported')
+  }
 
   useEffect(() => {
     const onSuccess = (successEvent: GeolocationPosition) => {
@@ -45,7 +41,7 @@ const useGeolocationEvents = (options: PositionOptions = geolocationStandardOpti
     }
   }, [])
 
-  return !isSupported ? createCbSetterErrorProxy('The Geolocation API is not supported') : Object.freeze({
+  return Object.freeze({
     isSupported,
     onChange: setOnChangeRef,
     onError: setOnErrorRef,

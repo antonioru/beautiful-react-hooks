@@ -12,24 +12,23 @@ export type SwipeState = {
   alphaY: number,
 }
 
-export type SwipeCallback = (state: SwipeState) => any
-
-export type UseEventsSwipeOptions = {
+export type UseSwipeEventsOpts = {
   threshold?: number,
   preventDefault?: boolean,
 }
 
-const defaultOptions: UseEventsSwipeOptions = {
+const defaultOptions: UseSwipeEventsOpts = {
   threshold: 15,
   preventDefault: true,
 }
+/* eslint-disable @typescript-eslint/default-param-last */
 
 /**
  * Very similar to useSwipe but doesn't cause re-rendering during swipe
  */
-const useSilentSwipeState = <T extends HTMLElement>(
-  targetRef: RefObject<T> = null,
-  options: UseEventsSwipeOptions = defaultOptions,
+const useSilentSwipeState = <TElement extends HTMLElement>(
+  targetRef: RefObject<TElement> = null,
+  options: UseSwipeEventsOpts = defaultOptions,
   onSwipeStart: (...args: any[]) => any,
   onSwipeMove: (...args: any[]) => any,
   onSwipeEnd: (...args: any[]) => any) => {
@@ -38,8 +37,8 @@ const useSilentSwipeState = <T extends HTMLElement>(
   const isDraggingRef = useRef(false)
   const alphaRef = useRef<number[]>([])
   const opts = { ...defaultOptions, ...(options || {}) }
-  const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents(targetRef)
-  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents(targetRef)
+  const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef)
+  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef)
   const [state, setState] = useState<SwipeState>()
 
   const startSwipe = (event: MouseEvent | TouchEvent) => {
@@ -130,19 +129,19 @@ const useSilentSwipeState = <T extends HTMLElement>(
 
 /**
  * useSwipeEvents
- * @param targetRef
+ * @param ref
  * @param options
  */
-const useSwipeEvents = <T extends HTMLElement>(targetRef: RefObject<T> = null, options: UseEventsSwipeOptions = defaultOptions) => {
+const useSwipeEvents = <TElement extends HTMLElement>(ref: RefObject<TElement> = null, options: UseSwipeEventsOpts = defaultOptions) => {
   const opts = { ...defaultOptions, ...(options || {}) }
-  const [onSwipeLeft, setOnSwipeLeft] = createHandlerSetter<SwipeCallback>()
-  const [onSwipeRight, setOnSwipeRight] = createHandlerSetter<SwipeCallback>()
-  const [onSwipeUp, setOnSwipeUp] = createHandlerSetter<SwipeCallback>()
-  const [onSwipeDown, setOnSwipeDown] = createHandlerSetter<SwipeCallback>()
-  const [onSwipeStart, setOnSwipeStart] = createHandlerSetter<SwipeCallback>()
-  const [onSwipeMove, setOnSwipeMove] = createHandlerSetter<SwipeCallback>()
-  const [onSwipeEnd, setOnSwipeEnd] = createHandlerSetter<SwipeCallback>()
-  const state: SwipeState = useSilentSwipeState(targetRef, opts, onSwipeStart.current, onSwipeMove.current, onSwipeEnd.current)
+  const [onSwipeLeft, setOnSwipeLeft] = createHandlerSetter<SwipeState>()
+  const [onSwipeRight, setOnSwipeRight] = createHandlerSetter<SwipeState>()
+  const [onSwipeUp, setOnSwipeUp] = createHandlerSetter<SwipeState>()
+  const [onSwipeDown, setOnSwipeDown] = createHandlerSetter<SwipeState>()
+  const [onSwipeStart, setOnSwipeStart] = createHandlerSetter<SwipeState>()
+  const [onSwipeMove, setOnSwipeMove] = createHandlerSetter<SwipeState>()
+  const [onSwipeEnd, setOnSwipeEnd] = createHandlerSetter<SwipeState>()
+  const state: SwipeState = useSilentSwipeState<TElement>(ref, opts, onSwipeStart.current, onSwipeMove.current, onSwipeEnd.current)
 
   const fnMap = {
     right: onSwipeRight,

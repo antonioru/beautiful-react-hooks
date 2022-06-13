@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import usePreviousValue from './usePreviousValue'
+import { GenericFunction } from './shared/types'
 
-type UseConditionalTimeoutOptions = {
+type UseConditionalTOOpts = {
   cancelOnUnmount?: boolean,
   cancelOnConditionChange?: boolean
 }
 
-const defaultOptions: UseConditionalTimeoutOptions = {
+const defaultOptions: UseConditionalTOOpts = {
   cancelOnUnmount: true,
   cancelOnConditionChange: true,
 }
@@ -15,8 +16,8 @@ const defaultOptions: UseConditionalTimeoutOptions = {
  * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then delays the
  * execution of the given function by the defined time from when the condition verifies.
  */
-const useConditionalTimeout = <T extends (...args: any[]) => any>
-(fn: T, milliseconds: number, condition: boolean, options: UseConditionalTimeoutOptions = defaultOptions): [boolean, () => void] => {
+const useConditionalTimeout = <TCallback extends GenericFunction>
+  (fn: TCallback, milliseconds: number, condition: boolean, options: UseConditionalTOOpts = defaultOptions) => {
   const opts = { ...defaultOptions, ...(options || {}) }
   const timeout = useRef<any>()
   const callback = useRef(fn)

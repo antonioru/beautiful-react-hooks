@@ -36,13 +36,13 @@ const isEqual = (prev: LocalSwipeState, next: LocalSwipeState): boolean => (
 /**
  * useSwipe hook
  */
-const useSwipe = <T extends HTMLElement>(targetRef: RefObject<T> = null, options: UseSwipeOptions = defaultOptions) => {
+const useSwipe = <TElement extends HTMLElement>(targetRef: RefObject<TElement> = null, options: UseSwipeOptions = defaultOptions) => {
   const [state, setState] = useState(initialState)
   const startingPointRef = useRef<[number, number]>([-1, -1])
   const isDraggingRef = useRef(false)
   const opts = { ...defaultOptions, ...(options || {}) }
-  const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents(targetRef)
-  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents(targetRef)
+  const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef)
+  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef)
 
   const startSwipe = (event: MouseEvent | TouchEvent) => {
     const [clientX, clientY] = getPointerCoordinates(event)

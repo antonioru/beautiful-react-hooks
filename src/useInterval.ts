@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { GenericFunction } from './shared/types'
 
 export type UseIntervalOptions = {
   cancelOnUnmount?: boolean,
@@ -12,11 +13,11 @@ const defaultOptions: UseIntervalOptions = {
  * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then repeats the
  * execution of the given function by the defined milliseconds.
  */
-const useInterval = <T extends (...args: any[]) => any>
-  (fn: T, milliseconds: number, options: UseIntervalOptions = defaultOptions): [boolean, () => void] => {
+const useInterval = <TCallback extends GenericFunction>
+  (fn: TCallback, milliseconds: number, options: UseIntervalOptions = defaultOptions) => {
   const opts = { ...defaultOptions, ...(options || {}) }
   const timeout = useRef<NodeJS.Timeout>()
-  const callback = useRef<T>(fn)
+  const callback = useRef<TCallback>(fn)
   const [isCleared, setIsCleared] = useState<boolean>(false)
 
   // the clear method

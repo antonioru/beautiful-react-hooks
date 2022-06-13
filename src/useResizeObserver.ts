@@ -14,7 +14,8 @@ export type DOMRectValues = Pick<DOMRectReadOnly, 'bottom' | 'height' | 'left' |
  * @param debounceTimeout
  * @returns {undefined}
  */
-const useResizeObserver = <T extends HTMLElement>(elementRef: RefObject<T>, debounceTimeout: number = 100): DOMRectValues | undefined => {
+const useResizeObserver = <TElement extends HTMLElement>
+  (elementRef: RefObject<TElement>, debounceTimeout: number = 100): DOMRectValues | undefined => {
   const isSupported = isApiSupported('ResizeObserver')
   const observerRef = useRef<ResizeObserver | null>(null)
   const [DOMRect, setDOMRect] = useState<DOMRectValues>()

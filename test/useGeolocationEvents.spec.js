@@ -69,15 +69,4 @@ describe('useGeolocationEvents', () => {
 
     expect(lastOptions).to.equal(optionsMock)
   })
-
-  it('if the geolocation API is not supported should return a throwing method', () => {
-    delete window.navigator.geolocation // delete for test purposes
-
-    const { result } = renderHook(() => useGeolocationEvents())
-
-    window.navigator.geolocation = GeoLocationApiMock // reset to the "original" mocks
-
-    expect(result.current.onSomething).to.throw()
-    expect(result.current.proprety).to.be.an('object').that.has.key('error')
-  })
 })

@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react'
 import createHandlerSetter from './factory/createHandlerSetter'
-import { Noop } from './shared/types'
+import { GenericFunction } from './shared/types'
 
 /**
  * Returns a callback setter for a callback to be performed when the component will unmount.
  */
-const useWillUnmount = <T extends (...args: any[]) => void = Noop>(callback?: T) => {
+const useWillUnmount = <TCallback extends GenericFunction>(callback?: TCallback) => {
   const mountRef = useRef(false)
-  const [handler, setHandler] = createHandlerSetter<T>(callback)
+  const [handler, setHandler] = createHandlerSetter<void>(callback)
 
   useEffect(() => {
     mountRef.current = true

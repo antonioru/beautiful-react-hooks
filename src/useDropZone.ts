@@ -1,12 +1,9 @@
 import { RefObject, useState } from 'react'
 import useDragEvents from './useDragEvents'
-import { CallbackSetter } from './shared/types'
 
-export type DropZoneState = { isOver: boolean, onDrop: CallbackSetter<(event: DragEvent) => any> }
-
-const useDropZone = <T extends HTMLElement>(targetRef: RefObject<T>): DropZoneState => {
-  const { onDrop, onDragOver, onDragLeave } = useDragEvents<T>(targetRef, false)
-  const [isOver, setIsOver] = useState<boolean>(false)
+const useDropZone = <TElement extends HTMLElement>(targetRef: RefObject<TElement>) => {
+  const { onDrop, onDragOver, onDragLeave } = useDragEvents<TElement>(targetRef, false)
+  const [isOver, setIsOver] = useState(false)
 
   onDragOver((event: DragEvent) => {
     event.preventDefault()

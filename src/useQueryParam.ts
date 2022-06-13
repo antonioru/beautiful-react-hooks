@@ -10,12 +10,12 @@ export interface UseQueryParamsOptions<T extends string> {
 /**
  * Ease the process of modify the query string in the URL for the current location.
  */
-const useQueryParam = <T extends string>(param: string, options: UseQueryParamsOptions<T> = {}) => {
+const useQueryParam = <TParam extends string>(param: string, options: UseQueryParamsOptions<TParam> = {}) => {
   const [params, setParams] = useSearchParams()
   const onMount = useDidMount()
   const value = useMemo(() => params.get(param) || options.initialValue || '', [options.initialValue, params])
 
-  const setParam = useCallback((nextValue: T) => {
+  const setParam = useCallback((nextValue: TParam) => {
     params.set(param, nextValue)
 
     setParams(params, { replace: options.replaceState })
