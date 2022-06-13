@@ -90,6 +90,7 @@ $ yarn add beautiful-react-hooks
 * [useMediaQuery](docs/useMediaQuery.md)
 * [useOnlineState](docs/useOnlineState.md)
 * [useViewportSpy](docs/useViewportSpy.md)
+* [useViewportState](docs/useViewportState.md)
 * [useSpeechSynthesis](docs/useSpeechSynthesis.md) and [useSystemVoices](docs/useSystemVoices.md)
 * [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md)
   and [useGeolocationEvents](docs/useGeolocationEvents.md)

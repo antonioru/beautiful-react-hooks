@@ -87,6 +87,7 @@ $ yarn add beautiful-react-hooks
 * [useMediaQuery](useMediaQuery.md)
 * [useOnlineState](useOnlineState.md)
 * [useViewportSpy](useViewportSpy.md)
+* [useViewportState](useViewportState.md)
 * [useSpeechSynthesis](useSpeechSynthesis.md) and [useSystemVoices](useSystemVoices.md)
 * [useGeolocation](useGeolocation.md), [useGeolocationState](useGeolocationState.md) and [useGeolocationEvents](useGeolocationEvents.md)
 * [useDrag](useDrag.md), [useDropZone](useDropZone.md) and [useDragEvents](useDragEvents.md)

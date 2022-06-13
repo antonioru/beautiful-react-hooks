@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import throttle from 'lodash.throttle'
 import { GenericFunction } from './shared/types'
+import useWillUnmount from './useWillUnmount'
 
 interface ThrottleSettings {
   leading?: boolean | undefined;
@@ -24,6 +25,10 @@ const useThrottledCallback = <TCallback extends GenericFunction>
   useEffect(() => {
     throttled.current = throttle(fn, wait, options)
   }, [fn, wait, options])
+
+  useWillUnmount(() => {
+    throttled.current?.cancel()
+  })
 
   return useCallback(throttled.current, dependencies)
 }

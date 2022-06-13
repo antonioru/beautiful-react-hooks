@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import debounce from 'lodash.debounce'
 import { GenericFunction } from './shared/types'
+import useWillUnmount from './useWillUnmount'
 
 export type DebounceOptions = {
   leading?: boolean | undefined;
@@ -25,6 +26,10 @@ const useDebouncedCallback = <TCallback extends GenericFunction>
   useEffect(() => {
     debounced.current = debounce(fn, wait, options)
   }, [fn, wait, options])
+
+  useWillUnmount(() => {
+    debounced.current?.cancel()
+  })
 
   return useCallback(debounced.current, dependencies)
 }
