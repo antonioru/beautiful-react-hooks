@@ -1,10 +1,5 @@
-import { MutableRefObject, useRef } from 'react'
-import { CallbackSetter } from '../shared/types'
-
-type HandlerPair<T> = readonly [
-  handler: MutableRefObject<T>,
-  setHandler: CallbackSetter<T>,
-]
+import { RefObject, useRef } from 'react'
+import { CallbackSetter, SomeCallback } from '../shared/types'
 
 /**
  * Returns an array where the first item is the [ref](https://reactjs.org/docs/hooks-reference.html#useref) to a
@@ -17,10 +12,10 @@ type HandlerPair<T> = readonly [
  * `createHandlerSetter` is meant to be used internally to abstracting other hooks.
  * Don't use this function to abstract hooks outside this library as it changes quite often
  */
-const createHandlerSetter = <T extends (...args: any[]) => any>(handler?: T): HandlerPair<T> => {
-  const handlerRef: MutableRefObject<T> = useRef(handler)
+const createHandlerSetter = <TArgs, TResult = void>(callback?: SomeCallback<TArgs, TResult>) => {
+  const handlerRef = useRef(callback)
 
-  const setHandler: MutableRefObject<CallbackSetter<T>> = useRef((nextCallback: T) => {
+  const setHandler = useRef((nextCallback: SomeCallback<TArgs, TResult>) => {
     if (typeof nextCallback !== 'function') {
       throw new Error('the argument supplied to the \'setHandler\' function should be of type function')
     }
@@ -28,7 +23,7 @@ const createHandlerSetter = <T extends (...args: any[]) => any>(handler?: T): Ha
     handlerRef.current = nextCallback
   })
 
-  return [handlerRef, setHandler.current]
+  return [handlerRef, setHandler.current] as [RefObject<SomeCallback<TArgs, TResult>>, CallbackSetter<TArgs>]
 }
 
 export default createHandlerSetter

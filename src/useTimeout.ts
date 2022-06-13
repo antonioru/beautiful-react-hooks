@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { GenericFunction } from './shared/types'
 
 export type UseTimeoutOptions = {
   cancelOnUnmount?: boolean,
@@ -12,11 +13,11 @@ const defaultOptions = {
  * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then delays the
  * execution of the given function by the defined time.
  */
-const useTimeout = <T extends (...args: any[]) => any>
-  (fn: T, milliseconds: number, options: UseTimeoutOptions = defaultOptions): [boolean, () => void] => {
+const useTimeout = <TCallback extends GenericFunction>
+  (fn: TCallback, milliseconds: number, options: UseTimeoutOptions = defaultOptions) => {
   const opts = { ...defaultOptions, ...(options || {}) }
   const timeout = useRef<NodeJS.Timeout>()
-  const callback = useRef<T>(fn)
+  const callback = useRef<TCallback>(fn)
   const [isCleared, setIsCleared] = useState<boolean>(false)
 
   // the clear method

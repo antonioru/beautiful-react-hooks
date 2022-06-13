@@ -17,21 +17,23 @@ import { useWindowResize, useDebouncedCallback } from 'beautiful-react-hooks';
 const DebouncedFnComponent = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
-  
+  const onWindowResize = useWindowResize();
+
   // there's no need to use `useCallback` since the returned function 
   // is already memoized
   const onWindowResizeHandler = useDebouncedCallback(() => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
   });
-  
-  useWindowResize(onWindowResizeHandler);
+
+  onWindowResize(onWindowResizeHandler);
+
   useEffect(() => {
     // do something
     // don't forget to cancel debounced
     return () => onWindowResizeHandler.cancel(); // or .flush()
   });
-  
+
   return (
     <DisplayDemo>
       <Paragraph>window width: <strong>{width}</strong></Paragraph>
@@ -56,17 +58,16 @@ import { useWindowResize, useDebouncedCallback } from 'beautiful-react-hooks';
 const DebouncedFnComponent = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
-  
-  
+  const onWindowResize = useWindowResize();
   // there's no need to use `useCallback` since the returned function 
   // is already memoized
   const onWindowResizeHandler = useDebouncedCallback(() => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
   }, [setWidth, setHeight]);
-  
-  useWindowResize(onWindowResizeHandler);
-  
+
+  onWindowResize(onWindowResizeHandler);
+
   return (
     <DisplayDemo>
       <Paragraph>window width: {width}</Paragraph>
@@ -90,17 +91,17 @@ import { useWindowResize, useDebouncedCallback } from 'beautiful-react-hooks';
 const DebouncedFnComponent = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
-  
-  
+  const onWindowResize = useWindowResize();
+
   // there's no need to use `useCallback` since the returned function 
   // is already memoized
   const onWindowResizeHandler = useDebouncedCallback(() => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
   }, [setWidth, setHeight], 500);
-  
-  useWindowResize(onWindowResizeHandler);
-  
+
+  onWindowResize(onWindowResizeHandler);
+
   return (
     <DisplayDemo>
       <Paragraph>window width: {width}</Paragraph>
@@ -111,7 +112,6 @@ const DebouncedFnComponent = (props) => {
 
 <DebouncedFnComponent foo="bar" />
 ```
-
 
 ### Options
 
@@ -126,20 +126,21 @@ import { useWindowResize, useDebouncedCallback } from 'beautiful-react-hooks';
 const DebouncedFnComponent = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
+  const onWindowResize = useWindowResize()
   const options = {
     leading: false,
     trailing: true,
   };
-  
+
   // there's no need to use `useCallback` since the returned function 
   // is already memoized
   const onWindowResizeHandler = useDebouncedCallback(() => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
   }, [setWidth, setHeight], 500, options);
-  
-  useWindowResize(onWindowResizeHandler);
-  
+
+  onWindowResize(onWindowResizeHandler);
+
   return (
     <DisplayDemo>
       <Paragraph>window width: {width}</Paragraph>
@@ -151,7 +152,6 @@ const DebouncedFnComponent = () => {
 <DebouncedFnComponent />
 ```
 
-
 #### ✅ Pro tip:
 
 To deep understanding the differences between `throttle` and `debounce`, what they are and when to use this functions please
@@ -161,5 +161,5 @@ by [David Corbacho](https://twitter.com/dcorbacho)
 ### Mastering the hook
 
 #### ✅ When to use
- 
+
 - The classic example would be an API call that would be performed when typing on a search field

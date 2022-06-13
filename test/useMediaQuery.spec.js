@@ -38,7 +38,7 @@ describe('useMediaQuery', () => {
     const warnSpy = sinon.spy(console, 'warn')
     const { result } = renderHook(() => useMediaQuery('(min-width: 1024px)'))
 
-    expect(result.current).to.be.null
+    expect(result.current).to.be.false
     expect(warnSpy.called).to.be.true
   })
 })

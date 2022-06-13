@@ -20,7 +20,7 @@ const getInitial = (moduleName: string): RenderInfo => ({
  * @param log
  * @returns {{renders: number, module: *, timestamp: null}}
  */
-const useRenderInfo = (moduleName: string = 'Unknown component', log: boolean = true): RenderInfo => {
+const useRenderInfo = (moduleName: string = 'Unknown component', log: boolean = true) => {
   const { current: info } = useRef(getInitial(moduleName))
   const now = +Date.now()
 

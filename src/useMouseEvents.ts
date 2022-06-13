@@ -16,14 +16,14 @@ import useEvent from './useEvent'
  * If you were doing something like the following:
  */
 const useMouseEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>) => {
-  const target = targetRef || { current: window.document } as unknown as RefObject<HTMLElement>
-  const onMouseDown = useEvent(target, 'mousedown')
-  const onMouseEnter = useEvent(target, 'mouseenter')
-  const onMouseLeave = useEvent(target, 'mouseleave')
-  const onMouseMove = useEvent(target, 'mousemove')
-  const onMouseOut = useEvent(target, 'mouseout')
-  const onMouseOver = useEvent(target, 'mouseover')
-  const onMouseUp = useEvent(target, 'mouseup')
+  const target = targetRef || { current: window.document } as unknown as RefObject<TElement>
+  const onMouseDown = useEvent<MouseEvent, TElement>(target, 'mousedown')
+  const onMouseEnter = useEvent<MouseEvent, TElement>(target, 'mouseenter')
+  const onMouseLeave = useEvent<MouseEvent, TElement>(target, 'mouseleave')
+  const onMouseMove = useEvent<MouseEvent, TElement>(target, 'mousemove')
+  const onMouseOut = useEvent<MouseEvent, TElement>(target, 'mouseout')
+  const onMouseOver = useEvent<MouseEvent, TElement>(target, 'mouseover')
+  const onMouseUp = useEvent<MouseEvent, TElement>(target, 'mouseup')
 
   return Object.freeze({
     onMouseDown,

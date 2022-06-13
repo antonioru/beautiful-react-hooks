@@ -14,7 +14,7 @@ const asyncGetSystemVoices = (): Promise<SpeechSynthesisVoice[]> => new Promise(
 /**
  * A side effect to retrieve all the available system voices using the Web_Speech_API
  */
-const useSystemVoices = (): SpeechSynthesisVoice[] => {
+const useSystemVoices = () => {
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
 
   useEffect(() => {

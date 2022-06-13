@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "2.1.1",
+  "version": "3.0.2",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -41,14 +41,13 @@
   "homepage": "https://antonioru.github.io/beautiful-react-hooks/",
   "dependencies": {
     "lodash.debounce": "^4.0.8",
-    "lodash.throttle": "^4.1.1",
-    "react-router-dom": "6.3.0",
-    "rxjs": "7.5.5"
+    "lodash.throttle": "^4.1.1"
   },
   "peerDependencies": {
     "react": ">=16.0.0",
     "react-dom": ">=16.0.0",
-    "rxjs": ">=7.0.0"
+    "rxjs": ">=7.0.0",
+    "react-router-dom": ">=6.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.18.2",
@@ -58,6 +57,7 @@
     "@babel/register": "^7.17.7",
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/commit-analyzer": "9.0.2",
+    "@semantic-release/exec": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "8.0.4",
     "@semantic-release/npm": "9.0.1",
@@ -92,8 +92,10 @@
     "nyc": "^15.1.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-router-dom": "6.3.0",
     "react-styleguidist": "^11.2.0",
     "regenerator-runtime": "0.13.9",
+    "rxjs": "7.5.5",
     "semantic-release": "^19.0.3",
     "sinon": "^14.0.0",
     "style-loader": "^3.3.1",

@@ -17,9 +17,7 @@ describe('useDragEvents', () => {
     const targetRef = { current: document.createElement('div') }
     const { result } = renderHook(() => useDragEvents(targetRef))
 
-    expect(result.current).to.be.an('object').that.has.all.keys(
-      'onDrag', 'onDrop', 'onDragEnter', 'onDragEnd', 'onDragExit', 'onDragLeave', 'onDragOver', 'onDragStart'
-    )
+    expect(result.current).to.be.an('object').that.has.all.keys('onDrag', 'onDrop', 'onDragEnter', 'onDragEnd', 'onDragExit', 'onDragLeave', 'onDragOver', 'onDragStart')
   })
 
   it('should set the draggable attribute to the given element ref', () => {
@@ -82,13 +80,5 @@ describe('useDragEvents', () => {
     expect(onDragLeaveSpy.called).to.be.true
     expect(onDragOverSpy.called).to.be.true
     expect(onDragStartSpy.called).to.be.true
-  })
-
-  it('if an invalid ref is provided, should not perform the callback', () => {
-    const { result } = renderHook(() => useDragEvents({ invalid: true }))
-
-    expect(result.current.onSomething).to.be.a('function')
-    expect(result.current.onSomething).to.throw()
-    expect(result.current.someProperty).to.be.an('object').that.has.key('error')
   })
 })

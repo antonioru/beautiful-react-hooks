@@ -13,11 +13,11 @@ const errorMessage = 'matchMedia is not supported, this could happen both becaus
  * Returns the validity state of the given media query.
  *
  */
-const useMediaQuery = (mediaQuery: string): boolean => {
+const useMediaQuery = (mediaQuery: string) => {
   if (!isClient || !isAPISupported('matchMedia')) {
     // eslint-disable-next-line no-console
     console.warn(errorMessage)
-    return null
+    return false
   }
 
   const [isVerified, setIsVerified] = useState(!!window.matchMedia(mediaQuery).matches)

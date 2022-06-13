@@ -2,7 +2,7 @@ import { useCallback, useRef } from 'react'
 import createHandlerSetter from './factory/createHandlerSetter'
 import isClient from './shared/isClient'
 import isAPISupported from './shared/isAPISupported'
-import createCbSetterErrorProxy from './shared/createCbSetterErrorProxy'
+import { GenericFunction } from './shared/types'
 
 export type UseRequestAnimationFrameOpts = {
   increment?: number,
@@ -19,16 +19,15 @@ const errorMessage = 'requestAnimationFrame is not supported, this could happen 
 /**
  * Takes care of running an animating function, provided as the first argument, while keeping track of its progress.
  */
-const useRequestAnimationFrame = <T extends (...args: any[]) => any>(func: T, options: UseRequestAnimationFrameOpts = defaultOptions) => {
+const useRequestAnimationFrame = <T extends GenericFunction>(func: T, options: UseRequestAnimationFrameOpts = defaultOptions) => {
   if (!isClient || !isAPISupported('requestAnimationFrame')) {
     // eslint-disable-next-line no-console
     console.warn(errorMessage)
-    return createCbSetterErrorProxy(errorMessage)
   }
 
   const opts = { ...defaultOptions, ...options }
   const progress = useRef(opts.startAt)
-  const [onFinish, setOnFinish] = createHandlerSetter()
+  const [onFinish, setOnFinish] = createHandlerSetter<void>()
 
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   const next = () => window.requestAnimationFrame(step)

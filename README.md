@@ -82,6 +82,7 @@ $ yarn add beautiful-react-hooks
 * [useSearchQuery](docs/useSearchQuery.md)
 * [useInfiniteScroll](docs/useInfiniteScroll.md)
 * [useObservable](docs/useObservable.md)
+* [useEvent](docs/useEvent.md)
 * [useGlobalEvent](docs/useGlobalEvent.md)
 * [usePreviousValue](docs/usePreviousValue.md)
 * [useValueHistory](docs/useValueHistory.md)
@@ -120,6 +121,11 @@ $ yarn add beautiful-react-hooks
     </a>
   </p>
 </div>
+
+## Peer dependencies
+
+Some hooks are built on top of third-party libraries (rxjs, react-router-dom, redux), therefore you will notice those libraries listed as
+peer dependencies. You don't have to install these dependencies unless you directly use those hooks.
 
 ## Contributing
 

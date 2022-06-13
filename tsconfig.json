@@ -1,5 +1,7 @@
 {
-  "include": ["./src/**/*.ts"],
+  "include": [
+    "./src/**/*.ts"
+  ],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,

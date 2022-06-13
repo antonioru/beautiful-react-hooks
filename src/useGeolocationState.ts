@@ -21,7 +21,7 @@ export type GeolocationState = {
  * (https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) to be used as parameter when using the
  * `Geolocation.getCurrentPosition()` method.
  */
-const useGeolocationState = (options: PositionOptions = geolocationStandardOptions): GeolocationState => {
+const useGeolocationState = (options: PositionOptions = geolocationStandardOptions) => {
   const [position, setPosition] = useState<PositionSummary>(null)
   const [isRetrieving, setRetrieving] = useState<boolean>(false)
   const { isSupported, onChange } = useGeolocationEvents(options)

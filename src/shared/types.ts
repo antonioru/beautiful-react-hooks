@@ -1,20 +1,19 @@
-export interface CallbackSetter<T> {
-  (handler: T): void
-}
-
 export type Noop = () => void;
 
-export interface DebouncedFunc<T extends (...args: any[]) => any> {
-  (...args: Parameters<T>): ReturnType<T> | undefined;
-
-  cancel(): void;
-
-  flush(): ReturnType<T> | undefined;
+export interface GenericFunction {
+  (...args: any[]): any
 }
 
-export interface ThrottledFunc<T extends (...args: any[]) => any> extends DebouncedFunc<T> {
+/**
+ * FIXME: document this type
+ */
+export interface SomeCallback<TArgs, TResult = void> {
+  (...args: TArgs[]): TResult
 }
 
-export interface EventCallback<TEvent extends Event> {
-  (event: TEvent): void
+/**
+ * FIXME: document this type
+ */
+export interface CallbackSetter<TArgs> {
+  (nextCallback: SomeCallback<TArgs>): void
 }
