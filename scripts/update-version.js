@@ -13,4 +13,4 @@ const nextPackageJson = { ...packageJson, version: nextVersion }
 
 console.log('\nUPDATING PACKAGE JSON VERSION TO: ', nextVersion)
 
-fs.writeFileSync(pkgPath, JSON.stringify(nextPackageJson))
+fs.writeFileSync(pkgPath, JSON.stringify(nextPackageJson, null, '\t'))

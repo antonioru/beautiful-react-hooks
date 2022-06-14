@@ -12,7 +12,8 @@ its default value will be 250ms.
 ```jsx harmony
 import { useEffect, useState } from 'react';
 import { Paragraph } from 'beautiful-react-ui';
-import { useWindowResize, useDebouncedCallback } from 'beautiful-react-hooks';
+import useDebouncedCallback from 'beautiful-react-hooks/useDebouncedCallback';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const DebouncedFnComponent = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -53,7 +54,8 @@ under the hood, you can possibly define the callback dependencies.
 ```jsx harmony
 import { useState } from 'react';
 import { Paragraph } from 'beautiful-react-ui';
-import { useWindowResize, useDebouncedCallback } from 'beautiful-react-hooks';
+import useDebouncedCallback from 'beautiful-react-hooks/useDebouncedCallback';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const DebouncedFnComponent = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -86,7 +88,8 @@ A custom debounce time can be easily defined as follows (500ms)
 ```jsx harmony
 import { useState } from 'react';
 import { Paragraph } from 'beautiful-react-ui';
-import { useWindowResize, useDebouncedCallback } from 'beautiful-react-hooks';
+import useDebouncedCallback from 'beautiful-react-hooks/useDebouncedCallback';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const DebouncedFnComponent = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -121,7 +124,8 @@ few options to customise its behaviour.
 ```jsx harmony
 import { useState } from 'react';
 import { Paragraph } from 'beautiful-react-ui';
-import { useWindowResize, useDebouncedCallback } from 'beautiful-react-hooks';
+import useDebouncedCallback from 'beautiful-react-hooks/useDebouncedCallback';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const DebouncedFnComponent = () => {
   const [width, setWidth] = useState(window.innerWidth);

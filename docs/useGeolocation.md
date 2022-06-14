@@ -1,6 +1,6 @@
 # useGeolocation
 
-Returns an array where the first item is the geolocation state from [useGeolocationState](./useGeolocationState.md) 
+Returns an array where the first item is the geolocation state from [useGeolocationState](./useGeolocationState.md)
 and the second one is an object of handler setters from the [useGeolocationEvents](./useGeolocationEvents.md).
 
 It is intended as a shortcut to those hooks.
@@ -15,24 +15,24 @@ It is intended as a shortcut to those hooks.
 ### Basic Usage:
 
 ```jsx harmony
-import { useGeolocation } from 'beautiful-react-hooks'; 
+import useGeolocation from 'beautiful-react-hooks/useGeolocation';
 
 const PositionReporter = () => {
-  const [geoState, { onChange }] = useGeolocation(); 
-  
+  const [geoState, { onChange }] = useGeolocation();
+
   onChange(() => {
     console.log('Position changed...');
   });
-    
+
   return (
-   <DisplayDemo>
-     The current position is:
-     {geoState.isRetrieving && (<p>Retrieving position...</p>)}
-     {geoState.isSupported && geoState.position && [
-       <p key={0}>Lat: {geoState.position.coords.latitude}</p>,
-       <p key={1}>Lng: {geoState.position.coords.longitude}</p>
-     ]}
-   </DisplayDemo>
+    <DisplayDemo>
+      The current position is:
+      {geoState.isRetrieving && (<p>Retrieving position...</p>)}
+      {geoState.isSupported && geoState.position && [
+        <p key={0}>Lat: {geoState.position.coords.latitude}</p>,
+        <p key={1}>Lng: {geoState.position.coords.longitude}</p>
+      ]}
+    </DisplayDemo>
   );
 };
 
@@ -44,39 +44,38 @@ const PositionReporter = () => {
 Before using, please read about the [geolocation options](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions)
 
 ```jsx harmony
-import { useGeolocation } from 'beautiful-react-hooks'; 
+import useGeolocation from 'beautiful-react-hooks/useGeolocation';
 
 const PositionReporter = () => {
-  const [geoState, { onChange }] = useGeolocation({ 
-    enableHighAccuracy: true, 
+  const [geoState, { onChange }] = useGeolocation({
+    enableHighAccuracy: true,
     timeout: 0xFFFFFFFF,
     maximumAge: 0,
-  }); 
-  
+  });
+
   onChange(() => {
     console.log('Position changed...');
   });
-  
+
   return (
-   <DisplayDemo>
-     The current position is:
-     {geoState.isRetrieving && (<p>Retrieving position...</p>)}
-     {geoState.isSupported && geoState.position && [
-       <p key={0}>Lat: {geoState.position.coords.latitude}</p>,
-       <p key={1}>Lng: {geoState.position.coords.longitude}</p>
-     ]}
-   </DisplayDemo>
+    <DisplayDemo>
+      The current position is:
+      {geoState.isRetrieving && (<p>Retrieving position...</p>)}
+      {geoState.isSupported && geoState.position && [
+        <p key={0}>Lat: {geoState.position.coords.latitude}</p>,
+        <p key={1}>Lng: {geoState.position.coords.longitude}</p>
+      ]}
+    </DisplayDemo>
   );
 };
 
 <PositionReporter />
 ```
 
-
 ### Mastering the hook
 
 #### ✅ When to use
- 
+
 - If in need to easily access the Geolocation API.
 
 #### 🛑 What not to do

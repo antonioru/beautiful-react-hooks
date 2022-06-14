@@ -9,36 +9,36 @@ A hook for storing values into [Local Storage](https://developer.mozilla.org/en-
 ### Basic Usage:
 
 ```jsx harmony
-import React, { useCallback } from 'react'; 
-import { Pill, Paragraph, Icon } from 'beautiful-react-ui'; 
-import { useLocalStorage } from 'beautiful-react-hooks'; 
+import React, { useCallback } from 'react';
+import { Pill, Paragraph, Icon } from 'beautiful-react-ui';
+import useLocalStorage from 'beautiful-react-hooks/useLocalStorage';
 
 const NotificationBadgeExample = ({ notifications }) => {
   const [notificationCount, setNotificationCount] = useLocalStorage('demo-notification-count', notifications);
-  
+
   const clearNotifications = useCallback(() => {
     setNotificationCount(0);
   }, [notificationCount]);
 
   return (
     <DisplayDemo>
-        <Paragraph>Click on the badge to clear from the local storage</Paragraph>
-        <Pill color="primary" onClick={clearNotifications}>
-          <Icon name="envelope" />
-          You've got {notificationCount} new messages
-        </Pill>
+      <Paragraph>Click on the badge to clear from the local storage</Paragraph>
+      <Pill color="primary" onClick={clearNotifications}>
+        <Icon name="envelope" />
+        You've got {notificationCount} new messages
+      </Pill>
     </DisplayDemo>
   )
 };
 
-<NotificationBadgeExample notifications={100}/>
+<NotificationBadgeExample notifications={100} />
 ```
 
 ### Mastering the hooks
 
 #### ✅ When to use
- 
-- When you need to get/set values from and to the `localStorage` 
+
+- When you need to get/set values from and to the `localStorage`
 
 #### 🛑 When not to use
 

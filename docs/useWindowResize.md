@@ -13,7 +13,7 @@ It's built on top of [useGlobalEvent](./useGlobalEvent.md).
 
 ```jsx harmony
 import { useState } from 'react';
-import { useWindowResize } from 'beautiful-react-hooks';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const WindowSizeReporter = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -45,7 +45,7 @@ rerender nor should not be invoked asynchronously.
 
 ```jsx harmony
 import { useState } from 'react';
-import { useWindowResize } from 'beautiful-react-hooks';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const WindowSizeReporter = () => {
   const [width, setWidth] = useState(window.innerWidth);

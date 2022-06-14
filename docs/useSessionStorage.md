@@ -9,9 +9,9 @@ A hook for storing values into [Session Storage](https://developer.mozilla.org/e
 ### Basic Usage:
 
 ```jsx harmony
-import React, { useCallback } from 'react'; 
-import { Pill, Paragraph, Icon } from 'beautiful-react-ui'; 
-import { useSessionStorage } from 'beautiful-react-hooks'; 
+import React, { useCallback } from 'react';
+import { Pill, Paragraph, Icon } from 'beautiful-react-ui';
+import useSessionStorage from 'beautiful-react-hooks/useSessionStorage';
 
 const NotificationBadgeExample = ({ notifications }) => {
   const [notificationCount, setNotificationCount] = useSessionStorage('demo-notification-count', notifications);
@@ -22,23 +22,23 @@ const NotificationBadgeExample = ({ notifications }) => {
 
   return (
     <DisplayDemo>
-        <Paragraph>Click on the badge to clear from the session storage</Paragraph>
-        <Pill color="primary" onClick={clearNotifications}>
-          <Icon name="envelope" />
-          You've got {notificationCount} new messages
-        </Pill>
+      <Paragraph>Click on the badge to clear from the session storage</Paragraph>
+      <Pill color="primary" onClick={clearNotifications}>
+        <Icon name="envelope" />
+        You've got {notificationCount} new messages
+      </Pill>
     </DisplayDemo>
   )
 };
 
-<NotificationBadgeExample notifications={100}/>
+<NotificationBadgeExample notifications={100} />
 ```
 
 ### Mastering the hooks
 
 #### ✅ When to use
- 
-- When you need to get/set values from and to the `sessionStorage` 
+
+- When you need to get/set values from and to the `sessionStorage`
 
 #### 🛑 When not to use
 

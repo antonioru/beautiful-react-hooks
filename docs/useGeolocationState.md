@@ -1,14 +1,12 @@
 # useGeolocationState
 
-Returns an object containing the `position` information, the `isSupported` boolean flag reporting whether the
-geolocation API is supported or not and the `isRetrieving` boolean flag reporting whether the hook is fetching the
-current position or not.
+Returns an object containing the `position` information, the `isSupported` boolean flag reporting whether the geolocation API is supported
+or not and the `isRetrieving` boolean flag reporting whether the hook is fetching the current position or not.
 
 The position is retrieved by using the
-[Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API),
-when supported.
+[Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API), when supported.
 
-It possibly accepts an object of [geolocation options](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) 
+It possibly accepts an object of [geolocation options](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions)
 to be used as parameter when using the `Geolocation.getCurrentPosition()` method.
 
 ### Why? 💡
@@ -18,21 +16,22 @@ to be used as parameter when using the `Geolocation.getCurrentPosition()` method
 - allow to perform abstractions on geolocation related events
 
 ### Basic Usage:
+
 ```jsx harmony
-import { useGeolocationState } from 'beautiful-react-hooks'; 
+import useGeolocationState from 'beautiful-react-hooks/useGeolocationState';
 
 const PositionReporter = () => {
-  const {isSupported, isRetrieving, position } = useGeolocationState(); 
-  
+  const { isSupported, isRetrieving, position } = useGeolocationState();
+
   return (
-   <DisplayDemo>
-     The current position is:
-     {isRetrieving && (<p>Retrieving position...</p>)}
-     {isSupported && position && [
-       <p key={0}>Lat: {position.coords.latitude}</p>,
-       <p key={1}>Lng: {position.coords.longitude}</p>
-     ]}
-   </DisplayDemo>
+    <DisplayDemo>
+      The current position is:
+      {isRetrieving && (<p>Retrieving position...</p>)}
+      {isSupported && position && [
+        <p key={0}>Lat: {position.coords.latitude}</p>,
+        <p key={1}>Lng: {position.coords.longitude}</p>
+      ]}
+    </DisplayDemo>
   );
 };
 
@@ -44,24 +43,24 @@ const PositionReporter = () => {
 Before using, please read about the [geolocation options](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions)
 
 ```jsx harmony
-import { useGeolocationState } from 'beautiful-react-hooks'; 
+import useGeolocationState from 'beautiful-react-hooks/useGeolocationState';
 
 const PositionReporter = () => {
-  const {isSupported, isRetrieving, position } = useGeolocationState({ 
-    enableHighAccuracy: true, 
+  const { isSupported, isRetrieving, position } = useGeolocationState({
+    enableHighAccuracy: true,
     timeout: 0xFFFFFFFF,
     maximumAge: 0,
-  }); 
-  
+  });
+
   return (
-   <DisplayDemo>
-     The current high accuracy position is:
-     {isRetrieving && (<p>Retrieving position...</p>)}
-     {isSupported && position && [
-       <p key={0}>Lat: {position.coords.latitude}</p>,
-       <p key={1}>Lng: {position.coords.longitude}</p>
-     ]}
-   </DisplayDemo>
+    <DisplayDemo>
+      The current high accuracy position is:
+      {isRetrieving && (<p>Retrieving position...</p>)}
+      {isSupported && position && [
+        <p key={0}>Lat: {position.coords.latitude}</p>,
+        <p key={1}>Lng: {position.coords.longitude}</p>
+      ]}
+    </DisplayDemo>
   );
 };
 
@@ -71,7 +70,7 @@ const PositionReporter = () => {
 ### Mastering the hook
 
 #### ✅ When to use
- 
+
 - If in need to easily access the Geolocation API
 - If in need to abstract some geolocation related logic into a custom hooks
 

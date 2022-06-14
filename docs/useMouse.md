@@ -18,7 +18,7 @@ Provide a DOM ref as first parameter to `useMouse`
 
 ```jsx harmony
 import { useRef, useState } from 'react';
-import { useMouse } from 'beautiful-react-hooks';
+import useMouse from 'beautiful-react-hooks/useMouse';
 
 const MouseReporter = () => {
   const ref = useRef();
@@ -49,7 +49,7 @@ If no ref is provided to `useMouse` it will use the window global object assign 
 
 ```jsx harmony
 import { useState } from 'react';
-import { useMouse } from 'beautiful-react-hooks';
+import useMouse from 'beautiful-react-hooks/useMouse';
 
 const MouseReporter = () => {
   const [mouseDown, setMouseDown] = useState(false);

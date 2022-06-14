@@ -18,23 +18,23 @@ The loop ends when the animation progress reaches the value of 100. (or any othe
 ```jsx harmony
 import { useRef } from 'react';
 import { Alert } from 'beautiful-react-ui';
-import { useRequestAnimationFrame } from 'beautiful-react-hooks'; 
+import useRequestAnimationFrame from 'beautiful-react-hooks/useRequestAnimationFrame';
 
 const AnimationExample = () => {
-   const ref = useRef();
-   
-   useRequestAnimationFrame((progress, next) => {
-      ref.current.style.transform = `translateX(${progress}px)`;
-      next();
-   });
+  const ref = useRef();
 
-   return (
-     <DisplayDemo>
+  useRequestAnimationFrame((progress, next) => {
+    ref.current.style.transform = `translateX(${progress}px)`;
+    next();
+  });
+
+  return (
+    <DisplayDemo>
       <div ref={ref}>
-        <Alert color="primary" >Animating content</Alert>
+        <Alert color="primary">Animating content</Alert>
       </div>
-     </DisplayDemo>
-   );
+    </DisplayDemo>
+  );
 };
 
 <AnimationExample />
@@ -49,24 +49,24 @@ An object of options can be used as second argument to control the animation.
 ```jsx harmony
 import { useRef } from 'react';
 import { Alert } from 'beautiful-react-ui';
-import { useRequestAnimationFrame } from 'beautiful-react-hooks'; 
+import useRequestAnimationFrame from 'beautiful-react-hooks/useRequestAnimationFrame';
 
 const AnimationExample = () => {
-   const ref = useRef();
-   const options = {increment: 0.5, startAt: 0, finishAt: -1 };
+  const ref = useRef();
+  const options = { increment: 0.5, startAt: 0, finishAt: -1 };
 
-   useRequestAnimationFrame((progress, next) => {
-      ref.current.style.transform = `rotate(${progress}deg)`;
-      next();
-   }, options);
+  useRequestAnimationFrame((progress, next) => {
+    ref.current.style.transform = `rotate(${progress}deg)`;
+    next();
+  }, options);
 
-   return (
-     <DisplayDemo>
+  return (
+    <DisplayDemo>
       <div ref={ref}>
-        <Alert color="primary" >Animating content</Alert>
+        <Alert color="primary">Animating content</Alert>
       </div>
-     </DisplayDemo>
-   );
+    </DisplayDemo>
+  );
 };
 
 <AnimationExample />
@@ -74,31 +74,31 @@ const AnimationExample = () => {
 
 ### onFinish callback
 
-The hook returns an function to possibly set a callback when the animation finishes: 
+The hook returns an function to possibly set a callback when the animation finishes:
 
 ```jsx harmony
 import { useRef, useState } from 'react';
 import { Alert, Paragraph } from 'beautiful-react-ui';
-import { useRequestAnimationFrame } from 'beautiful-react-hooks'; 
+import useRequestAnimationFrame from 'beautiful-react-hooks/useRequestAnimationFrame';
 
 const AnimationExample = () => {
-   const ref = useRef();
-   const [isFinished, setIsFinished] = useState(false);
-   const onFinish = useRequestAnimationFrame((progress, next) => {
-      ref.current.style.transform = `translateX(${progress}px)`;
-      next();
-   });
+  const ref = useRef();
+  const [isFinished, setIsFinished] = useState(false);
+  const onFinish = useRequestAnimationFrame((progress, next) => {
+    ref.current.style.transform = `translateX(${progress}px)`;
+    next();
+  });
 
-   onFinish(() => setIsFinished(true)); 
+  onFinish(() => setIsFinished(true));
 
-   return (
-     <DisplayDemo>
+  return (
+    <DisplayDemo>
       <div ref={ref}>
-        <Alert color="primary" >Animating content</Alert>
+        <Alert color="primary">Animating content</Alert>
       </div>
-     {isFinished && <Paragraph>Animation completed!</Paragraph>}
-     </DisplayDemo>
-   );
+      {isFinished && <Paragraph>Animation completed!</Paragraph>}
+    </DisplayDemo>
+  );
 };
 
 <AnimationExample />
@@ -108,9 +108,8 @@ const AnimationExample = () => {
 
 Control the speed of your animation by changing the increment value
 
-
 ### Mastering the hook
 
 #### ✅ When to use
- 
+
 - When in need to perform requestAnimationFrame without re-rendering the component on each frame

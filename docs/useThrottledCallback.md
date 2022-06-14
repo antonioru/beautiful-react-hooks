@@ -11,7 +11,8 @@ time is not defined, its default value will be 250ms.
 
 ```jsx harmony
 import { useEffect, useState } from 'react';
-import { useWindowResize, useThrottledCallback } from 'beautiful-react-hooks';
+import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const ThrottledFnComponent = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -51,7 +52,8 @@ under the hood, you can possibly define the callback dependencies.
 
 ```jsx harmony
 import { useState } from 'react';
-import { useWindowResize, useThrottledCallback } from 'beautiful-react-hooks';
+import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const ThrottledFnComponent = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -84,7 +86,8 @@ A custom throttled time can be easily defined as follows (500ms)
 
 ```jsx harmony
 import { useState } from 'react';
-import { useWindowResize, useThrottledCallback } from 'beautiful-react-hooks';
+import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const ThrottledFnComponent = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -118,7 +121,8 @@ under the hood, you can possibly define few options to customise its behaviour.
 
 ```jsx harmony
 import { useState } from 'react';
-import { useWindowResize, useThrottledCallback } from 'beautiful-react-hooks';
+import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const ThrottledFnComponent = () => {
   const [width, setWidth] = useState(window.innerWidth);

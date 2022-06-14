@@ -1,8 +1,6 @@
-# useDrag 
+# useDrag
 
-Accepts an HTML Element ref then makes it draggable.
-Returns a boolean reporting whether the element in being dragged or not.
-
+Accepts an HTML Element ref then makes it draggable. Returns a boolean reporting whether the element in being dragged or not.
 
 ### Why? 💡
 
@@ -16,7 +14,7 @@ Provide a DOM ref as first parameter to `useDrag`
 
 ```jsx harmony
 import { useRef } from 'react';
-import { useDrag } from 'beautiful-react-hooks'; 
+import useDrag from 'beautiful-react-hooks/useDrag';
 
 const MyComponent = () => {
   const ref = useRef();
@@ -24,7 +22,7 @@ const MyComponent = () => {
 
   return (
     <DisplayDemo>
-      <div ref={ref} style={{padding: '20px 0', background: isDragged ? '#BE496E' : '#1D6C8B'}}>
+      <div ref={ref} style={{ padding: '20px 0', background: isDragged ? '#BE496E' : '#1D6C8B' }}>
         Draggable item...
         {isDragged && <span>is being dragged</span>}
       </div>
@@ -39,7 +37,7 @@ const MyComponent = () => {
 
 ```jsx harmony
 import { useRef } from 'react';
-import { useDrag } from 'beautiful-react-hooks'; 
+import useDrag from 'beautiful-react-hooks/useDrag';
 
 const MyComponent = () => {
   const ref = useRef();
@@ -51,7 +49,7 @@ const MyComponent = () => {
 
   return (
     <DisplayDemo>
-      <div ref={ref} style={{padding: '20px 0', background: isDragged ? '#BE496E' : '#1D6C8B'}}>
+      <div ref={ref} style={{ padding: '20px 0', background: isDragged ? '#BE496E' : '#1D6C8B' }}>
         Draggable item...
         {isDragged && <span>is being dragged</span>}
       </div>
@@ -66,7 +64,7 @@ const MyComponent = () => {
 
 ```jsx harmony
 import { useRef } from 'react';
-import { useDrag } from 'beautiful-react-hooks'; 
+import useDrag from 'beautiful-react-hooks/useDrag';
 
 const MyComponent = () => {
   const ref = useRef();
@@ -77,7 +75,7 @@ const MyComponent = () => {
 
   return (
     <DisplayDemo>
-      <div ref={ref} style={{padding: '20px 0', background: isDragged ? '#BE496E' : '#1D6C8B'}}>
+      <div ref={ref} style={{ padding: '20px 0', background: isDragged ? '#BE496E' : '#1D6C8B' }}>
         Draggable item...
         {isDragged && <span>is being dragged</span>}
       </div>
@@ -91,5 +89,5 @@ const MyComponent = () => {
 ### Mastering the hook
 
 #### ✅ When to use
- 
+
 - When in need of implementing basic drag-related business logic

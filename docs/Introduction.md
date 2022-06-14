@@ -25,7 +25,16 @@ lower as possible so that the it can be used and shared in bigger teams.
 * Functional approach
 * Fully written in JS (although TS types are supported)
 
-### Peer dependencies
+## Peer dependencies
 
 Some hooks are built on top of third-party libraries (rxjs, react-router-dom, redux), therefore you will notice those libraries listed as
 peer dependencies. You don't have to install these dependencies unless you directly use those hooks.
+
+## Imports
+
+Despite having an `index.ts` file, it's recommended importing the hooks from the library in the following fashion to avoid importing
+unnecessary hooks and therefore unnecessary dependencies
+
+```ts static
+import useSomeHook from 'beautiful-react-hoks/useSomeHook'
+```

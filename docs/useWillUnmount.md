@@ -10,18 +10,18 @@ Accepts a function to be performed right before the component unmounts.
 ### Basic Usage:
 
 ```jsx harmony
-import { useWillUnmount } from 'beautiful-react-hooks'; 
+import useWillUnmount from 'beautiful-react-hooks/useWillUnmount';
 
-const ComponentWillUnmount = () => {   
-   useWillUnmount(() => {
-      console.log('Component did unmount');
-   });
-      
-   return (
-     <DisplayDemo>
-       Check the javascript console after moving from this page
-     </DisplayDemo>
-   );
+const ComponentWillUnmount = () => {
+  useWillUnmount(() => {
+    console.log('Component did unmount');
+  });
+
+  return (
+    <DisplayDemo>
+      Check the javascript console after moving from this page
+    </DisplayDemo>
+  );
 };
 
 <ComponentWillUnmount />
@@ -29,32 +29,31 @@ const ComponentWillUnmount = () => {
 
 ### Callback setter syntax:
 
-if the first parameter is not provided, the returned function (*a handler setter*) can be used to 
-set the `useWillUnmount` handler, as long as it is immediately invoked.
+if the first parameter is not provided, the returned function (*a handler setter*) can be used to set the `useWillUnmount` handler, as long
+as it is immediately invoked.
 
-**Please note**: the returned handler setter is meant to change the value of the callback reference only, it does not 
-cause the component rerender nor should not be invoked asynchronously.
+**Please note**: the returned handler setter is meant to change the value of the callback reference only, it does not cause the component
+rerender nor should not be invoked asynchronously.
 
 ```jsx harmony
-import { useWillUnmount } from 'beautiful-react-hooks'; 
+import useWillUnmount from 'beautiful-react-hooks/useWillUnmount';
 
 const ComponentWillUnmount = () => {
-   const onUnmount = useWillUnmount(); 
-   
-   onUnmount(() => {
+  const onUnmount = useWillUnmount();
+
+  onUnmount(() => {
     console.log('Component did unmount');
-   });
-      
-   return (
-     <DisplayDemo>
-       Check the javascript console after moving from this page
-     </DisplayDemo>
-   );
+  });
+
+  return (
+    <DisplayDemo>
+      Check the javascript console after moving from this page
+    </DisplayDemo>
+  );
 };
 
 <ComponentWillUnmount />
 ```
-
 
 #### ✅ Pro tip:
 
@@ -69,7 +68,7 @@ by [Dan Abramov](https://twitter.com/dan_abramov)
 ### Mastering the hook
 
 #### ✅ When to use
- 
+
 - When in need of performing a function after the component did mount
 
 #### 🛑 When not to use

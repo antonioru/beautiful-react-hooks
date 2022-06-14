@@ -16,7 +16,7 @@ differently specified in the function's body. It's not invoked asynchronously
 
 ```jsx harmony
 import { useState } from 'react';
-import { useGlobalEvent } from 'beautiful-react-hooks';
+import useGlobalEvent from 'beautiful-react-hooks/useGlobalEvent';
 
 const TestComponent = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -43,7 +43,7 @@ under the hood, it's possible to specify the listener characteristics by passing
 
 ```jsx harmony
 import { useState } from 'react';
-import { useGlobalEvent } from 'beautiful-react-hooks';
+import useGlobalEvent from 'beautiful-react-hooks/useGlobalEvent';
 
 const TestComponent = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

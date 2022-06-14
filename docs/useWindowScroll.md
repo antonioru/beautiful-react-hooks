@@ -13,7 +13,7 @@ It's built on top of [useGlobalEvent](./useGlobalEvent.md).
 
 ```jsx harmony
 import { useState } from 'react';
-import { useWindowScroll } from 'beautiful-react-hooks';
+import useWindowScroll from 'beautiful-react-hooks/useWindowScroll';
 
 const WindowScrollReporter = () => {
   const [scrollY, setScrollY] = useState(window.scrollY);
@@ -43,7 +43,7 @@ rerender nor should not be invoked asynchronously.
 
 ```jsx harmony
 import { useState } from 'react';
-import { useWindowScroll } from 'beautiful-react-hooks';
+import useWindowScroll from 'beautiful-react-hooks/useWindowScroll';
 
 const WindowScrollReporter = () => {
   const [scrollY, setScrollY] = useState(window.scrollY);

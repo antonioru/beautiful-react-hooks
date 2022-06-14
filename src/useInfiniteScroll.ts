@@ -8,7 +8,7 @@ import useEvent from './useEvent'
  * scroll for that specific element.
  */
 const useInfiniteScroll = <TElement extends HTMLElement>(ref: RefObject<TElement>, delay = 250) => {
-  const onScroll = useEvent<UIEvent, TElement>(ref, 'scroll')
+  const onScroll = useEvent<UIEvent, TElement>(ref, 'scroll', { passive: true })
   const [onScrollEnd, setOnScrollEnd] = createHandlerSetter<void>()
 
   if (ref && !safeHasOwnProperty(ref, 'current')) {
