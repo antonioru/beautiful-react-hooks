@@ -1,8 +1,10 @@
 import React from 'react'
 import { cleanup as cleanupReact, fireEvent, render } from '@testing-library/react'
 import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
+import { renderHook as renderServerHook } from '@testing-library/react-hooks/server'
 import useGlobalEvent from '../dist/useGlobalEvent'
 import assertHook from './utils/assertHook'
+import noop from '../dist/shared/noop'
 
 describe('useGlobalEvent', () => {
   beforeEach(() => {

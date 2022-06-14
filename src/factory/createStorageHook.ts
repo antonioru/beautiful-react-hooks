@@ -3,6 +3,7 @@ import safelyParseJson from '../shared/safelyParseJson'
 import isClient from '../shared/isClient'
 import isAPISupported from '../shared/isAPISupported'
 import isDevelopment from '../shared/isDevelopment'
+import noop from '../shared/noop'
 
 /**
  * An utility to quickly create hooks to access both Session Storage and Local Storage
@@ -24,7 +25,7 @@ const createStorageHook = (type: 'session' | 'local') => {
         // eslint-disable-next-line no-console
         console.warn(`Please be aware that ${storageName} could not be available during SSR`)
       }
-      return [JSON.stringify(defaultValue) as unknown as TValue, () => undefined]
+      return [JSON.stringify(defaultValue) as unknown as TValue, noop]
     }
 
     const storage = (window as any)[storageName]

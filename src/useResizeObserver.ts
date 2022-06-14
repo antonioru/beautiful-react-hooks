@@ -23,6 +23,7 @@ const useResizeObserver = <TElement extends HTMLElement>
   if (isClient && !isSupported) {
     // eslint-disable-next-line no-console
     console.warn(errorMessage)
+    return undefined
   }
 
   // creates the observer reference on mount

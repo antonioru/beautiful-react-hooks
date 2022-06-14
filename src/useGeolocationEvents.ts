@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import createHandlerSetter from './factory/createHandlerSetter'
-import geolocationStandardOptions from './shared/geolocationStandardOptions'
+import { geoStandardOptions } from './shared/geolocationUtils'
+import { BRHGeolocationPosition, BRHGeolocationPositionError } from './shared/types'
 
 /**
  * Returns a frozen object of callback setters to handle the geolocation events.<br/>
@@ -8,10 +9,10 @@ import geolocationStandardOptions from './shared/geolocationStandardOptions'
  * an error occur while retrieving the position.<br/>
  * The returned object also contains the `isSupported` boolean flag reporting whether the geolocation API is supported.
  */
-const useGeolocationEvents = (options: PositionOptions = geolocationStandardOptions) => {
+const useGeolocationEvents = (options: PositionOptions = geoStandardOptions) => {
   const watchId = useRef<number>()
-  const [onChangeRef, setOnChangeRef] = createHandlerSetter<GeolocationPosition>()
-  const [onErrorRef, setOnErrorRef] = createHandlerSetter<GeolocationPositionError>()
+  const [onChangeRef, setOnChangeRef] = createHandlerSetter<BRHGeolocationPosition>()
+  const [onErrorRef, setOnErrorRef] = createHandlerSetter<BRHGeolocationPositionError>()
   const isSupported = useMemo(() => typeof window !== 'undefined' && 'geolocation' in window.navigator, [])
 
   if (!isSupported) {
@@ -19,12 +20,12 @@ const useGeolocationEvents = (options: PositionOptions = geolocationStandardOpti
   }
 
   useEffect(() => {
-    const onSuccess = (successEvent: GeolocationPosition) => {
+    const onSuccess = (successEvent: BRHGeolocationPosition) => {
       if (onChangeRef.current) {
         onChangeRef.current(successEvent)
       }
     }
-    const onError = (err: GeolocationPositionError) => {
+    const onError = (err: BRHGeolocationPositionError) => {
       if (onErrorRef.current) {
         onErrorRef.current(err)
       }

@@ -2,7 +2,8 @@ import { useCallback, useRef } from 'react'
 import createHandlerSetter from './factory/createHandlerSetter'
 import isClient from './shared/isClient'
 import isAPISupported from './shared/isAPISupported'
-import { GenericFunction } from './shared/types'
+import { CallbackSetter, GenericFunction } from './shared/types'
+import noop from './shared/noop'
 
 export type UseRequestAnimationFrameOpts = {
   increment?: number,
@@ -23,6 +24,7 @@ const useRequestAnimationFrame = <T extends GenericFunction>(func: T, options: U
   if (!isClient || !isAPISupported('requestAnimationFrame')) {
     // eslint-disable-next-line no-console
     console.warn(errorMessage)
+    return noop as CallbackSetter<void>
   }
 
   const opts = { ...defaultOptions, ...options }

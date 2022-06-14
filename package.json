@@ -94,6 +94,7 @@
     "react-dom": "18.1.0",
     "react-router-dom": "6.3.0",
     "react-styleguidist": "^11.2.0",
+    "react-test-renderer": "18.1.0",
     "regenerator-runtime": "0.13.9",
     "rxjs": "7.5.5",
     "semantic-release": "^19.0.3",

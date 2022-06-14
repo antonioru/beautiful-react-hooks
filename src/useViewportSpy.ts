@@ -23,7 +23,7 @@ const useViewportSpy = <TElement extends HTMLElement>(ref: RefObject<TElement>, 
       // eslint-disable-next-line no-console
       console.warn(errorMessage)
     }
-    return null
+    return false
   }
 
   const [isVisible, setIsVisible] = useState<boolean>()

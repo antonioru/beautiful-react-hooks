@@ -1,13 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 import useGeolocationEvents from './useGeolocationEvents'
-import geolocationStandardOptions from './shared/geolocationStandardOptions'
-import makePositionObj, { PositionSummary } from './shared/makePositionObject'
-import isSamePosition from './shared/isSamePosition'
+import { BRHGeolocationPosition } from './shared/types'
+import { geoStandardOptions, isSamePosition, makePositionObj } from './shared/geolocationUtils'
 
 export type GeolocationState = {
   readonly isSupported: boolean,
   readonly isRetrieving: boolean,
-  readonly position: PositionSummary,
+  readonly position: BRHGeolocationPosition,
 }
 
 /**
@@ -21,8 +20,8 @@ export type GeolocationState = {
  * (https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) to be used as parameter when using the
  * `Geolocation.getCurrentPosition()` method.
  */
-const useGeolocationState = (options: PositionOptions = geolocationStandardOptions) => {
-  const [position, setPosition] = useState<PositionSummary>(null)
+const useGeolocationState = (options: PositionOptions = geoStandardOptions) => {
+  const [position, setPosition] = useState<BRHGeolocationPosition>(null)
   const [isRetrieving, setRetrieving] = useState<boolean>(false)
   const { isSupported, onChange } = useGeolocationEvents(options)
 
