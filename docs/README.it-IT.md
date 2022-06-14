@@ -104,7 +104,6 @@ $ yarn add beautiful-react-hooks
 * [useThrottledCallback](useThrottledCallback.md)
 * [useLocalStorage](useLocalStorage.md)
 * [useSessionStorage](useSessionStorage.md)
-* [useStorage](useStorage.md)
 * [useDefaultedState](useDefaultedState.md)
 * [useRenderInfo](useRenderInfo.md)
 * [useSwipe](useSwipe.md), [useHorizontalSwipe](useHorizontalSwipe.md) and [useVerticalSwipe](useVerticalSwipe.md)
