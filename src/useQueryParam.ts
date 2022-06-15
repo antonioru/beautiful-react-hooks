@@ -20,9 +20,13 @@ const useQueryParam = <TParam extends string>(param: string, options: UseQueryPa
   const onMount = useDidMount()
   const [value, setValue] = useState<TParam>(getParamFromLocation<TParam>(location.search, param, options))
 
-  const setParam = useCallback((nextValue: TParam) => {
+  const setParam = useCallback((nextValue?: TParam) => {
     const params = new URLSearchParams()
-    params.set(param, nextValue)
+    if (!nextValue) {
+      params.delete(param)
+    } else {
+      params.set(param, nextValue)
+    }
 
     if (options.replaceState) {
       replace({ search: params.toString() })
@@ -41,7 +45,7 @@ const useQueryParam = <TParam extends string>(param: string, options: UseQueryPa
     }
   })
 
-  return [value, setParam] as [TParam, (nextValue: TParam) => void]
+  return [value, setParam] as [TParam, (nextValue?: TParam) => void]
 }
 
 export default useQueryParam
