@@ -8,7 +8,7 @@
     [
       "@semantic-release/exec",
       {
-        "successCmd": "node ../scripts/update-version.js ${nextRelease.version} && sh ../scripts/commit-version.sh ${nextRelease.version}"
+        "successCmd": "node ../scripts/update-version.js ${nextRelease.version} && node ../scripts/generate-exports.js && sh ../scripts/commit-version.sh ${nextRelease.version}"
       }
     ],
     "@semantic-release/npm",
