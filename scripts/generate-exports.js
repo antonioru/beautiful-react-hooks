@@ -12,8 +12,10 @@ const srcFiles = glob.sync(`${srcPath}/*.ts`)
                      .filter((file) => file !== 'index')
 
 const exportsObj = srcFiles.reduce((acc, file) => ({
-  ...acc, [file]: {
-    import: `./esm/${file}.js`, require: `./${file}.js`,
+  ...acc,
+  [`./${file}`]: {
+    import: `./esm/${file}.js`,
+    require: `./${file}.js`,
   }
 }), {})
 

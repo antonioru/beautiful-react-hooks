@@ -106,191 +106,191 @@
     "webpack": "^5.73.0"
   },
   "exports": {
-    "useConditionalTimeout": {
+    "./useConditionalTimeout": {
       "import": "./esm/useConditionalTimeout.js",
       "require": "./useConditionalTimeout.js"
     },
-    "useDebouncedCallback": {
+    "./useDebouncedCallback": {
       "import": "./esm/useDebouncedCallback.js",
       "require": "./useDebouncedCallback.js"
     },
-    "useDefaultedState": {
+    "./useDefaultedState": {
       "import": "./esm/useDefaultedState.js",
       "require": "./useDefaultedState.js"
     },
-    "useDidMount": {
+    "./useDidMount": {
       "import": "./esm/useDidMount.js",
       "require": "./useDidMount.js"
     },
-    "useDrag": {
+    "./useDrag": {
       "import": "./esm/useDrag.js",
       "require": "./useDrag.js"
     },
-    "useDragEvents": {
+    "./useDragEvents": {
       "import": "./esm/useDragEvents.js",
       "require": "./useDragEvents.js"
     },
-    "useDropZone": {
+    "./useDropZone": {
       "import": "./esm/useDropZone.js",
       "require": "./useDropZone.js"
     },
-    "useEvent": {
+    "./useEvent": {
       "import": "./esm/useEvent.js",
       "require": "./useEvent.js"
     },
-    "useGeolocation": {
+    "./useGeolocation": {
       "import": "./esm/useGeolocation.js",
       "require": "./useGeolocation.js"
     },
-    "useGeolocationEvents": {
+    "./useGeolocationEvents": {
       "import": "./esm/useGeolocationEvents.js",
       "require": "./useGeolocationEvents.js"
     },
-    "useGeolocationState": {
+    "./useGeolocationState": {
       "import": "./esm/useGeolocationState.js",
       "require": "./useGeolocationState.js"
     },
-    "useGlobalEvent": {
+    "./useGlobalEvent": {
       "import": "./esm/useGlobalEvent.js",
       "require": "./useGlobalEvent.js"
     },
-    "useHorizontalSwipe": {
+    "./useHorizontalSwipe": {
       "import": "./esm/useHorizontalSwipe.js",
       "require": "./useHorizontalSwipe.js"
     },
-    "useInfiniteScroll": {
+    "./useInfiniteScroll": {
       "import": "./esm/useInfiniteScroll.js",
       "require": "./useInfiniteScroll.js"
     },
-    "useInterval": {
+    "./useInterval": {
       "import": "./esm/useInterval.js",
       "require": "./useInterval.js"
     },
-    "useLifecycle": {
+    "./useLifecycle": {
       "import": "./esm/useLifecycle.js",
       "require": "./useLifecycle.js"
     },
-    "useLocalStorage": {
+    "./useLocalStorage": {
       "import": "./esm/useLocalStorage.js",
       "require": "./useLocalStorage.js"
     },
-    "useMediaQuery": {
+    "./useMediaQuery": {
       "import": "./esm/useMediaQuery.js",
       "require": "./useMediaQuery.js"
     },
-    "useMouse": {
+    "./useMouse": {
       "import": "./esm/useMouse.js",
       "require": "./useMouse.js"
     },
-    "useMouseEvents": {
+    "./useMouseEvents": {
       "import": "./esm/useMouseEvents.js",
       "require": "./useMouseEvents.js"
     },
-    "useMouseState": {
+    "./useMouseState": {
       "import": "./esm/useMouseState.js",
       "require": "./useMouseState.js"
     },
-    "useObservable": {
+    "./useObservable": {
       "import": "./esm/useObservable.js",
       "require": "./useObservable.js"
     },
-    "useOnlineState": {
+    "./useOnlineState": {
       "import": "./esm/useOnlineState.js",
       "require": "./useOnlineState.js"
     },
-    "usePreviousValue": {
+    "./usePreviousValue": {
       "import": "./esm/usePreviousValue.js",
       "require": "./usePreviousValue.js"
     },
-    "useQueryParam": {
+    "./useQueryParam": {
       "import": "./esm/useQueryParam.js",
       "require": "./useQueryParam.js"
     },
-    "useRenderInfo": {
+    "./useRenderInfo": {
       "import": "./esm/useRenderInfo.js",
       "require": "./useRenderInfo.js"
     },
-    "useRequestAnimationFrame": {
+    "./useRequestAnimationFrame": {
       "import": "./esm/useRequestAnimationFrame.js",
       "require": "./useRequestAnimationFrame.js"
     },
-    "useResizeObserver": {
+    "./useResizeObserver": {
       "import": "./esm/useResizeObserver.js",
       "require": "./useResizeObserver.js"
     },
-    "useSearchQuery": {
+    "./useSearchQuery": {
       "import": "./esm/useSearchQuery.js",
       "require": "./useSearchQuery.js"
     },
-    "useSessionStorage": {
+    "./useSessionStorage": {
       "import": "./esm/useSessionStorage.js",
       "require": "./useSessionStorage.js"
     },
-    "useSpeechSynthesis": {
+    "./useSpeechSynthesis": {
       "import": "./esm/useSpeechSynthesis.js",
       "require": "./useSpeechSynthesis.js"
     },
-    "useSwipe": {
+    "./useSwipe": {
       "import": "./esm/useSwipe.js",
       "require": "./useSwipe.js"
     },
-    "useSwipeEvents": {
+    "./useSwipeEvents": {
       "import": "./esm/useSwipeEvents.js",
       "require": "./useSwipeEvents.js"
     },
-    "useSystemVoices": {
+    "./useSystemVoices": {
       "import": "./esm/useSystemVoices.js",
       "require": "./useSystemVoices.js"
     },
-    "useThrottledCallback": {
+    "./useThrottledCallback": {
       "import": "./esm/useThrottledCallback.js",
       "require": "./useThrottledCallback.js"
     },
-    "useTimeout": {
+    "./useTimeout": {
       "import": "./esm/useTimeout.js",
       "require": "./useTimeout.js"
     },
-    "useTouch": {
+    "./useTouch": {
       "import": "./esm/useTouch.js",
       "require": "./useTouch.js"
     },
-    "useTouchEvents": {
+    "./useTouchEvents": {
       "import": "./esm/useTouchEvents.js",
       "require": "./useTouchEvents.js"
     },
-    "useTouchState": {
+    "./useTouchState": {
       "import": "./esm/useTouchState.js",
       "require": "./useTouchState.js"
     },
-    "useValidatedState": {
+    "./useValidatedState": {
       "import": "./esm/useValidatedState.js",
       "require": "./useValidatedState.js"
     },
-    "useValueHistory": {
+    "./useValueHistory": {
       "import": "./esm/useValueHistory.js",
       "require": "./useValueHistory.js"
     },
-    "useVerticalSwipe": {
+    "./useVerticalSwipe": {
       "import": "./esm/useVerticalSwipe.js",
       "require": "./useVerticalSwipe.js"
     },
-    "useViewportSpy": {
+    "./useViewportSpy": {
       "import": "./esm/useViewportSpy.js",
       "require": "./useViewportSpy.js"
     },
-    "useViewportState": {
+    "./useViewportState": {
       "import": "./esm/useViewportState.js",
       "require": "./useViewportState.js"
     },
-    "useWillUnmount": {
+    "./useWillUnmount": {
       "import": "./esm/useWillUnmount.js",
       "require": "./useWillUnmount.js"
     },
-    "useWindowResize": {
+    "./useWindowResize": {
       "import": "./esm/useWindowResize.js",
       "require": "./useWindowResize.js"
     },
-    "useWindowScroll": {
+    "./useWindowScroll": {
       "import": "./esm/useWindowScroll.js",
       "require": "./useWindowScroll.js"
     }
