@@ -47,7 +47,7 @@
     "react": ">=16.0.0",
     "react-dom": ">=16.0.0",
     "rxjs": ">=7.0.0",
-    "react-router-dom": ">=6.0.0"
+    "react-router-dom": ">=5.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.18.2",
@@ -65,6 +65,7 @@
     "@testing-library/react-hooks": "8.0.0",
     "@types/lodash.debounce": "4.0.7",
     "@types/lodash.throttle": "4.1.7",
+    "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "5.27.1",
     "@typescript-eslint/parser": "5.27.1",
     "babel-eslint": "^10.1.0",
@@ -92,7 +93,7 @@
     "nyc": "^15.1.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-router-dom": "6.3.0",
+    "react-router-dom": "5.3.3",
     "react-styleguidist": "^11.2.0",
     "regenerator-runtime": "0.13.9",
     "rxjs": "7.5.5",

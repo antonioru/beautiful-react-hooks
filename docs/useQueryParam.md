@@ -16,15 +16,15 @@ import useQueryParam from 'beautiful-react-hooks/useQueryParam';
 
 const ExampleComponent = () => {
   // second parameter is optional
-  const [fooValue, setFoo] = useQueryParam('foo', {
+  const [param, setValue] = useQueryParam('foo', {
     initialValue: 'bar',
     replaceState: false,
   })
 
   return (
     <DisplayDemo>
-      <p>Current value of 'foo' param is '{fooValue}'</p>
-      <Input value={fooValue} onChange={(e, nextValue) => setFoo(nextValue)} />
+      <p>Current value of 'foo' param is '{param}'</p>
+      <Input value={param} onChange={(e, nextValue) => setValue(nextValue)} />
     </DisplayDemo>
   );
 };

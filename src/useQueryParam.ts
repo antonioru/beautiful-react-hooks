@@ -1,5 +1,5 @@
-import { useSearchParams } from 'react-router-dom'
-import { useCallback, useMemo } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useCallback, useState } from 'react'
 import useDidMount from './useDidMount'
 
 export interface UseQueryParamsOptions<T extends string> {
@@ -7,22 +7,36 @@ export interface UseQueryParamsOptions<T extends string> {
   replaceState?: boolean,
 }
 
+const getParamFromLocation = <TParam extends string>(search: string, param: string, options: UseQueryParamsOptions<TParam>) => {
+  const params = new URLSearchParams(search)
+  return params.get(param) || options.initialValue || ''
+}
+
 /**
  * Ease the process of modify the query string in the URL for the current location.
  */
 const useQueryParam = <TParam extends string>(param: string, options: UseQueryParamsOptions<TParam> = {}) => {
-  const [params, setParams] = useSearchParams()
+  const { push, replace, location } = useHistory()
   const onMount = useDidMount()
-  const value = useMemo(() => params.get(param) || options.initialValue || '', [options.initialValue, params])
+  const [value, setValue] = useState(getParamFromLocation(location.search, param, options))
 
   const setParam = useCallback((nextValue: TParam) => {
+    const params = new URLSearchParams()
     params.set(param, nextValue)
 
-    setParams(params, { replace: options.replaceState })
-  }, [setParams, params, options.replaceState])
+    if (options.replaceState) {
+      replace({ search: params.toString() })
+      return
+    }
+
+    push({ search: params.toString() })
+    setValue(nextValue)
+  }, [options.replaceState])
 
   onMount(() => {
-    if (!params.get(param) && options.initialValue) {
+    const current = new URLSearchParams(location.search)
+
+    if (!current.get(param) && options.initialValue) {
       setParam(options.initialValue)
     }
   })
