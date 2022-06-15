@@ -9,7 +9,7 @@ export interface UseQueryParamsOptions<T extends string> {
 
 const getParamFromLocation = <TParam extends string>(search: string, param: string, options: UseQueryParamsOptions<TParam>) => {
   const params = new URLSearchParams(search)
-  return params.get(param) || options.initialValue || ''
+  return (params.get(param) || options.initialValue || '') as TParam
 }
 
 /**
@@ -18,7 +18,7 @@ const getParamFromLocation = <TParam extends string>(search: string, param: stri
 const useQueryParam = <TParam extends string>(param: string, options: UseQueryParamsOptions<TParam> = {}) => {
   const { push, replace, location } = useHistory()
   const onMount = useDidMount()
-  const [value, setValue] = useState(getParamFromLocation(location.search, param, options))
+  const [value, setValue] = useState<TParam>(getParamFromLocation<TParam>(location.search, param, options))
 
   const setParam = useCallback((nextValue: TParam) => {
     const params = new URLSearchParams()
@@ -41,7 +41,7 @@ const useQueryParam = <TParam extends string>(param: string, options: UseQueryPa
     }
   })
 
-  return [value, setParam]
+  return [value, setParam] as [TParam, (nextValue: TParam) => void]
 }
 
 export default useQueryParam
