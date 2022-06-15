@@ -11,13 +11,20 @@ const srcFiles = glob.sync(`${srcPath}/*.ts`)
                      .map((file) => file.replace(`${srcPath}/`, '').replace('.ts', ''))
                      .filter((file) => file !== 'index')
 
+const defaultExports = {
+  '.': {
+    import: './esm/index.js',
+    require: './index.js'
+  }
+}
+
 const exportsObj = srcFiles.reduce((acc, file) => ({
   ...acc,
   [`./${file}`]: {
     import: `./esm/${file}.js`,
     require: `./${file}.js`,
   }
-}), {})
+}), defaultExports)
 
 const packageJsonText = fs.readFileSync(pkgPath)
 const packageJson = JSON.parse(packageJsonText)
