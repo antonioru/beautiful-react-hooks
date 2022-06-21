@@ -5,14 +5,11 @@ import useDidMount from './useDidMount'
 export interface UseQueryParamOptions<T extends string> {
   initialValue?: T,
   replaceState?: boolean,
-  multi?: boolean,
 }
-
-const getValue = (param: URLSearchParams, key: string, multi?: boolean) => (multi ? param.getAll(key) : param.get(key))
 
 const getParamFromLocation = <TParam extends string>(search: string, param: string, options: UseQueryParamOptions<TParam>) => {
   const params = new URLSearchParams(search)
-  return (getValue(params, search, options.multi) || options.initialValue || '') as TParam
+  return (params.get(param) || options.initialValue || '') as TParam
 }
 
 /**
@@ -25,6 +22,8 @@ const useQueryParam = <TParam extends string>(param: string, options: UseQueryPa
 
   const setParam = useCallback((nextValue?: TParam) => {
     const params = new URLSearchParams()
+    const { pathname } = history.location
+
     if (!nextValue) {
       params.delete(param)
     } else {
@@ -32,19 +31,19 @@ const useQueryParam = <TParam extends string>(param: string, options: UseQueryPa
     }
 
     if (options.replaceState) {
-      history.replace({ search: params.toString() })
+      history.replace({ pathname, search: params.toString() })
       setValue(nextValue)
       return
     }
 
-    history.push({ search: params.toString() })
+    history.push({ pathname, search: params.toString() })
     setValue(nextValue)
   }, [options.replaceState, history])
 
   onMount(() => {
     const current = new URLSearchParams(history.location.search)
 
-    if (!getValue(current, param, options.multi) && options.initialValue) {
+    if (!current.get(param) && options.initialValue) {
       setParam(options.initialValue)
     }
   })

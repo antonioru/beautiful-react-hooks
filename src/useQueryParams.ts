@@ -21,6 +21,7 @@ const useQueryParams = <TParam extends string[]>(param: string, options: UseQuer
   const [value, setValues] = useState<TParam | []>(getParamsFromLocation<TParam>(history.location.search, param, options))
 
   const setParamValues = useCallback((nextValues?: TParam) => {
+    const { pathname } = history.location
     const params = new URLSearchParams(history.location.search)
 
     params.delete(param)
@@ -31,13 +32,13 @@ const useQueryParams = <TParam extends string[]>(param: string, options: UseQuer
     }
 
     if (options.replaceState) {
-      history.replace({ search: params.toString() })
-      setValues(nextValues || [])
+      history.replace({ pathname, search: params.toString() })
+      setValues(nextValues ? [...nextValues] : [])
       return
     }
 
-    history.push({ search: params.toString() })
-    setValues(nextValues || [])
+    history.push({ pathname, search: params.toString() })
+    setValues(nextValues ? [...nextValues] : [])
   }, [history, options.replaceState, param])
 
   onMount(() => {
