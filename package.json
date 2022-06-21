@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "3.2.3",
+  "version": "3.3.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -209,6 +209,10 @@
     "./useQueryParam": {
       "import": "./esm/useQueryParam.js",
       "require": "./useQueryParam.js"
+    },
+    "./useQueryParams": {
+      "import": "./esm/useQueryParams.js",
+      "require": "./useQueryParams.js"
     },
     "./useRenderInfo": {
       "import": "./esm/useRenderInfo.js",
