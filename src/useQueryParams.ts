@@ -32,6 +32,7 @@ const useQueryParams = <TParam extends string[]>(param: string, options: UseQuer
 
     if (options.replaceState) {
       history.replace({ search: params.toString() })
+      setValues(nextValues || [])
       return
     }
 
