@@ -2,23 +2,26 @@ import { useHistory } from 'react-router-dom'
 import { useCallback, useState } from 'react'
 import useDidMount from './useDidMount'
 
-export interface UseQueryParamsOptions<T extends string> {
+export interface UseQueryParamOptions<T extends string> {
   initialValue?: T,
   replaceState?: boolean,
+  multi?: boolean,
 }
 
-const getParamFromLocation = <TParam extends string>(search: string, param: string, options: UseQueryParamsOptions<TParam>) => {
+const getValue = (param: URLSearchParams, key: string, multi?: boolean) => (multi ? param.getAll(key) : param.get(key))
+
+const getParamFromLocation = <TParam extends string>(search: string, param: string, options: UseQueryParamOptions<TParam>) => {
   const params = new URLSearchParams(search)
-  return (params.get(param) || options.initialValue || '') as TParam
+  return (getValue(params, search, options.multi) || options.initialValue || '') as TParam
 }
 
 /**
  * Ease the process of modify the query string in the URL for the current location.
  */
-const useQueryParam = <TParam extends string>(param: string, options: UseQueryParamsOptions<TParam> = {}) => {
-  const { push, replace, location } = useHistory()
+const useQueryParam = <TParam extends string>(param: string, options: UseQueryParamOptions<TParam> = {}) => {
+  const history = useHistory()
   const onMount = useDidMount()
-  const [value, setValue] = useState<TParam>(getParamFromLocation<TParam>(location.search, param, options))
+  const [value, setValue] = useState<TParam>(getParamFromLocation<TParam>(history.location.search, param, options))
 
   const setParam = useCallback((nextValue?: TParam) => {
     const params = new URLSearchParams()
@@ -29,18 +32,18 @@ const useQueryParam = <TParam extends string>(param: string, options: UseQueryPa
     }
 
     if (options.replaceState) {
-      replace({ search: params.toString() })
+      history.replace({ search: params.toString() })
       return
     }
 
-    push({ search: params.toString() })
+    history.push({ search: params.toString() })
     setValue(nextValue)
-  }, [options.replaceState])
+  }, [options.replaceState, history])
 
   onMount(() => {
-    const current = new URLSearchParams(location.search)
+    const current = new URLSearchParams(history.location.search)
 
-    if (!current.get(param) && options.initialValue) {
+    if (!getValue(current, param, options.multi) && options.initialValue) {
       setParam(options.initialValue)
     }
   })

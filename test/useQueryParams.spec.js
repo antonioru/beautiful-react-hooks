@@ -1,20 +1,19 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks'
-import useQueryParam from '../dist/useQueryParam'
+import useQueryParams from '../dist/useQueryParams'
 import assertHook from './utils/assertHook'
 import ReactRouterWrapper from './utils/ReactRouterWrapper'
 
-describe('useQueryParam', () => {
+describe('useQueryParams', () => {
   beforeEach(() => cleanup())
 
-  assertHook(useQueryParam)
+  assertHook(useQueryParams)
 
   it('should work similar to useState', () => {
-    const { result } = renderHook(() => useQueryParam('foo'), { wrapper: ReactRouterWrapper })
+    const { result } = renderHook(() => useQueryParams('foo[]'), { wrapper: ReactRouterWrapper })
     const [val, setVal] = result.current
 
-    expect(val).to.be.a('string')
-    expect(val).to.equal('')
+    expect(val).to.be.an('array')
+    expect(val).to.deep.equal([])
     expect(setVal).to.be.a('function')
   })
-
 })

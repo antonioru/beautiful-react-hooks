@@ -3,8 +3,8 @@
 ### Why? 💡
 
 - to ease the process of modify the query string in the URL for the current location.
-- Works similar to useState hook
-- built on top of react-router-dom's useSearchParams
+- Works similar to the useState hook
+- it's not built on top of react-router-dom's useSearchParams, it is therefore compatible with older version
 
 ### Basic Usage:
 

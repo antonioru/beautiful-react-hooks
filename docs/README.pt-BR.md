@@ -78,6 +78,7 @@ $ yarn add beautiful-react-hooks
 ## 🎨 Hooks
 
 * [useQueryParam](useQueryParam.md)
+* [useQueryParams](useQueryParams.md)
 * [useSearchQuery](useSearchQuery.md)
 * [useInfiniteScroll](useInfiniteScroll.md)
 * [useObservable](useObservable.md)
