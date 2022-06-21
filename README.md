@@ -136,11 +136,9 @@ To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONT
 
 **Before submitting** a new merge request, please make sure:
 
-1. You have updated the package.json version and reported your changes into the [CHANGELOG](./CHANGELOG.md) file
-2. make sure you run `npm test` and `npm build` before submitting your merge request.
-3. make sure you've added the documentation of your custom hook (*you can possibly use
+1. make sure to write tests for your code, run `npm test` and `npm build` before submitting your merge request.
+2. in case you're creating a custom hook, make sure you've added the documentation (*you can possibly use
    the [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) to document your custom hook*).
-4. make sure you've updated the `index.d.ts` file with your hook types.
 
 ### Made with
 
