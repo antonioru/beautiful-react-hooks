@@ -20,7 +20,7 @@ const defaultOptions: DebounceOptions = {
  * If time is not defined, its default value will be 250ms.
  */
 const useDebouncedCallback = <TCallback extends GenericFunction>
-  (fn: TCallback, dependencies?: any[], wait: number = 250, options: DebounceOptions = defaultOptions) => {
+  (fn: TCallback, dependencies?: any[], wait: number = 600, options: DebounceOptions = defaultOptions) => {
   const debounced = useRef(debounce<TCallback>(fn, wait, options))
 
   useEffect(() => {

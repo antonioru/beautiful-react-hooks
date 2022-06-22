@@ -28,7 +28,7 @@ describe('useThrottledCallback', () => {
     const TestComponent = () => {
       const throttledFn = useThrottledCallback(() => {
         spy()
-      }, 250)
+      }, [], 250)
 
       React.useEffect(() => {
         throttledFn()
@@ -42,7 +42,7 @@ describe('useThrottledCallback', () => {
 
     render(<TestComponent />)
 
-    await promiseDelay(250)
+    await promiseDelay(300)
 
     expect(spy.called).to.be.true
     expect(spy.callCount).to.equal(1)

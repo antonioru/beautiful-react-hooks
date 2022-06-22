@@ -28,7 +28,7 @@ describe('useDebouncedCallback', () => {
     const TestComponent = () => {
       const debouncedCallback = useDebouncedCallback(() => {
         spy()
-      }, 250)
+      }, [], 250)
 
       React.useEffect(() => {
         debouncedCallback()
