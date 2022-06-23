@@ -1,55 +1,45 @@
 import { useHistory } from 'react-router-dom'
-import { useCallback, useState } from 'react'
+import { useCallback, useRef } from 'react'
 import useDidMount from './useDidMount'
+import useURLSearchParams from './useURLSearchParams'
 
-export interface UseQueryParamsOptions<T extends string[]> {
-  initialValue?: T,
+export interface UseQueryParamsOptions<TValue extends string[]> {
+  initialValue?: TValue,
   replaceState?: boolean,
-}
-
-const getParamsFromLocation = <TParam extends string[]>(search: string, param: string, options: UseQueryParamsOptions<TParam>) => {
-  const params = new URLSearchParams(search)
-  return (params.getAll(param) || options.initialValue || []) as TParam
 }
 
 /**
  * Very similar to `useQueryParams`, it eases the process of manipulate a query string that handles multiple values
  */
-const useQueryParams = <TParam extends string[]>(param: string, options: UseQueryParamsOptions<TParam> = {}) => {
+const useQueryParams = <TValue extends string[]>(key: string, options: UseQueryParamsOptions<TValue> = {}) => {
   const history = useHistory()
+  const params = useURLSearchParams()
+  const initialisedRef = useRef(false)
   const onMount = useDidMount()
-  const [value, setValues] = useState<TParam | []>(getParamsFromLocation<TParam>(history.location.search, param, options))
 
-  const setParamValues = useCallback((nextValues?: TParam) => {
-    const { pathname } = history.location
-    const params = new URLSearchParams(history.location.search)
+  const setParam = useCallback((nextValue?: TValue) => {
+    params.delete(key)
 
-    params.delete(param)
-    if (nextValues && nextValues.length > 0) {
-      nextValues.forEach((currentValue) => {
-        params.append(param, currentValue)
-      })
+    if (nextValue) {
+      nextValue.forEach((value) => params.append(key, value))
     }
 
     if (options.replaceState) {
-      history.replace({ pathname, search: params.toString() })
-      setValues(nextValues ? [...nextValues] : [])
+      history.replace({ search: params.toString() })
       return
     }
 
-    history.push({ pathname, search: params.toString() })
-    setValues(nextValues ? [...nextValues] : [])
-  }, [history, options.replaceState, param])
+    history.push({ search: params.toString() })
+  }, [options.replaceState, history])
 
   onMount(() => {
-    const current = new URLSearchParams(history.location.search)
-
-    if (current.getAll(param).length === 0 && options.initialValue) {
-      setParamValues(options.initialValue)
+    if (!params.has(key)) {
+      setParam(options.initialValue)
+      initialisedRef.current = true
     }
   })
 
-  return [value, setParamValues] as [TParam, (nextValue?: TParam) => void]
+  return [initialisedRef.current ? params.getAll(key) : options.initialValue, setParam] as [TValue, (nextValue?: TValue) => void]
 }
 
 export default useQueryParams

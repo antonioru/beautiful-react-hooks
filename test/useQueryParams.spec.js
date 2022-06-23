@@ -9,11 +9,12 @@ describe('useQueryParams', () => {
   assertHook(useQueryParams)
 
   it('should work similar to useState', () => {
-    const { result } = renderHook(() => useQueryParams('foo[]'), { wrapper: ReactRouterWrapper })
+    const initialValue = ['1', '2', '3']
+    const { result } = renderHook(() => useQueryParams('foo[]', { initialValue }), { wrapper: ReactRouterWrapper })
     const [val, setVal] = result.current
 
     expect(val).to.be.an('array')
-    expect(val).to.deep.equal([])
+    expect(val).to.deep.equal(initialValue)
     expect(setVal).to.be.a('function')
   })
 })
