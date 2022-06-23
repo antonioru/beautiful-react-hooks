@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -269,6 +269,10 @@
     "./useTouchState": {
       "import": "./esm/useTouchState.js",
       "require": "./useTouchState.js"
+    },
+    "./useURLSearchParams": {
+      "import": "./esm/useURLSearchParams.js",
+      "require": "./useURLSearchParams.js"
     },
     "./useValidatedState": {
       "import": "./esm/useValidatedState.js",
