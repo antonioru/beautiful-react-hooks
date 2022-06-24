@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import safelyParseJson from '../shared/safelyParseJson'
 import isClient from '../shared/isClient'
 import isAPISupported from '../shared/isAPISupported'
@@ -29,15 +29,26 @@ const createStorageHook = (type: 'session' | 'local') => {
     }
 
     const storage = (window as any)[storageName]
-    const [value, setValue] = useState<TValue>(
-      safelyParseJson(storage.getItem(storageKey) || JSON.stringify(defaultValue)),
+    const [storedValue, setStoredValue] = useState<TValue>(
+      () => {
+        try {
+          return safelyParseJson(storage.getItem(storageKey) || JSON.stringify(defaultValue))
+        } catch (e) {
+          return safelyParseJson(JSON.stringify(defaultValue))
+        }
+      },
     )
 
-    useEffect(() => {
-      storage.setItem(storageKey, JSON.stringify(value))
-    }, [storageKey, value])
+    const setValue = (value: TValue | ((previousValue: TValue) => TValue)) => {
+      try {
+        const valueToStore = value instanceof Function ? value(storedValue) : value
+        storage.setItem(storageKey, JSON.stringify(valueToStore))
+        setStoredValue(valueToStore)
+      // eslint-disable-next-line no-empty
+      } catch (error) {}
+    }
 
-    return [value, setValue]
+    return [storedValue, setValue]
   }
 }
 
