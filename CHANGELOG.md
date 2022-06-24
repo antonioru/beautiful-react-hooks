@@ -810,3 +810,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - introduces `useViewportState`
+
+## [3.1.1] - 2022-06-23
+
+### Added
+
+- error handling for useStorage hook

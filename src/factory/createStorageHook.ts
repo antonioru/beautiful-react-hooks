@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { useState } from 'react'
 import safelyParseJson from '../shared/safelyParseJson'
 import isClient from '../shared/isClient'
 import isAPISupported from '../shared/isAPISupported'
@@ -9,6 +9,7 @@ import noop from '../shared/noop'
  * An utility to quickly create hooks to access both Session Storage and Local Storage
  */
 const createStorageHook = (type: 'session' | 'local') => {
+  type SetValue<TValue> = (value: TValue | ((previousValue: TValue) => TValue)) => void
   const storageName = `${type}Storage`
 
   if (isClient && !isAPISupported(storageName)) {
@@ -19,7 +20,10 @@ const createStorageHook = (type: 'session' | 'local') => {
   /**
    * the hook
    */
-  return function useStorageCreatedHook<TValue>(storageKey: string, defaultValue?: any): [TValue, Dispatch<SetStateAction<TValue>>] {
+  return function useStorageCreatedHook<TValue>(
+    storageKey: string,
+    defaultValue?: any,
+  ): [TValue, SetValue<TValue>] {
     if (!isClient) {
       if (isDevelopment) {
         // eslint-disable-next-line no-console
@@ -29,15 +33,26 @@ const createStorageHook = (type: 'session' | 'local') => {
     }
 
     const storage = (window as any)[storageName]
-    const [value, setValue] = useState<TValue>(
-      safelyParseJson(storage.getItem(storageKey) || JSON.stringify(defaultValue)),
+    const [storedValue, setStoredValue] = useState<TValue>(
+      () => {
+        try {
+          return safelyParseJson(storage.getItem(storageKey) || JSON.stringify(defaultValue))
+        } catch (e) {
+          return safelyParseJson(JSON.stringify(defaultValue))
+        }
+      },
     )
 
-    useEffect(() => {
-      storage.setItem(storageKey, JSON.stringify(value))
-    }, [storageKey, value])
+    const setValue: SetValue<TValue> = (value) => {
+      try {
+        const valueToStore = value instanceof Function ? value(storedValue) : value
+        storage.setItem(storageKey, JSON.stringify(valueToStore))
+        setStoredValue(valueToStore)
+      // eslint-disable-next-line no-empty
+      } catch (error) {}
+    }
 
-    return [value, setValue]
+    return [storedValue, setValue]
   }
 }
 
