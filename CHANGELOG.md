@@ -811,8 +811,88 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - introduces `useViewportState`
 
-## [3.1.1] - 2022-06-23
+## [3.1.1] - 2022-06-13
+
+### fixes
+
+- fix(release): updates release process and changelog
+
+## [3.1.2] - 2022-06-13
+
+Errored release
+
+## [3.1.3] - 2022-06-13
+
+Errored release
+
+## [3.1.4] - 2022-06-14
+
+### Fixes
+
+- Fixes CI, semantic-release
+
+## [3.1.5] - 2022-06-14
+
+### Fixes
+
+- fix(useQueryParam): revert to version 5 of react-router-dom
+
+## [3.1.6] - 2022-06-14
+
+### Fixes
+
+- useQueryParams, adds support for param deletion
+
+## [3.2.0] - 2022-06-14
+
+### Adds
+
+- useQueryParams, adds support for param deletion
+
+## [3.2.1] - 2022-06-14
+
+### Fixes
+
+- useQueryParams types
+
+## [3.2.2] - 2022-06-14
+
+### Fixes
+
+- CI
+
+## [3.3.0] - 2022-06-14
+
+### Fixes
+
+- feat(useQueryParams): adds useQueryParams
+
+## [3.3.0] - 2022-06-20
+
+### Adds
+
+- feat(useQueryParams): adds useQueryParams
+
+## [3.3.1] - 2022-06-20
+
+### Fixes
+
+- useQueryParams and useQueryParam state bugs
+
+## [3.4.0] - 2022-06-22
+
+### Adds
+
+- feat(timeouts): increase the general timeout/delay value
+
+## [3.5.0] - 2022-06-23
 
 ### Added
+
+- feat(hook): introduces useURLSearchParams
+
+## [3.5.1] - 2022-06-24
+
+### Fixes
 
 - error handling for useStorage hook
