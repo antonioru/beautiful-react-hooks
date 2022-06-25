@@ -74,7 +74,7 @@ describe('useGeolocationState', () => {
             error({
               code: 1,
               message: 'GeoLocation Error',
-          })
+            })
           }
         }
       })
@@ -90,7 +90,7 @@ describe('useGeolocationState', () => {
             error({
               code: 1,
               message: 'GeoLocation Error',
-          })
+            })
           }
         }
       })
