@@ -891,14 +891,9 @@ Errored release
 
 - feat(hook): introduces useURLSearchParams
 
-## [3.5.1] - 2022-06-24
+## [3.5.1] - 2022-06-25
 
 ### Fixes
 
 - error handling for useStorage hook
-
-## [3.5.2] - 2022-06-24
-
-### Fixes
-
 - add more types for useStorage hook, fix bug where storage wasn't being set on initial render
