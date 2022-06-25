@@ -10,7 +10,7 @@ import noop from '../shared/noop'
  */
 const createStorageHook = (type: 'session' | 'local') => {
   type SetValue<TValue> = (value: TValue | ((previousValue: TValue) => TValue)) => void
-  const storageName = `${type}Storage`
+  const storageName: `${typeof type}Storage` = `${type}Storage`
 
   if (isClient && !isAPISupported(storageName)) {
     // eslint-disable-next-line no-console
@@ -31,25 +31,33 @@ const createStorageHook = (type: 'session' | 'local') => {
       }
       return [JSON.stringify(defaultValue) as unknown as TValue, noop]
     }
+    const storage = (window)[storageName]
 
-    const storage = (window as any)[storageName]
+    const safelySetStorage = (valueToStore: string) => {
+      try {
+        storage.setItem(storageKey, valueToStore)
+        // eslint-disable-next-line no-empty
+      } catch (e) {}
+    }
+
     const [storedValue, setStoredValue] = useState<TValue>(
       () => {
+        let valueToStore: string
         try {
-          return safelyParseJson(storage.getItem(storageKey) || JSON.stringify(defaultValue))
+          valueToStore = storage.getItem(storageKey) || JSON.stringify(defaultValue)
         } catch (e) {
-          return safelyParseJson(JSON.stringify(defaultValue))
+          valueToStore = JSON.stringify(defaultValue)
         }
+
+        safelySetStorage(valueToStore)
+        return safelyParseJson(valueToStore)
       },
     )
 
     const setValue: SetValue<TValue> = (value) => {
-      try {
-        const valueToStore = value instanceof Function ? value(storedValue) : value
-        storage.setItem(storageKey, JSON.stringify(valueToStore))
-        setStoredValue(valueToStore)
-      // eslint-disable-next-line no-empty
-      } catch (error) {}
+      const valueToStore = value instanceof Function ? value(storedValue) : value
+      safelySetStorage(JSON.stringify(valueToStore))
+      setStoredValue(valueToStore)
     }
 
     return [storedValue, setValue]

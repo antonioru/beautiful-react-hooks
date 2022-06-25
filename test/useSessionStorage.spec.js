@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
-import { cleanup as cleanupReact, render } from '@testing-library/react'
-import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
+import { cleanup as cleanupReact } from '@testing-library/react'
+import { cleanup as cleanupHooks, renderHook, act } from '@testing-library/react-hooks'
 import useSessionStorage from '../dist/useSessionStorage'
 import assertHook from './utils/assertHook'
 
@@ -17,43 +16,50 @@ describe('useSessionStorage', () => {
   assertHook(useSessionStorage)
 
   it('should return null when no default value defined', () => {
-    const { result, rerender } = renderHook(() => useSessionStorage('storageKey_1'))
+    const { result } = renderHook(() => useSessionStorage('storageKey_1'))
     const [value] = result.current
-
-    rerender()
 
     expect(value).to.equal(null)
   })
 
   it('should return default value', () => {
-    const { result, rerender } = renderHook(() => useSessionStorage('storageKey_2', 100))
+    const { result } = renderHook(() => useSessionStorage('storageKey_2', 100))
     const [value] = result.current
 
-    rerender()
-
     expect(value).to.equal(100)
+    expect(JSON.parse(window.sessionStorage.getItem('storageKey_2'))).to.equal(100)
   })
 
   it('should store and return new values', () => {
-    const TestComponent = (props) => {
-      // eslint-disable-next-line react/prop-types
-      const { newValue } = props
-      const [value, setValue] = useSessionStorage('storageKey_2', 100)
+    const { result } = renderHook(() =>
+      useSessionStorage("storageKey_3", 100)
+    )
 
-      const setNewState = (v) => {
-        setValue(v)
-      }
+    expect(result.current[0]).to.equal(100)
+    expect(JSON.parse(window.sessionStorage.getItem('storageKey_3'))).to.equal(100)
 
-      useEffect(() => {
-        setNewState(newValue)
-      }, [])
+    act(() => {
+      result.current[1](200)
+    })
 
-      return <p>{value}</p>
-    }
+    expect(result.current[0]).to.equal(200)
+    expect(JSON.parse(window.sessionStorage.getItem('storageKey_3'))).to.equal(200)
+  })
 
-    const { container } = render(<TestComponent newValue={200} />)
+  it('should accept a callback argument for setValue', () => {
+    const { result } = renderHook(() =>
+      useSessionStorage("storageKey_4", 100)
+    )
 
-    expect(container.querySelector('p').innerHTML).to.equal('200')
+    expect(result.current[0]).to.equal(100)
+    expect(JSON.parse(window.sessionStorage.getItem('storageKey_4'))).to.equal(100)
+
+    act(() => {
+      result.current[1](prev => prev + 100)
+    })
+
+    expect(result.current[0]).to.equal(200)
+    expect(JSON.parse(window.sessionStorage.getItem('storageKey_4'))).to.equal(200)
   })
 
   it('should gracefully handle a getItem error and use the default value', () => {
@@ -66,17 +72,14 @@ describe('useSessionStorage', () => {
       },
     })
 
-    const { result, rerender } = renderHook(() =>
-      useSessionStorage("storageKey_3", 100)
+    const { result } = renderHook(() =>
+      useSessionStorage("storageKey_5", 100)
     )
     const [value] = result.current
-
-    rerender()
-
     expect(value).to.equal(100)
   })
 
-  it("should gracefully handle a setItem error and maintain the current value", () => {
+  it("should gracefully handle a setItem error and set the new value", () => {
     Object.defineProperty(window, "sessionStorage", {
       value: {
         ...window.sessionStorage,
@@ -86,14 +89,14 @@ describe('useSessionStorage', () => {
       },
     })
 
-    const { result, rerender } = renderHook(() =>
-      useSessionStorage("storageKey_4", 100)
+    const { result } = renderHook(() =>
+      useSessionStorage("storageKey_6", 100)
     )
-    const [value, setValue] = result.current
-    setValue(200)
 
-    rerender()
+    act(() => {
+      result.current[1](200)
+    })
 
-    expect(value).to.equal(100)
+    expect(result.current[0]).to.equal(200)
   })
 })
