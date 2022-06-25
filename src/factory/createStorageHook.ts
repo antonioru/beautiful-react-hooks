@@ -44,7 +44,7 @@ const createStorageHook = (type: 'session' | 'local') => {
       () => {
         let valueToStore: string
         try {
-          valueToStore = storage.getItem(storageKey) ?? JSON.stringify(defaultValue)
+          valueToStore = storage.getItem(storageKey) || JSON.stringify(defaultValue)
         } catch (e) {
           valueToStore = JSON.stringify(defaultValue)
         }
