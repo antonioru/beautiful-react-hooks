@@ -21,7 +21,7 @@ describe('useGeolocation', () => {
 
     expect(result.current).to.be.an('array')
     expect(result.current.length).to.equal(2)
-    expect(result.current[0]).to.be.a('object').that.has.all.deep.keys('isSupported', 'isRetrieving', 'position')
+    expect(result.current[0]).to.be.a('object').that.has.all.deep.keys('isSupported', 'isRetrieving', 'onError', 'position')
     expect(result.current[1]).to.be.an('object').that.has.all.keys('isSupported', 'onChange', 'onError')
   })
 
