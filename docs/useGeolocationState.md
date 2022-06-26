@@ -1,7 +1,7 @@
 # useGeolocationState
 
 Returns an object containing the `position` information, the `isSupported` boolean flag reporting whether the geolocation API is supported
-or not and the `isRetrieving` boolean flag reporting whether the hook is fetching the current position or not.
+or not, the `isRetrieving` boolean flag reporting whether the hook is fetching the current position or not ans the `onError`, invoked when an error occur while retrieving the position.
 
 The position is retrieved by using the
 [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API), when supported.
@@ -21,7 +21,11 @@ to be used as parameter when using the `Geolocation.getCurrentPosition()` method
 import useGeolocationState from 'beautiful-react-hooks/useGeolocationState';
 
 const PositionReporter = () => {
-  const { isSupported, isRetrieving, position } = useGeolocationState();
+  const { isSupported, isRetrieving, position, onError } = useGeolocationState();
+
+  onError((error) => {
+    alert(error.message);
+  });
 
   return (
     <DisplayDemo>
@@ -46,10 +50,14 @@ Before using, please read about the [geolocation options](https://developer.mozi
 import useGeolocationState from 'beautiful-react-hooks/useGeolocationState';
 
 const PositionReporter = () => {
-  const { isSupported, isRetrieving, position } = useGeolocationState({
+  const { isSupported, isRetrieving, position, onError } = useGeolocationState({
     enableHighAccuracy: true,
     timeout: 0xFFFFFFFF,
     maximumAge: 0,
+  });
+
+  onError((error) => {
+    alert(error.message);
   });
 
   return (
