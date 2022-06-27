@@ -48,7 +48,7 @@ const useCookie = (key: string, options?: IOptions) => {
   if (!isClient) {
     if (!isDevelopment) {
       // eslint-disable-next-line no-console
-      return console.warn(
+      console.warn(
         'Please be aware that cookieStore could not be available during SSR',
       )
     }
