@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "3.5.2",
+  "version": "3.6.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -113,6 +113,10 @@
     "./useConditionalTimeout": {
       "import": "./esm/useConditionalTimeout.js",
       "require": "./useConditionalTimeout.js"
+    },
+    "./useCookie": {
+      "import": "./esm/useCookie.js",
+      "require": "./useCookie.js"
     },
     "./useDebouncedCallback": {
       "import": "./esm/useDebouncedCallback.js",
