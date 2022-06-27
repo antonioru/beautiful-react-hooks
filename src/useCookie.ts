@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 import noop from './shared/noop'
 import isClient from './shared/isClient'
@@ -99,15 +99,21 @@ const useCookie = (key: string, options?: IOptions) => {
     getInitialValue()
   }, [])
 
-  const updateCookie = (newValue: string) => cookieStoreObject
-    .set({ name: key, value: newValue, ...options })
-    .then(() => setCookieValue(newValue))
-    .catch(onError)
+  const updateCookie = useCallback(
+    (newValue: string) => cookieStoreObject
+      .set({ name: key, value: newValue, ...options })
+      .then(() => setCookieValue(newValue))
+      .catch(onError),
+    [],
+  )
 
-  const deleteCookie = () => cookieStoreObject
-    .delete({ name: key, ...options })
-    .then(() => setCookieValue(undefined))
-    .catch(onError)
+  const deleteCookie = useCallback(
+    () => cookieStoreObject
+      .delete({ name: key, ...options })
+      .then(() => setCookieValue(undefined))
+      .catch(onError),
+    [],
+  )
 
   return Object.freeze({
     cookieValue,
