@@ -897,3 +897,9 @@ Errored release
 
 - error handling for useStorage hook
 - add more types for useStorage hook, fix bug where storage wasn't being set on initial render
+
+## [3.5.2] - 2022-06-27
+
+### Fixes
+
+- wrap setValue from useStorage hook in useCallback to persist reference
