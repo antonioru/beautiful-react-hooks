@@ -70,7 +70,7 @@ const useCookie = (key: string, options?: IOptions) => {
     })
   }
 
-  const [cookieValue, setCookieValue] = useState(options?.defaultValue)
+  const [cookieValue, setCookieValue] = useState<string>()
   const [onErrorRef, setOnErrorRef] = createHandlerSetter<BRHGeolocationPositionError>()
 
   const cookieStoreObject = (window as any).cookieStore as ICookieStore
