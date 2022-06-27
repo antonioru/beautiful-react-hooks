@@ -26,9 +26,13 @@ describe('useDebouncedCallback', () => {
     const spy = sinon.spy()
 
     const TestComponent = () => {
-      const debouncedCallback = useDebouncedCallback(() => {
-        spy()
-      }, [], 250)
+      const debouncedCallback = useDebouncedCallback(
+        () => {
+          spy()
+        },
+        [],
+        250,
+      )
 
       React.useEffect(() => {
         debouncedCallback()

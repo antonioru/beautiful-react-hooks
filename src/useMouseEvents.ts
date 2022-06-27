@@ -16,7 +16,7 @@ import useEvent from './useEvent'
  * If you were doing something like the following:
  */
 const useMouseEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>) => {
-  const target = targetRef || { current: window.document } as unknown as RefObject<TElement>
+  const target = targetRef || ({ current: window.document } as unknown as RefObject<TElement>)
   const onMouseDown = useEvent<MouseEvent, TElement>(target, 'mousedown')
   const onMouseEnter = useEvent<MouseEvent, TElement>(target, 'mouseenter')
   const onMouseLeave = useEvent<MouseEvent, TElement>(target, 'mouseleave')

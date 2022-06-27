@@ -17,7 +17,9 @@ const useOnlineState = () => {
 
   if (!isSupported) {
     // eslint-disable-next-line max-len, no-console
-    console.warn('The current device does not support the \'online/offline\' events, you should avoid using useOnlineState')
+    console.warn(
+      "The current device does not support the 'online/offline' events, you should avoid using useOnlineState",
+    )
     return isOnline
   }
 

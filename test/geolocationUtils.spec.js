@@ -1,4 +1,8 @@
-import { geoStandardOptions, isSamePosition, makePositionObj } from '../dist/shared/geolocationUtils'
+import {
+  geoStandardOptions,
+  isSamePosition,
+  makePositionObj,
+} from '../dist/shared/geolocationUtils'
 import { positionMock } from './mocks/GeoLocationApi.mock'
 import assertFunction from './utils/assertFunction'
 
@@ -7,7 +11,9 @@ describe('geolocation utils', () => {
   assertFunction(makePositionObj)
 
   it('geoStandardOptions should be a frozen object defining standard geolocation options', () => {
-    expect(geoStandardOptions).to.be.an('object').that.has.all.deep.keys('enableHighAccuracy', 'timeout', 'maximumAge')
+    expect(geoStandardOptions)
+      .to.be.an('object')
+      .that.has.all.deep.keys('enableHighAccuracy', 'timeout', 'maximumAge')
     expect(geoStandardOptions).to.be.frozen
   })
 
@@ -49,7 +55,9 @@ describe('geolocation utils', () => {
 
   it('makePositionObj should remove unwanted property from a position object', () => {
     const pos = {
-      ...positionMock, foo: 'bar', bar: 'foo'
+      ...positionMock,
+      foo: 'bar',
+      bar: 'foo',
     }
 
     const result = makePositionObj(pos)

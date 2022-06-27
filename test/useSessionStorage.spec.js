@@ -31,9 +31,7 @@ describe('useSessionStorage', () => {
   })
 
   it('should store and return new values', () => {
-    const { result } = renderHook(() =>
-      useSessionStorage("storageKey_3", 100)
-    )
+    const { result } = renderHook(() => useSessionStorage('storageKey_3', 100))
 
     expect(result.current[0]).to.equal(100)
     expect(JSON.parse(window.sessionStorage.getItem('storageKey_3'))).to.equal(100)
@@ -47,15 +45,13 @@ describe('useSessionStorage', () => {
   })
 
   it('should accept a callback argument for setValue', () => {
-    const { result } = renderHook(() =>
-      useSessionStorage("storageKey_4", 100)
-    )
+    const { result } = renderHook(() => useSessionStorage('storageKey_4', 100))
 
     expect(result.current[0]).to.equal(100)
     expect(JSON.parse(window.sessionStorage.getItem('storageKey_4'))).to.equal(100)
 
     act(() => {
-      result.current[1](prev => prev + 100)
+      result.current[1]((prev) => prev + 100)
     })
 
     expect(result.current[0]).to.equal(200)
@@ -63,7 +59,7 @@ describe('useSessionStorage', () => {
   })
 
   it('should gracefully handle a getItem error and use the default value', () => {
-    Object.defineProperty(window, "sessionStorage", {
+    Object.defineProperty(window, 'sessionStorage', {
       value: {
         ...window.sessionStorage,
         getItem: () => {
@@ -72,15 +68,13 @@ describe('useSessionStorage', () => {
       },
     })
 
-    const { result } = renderHook(() =>
-      useSessionStorage("storageKey_5", 100)
-    )
+    const { result } = renderHook(() => useSessionStorage('storageKey_5', 100))
     const [value] = result.current
     expect(value).to.equal(100)
   })
 
-  it("should gracefully handle a setItem error and set the new value", () => {
-    Object.defineProperty(window, "sessionStorage", {
+  it('should gracefully handle a setItem error and set the new value', () => {
+    Object.defineProperty(window, 'sessionStorage', {
       value: {
         ...window.sessionStorage,
         setItem: () => {
@@ -89,9 +83,7 @@ describe('useSessionStorage', () => {
       },
     })
 
-    const { result } = renderHook(() =>
-      useSessionStorage("storageKey_6", 100)
-    )
+    const { result } = renderHook(() => useSessionStorage('storageKey_6', 100))
 
     act(() => {
       result.current[1](200)

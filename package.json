@@ -14,7 +14,9 @@
     "test": "nyc mocha --recursive --exit \"./test/**/*.spec.+(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
     "start": "npx styleguidist server",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "format": "npx prettier \"**/*.+(js|jsx|ts|tsx|json)\" --write",
+    "format:check": "npx prettier \"**/*.+(js|jsx|ts|tsx|json)\" --check"
   },
   "browserslist": [
     ">1%",
@@ -46,8 +48,8 @@
   "peerDependencies": {
     "react": ">=16.0.0",
     "react-dom": ">=16.0.0",
-    "rxjs": ">=7.0.0",
-    "react-router-dom": ">=5.0.0"
+    "react-router-dom": ">=5.0.0",
+    "rxjs": ">=7.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.18.2",
@@ -81,6 +83,7 @@
     "eslint-plugin-chai-expect": "^3.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
     "glob": "^8.0.3",
@@ -91,6 +94,7 @@
     "mocha": "10.0.0",
     "mock-local-storage": "1.1.23",
     "nyc": "^15.1.0",
+    "prettier": "2.7.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-router-dom": "5.3.3",

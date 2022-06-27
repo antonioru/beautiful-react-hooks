@@ -31,7 +31,7 @@ const createStorageHook = (type: 'session' | 'local') => {
       }
       return [JSON.stringify(defaultValue) as unknown as TValue, noop]
     }
-    const storage = (window)[storageName]
+    const storage = window[storageName]
 
     const safelySetStorage = (valueToStore: string) => {
       try {
@@ -40,19 +40,17 @@ const createStorageHook = (type: 'session' | 'local') => {
       } catch (e) {}
     }
 
-    const [storedValue, setStoredValue] = useState<TValue>(
-      () => {
-        let valueToStore: string
-        try {
-          valueToStore = storage.getItem(storageKey) || JSON.stringify(defaultValue)
-        } catch (e) {
-          valueToStore = JSON.stringify(defaultValue)
-        }
+    const [storedValue, setStoredValue] = useState<TValue>(() => {
+      let valueToStore: string
+      try {
+        valueToStore = storage.getItem(storageKey) || JSON.stringify(defaultValue)
+      } catch (e) {
+        valueToStore = JSON.stringify(defaultValue)
+      }
 
-        safelySetStorage(valueToStore)
-        return safelyParseJson(valueToStore)
-      },
-    )
+      safelySetStorage(valueToStore)
+      return safelyParseJson(valueToStore)
+    })
 
     const setValue: SetValue<TValue> = (value) => {
       const valueToStore = value instanceof Function ? value(storedValue) : value

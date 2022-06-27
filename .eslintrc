@@ -9,6 +9,7 @@
     "project": "./tsconfig.esm.json"
   },
   "plugins": [
+    "prettier",
     "chai-expect",
     "react-hooks"
   ],
@@ -17,9 +18,22 @@
     "mocha": true
   },
   "rules": {
-    "max-len": ["error", {"code": 140}],
-    "semi": [2, "never"],
+    "max-len": [
+      "error",
+      {
+        "code": 140
+      }
+    ],
+    "semi": [
+      2,
+      "never"
+    ],
+    "no-confusing-arrow": "off",
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "prettier/prettier": "error",
     "@typescript-eslint/semi": "off",
+    "@typescript-eslint/indent": "off",
     "linebreak-style": "off",
     "object-curly-newline": "off",
     "react/jsx-filename-extension": "off"

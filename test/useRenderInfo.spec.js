@@ -12,7 +12,9 @@ describe('useRenderInfo', () => {
 
   it('should return an information object', () => {
     const name = 'Foo'
-    const { result: { current: info } } = renderHook(() => useRenderInfo(name, false))
+    const {
+      result: { current: info },
+    } = renderHook(() => useRenderInfo(name, false))
 
     expect(info).to.be.an('object')
     expect(info.module).to.equal(name)
@@ -22,7 +24,10 @@ describe('useRenderInfo', () => {
   })
 
   it('should print consistent information', () => {
-    const { result: { current: info }, rerender } = renderHook(() => useRenderInfo('foo', false))
+    const {
+      result: { current: info },
+      rerender,
+    } = renderHook(() => useRenderInfo('foo', false))
 
     rerender()
     rerender()

@@ -4,8 +4,8 @@ import { GenericFunction } from './shared/types'
 import useWillUnmount from './useWillUnmount'
 
 interface ThrottleSettings {
-  leading?: boolean | undefined;
-  trailing?: boolean | undefined;
+  leading?: boolean | undefined
+  trailing?: boolean | undefined
 }
 
 const defaultOptions: ThrottleSettings = {
@@ -18,8 +18,12 @@ const defaultOptions: ThrottleSettings = {
  * before allowing the next execution.
  * If time is not defined, its default value will be 250ms.
  */
-const useThrottledCallback = <TCallback extends GenericFunction>
-  (fn: TCallback, dependencies?: any[], wait: number = 600, options: ThrottleSettings = defaultOptions) => {
+const useThrottledCallback = <TCallback extends GenericFunction>(
+  fn: TCallback,
+  dependencies?: any[],
+  wait: number = 600,
+  options: ThrottleSettings = defaultOptions,
+) => {
   const throttled = useRef(throttle<TCallback>(fn, wait, options))
 
   useEffect(() => {

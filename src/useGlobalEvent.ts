@@ -7,7 +7,10 @@ import noop from './shared/noop'
 /**
  * Accepts an event name then returns a callback setter for a function to be performed when the event triggers.
  */
-const useGlobalEvent = <TEvent extends Event>(eventName: keyof WindowEventMap, opts?: AddEventListenerOptions) => {
+const useGlobalEvent = <TEvent extends Event>(
+  eventName: keyof WindowEventMap,
+  opts?: AddEventListenerOptions,
+) => {
   if (!isClient) {
     return noop as CallbackSetter<TEvent>
   }

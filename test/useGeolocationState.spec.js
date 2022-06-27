@@ -26,7 +26,9 @@ describe('useGeolocationState', () => {
     const { result } = renderHook(() => useGeolocationState())
 
     expect(result.current).to.be.frozen
-    expect(result.current).to.be.an('object').that.has.all.deep.keys('isSupported', 'isRetrieving', 'position')
+    expect(result.current)
+      .to.be.an('object')
+      .that.has.all.deep.keys('isSupported', 'isRetrieving', 'position')
     expect(result.current.position).to.deep.equal(positionMock)
   })
 

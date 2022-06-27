@@ -1,0 +1,5 @@
+dist
+docs
+coverage
+.nyc_output
+dist-ghpages

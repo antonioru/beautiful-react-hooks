@@ -3,10 +3,14 @@ import debounce from 'lodash.debounce'
 import isApiSupported from './shared/isAPISupported'
 import isClient from './shared/isClient'
 
-// eslint-disable-next-line max-len
-const errorMessage = 'ResizeObserver is not supported, this could happen both because window.ResizeObserver is not supported by your current browser or you\'re using the useResizeObserver hook whilst server side rendering.'
+const errorMessage =
+  // eslint-disable-next-line max-len
+  "ResizeObserver is not supported, this could happen both because window.ResizeObserver is not supported by your current browser or you're using the useResizeObserver hook whilst server side rendering."
 
-export type DOMRectValues = Pick<DOMRectReadOnly, 'bottom' | 'height' | 'left' | 'right' | 'top' | 'width'>
+export type DOMRectValues = Pick<
+  DOMRectReadOnly,
+  'bottom' | 'height' | 'left' | 'right' | 'top' | 'width'
+>
 
 /**
  * Uses the ResizeObserver API to observe changes within the given HTML Element DOM Rect.
@@ -14,8 +18,10 @@ export type DOMRectValues = Pick<DOMRectReadOnly, 'bottom' | 'height' | 'left' |
  * @param debounceTimeout
  * @returns {undefined}
  */
-const useResizeObserver = <TElement extends HTMLElement>
-  (elementRef: RefObject<TElement>, debounceTimeout: number = 100): DOMRectValues | undefined => {
+const useResizeObserver = <TElement extends HTMLElement>(
+  elementRef: RefObject<TElement>,
+  debounceTimeout: number = 100,
+): DOMRectValues | undefined => {
   const isSupported = isApiSupported('ResizeObserver')
   const observerRef = useRef<ResizeObserver | null>(null)
   const [DOMRect, setDOMRect] = useState<DOMRectValues>()
@@ -39,20 +45,29 @@ const useResizeObserver = <TElement extends HTMLElement>
 
       return () => {
         fn.cancel()
-        if (observerRef && observerRef.current && observerRef.current.disconnect && typeof observerRef.current.disconnect === 'function') {
+        if (
+          observerRef &&
+          observerRef.current &&
+          observerRef.current.disconnect &&
+          typeof observerRef.current.disconnect === 'function'
+        ) {
           observerRef.current.disconnect()
         }
       }
     }
 
-    return () => {
-    }
+    return () => {}
   }, [])
 
   // observes on the provided element ref
   useEffect(() => {
     if (isSupported && elementRef.current) {
-      if (observerRef && observerRef.current && observerRef.current.observe && typeof observerRef.current.observe === 'function') {
+      if (
+        observerRef &&
+        observerRef.current &&
+        observerRef.current.observe &&
+        typeof observerRef.current.observe === 'function'
+      ) {
         observerRef.current.observe(elementRef.current)
       }
     }

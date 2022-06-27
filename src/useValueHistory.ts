@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 
-const distinctValues = <T>(value: T, current: number, array: T[]): boolean => array.indexOf(value) === current
+const distinctValues = <T>(value: T, current: number, array: T[]): boolean =>
+  array.indexOf(value) === current
 
 /**
  * Accepts a variable (possibly a prop or a state) and returns its history (changes through updates).

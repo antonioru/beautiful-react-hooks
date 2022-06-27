@@ -16,7 +16,17 @@ describe('useMouseEvents', () => {
   it('should return an object of mouse-related callback setters', () => {
     const { result } = renderHook(() => useMouseEvents())
 
-    expect(result.current).to.be.an('object').that.has.all.keys('onMouseDown', 'onMouseEnter', 'onMouseLeave', 'onMouseMove', 'onMouseOut', 'onMouseOver', 'onMouseUp')
+    expect(result.current)
+      .to.be.an('object')
+      .that.has.all.keys(
+        'onMouseDown',
+        'onMouseEnter',
+        'onMouseLeave',
+        'onMouseMove',
+        'onMouseOut',
+        'onMouseOver',
+        'onMouseUp',
+      )
   })
 
   it('if no ref is provided, should perform the set callback when a mouse event occurs globally', () => {
@@ -30,7 +40,13 @@ describe('useMouseEvents', () => {
 
     const TestComponent = () => {
       const {
-        onMouseDown, onMouseEnter, onMouseLeave, onMouseMove, onMouseOut, onMouseUp, onMouseOver
+        onMouseDown,
+        onMouseEnter,
+        onMouseLeave,
+        onMouseMove,
+        onMouseOut,
+        onMouseUp,
+        onMouseOver,
       } = useMouseEvents()
 
       onMouseDown(mouseDownSpy)
@@ -75,7 +91,13 @@ describe('useMouseEvents', () => {
 
     const TestComponent = () => {
       const {
-        onMouseDown, onMouseEnter, onMouseLeave, onMouseMove, onMouseOut, onMouseUp, onMouseOver
+        onMouseDown,
+        onMouseEnter,
+        onMouseLeave,
+        onMouseMove,
+        onMouseOut,
+        onMouseUp,
+        onMouseOver,
       } = useMouseEvents(refMock)
 
       onMouseDown(mouseDownSpy)

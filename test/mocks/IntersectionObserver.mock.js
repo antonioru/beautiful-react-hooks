@@ -23,4 +23,3 @@ IntersectionObserverMock.simulateObservation = () => {
 }
 
 export default IntersectionObserverMock
-

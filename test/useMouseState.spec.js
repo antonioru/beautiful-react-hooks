@@ -10,7 +10,9 @@ describe('useMouseState', () => {
   it('should return a mouse coordinates reporting object', () => {
     const { result } = renderHook(() => useMouseState())
 
-    expect(result.current).to.be.a('object').that.has.all.keys('clientX', 'clientY', 'screenY', 'screenY')
+    expect(result.current)
+      .to.be.a('object')
+      .that.has.all.keys('clientX', 'clientY', 'screenY', 'screenY')
   })
 
   it('should update the mouse position whilst it moves', () => {

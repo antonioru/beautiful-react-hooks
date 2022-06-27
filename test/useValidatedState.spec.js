@@ -3,7 +3,10 @@ import useValidatedState from '../dist/useValidatedState'
 import assertHook from './utils/assertHook'
 
 describe('useValidatedState', () => {
-  const makeValidator = (value = true) => () => value
+  const makeValidator =
+    (value = true) =>
+    () =>
+      value
 
   beforeEach(() => cleanup())
 

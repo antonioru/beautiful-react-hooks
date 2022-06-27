@@ -12,7 +12,9 @@ describe('useSwipe', () => {
   it('should return the swipe state', () => {
     const { result } = renderHook(() => useSwipe())
 
-    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count')
+    expect(result.current)
+      .to.be.an('object')
+      .that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count')
   })
 })
 
@@ -26,7 +28,9 @@ describe('useHorizontalSwipe', () => {
   it('should return the swipe state', () => {
     const { result } = renderHook(() => useHorizontalSwipe())
 
-    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count')
+    expect(result.current)
+      .to.be.an('object')
+      .that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count')
   })
 })
 
@@ -40,6 +44,8 @@ describe('useVerticalSwipe', () => {
   it('should return the swipe state', () => {
     const { result } = renderHook(() => useVerticalSwipe())
 
-    expect(result.current).to.be.an('object').that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count')
+    expect(result.current)
+      .to.be.an('object')
+      .that.has.all.keys('swiping', 'direction', 'alphaX', 'alphaY', 'count')
   })
 })

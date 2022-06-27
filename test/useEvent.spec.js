@@ -75,7 +75,7 @@ describe('useEvent', () => {
     expect(secondSpy.callCount).to.equal(2)
   })
 
-  it('it should be \'trickable\' with global objects', () => {
+  it("it should be 'trickable' with global objects", () => {
     const spy = sinon.spy()
 
     const TestComponent = () => {

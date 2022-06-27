@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useMemo } from 'react'
 
 export type UseSpeechSynthesisOptions = {
-  rate?: number,
-  pitch?: number,
+  rate?: number
+  pitch?: number
   volume?: number
-  voice?: SpeechSynthesisVoice,
+  voice?: SpeechSynthesisVoice
 }
 
 const defaultOptions: UseSpeechSynthesisOptions = { rate: 0, pitch: 0, volume: 1 }
 
 export type SpeechSynthesisResult = {
-  speak: () => void,
+  speak: () => void
   speechSynthUtterance: SpeechSynthesisUtterance
 }
 
@@ -18,7 +18,10 @@ export type SpeechSynthesisResult = {
  * Enables the possibility to perform a text-to-speech (with different voices) operation in your
  * React component by using the Web_Speech_API
  */
-const useSpeechSynthesis = (text: string, options: UseSpeechSynthesisOptions = defaultOptions): SpeechSynthesisResult => {
+const useSpeechSynthesis = (
+  text: string,
+  options: UseSpeechSynthesisOptions = defaultOptions,
+): SpeechSynthesisResult => {
   const utter: SpeechSynthesisUtterance = useMemo(() => new SpeechSynthesisUtterance(text), [text])
   const voiceOptions = { ...defaultOptions, ...options }
   utter.voice = voiceOptions.voice

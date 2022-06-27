@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { GenericFunction } from './shared/types'
 
 export type UseIntervalOptions = {
-  cancelOnUnmount?: boolean,
+  cancelOnUnmount?: boolean
 }
 
 const defaultOptions: UseIntervalOptions = {
@@ -13,8 +13,11 @@ const defaultOptions: UseIntervalOptions = {
  * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then repeats the
  * execution of the given function by the defined milliseconds.
  */
-const useInterval = <TCallback extends GenericFunction>
-  (fn: TCallback, milliseconds: number, options: UseIntervalOptions = defaultOptions) => {
+const useInterval = <TCallback extends GenericFunction>(
+  fn: TCallback,
+  milliseconds: number,
+  options: UseIntervalOptions = defaultOptions,
+) => {
   const opts = { ...defaultOptions, ...(options || {}) }
   const timeout = useRef<NodeJS.Timeout>()
   const callback = useRef<TCallback>(fn)
@@ -48,11 +51,14 @@ const useInterval = <TCallback extends GenericFunction>
   }, [milliseconds])
 
   // when component unmount clear the timeout
-  useEffect(() => () => {
-    if (opts.cancelOnUnmount) {
-      clear()
-    }
-  }, [])
+  useEffect(
+    () => () => {
+      if (opts.cancelOnUnmount) {
+        clear()
+      }
+    },
+    [],
+  )
 
   return [isCleared, clear]
 }

@@ -26,9 +26,13 @@ describe('useThrottledCallback', () => {
     const spy = sinon.spy()
 
     const TestComponent = () => {
-      const throttledFn = useThrottledCallback(() => {
-        spy()
-      }, [], 250)
+      const throttledFn = useThrottledCallback(
+        () => {
+          spy()
+        },
+        [],
+        250,
+      )
 
       React.useEffect(() => {
         throttledFn()

@@ -11,7 +11,7 @@ describe('useMediaQuery', () => {
     },
     removeListener() {
       delete this.listeners.cb
-    }
+    },
   }
 
   beforeEach(() => {
@@ -25,7 +25,7 @@ describe('useMediaQuery', () => {
   assertHook(useMediaQuery)
 
   it('should return a boolean value', () => {
-    window.matchMedia = () => (mediaQueryListMock)
+    window.matchMedia = () => mediaQueryListMock
     const { result } = renderHook(() => useMediaQuery('(min-width: 1024px)'))
 
     expect(result.current).to.be.a('boolean')

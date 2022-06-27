@@ -4,9 +4,9 @@ import { BRHGeolocationPosition } from './shared/types'
 import { geoStandardOptions, isSamePosition, makePositionObj } from './shared/geolocationUtils'
 
 export type GeolocationState = {
-  readonly isSupported: boolean,
-  readonly isRetrieving: boolean,
-  readonly position: BRHGeolocationPosition,
+  readonly isSupported: boolean
+  readonly isRetrieving: boolean
+  readonly position: BRHGeolocationPosition
 }
 
 /**

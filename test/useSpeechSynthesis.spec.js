@@ -23,7 +23,9 @@ describe('useSpeechSynthesis', () => {
   assertHook(useSpeechSynthesis)
 
   it('should return an object containing the speak function and the utter', () => {
-    const { result } = renderHook(() => useSpeechSynthesis('text', { volume: 1, pitch: 1, rate: 1 }))
+    const { result } = renderHook(() =>
+      useSpeechSynthesis('text', { volume: 1, pitch: 1, rate: 1 }),
+    )
 
     expect(result.current).to.be.an('object')
     expect(result.current.speak).to.be.a('function')

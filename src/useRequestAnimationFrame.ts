@@ -6,21 +6,25 @@ import { CallbackSetter, GenericFunction } from './shared/types'
 import noop from './shared/noop'
 
 export type UseRequestAnimationFrameOpts = {
-  increment?: number,
-  startAt?: number,
-  finishAt?: number,
+  increment?: number
+  startAt?: number
+  finishAt?: number
 }
 
 const defaultOptions = { increment: 1, startAt: 0, finishAt: 100 }
 
-const errorMessage = 'requestAnimationFrame is not supported, this could happen both because '
-  + 'window.requestAnimationFrame is not supported by your current browser version or you\'re using the '
-  + 'useRequestAnimationFrame hook whilst server side rendering.'
+const errorMessage =
+  'requestAnimationFrame is not supported, this could happen both because ' +
+  "window.requestAnimationFrame is not supported by your current browser version or you're using the " +
+  'useRequestAnimationFrame hook whilst server side rendering.'
 
 /**
  * Takes care of running an animating function, provided as the first argument, while keeping track of its progress.
  */
-const useRequestAnimationFrame = <T extends GenericFunction>(func: T, options: UseRequestAnimationFrameOpts = defaultOptions) => {
+const useRequestAnimationFrame = <T extends GenericFunction>(
+  func: T,
+  options: UseRequestAnimationFrameOpts = defaultOptions,
+) => {
   if (!isClient || !isAPISupported('requestAnimationFrame')) {
     // eslint-disable-next-line no-console
     console.warn(errorMessage)

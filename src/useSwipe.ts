@@ -1,12 +1,18 @@
 import { RefObject, useRef, useState } from 'react'
 import useMouseEvents from './useMouseEvents'
 import useTouchEvents from './useTouchEvents'
-import { Direction, getDirection, getHorizontalDirection, getPointerCoordinates, getVerticalDirection } from './shared/swipeUtils'
+import {
+  Direction,
+  getDirection,
+  getHorizontalDirection,
+  getPointerCoordinates,
+  getVerticalDirection,
+} from './shared/swipeUtils'
 
 export type UseSwipeOptions = {
-  direction?: 'both' | 'horizontal' | 'vertical',
-  threshold?: number,
-  preventDefault?: boolean,
+  direction?: 'both' | 'horizontal' | 'vertical'
+  threshold?: number
+  preventDefault?: boolean
 }
 
 const defaultOptions: UseSwipeOptions = {
@@ -16,33 +22,42 @@ const defaultOptions: UseSwipeOptions = {
 }
 
 type LocalSwipeState = {
-  swiping: boolean,
-  direction?: Direction,
-  alphaX: number,
-  alphaY: number,
-  count: number,
+  swiping: boolean
+  direction?: Direction
+  alphaX: number
+  alphaY: number
+  count: number
 }
 
-const initialState: LocalSwipeState = { swiping: false, direction: undefined, alphaX: 0, alphaY: 0, count: 0 }
+const initialState: LocalSwipeState = {
+  swiping: false,
+  direction: undefined,
+  alphaX: 0,
+  alphaY: 0,
+  count: 0,
+}
 
-const isEqual = (prev: LocalSwipeState, next: LocalSwipeState): boolean => (
-  prev.swiping === next.swiping
-  && prev.direction === next.direction
-  && prev.count === next.count
-  && prev.alphaX === next.alphaX
-  && prev.alphaY === next.alphaY
-)
+const isEqual = (prev: LocalSwipeState, next: LocalSwipeState): boolean =>
+  prev.swiping === next.swiping &&
+  prev.direction === next.direction &&
+  prev.count === next.count &&
+  prev.alphaX === next.alphaX &&
+  prev.alphaY === next.alphaY
 
 /**
  * useSwipe hook
  */
-const useSwipe = <TElement extends HTMLElement>(targetRef: RefObject<TElement> = null, options: UseSwipeOptions = defaultOptions) => {
+const useSwipe = <TElement extends HTMLElement>(
+  targetRef: RefObject<TElement> = null,
+  options: UseSwipeOptions = defaultOptions,
+) => {
   const [state, setState] = useState(initialState)
   const startingPointRef = useRef<[number, number]>([-1, -1])
   const isDraggingRef = useRef(false)
   const opts = { ...defaultOptions, ...(options || {}) }
   const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef)
-  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef)
+  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } =
+    useTouchEvents<TElement>(targetRef)
 
   const startSwipe = (event: MouseEvent | TouchEvent) => {
     const [clientX, clientY] = getPointerCoordinates(event)
@@ -62,10 +77,19 @@ const useSwipe = <TElement extends HTMLElement>(targetRef: RefObject<TElement> =
       event.stopPropagation()
     }
 
-    if (isDraggingRef.current || (startingPointRef.current[0] !== -1 && startingPointRef.current[1] !== -1)) {
-      const alpha: [number, number] = [startingPointRef.current[0] - clientX, startingPointRef.current[1] - clientY]
+    if (
+      isDraggingRef.current ||
+      (startingPointRef.current[0] !== -1 && startingPointRef.current[1] !== -1)
+    ) {
+      const alpha: [number, number] = [
+        startingPointRef.current[0] - clientX,
+        startingPointRef.current[1] - clientY,
+      ]
 
-      if (opts.direction === 'both' && (Math.abs(alpha[0]) > opts.threshold || Math.abs(alpha[1]) > opts.threshold)) {
+      if (
+        opts.direction === 'both' &&
+        (Math.abs(alpha[0]) > opts.threshold || Math.abs(alpha[1]) > opts.threshold)
+      ) {
         isDraggingRef.current = true
 
         const nextState: LocalSwipeState = {

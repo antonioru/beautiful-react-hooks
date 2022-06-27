@@ -37,7 +37,11 @@ describe('useRequestAnimationFrame', () => {
     const spy = sinon.spy()
 
     const TestComponent = () => {
-      const onFinish = useRequestAnimationFrame((c, next) => next(), { increment: 5, finishAt: 50, startAt: 0 })
+      const onFinish = useRequestAnimationFrame((c, next) => next(), {
+        increment: 5,
+        finishAt: 50,
+        startAt: 0,
+      })
 
       onFinish(spy)
 

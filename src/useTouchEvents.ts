@@ -17,7 +17,7 @@ import useEvent from './useEvent'
  *
  */
 const useTouchEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>) => {
-  const target = targetRef || { current: window.document } as unknown as RefObject<TElement> // hackish but works
+  const target = targetRef || ({ current: window.document } as unknown as RefObject<TElement>) // hackish but works
   const onTouchStart = useEvent<TouchEvent, TElement>(target, 'touchstart')
   const onTouchEnd = useEvent<TouchEvent, TElement>(target, 'touchend')
   const onTouchCancel = useEvent<TouchEvent, TElement>(target, 'touchcancel')

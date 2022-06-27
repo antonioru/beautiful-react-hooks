@@ -7,14 +7,14 @@ import { getDirection, getPointerCoordinates } from './shared/swipeUtils'
 export type SwipeState = {
   clientX?: number
   clientY?: number
-  direction: 'right' | 'left' | 'up' | 'down',
-  alphaX: number,
-  alphaY: number,
+  direction: 'right' | 'left' | 'up' | 'down'
+  alphaX: number
+  alphaY: number
 }
 
 export type UseSwipeEventsOpts = {
-  threshold?: number,
-  preventDefault?: boolean,
+  threshold?: number
+  preventDefault?: boolean
 }
 
 const defaultOptions: UseSwipeEventsOpts = {
@@ -31,14 +31,16 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
   options: UseSwipeEventsOpts = defaultOptions,
   onSwipeStart: (...args: any[]) => any,
   onSwipeMove: (...args: any[]) => any,
-  onSwipeEnd: (...args: any[]) => any) => {
+  onSwipeEnd: (...args: any[]) => any,
+) => {
   const startingPointRef = useRef<[number, number]>([-1, -1])
   const directionRef = useRef<'right' | 'left' | 'up' | 'down'>(null)
   const isDraggingRef = useRef(false)
   const alphaRef = useRef<number[]>([])
   const opts = { ...defaultOptions, ...(options || {}) }
   const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef)
-  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef)
+  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } =
+    useTouchEvents<TElement>(targetRef)
   const [state, setState] = useState<SwipeState>()
 
   const startSwipe = (event: MouseEvent | TouchEvent) => {
@@ -65,7 +67,10 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
     }
 
     if (startingPointRef.current[0] !== -1 && startingPointRef.current[1] !== -1) {
-      const alpha: [number, number] = [startingPointRef.current[0] - clientX, startingPointRef.current[1] - clientY]
+      const alpha: [number, number] = [
+        startingPointRef.current[0] - clientX,
+        startingPointRef.current[1] - clientY,
+      ]
 
       if (Math.abs(alpha[0]) > opts.threshold || Math.abs(alpha[1]) > opts.threshold) {
         isDraggingRef.current = true
@@ -132,7 +137,10 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
  * @param ref
  * @param options
  */
-const useSwipeEvents = <TElement extends HTMLElement>(ref: RefObject<TElement> = null, options: UseSwipeEventsOpts = defaultOptions) => {
+const useSwipeEvents = <TElement extends HTMLElement>(
+  ref: RefObject<TElement> = null,
+  options: UseSwipeEventsOpts = defaultOptions,
+) => {
   const opts = { ...defaultOptions, ...(options || {}) }
   const [onSwipeLeft, setOnSwipeLeft] = createHandlerSetter<SwipeState>()
   const [onSwipeRight, setOnSwipeRight] = createHandlerSetter<SwipeState>()
@@ -141,7 +149,13 @@ const useSwipeEvents = <TElement extends HTMLElement>(ref: RefObject<TElement> =
   const [onSwipeStart, setOnSwipeStart] = createHandlerSetter<SwipeState>()
   const [onSwipeMove, setOnSwipeMove] = createHandlerSetter<SwipeState>()
   const [onSwipeEnd, setOnSwipeEnd] = createHandlerSetter<SwipeState>()
-  const state: SwipeState = useSilentSwipeState<TElement>(ref, opts, onSwipeStart.current, onSwipeMove.current, onSwipeEnd.current)
+  const state: SwipeState = useSilentSwipeState<TElement>(
+    ref,
+    opts,
+    onSwipeStart.current,
+    onSwipeMove.current,
+    onSwipeEnd.current,
+  )
 
   const fnMap = {
     right: onSwipeRight,

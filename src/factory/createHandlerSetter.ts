@@ -17,13 +17,18 @@ const createHandlerSetter = <TArgs, TResult = void>(callback?: SomeCallback<TArg
 
   const setHandler = useRef((nextCallback: SomeCallback<TArgs, TResult>) => {
     if (typeof nextCallback !== 'function') {
-      throw new Error('the argument supplied to the \'setHandler\' function should be of type function')
+      throw new Error(
+        "the argument supplied to the 'setHandler' function should be of type function",
+      )
     }
 
     handlerRef.current = nextCallback
   })
 
-  return [handlerRef, setHandler.current] as [RefObject<SomeCallback<TArgs, TResult>>, CallbackSetter<TArgs>]
+  return [handlerRef, setHandler.current] as [
+    RefObject<SomeCallback<TArgs, TResult>>,
+    CallbackSetter<TArgs>,
+  ]
 }
 
 export default createHandlerSetter

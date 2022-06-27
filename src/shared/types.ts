@@ -1,7 +1,7 @@
 export interface Noop {
-  noop: true,
+  noop: true
 
-  (): void,
+  (): void
 }
 
 /**
@@ -33,16 +33,16 @@ export interface CallbackSetter<TArgs> {
  * as that type is not always compatible with all typescript versions
  */
 export interface BRHGeolocationPosition {
-  readonly timestamp: number;
+  readonly timestamp: number
   readonly coords: {
-    readonly accuracy: number;
-    readonly altitude: number | null;
-    readonly altitudeAccuracy: number | null;
-    readonly heading: number | null;
-    readonly latitude: number;
-    readonly longitude: number;
-    readonly speed: number | null;
-  };
+    readonly accuracy: number
+    readonly altitude: number | null
+    readonly altitudeAccuracy: number | null
+    readonly heading: number | null
+    readonly latitude: number
+    readonly longitude: number
+    readonly speed: number | null
+  }
 }
 
 /**
@@ -50,9 +50,9 @@ export interface BRHGeolocationPosition {
  * as that type is not always compatible with all typescript versions
  */
 export interface BRHGeolocationPositionError {
-  readonly code: number;
-  readonly message: string;
-  readonly PERMISSION_DENIED: number;
-  readonly POSITION_UNAVAILABLE: number;
-  readonly TIMEOUT: number;
+  readonly code: number
+  readonly message: string
+  readonly PERMISSION_DENIED: number
+  readonly POSITION_UNAVAILABLE: number
+  readonly TIMEOUT: number
 }

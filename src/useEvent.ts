@@ -6,8 +6,11 @@ import safeHasOwnProperty from './shared/safeHasOwnProperty'
  * Accepts the reference to an HTML Element and an event name then performs the necessary operations to listen to the event
  * when fired from that HTML Element.
  */
-const useEvent = <TEvent extends Event, TElement extends HTMLElement = HTMLElement>
-  (ref: RefObject<TElement>, eventName: string, options?: AddEventListenerOptions) => {
+const useEvent = <TEvent extends Event, TElement extends HTMLElement = HTMLElement>(
+  ref: RefObject<TElement>,
+  eventName: string,
+  options?: AddEventListenerOptions,
+) => {
   const [handler, setHandler] = createHandlerSetter<TEvent>()
 
   if (!!ref && !safeHasOwnProperty(ref, 'current')) {

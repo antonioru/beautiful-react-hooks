@@ -13,10 +13,20 @@ describe('useMouse', () => {
 
     expect(result.current).to.be.an('array')
     expect(result.current.length).to.equal(2)
-    expect(result.current[0]).to.be.a('object').that.has.all.keys('clientX', 'clientY', 'screenY', 'screenY')
-    expect(result.current[1]).to.be.an('object').that.has.all.keys(
-      'onMouseDown', 'onMouseEnter', 'onMouseLeave', 'onMouseMove', 'onMouseOut', 'onMouseOver', 'onMouseUp'
-    )
+    expect(result.current[0])
+      .to.be.a('object')
+      .that.has.all.keys('clientX', 'clientY', 'screenY', 'screenY')
+    expect(result.current[1])
+      .to.be.an('object')
+      .that.has.all.keys(
+        'onMouseDown',
+        'onMouseEnter',
+        'onMouseLeave',
+        'onMouseMove',
+        'onMouseOut',
+        'onMouseOver',
+        'onMouseUp',
+      )
   })
 
   it('should work without a ref provided ', () => {

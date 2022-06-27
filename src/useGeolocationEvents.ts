@@ -13,7 +13,10 @@ const useGeolocationEvents = (options: PositionOptions = geoStandardOptions) => 
   const watchId = useRef<number>()
   const [onChangeRef, setOnChangeRef] = createHandlerSetter<BRHGeolocationPosition>()
   const [onErrorRef, setOnErrorRef] = createHandlerSetter<BRHGeolocationPositionError>()
-  const isSupported = useMemo(() => typeof window !== 'undefined' && 'geolocation' in window.navigator, [])
+  const isSupported = useMemo(
+    () => typeof window !== 'undefined' && 'geolocation' in window.navigator,
+    [],
+  )
 
   if (!isSupported) {
     throw new Error('The Geolocation API is not supported')

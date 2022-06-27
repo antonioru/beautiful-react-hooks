@@ -10,8 +10,8 @@ export const positionMock = {
     accuracy: 1,
     altitudeAccuracy: 10,
     heading: 10,
-    speed: 0
-  }
+    speed: 0,
+  },
 }
 
 const GeoLocationApiMock = {
@@ -29,8 +29,7 @@ const GeoLocationApiMock = {
   },
   clearWatch() {
     this.listeners = {}
-  }
+  },
 }
 
 export default GeoLocationApiMock
-

@@ -12,8 +12,15 @@ const defaultOptions: UseSwipeOptions = {
  * @param options
  * @return {{alpha: number, count: number, swiping: boolean, direction: null}}
  */
-const useVerticalSwipe = <TElement extends HTMLElement>(ref?: RefObject<TElement>, options: UseSwipeOptions = defaultOptions) => {
-  const opts: UseSwipeOptions = { ...defaultOptions, ...(options || {}), ...{ direction: 'vertical' } }
+const useVerticalSwipe = <TElement extends HTMLElement>(
+  ref?: RefObject<TElement>,
+  options: UseSwipeOptions = defaultOptions,
+) => {
+  const opts: UseSwipeOptions = {
+    ...defaultOptions,
+    ...(options || {}),
+    ...{ direction: 'vertical' },
+  }
 
   return useSwipe<TElement>(ref, opts)
 }

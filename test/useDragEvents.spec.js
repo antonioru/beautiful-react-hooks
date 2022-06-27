@@ -17,7 +17,18 @@ describe('useDragEvents', () => {
     const targetRef = { current: document.createElement('div') }
     const { result } = renderHook(() => useDragEvents(targetRef))
 
-    expect(result.current).to.be.an('object').that.has.all.keys('onDrag', 'onDrop', 'onDragEnter', 'onDragEnd', 'onDragExit', 'onDragLeave', 'onDragOver', 'onDragStart')
+    expect(result.current)
+      .to.be.an('object')
+      .that.has.all.keys(
+        'onDrag',
+        'onDrop',
+        'onDragEnter',
+        'onDragEnd',
+        'onDragExit',
+        'onDragLeave',
+        'onDragOver',
+        'onDragStart',
+      )
   })
 
   it('should set the draggable attribute to the given element ref', () => {
@@ -46,7 +57,14 @@ describe('useDragEvents', () => {
     const TestComponent = () => {
       const targetRef = useRef()
       const {
-        onDrag, onDrop, onDragEnter, onDragEnd, onDragExit, onDragLeave, onDragOver, onDragStart
+        onDrag,
+        onDrop,
+        onDragEnter,
+        onDragEnd,
+        onDragExit,
+        onDragLeave,
+        onDragOver,
+        onDragStart,
       } = useDragEvents(targetRef)
 
       onDrag(onDropSpy)

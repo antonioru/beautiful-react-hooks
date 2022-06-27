@@ -25,7 +25,9 @@ describe('useGeolocationEvents', () => {
   it('should return an object of geolocation-related callback setters', () => {
     const { result } = renderHook(() => useGeolocationEvents())
 
-    expect(result.current).to.be.an('object').that.has.all.deep.keys('isSupported', 'onChange', 'onError')
+    expect(result.current)
+      .to.be.an('object')
+      .that.has.all.deep.keys('isSupported', 'onChange', 'onError')
     expect(result.current).to.be.frozen
   })
 

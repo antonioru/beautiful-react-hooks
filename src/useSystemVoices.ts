@@ -6,10 +6,11 @@ import { useEffect, useState } from 'react'
  *
  * Check: https://w3c.github.io/speech-api/speechapi-errata.html.
  */
-const asyncGetSystemVoices = (): Promise<SpeechSynthesisVoice[]> => new Promise((resolve) => {
-  window.speechSynthesis.onvoiceschanged = () => resolve(window.speechSynthesis.getVoices())
-  window.speechSynthesis.getVoices()
-})
+const asyncGetSystemVoices = (): Promise<SpeechSynthesisVoice[]> =>
+  new Promise((resolve) => {
+    window.speechSynthesis.onvoiceschanged = () => resolve(window.speechSynthesis.getVoices())
+    window.speechSynthesis.getVoices()
+  })
 
 /**
  * A side effect to retrieve all the available system voices using the Web_Speech_API

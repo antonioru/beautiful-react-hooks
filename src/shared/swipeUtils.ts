@@ -20,7 +20,11 @@ export const getVerticalDirection = (alpha: number) => (alpha < 0 ? 'down' : 'up
 
 export type Direction = 'right' | 'left' | 'down' | 'up'
 
-export const getDirection = (currentPoint: [number, number], startingPoint: [number, number], alpha: [number, number]): Direction => {
+export const getDirection = (
+  currentPoint: [number, number],
+  startingPoint: [number, number],
+  alpha: [number, number],
+): Direction => {
   const alphaX = startingPoint[0] - currentPoint[0]
   const alphaY = startingPoint[1] - currentPoint[1]
   if (Math.abs(alphaX) > Math.abs(alphaY)) {

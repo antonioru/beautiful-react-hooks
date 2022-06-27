@@ -2,11 +2,11 @@ import { RefObject, useState } from 'react'
 import useDragEvents from './useDragEvents'
 
 export interface UseDragOptions {
-  dragImage?: string,
-  dragImageXOffset?: number,
-  dragImageYOffset?: number,
-  transfer?: string | number | Record<string, any>,
-  transferFormat?: string,
+  dragImage?: string
+  dragImageXOffset?: number
+  dragImageYOffset?: number
+  transfer?: string | number | Record<string, any>
+  transferFormat?: string
 }
 
 const defaultOptions: UseDragOptions = {
@@ -15,7 +15,10 @@ const defaultOptions: UseDragOptions = {
   transferFormat: 'text',
 }
 
-const useDrag = <TElement extends HTMLElement>(targetRef: RefObject<TElement>, options = defaultOptions) => {
+const useDrag = <TElement extends HTMLElement>(
+  targetRef: RefObject<TElement>,
+  options = defaultOptions,
+) => {
   const { onDragStart, onDragEnd } = useDragEvents<TElement>(targetRef, true)
   const [isDragging, setIsDragging] = useState(false)
   const opts: UseDragOptions = { ...defaultOptions, ...(options || {}) }
@@ -30,7 +33,8 @@ const useDrag = <TElement extends HTMLElement>(targetRef: RefObject<TElement>, o
     }
 
     if (opts.transfer) {
-      const data = typeof opts.transfer === 'object' ? JSON.stringify(opts.transfer) : `${opts.transfer}`
+      const data =
+        typeof opts.transfer === 'object' ? JSON.stringify(opts.transfer) : `${opts.transfer}`
       event.dataTransfer.setData(opts.transferFormat, data)
     }
   })

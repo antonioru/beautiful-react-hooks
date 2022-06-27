@@ -9,7 +9,10 @@ import useEvent from './useEvent'
  * Returned callback setters: `onDrag`, `onDrop`, `onDragEnter`, `onDragEnd`, `onDragExit`, `onDragLeave`,
  * `onDragOver`, `onDragStart`;
  */
-const useDragEvents = <TElement extends HTMLElement>(targetRef: RefObject<TElement>, isDraggable: boolean = true) => {
+const useDragEvents = <TElement extends HTMLElement>(
+  targetRef: RefObject<TElement>,
+  isDraggable: boolean = true,
+) => {
   const onDrag = useEvent<DragEvent, TElement>(targetRef, 'drag')
   const onDrop = useEvent<DragEvent, TElement>(targetRef, 'drop')
   const onDragEnter = useEvent<DragEvent, TElement>(targetRef, 'dragenter')

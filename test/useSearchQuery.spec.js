@@ -10,7 +10,9 @@ describe('useSearchQuery', () => {
 
   it('should work similar to useState', () => {
     const initialValue = 'foo'
-    const { result } = renderHook(() => useSearchQuery(initialValue), { wrapper: ReactRouterWrapper })
+    const { result } = renderHook(() => useSearchQuery(initialValue), {
+      wrapper: ReactRouterWrapper,
+    })
     const [val, setVal] = result.current
 
     expect(val).to.be.a('string')
