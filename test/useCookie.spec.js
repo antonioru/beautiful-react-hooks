@@ -41,13 +41,17 @@ describe('useCookie', () => {
   })
 
   it('should save default value when no cookie is set', async () => {
-    const { result } = renderHook(() => useCookie('test', { defaultValue: 'default' }))
+    const { result, waitFor } = renderHook(() => useCookie('test', { defaultValue: 'default' }))
+
+    await waitFor(() => result.current.cookieValue === 'default');
 
     expect(result.current.cookieValue).to.equal('default')
   })
 
   it('should intial, update and then delete cookie', async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useCookie('test', { defaultValue: 'default' }))
+    const { result, waitForNextUpdate, waitFor } = renderHook(() => useCookie('test', { defaultValue: 'default' }))
+
+    await waitFor(() => result.current.cookieValue === 'default');
 
     expect(result.current.cookieValue).to.equal('default')
     result.current.updateCookie('newValue')

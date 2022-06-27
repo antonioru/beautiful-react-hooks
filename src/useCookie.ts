@@ -86,7 +86,7 @@ const useCookie = (key: string, options?: IOptions) => {
       try {
         const getFunctionResult = await cookieStoreObject.get(key)
 
-        if (getFunctionResult) {
+        if (getFunctionResult.value) {
           return setCookieValue(getFunctionResult.value)
         }
 
