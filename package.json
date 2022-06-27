@@ -91,6 +91,7 @@
     "jsdoc-to-markdown": "^7.1.1",
     "jsdom": "^19.0.0",
     "jsdom-global": "^3.0.2",
+    "lint-staged": "13.0.3",
     "mocha": "10.0.0",
     "mock-local-storage": "1.1.23",
     "nyc": "^15.1.0",
