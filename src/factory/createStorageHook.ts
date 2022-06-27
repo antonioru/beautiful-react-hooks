@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import safelyParseJson from '../shared/safelyParseJson'
 import isClient from '../shared/isClient'
 import isAPISupported from '../shared/isAPISupported'
@@ -33,12 +33,12 @@ const createStorageHook = (type: 'session' | 'local') => {
     }
     const storage = (window)[storageName]
 
-    const safelySetStorage = (valueToStore: string) => {
+    const safelySetStorage = useCallback((valueToStore: string) => {
       try {
         storage.setItem(storageKey, valueToStore)
         // eslint-disable-next-line no-empty
       } catch (e) {}
-    }
+    }, [storage, storageKey])
 
     const [storedValue, setStoredValue] = useState<TValue>(
       () => {
@@ -54,11 +54,11 @@ const createStorageHook = (type: 'session' | 'local') => {
       },
     )
 
-    const setValue: SetValue<TValue> = (value) => {
+    const setValue: SetValue<TValue> = useCallback((value) => {
       const valueToStore = value instanceof Function ? value(storedValue) : value
       safelySetStorage(JSON.stringify(valueToStore))
       setStoredValue(valueToStore)
-    }
+    }, [safelySetStorage, storedValue])
 
     return [storedValue, setValue]
   }
