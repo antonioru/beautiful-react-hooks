@@ -12,7 +12,7 @@ A hook for storing, updating and deleting values into [CookieStore](https://deve
 import { Pill, Paragraph, Icon } from 'beautiful-react-ui';
 import useCookie from 'beautiful-react-hooks/useCookie'; 
 
-const CookieExample = () => {
+const UseCookieExample = () => {
   const {
     onError,
     cookieValue,
@@ -46,7 +46,7 @@ const CookieExample = () => {
   )
 };
 
-<CookieExample />
+<UseCookieExample />
 ```
 
 ### Mastering the hooks

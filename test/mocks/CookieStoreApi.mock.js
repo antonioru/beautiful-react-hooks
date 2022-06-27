@@ -1,4 +1,4 @@
-const createCookieStoreApiMock = () =>{
+const createCookieStoreApiMock = () => {
   const store = {};
 
   const getItem = (key) => {
