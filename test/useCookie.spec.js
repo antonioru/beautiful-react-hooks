@@ -2,15 +2,15 @@ import React from 'react'
 import { cleanup as cleanupReact, render } from '@testing-library/react'
 import { cleanup as cleanupHook, renderHook } from '@testing-library/react-hooks'
 
+import useCookie from '../dist/useCookie'
 import assertHook from './utils/assertHook'
-import useCookieStore from '../dist/useCookieStore'
 import CookieStoreApiMock from './mocks/CookieStoreApi.mock'
 
 const onErrorSpy = sinon.spy()
 const consoleWarnSpy = sinon.spy()
 const realConsoleWarning = console.warn
 
-describe('useCookieStore', () => {
+describe('useCookie', () => {
   before(() => {
     console.warn = consoleWarnSpy
     window.cookieStore = CookieStoreApiMock
@@ -27,12 +27,12 @@ describe('useCookieStore', () => {
     sinon.reset()
   })
 
-  assertHook(useCookieStore)
+  assertHook(useCookie)
 
   it('should return mocked object when browser does not support cookieStore API', () => {
     delete window.cookieStore
 
-    const { result } = renderHook(() => useCookieStore())
+    const { result } = renderHook(() => useCookie())
 
     expect(consoleWarnSpy.called).to.be.true
     expect(result.current).to.be.an('object').that.has.all.deep.keys('onError', 'cookieValue', 'updateCookie', 'deleteCookie')
@@ -41,13 +41,13 @@ describe('useCookieStore', () => {
   })
 
   it('should save default value when no cookie is set', async () => {
-    const { result } = renderHook(() => useCookieStore('test', { defaultValue: 'default' }))
+    const { result } = renderHook(() => useCookie('test', { defaultValue: 'default' }))
 
     expect(result.current.cookieValue).to.equal('default')
   })
 
   it('should intial, update and then delete cookie', async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useCookieStore('test', { defaultValue: 'default' }))
+    const { result, waitForNextUpdate } = renderHook(() => useCookie('test', { defaultValue: 'default' }))
 
     expect(result.current.cookieValue).to.equal('default')
     result.current.updateCookie('newValue')
@@ -72,7 +72,7 @@ describe('useCookieStore', () => {
     })
 
     const TestComponent = () => {
-      const { onError } = useCookieStore('test', { defaultValue: 'default' })
+      const { onError } = useCookie('test', { defaultValue: 'default' })
 
       onError(onErrorSpy)
 

@@ -8,28 +8,38 @@ import createHandlerSetter from './factory/createHandlerSetter'
 
 import { BRHGeolocationPositionError } from './shared/types'
 
-interface IBaseOptions {
-  path?: string;
-  domain?: string;
-  expires?: string;
+export enum ECookieSameSite {
+  STRICT = 'strict',
+  LAX = 'lax',
+  NONE = 'none',
 }
 
-interface IOptionsWithNameAndValue extends IBaseOptions {
+interface ICookieStoreDeleteOptions {
+  name?: string;
+  domain?: string;
+  path?: string;
+}
+
+interface ICookieInit extends ICookieStoreDeleteOptions {
+  sameSite?: ECookieSameSite;
+}
+
+interface ICookieInitWithNameAndValue extends ICookieInit {
   name?: string;
   value?: string;
 }
 
-export interface IOptionsWithDefaultValue extends IBaseOptions {
+export interface IOptions extends ICookieInit {
   defaultValue?: string;
 }
 
 interface ICookieStore {
-  delete: (key: string) => Promise<void>;
-  get: (key: string) => Promise<IOptionsWithNameAndValue>;
-  set: (options: IOptionsWithNameAndValue) => Promise<void>;
+  get: (key: string) => Promise<ICookieInitWithNameAndValue>;
+  set: (options: ICookieInitWithNameAndValue) => Promise<void>;
+  delete: (options: ICookieStoreDeleteOptions) => Promise<void>;
 }
 
-const useCookieStore = (key: string, options?: IOptionsWithDefaultValue) => {
+const useCookie = (key: string, options?: IOptions) => {
   if (!isClient) {
     if (!isDevelopment) {
       // eslint-disable-next-line no-console
@@ -49,7 +59,7 @@ const useCookieStore = (key: string, options?: IOptionsWithDefaultValue) => {
   if (!isAPISupported('cookieStore')) {
     // eslint-disable-next-line no-console
     console.warn(
-      "The current device does not support the 'cookieStore' API, you should avoid using useCookieStore",
+      "The current device does not support the 'cookieStore' API, you should avoid using useCookie",
     )
 
     return Object.freeze({
@@ -100,7 +110,7 @@ const useCookieStore = (key: string, options?: IOptionsWithDefaultValue) => {
     .catch(onError)
 
   const deleteCookie = () => cookieStoreObject
-    .delete(key)
+    .delete({ name: key, ...options })
     .then(() => setCookieValue(undefined))
     .catch(onError)
 
@@ -112,4 +122,4 @@ const useCookieStore = (key: string, options?: IOptionsWithDefaultValue) => {
   })
 }
 
-export default useCookieStore
+export default useCookie

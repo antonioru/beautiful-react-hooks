@@ -1,4 +1,4 @@
-# useCookieStore
+# useCookie
 
 A hook for storing, updating and deleting values into [CookieStore](https://developer.mozilla.org/en-US/docs/Web/API/CookieStore).
 
@@ -10,7 +10,7 @@ A hook for storing, updating and deleting values into [CookieStore](https://deve
 
 ```jsx harmony
 import { Pill, Paragraph, Icon } from 'beautiful-react-ui';
-import useCookieStore from 'beautiful-react-hooks/useCookieStore'; 
+import useCookie from 'beautiful-react-hooks/useCookie'; 
 
 const CookieExample = () => {
   const {
@@ -18,7 +18,7 @@ const CookieExample = () => {
     cookieValue,
     deleteCookie,
     updateCookie
-  } = useCookieStore('cookie-key', { secure: false, path: '/', defaultValue: 'default-value' });
+  } = useCookie('cookie-key', { secure: false, path: '/', defaultValue: 'default-value' });
 
   onError((error) => {
     alert(error.message)
