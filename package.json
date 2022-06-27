@@ -16,7 +16,8 @@
     "start": "npx styleguidist server",
     "semantic-release": "semantic-release",
     "format": "npx prettier \"**/*.+(js|jsx|ts|tsx|json)\" --write",
-    "format:check": "npx prettier \"**/*.+(js|jsx|ts|tsx|json)\" --check"
+    "format:check": "npx prettier \"**/*.+(js|jsx|ts|tsx|json)\" --check",
+    "prepare": "husky install"
   },
   "browserslist": [
     ">1%",
@@ -87,7 +88,7 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
     "glob": "^8.0.3",
-    "husky": "8.0.1",
+    "husky": "^8.0.0",
     "jsdoc-to-markdown": "^7.1.1",
     "jsdom": "^19.0.0",
     "jsdom-global": "^3.0.2",
