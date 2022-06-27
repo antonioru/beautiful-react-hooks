@@ -1,7 +1,6 @@
 # useResizeObserver
 
-Uses the [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) API to observe 
-changes within the given HTML Element DOM Rect.
+Uses the [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) API to observe changes to the size of the provided element and returns DOMRect data
 
 ### Why? 💡
 
