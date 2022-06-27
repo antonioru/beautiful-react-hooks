@@ -6,8 +6,6 @@ import isDevelopment from './shared/isDevelopment'
 import isAPISupported from './shared/isAPISupported'
 import createHandlerSetter from './factory/createHandlerSetter'
 
-import { BRHGeolocationPositionError } from './shared/types'
-
 export enum ECookieSameSite {
   STRICT = 'strict',
   LAX = 'lax',
@@ -40,6 +38,13 @@ interface ICookieStore {
 }
 
 const useCookie = (key: string, options?: IOptions) => {
+  const hookNotSupportedResponse = Object.freeze({
+    onError: noop,
+    updateCookie: noop,
+    deleteCookie: noop,
+    cookieValue: options?.defaultValue,
+  })
+
   if (!isClient) {
     if (!isDevelopment) {
       // eslint-disable-next-line no-console
@@ -48,12 +53,7 @@ const useCookie = (key: string, options?: IOptions) => {
       )
     }
 
-    return Object.freeze({
-      onError: noop,
-      updateCookie: noop,
-      deleteCookie: noop,
-      cookieValue: options?.defaultValue,
-    })
+    return hookNotSupportedResponse
   }
 
   if (!isAPISupported('cookieStore')) {
@@ -62,20 +62,15 @@ const useCookie = (key: string, options?: IOptions) => {
       "The current device does not support the 'cookieStore' API, you should avoid using useCookie",
     )
 
-    return Object.freeze({
-      onError: noop,
-      updateCookie: noop,
-      deleteCookie: noop,
-      cookieValue: options?.defaultValue,
-    })
+    return hookNotSupportedResponse
   }
 
   const [cookieValue, setCookieValue] = useState<string>()
-  const [onErrorRef, setOnErrorRef] = createHandlerSetter<BRHGeolocationPositionError>()
+  const [onErrorRef, setOnErrorRef] = createHandlerSetter<Error>()
 
   const cookieStoreObject = (window as any).cookieStore as ICookieStore
 
-  const onError = (err: BRHGeolocationPositionError) => {
+  const onError = (err: Error) => {
     if (onErrorRef.current) {
       onErrorRef.current(err)
     }
@@ -86,7 +81,7 @@ const useCookie = (key: string, options?: IOptions) => {
       try {
         const getFunctionResult = await cookieStoreObject.get(key)
 
-        if (getFunctionResult.value) {
+        if (getFunctionResult?.value) {
           return setCookieValue(getFunctionResult.value)
         }
 

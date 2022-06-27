@@ -9,6 +9,7 @@ A hook for storing, updating and deleting values into [CookieStore](https://deve
 ### Basic Usage:
 
 ```jsx harmony
+import { useCallback } from 'react';
 import { Pill, Paragraph, Icon } from 'beautiful-react-ui';
 import useCookie from 'beautiful-react-hooks/useCookie'; 
 
@@ -21,14 +22,18 @@ const UseCookieExample = () => {
   } = useCookie('cookie-key', { secure: false, path: '/', defaultValue: 'default-value' });
 
   onError((error) => {
+    console.log(error)
+
     alert(error.message)
   })
   
-  const updateButtonClick = () =>
+  const updateButtonClick = useCallback(() => {
     updateCookie('new-cookie-value')
+  }, [])
 
-  const deleteButtonClick = () =>
+  const deleteButtonClick = useCallback(() => {
     deleteCookie()
+  }, [])
 
   return (
     <DisplayDemo>
