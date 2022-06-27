@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
+import createHandlerSetter from './factory/createHandlerSetter'
 import useGeolocationEvents from './useGeolocationEvents'
-import { BRHGeolocationPosition } from './shared/types'
+import { SomeCallback, BRHGeolocationPosition, BRHGeolocationPositionError } from './shared/types'
 import { geoStandardOptions, isSamePosition, makePositionObj } from './shared/geolocationUtils'
 
 export type GeolocationState = {
@@ -21,26 +22,45 @@ export type GeolocationState = {
  * `Geolocation.getCurrentPosition()` method.
  */
 const useGeolocationState = (options: PositionOptions = geoStandardOptions) => {
-  const [position, setPosition] = useState<BRHGeolocationPosition>(null)
   const [isRetrieving, setRetrieving] = useState<boolean>(false)
-  const { isSupported, onChange } = useGeolocationEvents(options)
+  const [position, setPosition] = useState<BRHGeolocationPosition>(null)
+  const {
+    isSupported,
+    onChange,
+    onError: setOnGeolocationEventsErrorRef,
+  } = useGeolocationEvents(options)
+  const [onCurrentPositionErrorRef, setOnCurrentPositionErrorRef] =
+    createHandlerSetter<BRHGeolocationPositionError>()
 
   const savePosition = useCallback(() => {
     if (position === null) {
       setRetrieving(true)
-      navigator.geolocation.getCurrentPosition((nextPosition: GeolocationPosition) => {
-        if (!isSamePosition(position, nextPosition)) {
-          setPosition(makePositionObj(nextPosition))
-          setRetrieving(false)
-        }
-      })
+      navigator.geolocation.getCurrentPosition(
+        (nextPosition: GeolocationPosition) => {
+          if (!isSamePosition(position, nextPosition)) {
+            setPosition(makePositionObj(nextPosition))
+            setRetrieving(false)
+          }
+        },
+        (err: BRHGeolocationPositionError) => {
+          if (onCurrentPositionErrorRef.current) {
+            onCurrentPositionErrorRef.current(err)
+          }
+        },
+      )
     }
   }, [position])
 
   useEffect(savePosition, [position])
   onChange(savePosition)
 
+  const onError = (callback: SomeCallback<BRHGeolocationPositionError, void>) => {
+    setOnCurrentPositionErrorRef(callback)
+    setOnGeolocationEventsErrorRef(callback)
+  }
+
   return Object.freeze({
+    onError,
     isSupported,
     isRetrieving,
     position,
