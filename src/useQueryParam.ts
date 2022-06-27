@@ -41,7 +41,6 @@ const useQueryParam = <TValue extends string>(
   onMount(() => {
     if (!params.has(key)) {
       initialisedRef.current = true
-
       setParam(options.initialValue)
     }
   })
