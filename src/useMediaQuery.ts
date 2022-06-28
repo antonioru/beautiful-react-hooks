@@ -20,7 +20,7 @@ const useMediaQuery = (mediaQuery: string) => {
     return false
   }
 
-  const [isVerified, setIsVerified] = useState(!!window.matchMedia(mediaQuery).matches)
+  const [isVerified, setIsVerified] = useState(false)
 
   useEffect(() => {
     const mediaQueryList = window.matchMedia(mediaQuery)
@@ -34,6 +34,7 @@ const useMediaQuery = (mediaQuery: string) => {
     }
 
     documentChangeHandler()
+
     return () => {
       try {
         mediaQueryList.removeEventListener('change', documentChangeHandler)
@@ -42,7 +43,7 @@ const useMediaQuery = (mediaQuery: string) => {
         mediaQueryList.removeListener(documentChangeHandler)
       }
     }
-  }, [mediaQuery])
+  }, [])
 
   return isVerified
 }
