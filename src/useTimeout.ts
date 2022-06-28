@@ -14,7 +14,7 @@ const defaultOptions = {
  * execution of the given function by the defined time.
  */
 const useTimeout = <TCallback extends GenericFunction>
-  (fn: TCallback, milliseconds: number, options: UseTimeoutOptions = defaultOptions) => {
+  (fn: TCallback, milliseconds: number, options: UseTimeoutOptions = defaultOptions): [boolean, () => void] => {
   const opts = { ...defaultOptions, ...(options || {}) }
   const timeout = useRef<NodeJS.Timeout>()
   const callback = useRef<TCallback>(fn)
