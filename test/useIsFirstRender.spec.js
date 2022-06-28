@@ -1,12 +1,12 @@
 import React from 'react'
-import { cleanup as cleanupReact, render } from '@testing-library/react'
+import { cleanup, render } from '@testing-library/react'
 
 import assertHook from './utils/assertHook'
 import useIsFirstRender from '../dist/useIsFirstRender'
 
 describe('useIsFirstRender', () => {
   beforeEach(() => {
-    cleanupReact()
+    cleanup()
   })
 
   assertHook(useIsFirstRender)

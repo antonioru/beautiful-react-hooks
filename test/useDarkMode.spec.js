@@ -2,20 +2,16 @@ import { cleanup, renderHook } from '@testing-library/react-hooks'
 
 import assertHook from './utils/assertHook'
 import useDarkMode from '../dist/useDarkMode'
-import mediaQueryListMock from './mocks/MatchMediaQueryList.mock'
+import matchMediaQueryListMock from './mocks/MatchMediaQueryList.mock'
 
-const consoleWarnSpy = sinon.spy()
-const realConsoleWarning = console.warn
 const realMatchMedia = window.matchMedia
 
 describe('useDarkMode', () => {
   before(() => {
-    console.warn = consoleWarnSpy
-    window.matchMedia = () => mediaQueryListMock
+    window.matchMedia = () => matchMediaQueryListMock
   })
 
   after(() => {
-    console.warn = realConsoleWarning
     window.matchMedia = realMatchMedia
   })
 
@@ -36,18 +32,18 @@ describe('useDarkMode', () => {
   });
 
   it('should set the dark mode to false when the media query does not match', () => {
-    const updatedMediaQueryListMock = {
-      ...mediaQueryListMock,
+    const updatedMatchMediaQueryListMock = {
+      ...matchMediaQueryListMock,
       matches: false
     }
 
-    window.matchMedia = () => updatedMediaQueryListMock
+    window.matchMedia = () => updatedMatchMediaQueryListMock
 
     const { result } = renderHook(() => useDarkMode())
 
     expect(result.current.isDarkMode).to.be.true
 
-    window.matchMedia = () => mediaQueryListMock
+    window.matchMedia = () => matchMediaQueryListMock
   });
 
   it('should save dark mode to local storage', () => {

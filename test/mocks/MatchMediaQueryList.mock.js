@@ -1,4 +1,4 @@
-const mediaQueryListMock = {
+const matchMediaQueryListMock = {
   listeners: {},
   matches: true,
   addEventListener(cb) {
@@ -9,4 +9,4 @@ const mediaQueryListMock = {
   }
 }
 
-export default mediaQueryListMock;
+export default matchMediaQueryListMock;
