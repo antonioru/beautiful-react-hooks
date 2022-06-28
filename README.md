@@ -116,6 +116,9 @@ $ yarn add beautiful-react-hooks
 * [useSwipeEvents](docs/useSwipeEvents.md)
 * [useConditionalTimeout](docs/useConditionalTimeout.md)
 * [useCookie](docs/useCookie.md)
+* [useDarkMode](docs/useDarkMode.md)
+* [useUpdateEffect](docs/useUpdateEffect.md)
+* [useIsFirstRender](docs/useIsFirstRender.md)
 
 <div>
   <p align="center">

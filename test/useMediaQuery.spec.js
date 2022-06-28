@@ -1,19 +1,10 @@
 import { cleanup, renderHook } from '@testing-library/react-hooks'
-import useMediaQuery from '../dist/useMediaQuery'
+
 import assertHook from './utils/assertHook'
+import useMediaQuery from '../dist/useMediaQuery'
+import mediaQueryListMock from './mocks/MatchMediaQueryList.mock'
 
 describe('useMediaQuery', () => {
-  const mediaQueryListMock = {
-    listeners: {},
-    matches: true,
-    addEventListener(cb) {
-      this.listeners.cb = cb
-    },
-    removeListener() {
-      delete this.listeners.cb
-    }
-  }
-
   beforeEach(() => {
     cleanup()
   })
