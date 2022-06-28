@@ -234,4 +234,5 @@ dist-ghpages/
 coverage.lcov
 
 ## as it is intended for projects not libraries
+yarn.lock
 package-lock.json
