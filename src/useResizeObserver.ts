@@ -4,7 +4,7 @@ import isApiSupported from './shared/isAPISupported'
 import isClient from './shared/isClient'
 
 // eslint-disable-next-line max-len
-const errorMessage = 'ResizeObserver is not supported, this could happen both because window.ResizeObserver is not supported by your current browser or you\'re using the useResizeObserver hook whilst server side rendering.'
+const errorMessage = 'ResizeObserver is not supported, this could happen both because window. ResizeObserver is not supported by your current browser or you\'re using the useResizeObserver hook whilst server side rendering.'
 
 export type DOMRectValues = Pick<DOMRectReadOnly, 'bottom' | 'height' | 'left' | 'right' | 'top' | 'width'>
 
