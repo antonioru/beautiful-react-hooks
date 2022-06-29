@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import MutationObserverMock from 'mutation-observer'
-import { cleanup, renderHook } from '@testing-library/react-hooks'
+import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import { cleanup as cleanupReact, render } from '@testing-library/react'
 
 import assertHook from './utils/assertHook'
@@ -15,7 +15,7 @@ describe('useMutationObserver', () => {
   })
 
   beforeEach(() => {
-    cleanup()
+    cleanupHooks()
     cleanupReact()
   })
 
