@@ -113,6 +113,7 @@ $ yarn add beautiful-react-hooks
 * [useDarkMode](useDarkMode.md)
 * [useUpdateEffect](useUpdateEffect.md)
 * [useIsFirstRender](useIsFirstRender.md)
+* [useMutationObserver](useMutationObserver.md)
 
 <div>
   <p align="center">
