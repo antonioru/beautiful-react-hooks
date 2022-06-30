@@ -116,6 +116,7 @@ $ yarn add beautiful-react-hooks
 * [useSwipeEvents](docs/useSwipeEvents.md)
 * [useConditionalTimeout](docs/useConditionalTimeout.md)
 * [useCookie](docs/useCookie.md)
+* [useMutationObserver](docs/useMutationObserver.md)
 
 <div>
   <p align="center">
