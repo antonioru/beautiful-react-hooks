@@ -15,11 +15,14 @@ export type SwipeState = {
 export type UseSwipeEventsOpts = {
   threshold?: number,
   preventDefault?: boolean,
+  usePassiveEvents?: boolean,
 }
 
 const defaultOptions: UseSwipeEventsOpts = {
   threshold: 15,
   preventDefault: true,
+  usePassiveEvents: undefined,
+
 }
 /* eslint-disable @typescript-eslint/default-param-last */
 
@@ -37,8 +40,8 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
   const isDraggingRef = useRef(false)
   const alphaRef = useRef<number[]>([])
   const opts = { ...defaultOptions, ...(options || {}) }
-  const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef)
-  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef)
+  const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef, opts.usePassiveEvents)
+  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef, opts.usePassiveEvents)
   const [state, setState] = useState<SwipeState>()
 
   const startSwipe = (event: MouseEvent | TouchEvent) => {
