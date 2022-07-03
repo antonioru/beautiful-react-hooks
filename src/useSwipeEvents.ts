@@ -22,7 +22,6 @@ const defaultOptions: UseSwipeEventsOpts = {
   threshold: 15,
   preventDefault: true,
   usePassiveEvents: undefined,
-
 }
 /* eslint-disable @typescript-eslint/default-param-last */
 
