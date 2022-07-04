@@ -41,7 +41,7 @@ const useResizeObserver = <TElement extends HTMLElement>
 
       return () => {
         fn.cancel()
-        if (observerRef && isFunction(observerRef?.current?.disconnect)) {
+        if (isFunction(observerRef?.current?.disconnect)) {
           observerRef.current.disconnect()
         }
       }
@@ -54,7 +54,7 @@ const useResizeObserver = <TElement extends HTMLElement>
   // observes on the provided element ref
   useEffect(() => {
     if (isSupported && elementRef.current) {
-      if (observerRef && isFunction(observerRef?.current?.observe)) {
+      if (isFunction(observerRef?.current?.observe)) {
         observerRef.current.observe(elementRef.current)
       }
     }
