@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import usePreviousValue from './usePreviousValue'
+
+import isFunction from './shared/isFunction'
 import { GenericFunction } from './shared/types'
+import usePreviousValue from './usePreviousValue'
 
 type UseConditionalTOOpts = {
   cancelOnUnmount?: boolean,
@@ -34,7 +36,7 @@ const useConditionalTimeout = <TCallback extends GenericFunction>
 
   // if the provided function changes, change its reference
   useEffect(() => {
-    if (typeof fn === 'function') {
+    if (isFunction(fn)) {
       callback.current = fn
     }
   }, [fn])

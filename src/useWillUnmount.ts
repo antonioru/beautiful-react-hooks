@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
-import createHandlerSetter from './factory/createHandlerSetter'
+
+import isFunction from './shared/isFunction'
 import { GenericFunction } from './shared/types'
+import createHandlerSetter from './factory/createHandlerSetter'
 
 /**
  * Returns a callback setter for a callback to be performed when the component will unmount.
@@ -13,7 +15,7 @@ const useWillUnmount = <TCallback extends GenericFunction>(callback?: TCallback)
     mountRef.current = true
 
     return () => {
-      if (handler && handler.current && typeof handler.current === 'function' && mountRef.current) {
+      if (isFunction(handler?.current) && mountRef.current) {
         handler.current()
       }
     }
