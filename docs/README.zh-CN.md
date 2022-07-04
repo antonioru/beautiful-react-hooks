@@ -112,7 +112,7 @@ $ yarn add beautiful-react-hooks
 * [useCookie](useCookie.md)
 * [useMutationObserver](useMutationObserver.md)
 * [useAudio](useAudio.md)
-* [useSetState](useSetState.md)
+* [useObjectState](useObjectState.md)
 
 <div>
   <p align="center">

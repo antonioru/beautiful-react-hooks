@@ -7,8 +7,8 @@ import {
 } from 'react'
 
 import noop from './shared/noop'
-import useSetState from './useSetState'
 import isClient from './shared/isClient'
+import useObjectState from './useObjectState'
 import { CallbackSetter } from './shared/types'
 import isDevelopment from './shared/isDevelopment'
 import isAPISupported from './shared/isAPISupported'
@@ -129,7 +129,7 @@ export const useAudio = (src: string, options?: IOptions): TOutput => {
   const audioRef = useRef<HTMLAudioElement>(new Audio(src))
   const [onErrorRef, setOnErrorRef] = createHandlerSetter<Error>()
 
-  const [state, setState] = useSetState<IState>(defaultState)
+  const [state, setState] = useObjectState<IState>(defaultState)
 
   const onError = (error: Error) => {
     if (onErrorRef.current) {

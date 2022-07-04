@@ -1,4 +1,4 @@
-# useSetState
+# useObjectState
 
 React state hook that creates setState method which works similar to how useState works, merges object changes into the current state.
 
@@ -11,10 +11,10 @@ React state hook that creates setState method which works similar to how useStat
 ```jsx harmony
 import { useState, useRef } from 'react';
 import { Button } from 'beautiful-react-ui';
-import useSetState from 'beautiful-react-hooks/useSetState';
+import useObjectState from 'beautiful-react-hooks/useObjectState';
 
-const UseSetStateComponent = () => {
-  const [state, setState] = useSetState({ count: 0, title: 'Test title' })
+const UseObjectStateComponent = () => {
+  const [state, setState] = useObjectState({ count: 0, title: 'Test title' })
 
   const reset = () => setState({ count: 0 })
 
@@ -39,7 +39,7 @@ const UseSetStateComponent = () => {
   );
 };
 
-<UseSetStateComponent />
+<UseObjectStateComponent />
 ```
 
 ### Mastering the hook

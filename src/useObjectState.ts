@@ -8,7 +8,7 @@ const reducer = <TState>(
     ...updatedState,
   })
 
-const useSetState = <TState>(
+const useObjectState = <TState>(
   initialState: TState,
 ): [TState, (state: Partial<TState>) => void] => {
   const [state, dispatch] = useReducer(
@@ -21,4 +21,4 @@ const useSetState = <TState>(
   return [state, setState]
 }
 
-export default useSetState
+export default useObjectState

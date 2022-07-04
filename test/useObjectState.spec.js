@@ -1,16 +1,16 @@
 import { act, cleanup, renderHook } from "@testing-library/react-hooks";
 
 import assertHook from "./utils/assertHook";
-import useSetState from "../dist/useSetState";
+import useObjectState from "../dist/useObjectState";
 
-describe("useSetState", () => {
+describe("useObjectState", () => {
   beforeEach(() => cleanup());
 
-  assertHook(useSetState);
+  assertHook(useObjectState);
 
   it("should return updated object state", async () => {
     const { result, waitFor } = renderHook(() =>
-      useSetState({ test: "test", test1: "test1" })
+      useObjectState({ test: "test", test1: "test1" })
     );
 
     const [state, setState] = result.current;
