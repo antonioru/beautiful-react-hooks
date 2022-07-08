@@ -1,7 +1,9 @@
-import { RefObject, useEffect, useRef, useState } from 'react'
 import debounce from 'lodash.debounce'
-import isApiSupported from './shared/isAPISupported'
+import { RefObject, useEffect, useRef, useState } from 'react'
+
 import isClient from './shared/isClient'
+import isFunction from './shared/isFunction'
+import isApiSupported from './shared/isAPISupported'
 
 // eslint-disable-next-line max-len
 const errorMessage = 'ResizeObserver is not supported, this could happen both because window. ResizeObserver is not supported by your current browser or you\'re using the useResizeObserver hook whilst server side rendering.'
@@ -39,7 +41,7 @@ const useResizeObserver = <TElement extends HTMLElement>
 
       return () => {
         fn.cancel()
-        if (observerRef && observerRef.current && observerRef.current.disconnect && typeof observerRef.current.disconnect === 'function') {
+        if (isFunction(observerRef?.current?.disconnect)) {
           observerRef.current.disconnect()
         }
       }
@@ -52,7 +54,7 @@ const useResizeObserver = <TElement extends HTMLElement>
   // observes on the provided element ref
   useEffect(() => {
     if (isSupported && elementRef.current) {
-      if (observerRef && observerRef.current && observerRef.current.observe && typeof observerRef.current.observe === 'function') {
+      if (isFunction(observerRef?.current?.observe)) {
         observerRef.current.observe(elementRef.current)
       }
     }

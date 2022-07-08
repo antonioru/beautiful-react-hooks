@@ -1,7 +1,9 @@
 import { RefObject, useEffect, useRef, useState } from 'react'
-import createHandlerSetter from './factory/createHandlerSetter'
+
+import isFunction from './shared/isFunction'
 import useMouseEvents from './useMouseEvents'
 import useTouchEvents from './useTouchEvents'
+import createHandlerSetter from './factory/createHandlerSetter'
 import { getDirection, getPointerCoordinates } from './shared/swipeUtils'
 
 export type SwipeState = {
@@ -154,7 +156,7 @@ const useSwipeEvents = <TElement extends HTMLElement>(ref: RefObject<TElement> =
     if (state && state.direction) {
       const cb = fnMap[state.direction].current
 
-      if (cb && typeof cb === 'function') {
+      if (isFunction(cb)) {
         cb(state)
       }
     }

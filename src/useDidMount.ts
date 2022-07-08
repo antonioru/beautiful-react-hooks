@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
-import createHandlerSetter from './factory/createHandlerSetter'
+
+import isFunction from './shared/isFunction'
 import { GenericFunction, Noop } from './shared/types'
+import createHandlerSetter from './factory/createHandlerSetter'
 
 /**
  * Returns a callback setter for a function to be performed when the component did mount.
@@ -10,7 +12,7 @@ const useDidMount = <TCallback extends GenericFunction = Noop>(callback?: TCallb
   const [handler, setHandler] = createHandlerSetter<void>(callback)
 
   useEffect(() => {
-    if (handler && handler.current && typeof handler.current === 'function' && !mountRef.current) {
+    if (isFunction(handler?.current) && !mountRef.current) {
       handler.current()
       mountRef.current = true
     }

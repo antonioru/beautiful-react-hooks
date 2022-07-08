@@ -1,7 +1,9 @@
 import { RefObject, useCallback } from 'react'
-import createHandlerSetter from './factory/createHandlerSetter'
-import safeHasOwnProperty from './shared/safeHasOwnProperty'
+
 import useEvent from './useEvent'
+import isFunction from './shared/isFunction'
+import safeHasOwnProperty from './shared/safeHasOwnProperty'
+import createHandlerSetter from './factory/createHandlerSetter'
 
 /**
  * Accepts an HTML Element ref, then returns a function that allows you to handle the infinite
@@ -19,7 +21,7 @@ const useInfiniteScroll = <TElement extends HTMLElement>(ref: RefObject<TElement
     const el = target as HTMLDivElement
     if (el) {
       const isBottom = el.scrollHeight - el.scrollTop === el.clientHeight
-      if (isBottom && onScrollEnd.current && typeof onScrollEnd.current === 'function') {
+      if (isBottom && isFunction(onScrollEnd?.current)) {
         setTimeout(onScrollEnd.current, delay)
       }
     }
