@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "3.6.2",
+  "version": "3.7.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -198,6 +198,10 @@
     "./useMouseState": {
       "import": "./esm/useMouseState.js",
       "require": "./useMouseState.js"
+    },
+    "./useMutationObserver": {
+      "import": "./esm/useMutationObserver.js",
+      "require": "./useMutationObserver.js"
     },
     "./useObservable": {
       "import": "./esm/useObservable.js",
