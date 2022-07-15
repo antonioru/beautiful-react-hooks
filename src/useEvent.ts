@@ -10,25 +10,24 @@ const useEvent = <TEvent extends Event, TElement extends HTMLElement = HTMLEleme
   (ref: RefObject<TElement>, eventName: string, options?: AddEventListenerOptions) => {
   const [handler, setHandler] = createHandlerSetter<TEvent>()
 
-  if (!!ref && !safeHasOwnProperty(ref, 'current')) {
-    throw new Error('Unable to assign any scroll event to the given ref')
+  if (ref && !safeHasOwnProperty(ref, 'current')) {
+    throw new Error('current attribute does not exist on ref')
   }
 
   useEffect(() => {
+    // ensure that "current" in this scope does not change with ref
+    const element=ref.current;
+
     const cb: EventListenerOrEventListenerObject = (event: TEvent) => {
-      if (handler.current) {
-        handler.current(event)
-      }
+      handler.current?.(event)
     }
 
-    if (ref.current && ref.current.addEventListener && handler.current) {
-      ref.current.addEventListener(eventName, cb, options)
+    if (element && handler.current) {
+      element.addEventListener(eventName, cb, options)
     }
 
     return () => {
-      if (ref.current && ref.current.addEventListener && handler.current) {
-        ref.current.removeEventListener(eventName, cb, options)
-      }
+      element.removeEventListener(eventName,cb)
     }
   }, [eventName, ref.current, options])
 
