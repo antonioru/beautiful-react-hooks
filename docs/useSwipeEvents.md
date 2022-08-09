@@ -93,7 +93,7 @@ import useSwipeEvents from 'beautiful-react-hooks/useSwipeEvents';
 
 const SwipeReporter = () => {
   const ref = useRef();
-  const options = { threshold: 25, preventDefault: false };
+  const options = { threshold: 25, preventDefault: false, usePassiveEvents: true };
   const { onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeDown } = useSwipeEvents(ref, options);
   const [lastSwipeInfo, setLastSwipeInfo] = useState();
 
