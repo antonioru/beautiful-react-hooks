@@ -15,15 +15,15 @@ import useEvent from './useEvent'
  * lose the React SyntheticEvent performance boost.<br />
  * If you were doing something like the following:
  */
-const useMouseEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>) => {
+const useMouseEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>, passive?: boolean) => {
   const target = targetRef || { current: window.document } as unknown as RefObject<TElement>
-  const onMouseDown = useEvent<MouseEvent, TElement>(target, 'mousedown')
-  const onMouseEnter = useEvent<MouseEvent, TElement>(target, 'mouseenter')
-  const onMouseLeave = useEvent<MouseEvent, TElement>(target, 'mouseleave')
-  const onMouseMove = useEvent<MouseEvent, TElement>(target, 'mousemove')
-  const onMouseOut = useEvent<MouseEvent, TElement>(target, 'mouseout')
-  const onMouseOver = useEvent<MouseEvent, TElement>(target, 'mouseover')
-  const onMouseUp = useEvent<MouseEvent, TElement>(target, 'mouseup')
+  const onMouseDown = useEvent<MouseEvent, TElement>(target, 'mousedown', { passive })
+  const onMouseEnter = useEvent<MouseEvent, TElement>(target, 'mouseenter', { passive })
+  const onMouseLeave = useEvent<MouseEvent, TElement>(target, 'mouseleave', { passive })
+  const onMouseMove = useEvent<MouseEvent, TElement>(target, 'mousemove', { passive })
+  const onMouseOut = useEvent<MouseEvent, TElement>(target, 'mouseout', { passive })
+  const onMouseOver = useEvent<MouseEvent, TElement>(target, 'mouseover', { passive })
+  const onMouseUp = useEvent<MouseEvent, TElement>(target, 'mouseup', { passive })
 
   return Object.freeze({
     onMouseDown,

@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+
+import isFunction from './shared/isFunction'
 import { GenericFunction } from './shared/types'
 
 export type UseIntervalOptions = {
@@ -30,7 +32,7 @@ const useInterval = <TCallback extends GenericFunction>
 
   // if the provided function changes, change its reference
   useEffect(() => {
-    if (typeof fn === 'function') {
+    if (isFunction(fn)) {
       callback.current = fn
     }
   }, [fn])

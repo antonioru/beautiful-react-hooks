@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import MutationObserverMock from 'mutation-observer'
-import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 import { cleanup as cleanupReact, render } from '@testing-library/react'
+import { cleanup as cleanupHooks, renderHook } from '@testing-library/react-hooks'
 
 import assertHook from './utils/assertHook'
 import promiseDelay from './utils/promiseDelay'

@@ -120,6 +120,8 @@ $ yarn add beautiful-react-hooks
 * [useUpdateEffect](docs/useUpdateEffect.md)
 * [useIsFirstRender](docs/useIsFirstRender.md)
 * [useMutationObserver](docs/useMutationObserver.md)
+* [useAudio](docs/useAudio.md)
+* [useObjectState](docs/useObjectState.md)
 
 <div>
   <p align="center">

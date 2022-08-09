@@ -1,7 +1,9 @@
 import { RefObject, useEffect, useRef, useState } from 'react'
-import createHandlerSetter from './factory/createHandlerSetter'
+
+import isFunction from './shared/isFunction'
 import useMouseEvents from './useMouseEvents'
 import useTouchEvents from './useTouchEvents'
+import createHandlerSetter from './factory/createHandlerSetter'
 import { getDirection, getPointerCoordinates } from './shared/swipeUtils'
 
 export type SwipeState = {
@@ -15,11 +17,13 @@ export type SwipeState = {
 export type UseSwipeEventsOpts = {
   threshold?: number,
   preventDefault?: boolean,
+  passive?: boolean,
 }
 
 const defaultOptions: UseSwipeEventsOpts = {
   threshold: 15,
   preventDefault: true,
+  passive: undefined,
 }
 /* eslint-disable @typescript-eslint/default-param-last */
 
@@ -37,8 +41,8 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
   const isDraggingRef = useRef(false)
   const alphaRef = useRef<number[]>([])
   const opts = { ...defaultOptions, ...(options || {}) }
-  const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef)
-  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef)
+  const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef, opts.passive)
+  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef, opts.passive)
   const [state, setState] = useState<SwipeState>()
 
   const startSwipe = (event: MouseEvent | TouchEvent) => {
@@ -154,7 +158,7 @@ const useSwipeEvents = <TElement extends HTMLElement>(ref: RefObject<TElement> =
     if (state && state.direction) {
       const cb = fnMap[state.direction].current
 
-      if (cb && typeof cb === 'function') {
+      if (isFunction(cb)) {
         cb(state)
       }
     }

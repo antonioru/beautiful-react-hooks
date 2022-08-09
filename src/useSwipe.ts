@@ -7,12 +7,14 @@ export type UseSwipeOptions = {
   direction?: 'both' | 'horizontal' | 'vertical',
   threshold?: number,
   preventDefault?: boolean,
+  passive?: boolean
 }
 
 const defaultOptions: UseSwipeOptions = {
   direction: 'both',
   threshold: 10,
   preventDefault: true,
+  passive: undefined,
 }
 
 type LocalSwipeState = {
@@ -41,8 +43,8 @@ const useSwipe = <TElement extends HTMLElement>(targetRef: RefObject<TElement> =
   const startingPointRef = useRef<[number, number]>([-1, -1])
   const isDraggingRef = useRef(false)
   const opts = { ...defaultOptions, ...(options || {}) }
-  const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef)
-  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef)
+  const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef, opts.passive)
+  const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef, opts.passive)
 
   const startSwipe = (event: MouseEvent | TouchEvent) => {
     const [clientX, clientY] = getPointerCoordinates(event)
