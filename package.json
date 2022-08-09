@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "3.7.0",
+  "version": "3.10.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -111,6 +111,10 @@
       "import": "./esm/index.js",
       "require": "./index.js"
     },
+    "./useAudio": {
+      "import": "./esm/useAudio.js",
+      "require": "./useAudio.js"
+    },
     "./useConditionalTimeout": {
       "import": "./esm/useConditionalTimeout.js",
       "require": "./useConditionalTimeout.js"
@@ -118,6 +122,10 @@
     "./useCookie": {
       "import": "./esm/useCookie.js",
       "require": "./useCookie.js"
+    },
+    "./useDarkMode": {
+      "import": "./esm/useDarkMode.js",
+      "require": "./useDarkMode.js"
     },
     "./useDebouncedCallback": {
       "import": "./esm/useDebouncedCallback.js",
@@ -175,6 +183,10 @@
       "import": "./esm/useInterval.js",
       "require": "./useInterval.js"
     },
+    "./useIsFirstRender": {
+      "import": "./esm/useIsFirstRender.js",
+      "require": "./useIsFirstRender.js"
+    },
     "./useLifecycle": {
       "import": "./esm/useLifecycle.js",
       "require": "./useLifecycle.js"
@@ -202,6 +214,10 @@
     "./useMutationObserver": {
       "import": "./esm/useMutationObserver.js",
       "require": "./useMutationObserver.js"
+    },
+    "./useObjectState": {
+      "import": "./esm/useObjectState.js",
+      "require": "./useObjectState.js"
     },
     "./useObservable": {
       "import": "./esm/useObservable.js",
@@ -278,6 +294,10 @@
     "./useTouchState": {
       "import": "./esm/useTouchState.js",
       "require": "./useTouchState.js"
+    },
+    "./useUpdateEffect": {
+      "import": "./esm/useUpdateEffect.js",
+      "require": "./useUpdateEffect.js"
     },
     "./useURLSearchParams": {
       "import": "./esm/useURLSearchParams.js",
