@@ -117,6 +117,8 @@ $ yarn add beautiful-react-hooks
 * [useConditionalTimeout](docs/useConditionalTimeout.md)
 * [useCookie](docs/useCookie.md)
 * [useMutationObserver](docs/useMutationObserver.md)
+* [useAudio](docs/useAudio.md)
+* [useObjectState](docs/useObjectState.md)
 
 <div>
   <p align="center">
