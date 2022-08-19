@@ -963,3 +963,9 @@ Errored release
 ### Adds
 
 - useToggle hook
+
+## [3.11.1] - 2022-08-19
+
+### Fixes
+
+- useToggle types
