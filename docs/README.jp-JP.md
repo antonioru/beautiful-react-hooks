@@ -118,6 +118,7 @@ $ yarn add beautiful-react-hooks
 * [useMutationObserver](useMutationObserver.md)
 * [useAudio](useAudio.md)
 * [useObjectState](useObjectState.md)
+* [useToggle](useToggle.md)
 
 <div>
   <p align="center">

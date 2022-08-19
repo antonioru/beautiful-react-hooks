@@ -59,13 +59,7 @@ export { default as useQueryParams } from './useQueryParams'
 export { default as useSearchQuery } from './useSearchQuery'
 export { default as useEvent } from './useEvent'
 export { default as useViewportState } from './useViewportState'
+export { default as useToggle } from './useToggle'
 
 // keep it just for compatibility issues
 export { default as useStorage } from './factory/createStorageHook'
-
-if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-  console.warn(`
-    TIP: To improve your application bundle size, avoid importing hooks from the index file of 'beautiful-react-hooks'.\n
-    Try 'import useSomething from 'beautiful-react-hooks/useSomething' instead of 'import { useSomething } from 'beautiful-react-hooks'
-  `)
-}

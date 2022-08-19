@@ -903,3 +903,63 @@ Errored release
 ### Fixes
 
 - wrap setValue from useStorage hook in useCallback to persist reference
+
+## [3.5.2] - 2022-06-27
+
+### Fixes
+
+- wrap setValue from useSt
+
+## [3.6.0] - 2022-06-27
+
+### Adds
+
+- useCookie hook
+
+## [3.6.1] - 2022-06-27
+
+### Fixes
+
+- wraps useStorage's setValue in a useCallback hook
+
+## [3.6.2] - 2022-06-28
+
+### Fixes
+
+- useTimeout return type
+
+## [3.7.0] - 2022-07-08
+
+### Fixes
+
+- moves type checking functions into a separate utility
+
+## [3.7.1] - 2022-08-09
+
+### Fixes
+
+- allow user to pass 'passive' flag events-related hooks
+
+## [3.8.0] - 2022-08-09
+
+### Adds
+
+- Improves 'passive' events flag
+
+## [3.9.0] - 2022-08-09
+
+### Adds
+
+- useAudio hook
+
+## [3.10.0] - 2022-08-09
+
+### Adds
+
+- useDarkMode hook
+
+## [3.11.0] - 2022-08-19
+
+### Adds
+
+- useToggle hook
