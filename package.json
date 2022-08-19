@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "3.10.0",
+  "version": "3.11.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -282,6 +282,10 @@
     "./useTimeout": {
       "import": "./esm/useTimeout.js",
       "require": "./useTimeout.js"
+    },
+    "./useToggle": {
+      "import": "./esm/useToggle.js",
+      "require": "./useToggle.js"
     },
     "./useTouch": {
       "import": "./esm/useTouch.js",
