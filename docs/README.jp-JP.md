@@ -12,62 +12,63 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 <br />
 <div>
   <p align="center">
-    コンポーネントやフック開発を高速化するための、美しい（できれば便利な）Reactフックのコレクションです。
+    コンポーネントやフック開発を高速化するための、美しい（できれば便利な） React フックのコレクションです。
   </p>
 </div>
 
 <div>
   <p align="center">
     <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 ライブプレイグラウンドはこちら 🌟
     </a>
   </p>
 </div>
 
 ![Usage example](../usage_example.png)
 
-🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a>
+<a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a>
-| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">&#x1f1ef;&#x1f1f5; 日本語 </a>
+| 🇯🇵 日本語
 
 ## 💡 なぜ?
 
-React custom hooksは抽象的なコンポーネントのビジネスロジックを単一な再利用可能な関数とする事が出来ます。<br />
-これまでのところ、私たちが作成し、内部で共有されているhookの大半はかなりの頻度でコールバック参照、イベントとコンポーネントのライフサイクルに関して類似する点がある事が分かっています。<br />
-このため、私たちはそん知見を企業や専門家が開発プロセスをスピードアップするのに役立つ（できれば）便利なReact hookのコレクションとして
-`beautiful-react-hooks`にまとめました。
+React のカスタムフックは抽象的なコンポーネントのビジネスロジックを単一な再利用可能な関数とする事が出来ます。<br />
+これまでのところ、私たちが作成し、内部で共有されているフックの大半はかなりの頻度でコールバック参照、イベントとコンポーネントのライフサイクルに関して類似する点がある事が分かっています。<br />
+この理由から、私たちはそれらの知見を企業や専門家が開発プロセスをスピードアップするのに役立つ（*できれば*）便利な React フックのコレクションとして `beautiful-react-hooks` にまとめました。
 <br /><br />
-さらに、コードの読みやすさを考慮して、簡潔かつ具体的なAPIを作成しました。 より大きなチームで使用し、共有できるように、学習曲線を可能な限り低く抑える事が可能です。
+さらに、コードの読みやすさを考慮して、簡潔かつ具体的な API を作成しました。
+より大きなチームで使用し、共有できるように、学習曲線を可能な限り低く抑える事が可能です。
 
-**-- hookを利用する前に、ドキュメントを確認して下さい！ --**
+**-- フックを利用する前に、ドキュメントを確認して下さい！ --**
 
 ## ☕️ 特徴
 
-* 簡潔なAPI
+* 簡潔な API
 * 軽量
 * 学習が容易
 
 <div>
   <p align="center">
     <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 ライブプレイグラウンドはこちら 🌟
     </a>
   </p>
 </div>
 
 ## 🕺 インストール
 
-`npm`:を利用する場合:
+`npm` を利用する場合:
 
 ```bash
 $ npm install beautiful-react-hooks
 ```
 
-`yarn`を利用する場合:
+`yarn` を利用する場合:
 
 ```bash
 $ yarn add beautiful-react-hooks
@@ -123,27 +124,26 @@ $ yarn add beautiful-react-hooks
 <div>
   <p align="center">
     <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 ライブプレイグラウンドはこちら 🌟
     </a>
   </p>
 </div>
 
+## Peer dependencies
+
+いくつかのフックはサードパーティライブラリ(rxjs、react-router-dom、redux)の上に構築されているため、それらのライブラリが peer dependencies としてリストされていることに気づくかもしれません。直接的にそれらのフックを使用しない限り、依存関係としてインストールする必要はありません。
+
 ## コントリビューション
 
-このレポへの貢献は大歓迎ですし、必要としています。
+このリポジトリへの貢献は大歓迎ですし、必要としています。
 
-あなたのカスタムhookのPRを送るにあたり、私たちの[CONTRIBUTING](../CONTRIBUTING.md) ガイドラインを確認してください.
+あなたが作成したカスタムフックの PR を送るにあたり、私たちの [CONTRIBUTING](../CONTRIBUTING.md) ガイドラインを必ず確認するようにしてください。
 
-**PRを送る前に** 下記を確認してください:
+**PR を送る前に**、下記を確認してください:
 
-1. package.jsonのバージョンが更新されている事そして[CHANGELOG](../CHANGELOG.md)に変更について記述を報告している事 You have updated the package.json version and reported your
-   changes into the [CHANGELOG](./CHANGELOG.md) file
-2. PRを送る前に、 `npm test` と `npm build`を実行し問題がない事
-
-3. あなたのカスタムhookの`doc`フォルダに追加している事  
-   (*カスタムhookのドキュメントテンプレートを用意しています [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md)*).
-
-4. あたなのhookの型のため、`index.d.ts`ファイルを更新している事
+1. コードのテストを必ず書くようにし、PR を送る前に `npm test` と `npm build` を実行して問題がない事を確認してください。
+2. カスタムフックを作成する場合には、ドキュメントに必ず追加するようにしてください。  
+  (*カスタムフックのドキュメントテンプレートを用意しています [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md)*).
 
 ### 利用しているライブラリ
 
@@ -155,4 +155,4 @@ $ yarn add beautiful-react-hooks
 
 ---
 
-Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)
+アイコンは [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812) で [Freepik](https://www.flaticon.com/authors/freepik) によって作成されました。
