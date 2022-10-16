@@ -18,7 +18,7 @@ const useValidatedState = <TValue, TValidator extends (value: TValue) => boolean
     validation.current = { changed: true, valid: validator(nextValue) }
   }, [validator])
 
-  return [state, onChange, validation.current]
+  return [state, onChange, validation.current] as [TValue, (nextValue: TValue) => void, ValidationResult]
 }
 
 export default useValidatedState
