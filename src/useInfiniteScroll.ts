@@ -20,7 +20,7 @@ const useInfiniteScroll = <TElement extends HTMLElement>(ref: RefObject<TElement
   const handleScroll = useCallback(({ target }: UIEvent) => {
     const el = target as HTMLDivElement
     if (el) {
-      const isBottom = el.scrollHeight - el.scrollTop === el.clientHeight
+      const isBottom = Math.abs(el.scrollHeight - el.clientHeight - el.scrollTop) < 1
       if (isBottom && isFunction(onScrollEnd?.current)) {
         setTimeout(onScrollEnd.current, delay)
       }
