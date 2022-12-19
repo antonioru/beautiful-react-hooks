@@ -36,5 +36,5 @@ Despite having an `index.ts` file, it's recommended importing the hooks from the
 unnecessary hooks and therefore unnecessary dependencies
 
 ```ts static
-import useSomeHook from 'beautiful-react-hoks/useSomeHook'
+import useSomeHook from 'beautiful-react-hooks/useSomeHook'
 ```
