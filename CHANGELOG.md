@@ -970,14 +970,14 @@ Errored release
 
 - useToggle types
 
-## [3.12.0] - 2023-01-11
+## [3.11.2] - 2023-01-11
 
-### Adds
+### Fix
 
 - `warnOnce` function to make sure the warning messages are displayed only once
 
-## [3.12.1] - 2023-01-11
+## [3.12.0] - 2023-01-11
 
-### Fixes
+### Adds
 
 - improve `useInfiniteScroll` code
