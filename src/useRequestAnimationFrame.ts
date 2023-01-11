@@ -4,6 +4,7 @@ import isClient from './shared/isClient'
 import isAPISupported from './shared/isAPISupported'
 import { CallbackSetter, GenericFunction } from './shared/types'
 import noop from './shared/noop'
+import warnOnce from './shared/warnOnce'
 
 export type UseRequestAnimationFrameOpts = {
   increment?: number,
@@ -22,8 +23,7 @@ const errorMessage = 'requestAnimationFrame is not supported, this could happen 
  */
 const useRequestAnimationFrame = <T extends GenericFunction>(func: T, options: UseRequestAnimationFrameOpts = defaultOptions) => {
   if (!isClient || !isAPISupported('requestAnimationFrame')) {
-    // eslint-disable-next-line no-console
-    console.warn(errorMessage)
+    warnOnce(errorMessage)
     return noop as CallbackSetter<void>
   }
 

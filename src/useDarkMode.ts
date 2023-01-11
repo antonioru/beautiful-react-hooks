@@ -7,6 +7,7 @@ import useLocalStorage from './useLocalStorage'
 import noop from './shared/noop'
 import isClient from './shared/isClient'
 import isDevelopment from './shared/isDevelopment'
+import warnOnce from './shared/warnOnce'
 
 const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)'
 export const LOCAL_STORAGE_KEY = 'beautiful-react-hooks-is-dark-mode'
@@ -17,10 +18,7 @@ const useDarkMode = (
 ) => {
   if (!isClient) {
     if (!isDevelopment) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        'Please be aware that useDarkMode hook could not be available during SSR',
-      )
+      warnOnce('Please be aware that useDarkMode hook could not be available during SSR')
     }
 
     return Object.freeze({

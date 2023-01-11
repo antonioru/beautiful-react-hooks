@@ -5,6 +5,7 @@ import isClient from './shared/isClient'
 import isDevelopment from './shared/isDevelopment'
 import isAPISupported from './shared/isAPISupported'
 import createHandlerSetter from './factory/createHandlerSetter'
+import warnOnce from './shared/warnOnce'
 
 export enum ECookieSameSite {
   STRICT = 'strict',
@@ -47,20 +48,14 @@ const useCookie = (key: string, options?: IOptions) => {
 
   if (!isClient) {
     if (!isDevelopment) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        'Please be aware that cookieStore could not be available during SSR',
-      )
+      warnOnce('Please be aware that cookieStore could not be available during SSR')
     }
 
     return hookNotSupportedResponse
   }
 
   if (!isAPISupported('cookieStore')) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      "The current device does not support the 'cookieStore' API, you should avoid using useCookie",
-    )
+    warnOnce('The current device does not support the \'cookieStore\' API, you should avoid using useCookie')
 
     return hookNotSupportedResponse
   }

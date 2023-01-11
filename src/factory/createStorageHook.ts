@@ -4,6 +4,7 @@ import isClient from '../shared/isClient'
 import isAPISupported from '../shared/isAPISupported'
 import isDevelopment from '../shared/isDevelopment'
 import noop from '../shared/noop'
+import warnOnce from '../shared/warnOnce'
 
 /**
  * An utility to quickly create hooks to access both Session Storage and Local Storage
@@ -13,8 +14,7 @@ const createStorageHook = (type: 'session' | 'local') => {
   const storageName: `${typeof type}Storage` = `${type}Storage`
 
   if (isClient && !isAPISupported(storageName)) {
-    // eslint-disable-next-line no-console
-    console.warn(`${storageName} is not supported`)
+    warnOnce(`${storageName} is not supported`)
   }
 
   /**
@@ -26,8 +26,7 @@ const createStorageHook = (type: 'session' | 'local') => {
   ): [TValue, SetValue<TValue>] {
     if (!isClient) {
       if (isDevelopment) {
-        // eslint-disable-next-line no-console
-        console.warn(`Please be aware that ${storageName} could not be available during SSR`)
+        warnOnce(`Please be aware that ${storageName} could not be available during SSR`)
       }
       return [JSON.stringify(defaultValue) as unknown as TValue, noop]
     }
@@ -37,7 +36,8 @@ const createStorageHook = (type: 'session' | 'local') => {
       try {
         storage.setItem(storageKey, valueToStore)
         // eslint-disable-next-line no-empty
-      } catch (e) {}
+      } catch (e) {
+      }
     }, [storage, storageKey])
 
     const [storedValue, setStoredValue] = useState<TValue>(

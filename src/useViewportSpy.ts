@@ -2,6 +2,7 @@ import { RefObject, useLayoutEffect, useState } from 'react'
 import isClient from './shared/isClient'
 import isApiSupported from './shared/isAPISupported'
 import isDevelopment from './shared/isDevelopment'
+import warnOnce from './shared/warnOnce'
 
 const defaultOptions: IntersectionObserverInit = {
   rootMargin: '0px',
@@ -20,8 +21,7 @@ const errorMessage = 'IntersectionObserver is not supported, this could happen b
 const useViewportSpy = <TElement extends HTMLElement>(ref: RefObject<TElement>, options: IntersectionObserverInit = defaultOptions) => {
   if (!isClient || !isApiSupported('IntersectionObserver')) {
     if (isDevelopment) {
-      // eslint-disable-next-line no-console
-      console.warn(errorMessage)
+      warnOnce(errorMessage)
     }
     return false
   }

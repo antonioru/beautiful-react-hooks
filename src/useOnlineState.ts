@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import useGlobalEvent from './useGlobalEvent'
+import warnOnce from './shared/warnOnce'
 
 /**
  * Uses the [Navigator online API](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine) to define
@@ -16,8 +17,7 @@ const useOnlineState = () => {
   const whenOffline = useGlobalEvent('offline', { capture: true })
 
   if (!isSupported) {
-    // eslint-disable-next-line max-len, no-console
-    console.warn('The current device does not support the \'online/offline\' events, you should avoid using useOnlineState')
+    warnOnce('The current device does not support the \'online/offline\' events, you should avoid using useOnlineState')
     return isOnline
   }
 

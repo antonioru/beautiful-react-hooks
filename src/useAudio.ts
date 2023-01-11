@@ -5,6 +5,7 @@ import useObjectState from './useObjectState'
 import isDevelopment from './shared/isDevelopment'
 import isAPISupported from './shared/isAPISupported'
 import createHandlerSetter from './factory/createHandlerSetter'
+import warnOnce from './shared/warnOnce'
 
 type UseAudioPreloadType = 'auto' | 'metadata' | 'none';
 
@@ -93,16 +94,14 @@ export const useAudio = (src: string, options?: UseAudioOptions) => {
 
   if (!isClient) {
     if (!isDevelopment) {
-      // eslint-disable-next-line no-console
-      console.warn('Please be aware that useAudio hook could not be available during SSR')
+      warnOnce('Please be aware that useAudio hook could not be available during SSR')
     }
 
     return hookNotSupportedResponse as [LocalState, Readonly<Controls>, MutableRefObject<HTMLAudioElement>]
   }
 
   if (!isAPISupported('Audio')) {
-    // eslint-disable-next-line no-console
-    console.warn('The current device does not support the \'Audio\' API, you should avoid using useAudio hook')
+    warnOnce('The current device does not support the \'Audio\' API, you should avoid using useAudio hook')
 
     return hookNotSupportedResponse as [LocalState, Readonly<Controls>, MutableRefObject<HTMLAudioElement>]
   }

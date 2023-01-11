@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import isClient from './shared/isClient'
 import isAPISupported from './shared/isAPISupported'
+import warnOnce from './shared/warnOnce'
 
 const errorMessage = 'matchMedia is not supported, this could happen both because window.matchMedia is not supported by'
   + ' your current browser or you\'re using the useMediaQuery hook whilst server side rendering.'
@@ -15,8 +16,7 @@ const errorMessage = 'matchMedia is not supported, this could happen both becaus
  */
 const useMediaQuery = (mediaQuery: string) => {
   if (!isClient || !isAPISupported('matchMedia')) {
-    // eslint-disable-next-line no-console
-    console.warn(errorMessage)
+    warnOnce(errorMessage)
     return false
   }
 

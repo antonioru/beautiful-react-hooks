@@ -4,6 +4,7 @@ import { RefObject, useEffect, useRef, useState } from 'react'
 import isClient from './shared/isClient'
 import isFunction from './shared/isFunction'
 import isApiSupported from './shared/isAPISupported'
+import warnOnce from './shared/warnOnce'
 
 // eslint-disable-next-line max-len
 const errorMessage = 'ResizeObserver is not supported, this could happen both because window. ResizeObserver is not supported by your current browser or you\'re using the useResizeObserver hook whilst server side rendering.'
@@ -23,8 +24,7 @@ const useResizeObserver = <TElement extends HTMLElement>
   const [DOMRect, setDOMRect] = useState<DOMRectValues>()
 
   if (isClient && !isSupported) {
-    // eslint-disable-next-line no-console
-    console.warn(errorMessage)
+    warnOnce(errorMessage)
     return undefined
   }
 

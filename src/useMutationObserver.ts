@@ -2,6 +2,7 @@ import { RefObject, useEffect } from 'react'
 
 import isClient from './shared/isClient'
 import isApiSupported from './shared/isAPISupported'
+import warnOnce from './shared/warnOnce'
 
 // eslint-disable-next-line max-len
 const errorMessage = 'MutationObserver is not supported, this could happen both because window. MutationObserver is not supported by your current browser or you\'re using the useMutationObserver hook whilst server side rendering.'
@@ -21,8 +22,7 @@ const useMutationObserver = <TElement extends HTMLElement>(
   const isSupported = isClient && isApiSupported('MutationObserver')
 
   if (!isSupported) {
-    // eslint-disable-next-line no-console
-    console.warn(errorMessage)
+    warnOnce(errorMessage)
     return
   }
 
