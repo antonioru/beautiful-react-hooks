@@ -23,7 +23,7 @@ const useInfiniteScroll = <TElement extends HTMLElement>(ref: RefObject<TElement
     if (el) {
       const isBottom = Math.abs(el.scrollHeight - el.clientHeight - el.scrollTop) < 1
 
-      event.preventDefault()
+      // event.preventDefault()
       event.stopPropagation()
 
       if (isBottom && isFunction(onScrollEnd?.current)) {

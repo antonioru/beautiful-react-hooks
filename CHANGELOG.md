@@ -981,3 +981,15 @@ Errored release
 ### Adds
 
 - improve `useInfiniteScroll` code
+
+## [3.12.1] - 2023-01-11
+
+### Fixes
+
+- Fixes `useInfiniteScroll` not working on Windows machines
+
+## [3.12.2] - 2023-01-11
+
+### Fixes
+
+- Fixes `useInfiniteScroll` console.error message
