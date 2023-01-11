@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useRef } from 'react'
+import { RefObject, useRef } from 'react'
 import useEvent from './useEvent'
 import isFunction from './shared/isFunction'
 import safeHasOwnProperty from './shared/safeHasOwnProperty'
@@ -17,13 +17,14 @@ const useInfiniteScroll = <TElement extends HTMLElement>(ref: RefObject<TElement
     throw new Error('Unable to assign any scroll event to the given ref')
   }
 
-  const handleScroll = useCallback((event: UIEvent) => {
+  onScroll((event: UIEvent) => {
     const { target } = event
     const el = target as HTMLDivElement
     if (el) {
       const isBottom = Math.abs(el.scrollHeight - el.clientHeight - el.scrollTop) < 1
 
       event.preventDefault()
+      event.stopPropagation()
 
       if (isBottom && isFunction(onScrollEnd?.current)) {
         clearTimeout(timeoutRef.current)
@@ -34,9 +35,7 @@ const useInfiniteScroll = <TElement extends HTMLElement>(ref: RefObject<TElement
         }, delay)
       }
     }
-  }, [])
-
-  onScroll(handleScroll)
+  })
 
   return setOnScrollEnd
 }
