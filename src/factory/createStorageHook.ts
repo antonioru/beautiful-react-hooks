@@ -54,11 +54,16 @@ const createStorageHook = (type: 'session' | 'local') => {
       },
     )
 
-    const setValue: SetValue<TValue> = useCallback((value) => {
-      const valueToStore = value instanceof Function ? value(storedValue) : value
-      safelySetStorage(JSON.stringify(valueToStore))
-      setStoredValue(valueToStore)
-    }, [safelySetStorage, storedValue])
+    const setValue: SetValue<TValue> = useCallback(
+      (value: TValue) => {
+        setStoredValue((current: TValue) => {
+          const valueToStore = value instanceof Function ? value(current) : value
+          safelySetStorage(JSON.stringify(valueToStore))
+          return valueToStore
+        })
+      },
+      [safelySetStorage]
+    )
 
     return [storedValue, setValue]
   }

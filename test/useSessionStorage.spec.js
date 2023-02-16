@@ -99,4 +99,18 @@ describe('useSessionStorage', () => {
 
     expect(result.current[0]).to.equal(200)
   })
+
+  it("should return the same setValue reference after setValue is called", () => {
+    const { result } = renderHook(() =>
+      useSessionStorage("storageKey_7", 100)
+    )
+
+    const startingSetValue = result.current[1]
+
+    act(() => {
+      result.current[1](prev => prev + 100)
+    })
+    
+    expect(result.current[1]).to.equal(startingSetValue)
+  })
 })

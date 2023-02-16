@@ -993,3 +993,9 @@ Errored release
 ### Fixes
 
 - Fixes `useInfiniteScroll` console.error message
+
+## [3.12.3] - 2023-02-16
+
+### Fixes
+
+- `useLocalStorage` and `useSessionStorage` no longer return a new `setValue` function everytime `setValue` is called
