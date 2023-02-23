@@ -1,12 +1,12 @@
 # useEvent
 
-Accepts the reference to an HTML Element and an event name then performs the necessary operations to listen to the event when fired from
-that HTML Element.
+A hook that allows you to specify an HTML element and an event name. It sets up a listener so that when that event happens on that element,
+your code will be notified and can take action. Essentially, it lets you "listen" for events on a specific HTML element
 
 ### Why? 💡
 
-- takes care of adding a listener for the event to the provided target ref
-- takes care of clearing the listener when the component unmounts
+- Automatically adds the event listener to the element, so you don't have to do it manually
+- Automatically removes the event listener when the component unmounts
 
 ### Basic Usage:
 
@@ -29,11 +29,11 @@ const TestComponent = () => {
   });
 
   return (
-    <DisplayDemo>
-      <div ref={targetRef}>
-        Click on this text to increase the number of clicks: {clicksNo}
-      </div>
-    </DisplayDemo>
+          <DisplayDemo title="useEvent">
+            <div ref={targetRef}>
+              Click on this text to increase the number of clicks: {clicksNo}
+            </div>
+          </DisplayDemo>
   );
 };
 
@@ -63,11 +63,11 @@ const TestComponent = () => {
   });
 
   return (
-    <DisplayDemo>
-      <div ref={targetRef}>
-        Click on this text to increase the number of clicks: {clicksNo}
-      </div>
-    </DisplayDemo>
+          <DisplayDemo title="useEvent">
+            <div ref={targetRef}>
+              Click on this text to increase the number of clicks: {clicksNo}
+            </div>
+          </DisplayDemo>
   );
 };
 
@@ -86,3 +86,5 @@ const TestComponent = () => {
   React is considered an anti-pattern**
 - You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler possibly leading to bugs in
   your code
+
+<!-- Types -->

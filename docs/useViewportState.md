@@ -1,6 +1,6 @@
 # useViewportState
 
-Returns information on the current viewport state
+A hook that returns relevant information on the current viewport state
 
 It's built on top of [useWindowResize](./useWindowResize.md) and [useWindowScroll](./useWindowScroll.md).
 
@@ -36,3 +36,5 @@ const WindowSizeReporter = () => {
 #### ✅ When to use
 
 - When in need of reading common information about the current viewport
+
+<!-- Types -->

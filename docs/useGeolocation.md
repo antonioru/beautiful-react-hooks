@@ -1,20 +1,24 @@
 # useGeolocation
 
-Returns an array where the first item is the geolocation state from [useGeolocationState](./useGeolocationState.md)
-and the second one is an object of handler setters from the [useGeolocationEvents](./useGeolocationEvents.md).
+A hook that does the job of two - now that's efficiency! This nifty little function returns an array with two elements: the first being the
+geolocation state from our trusty [useGeolocationState](./useGeolocationState) hook, and the second being an object of handler setters
+from [useGeolocationEvents](./useGeolocationEvents).
 
 It is intended as a shortcut to those hooks.
 
 ### Why? 💡
 
-- allow to easily access the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- takes care of adding the geolocation events listeners
-- takes care of cleaning the listener when the component will unmount
-- allow to perform abstractions on geolocation related events
+- facilitates streamlined access to
+  the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API), which allows for
+  geolocation tracking and position updates
+- manages the addition of geolocation event listeners, ensuring that events related to the user's location are properly handled.
+- automatically cleans up the event listener when the component is unmounted, preventing potential memory leaks and optimizing performance
+- enables the abstraction of geolocation-related events, allowing for more flexible and scalable code implementation
 
 ### Basic Usage:
 
 ```jsx harmony
+import { Typography } from 'antd';
 import useGeolocation from 'beautiful-react-hooks/useGeolocation';
 
 const PositionReporter = () => {
@@ -25,14 +29,14 @@ const PositionReporter = () => {
   });
 
   return (
-    <DisplayDemo>
-      The current position is:
-      {geoState.isRetrieving && (<p>Retrieving position...</p>)}
-      {geoState.isSupported && geoState.position && [
-        <p key={0}>Lat: {geoState.position.coords.latitude}</p>,
-        <p key={1}>Lng: {geoState.position.coords.longitude}</p>
-      ]}
-    </DisplayDemo>
+          <DisplayDemo title="useGeolocation">
+            <Typography.Title>The current position is:</Typography.Title>
+            {geoState.isRetrieving && (<Typography.Paragraph>Retrieving position...</Typography.Paragraph>)}
+            {geoState.isSupported && geoState.position && [
+              <Typography.Paragraph key={0}>Lat: {geoState.position.coords.latitude}</Typography.Paragraph>,
+              <Typography.Paragraph key={1}>Lng: {geoState.position.coords.longitude}</Typography.Paragraph>
+            ]}
+          </DisplayDemo>
   );
 };
 
@@ -44,6 +48,7 @@ const PositionReporter = () => {
 Before using, please read about the [geolocation options](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions)
 
 ```jsx harmony
+import { Typography } from 'antd';
 import useGeolocation from 'beautiful-react-hooks/useGeolocation';
 
 const PositionReporter = () => {
@@ -58,14 +63,14 @@ const PositionReporter = () => {
   });
 
   return (
-    <DisplayDemo>
-      The current position is:
-      {geoState.isRetrieving && (<p>Retrieving position...</p>)}
-      {geoState.isSupported && geoState.position && [
-        <p key={0}>Lat: {geoState.position.coords.latitude}</p>,
-        <p key={1}>Lng: {geoState.position.coords.longitude}</p>
-      ]}
-    </DisplayDemo>
+          <DisplayDemo title="useGeolocation">
+            <Typography.Title>The current position is:</Typography.Title>
+            {geoState.isRetrieving && (<Typography.Paragraph>Retrieving position...</Typography.Paragraph>)}
+            {geoState.isSupported && geoState.position && [
+              <Typography.Paragraph key={0}>Lat: {geoState.position.coords.latitude}</Typography.Paragraph>,
+              <Typography.Paragraph key={1}>Lng: {geoState.position.coords.longitude}</Typography.Paragraph>
+            ]}
+          </DisplayDemo>
   );
 };
 
@@ -76,9 +81,11 @@ const PositionReporter = () => {
 
 #### ✅ When to use
 
-- If in need to easily access the Geolocation API.
+- Use this hook when you require effortless access to the Geolocation API
 
 #### 🛑 What not to do
 
-- Don't use this hook to try to guess the user's device capabilities
-- Don't access the geolocation state before checking the `isSupported` flag
+- Do not utilize this hook to speculate the user's device capabilities.
+- Prior to accessing the geolocation state, ensure to verify the isSupported flag.
+
+<!-- Types -->

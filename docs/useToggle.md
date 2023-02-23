@@ -1,25 +1,31 @@
 # useToggle
 
-A quick and safe utility for boolean states
+A hook that encapsulates the business logic of dealing with boolean values.
+
+Provides a higher-level interface for dealing with boolean logic in React function component.
 
 ### Why? 💡
 
-- frequent boolean states causes code duplication, this hook wraps-up the business logic of implementing a single boolean state
+- Having multiple boolean states in an application often leads to code redundancy. This hook consolidates the implementation details of a
+  singular boolean state, promoting code reusability and reducing code bloat.
 
 ### Basic Usage:
 
 ```jsx harmony
-import useToggle from 'beautiful-react-hooks/useToggle';
-import { Button } from 'beautiful-react-ui'
+import { Typography, Tag, Button } from 'antd'
+import useToggle from 'beautiful-react-hooks/useToggle'
 
 const ComponentWillUnmount = () => {
   const [value, toggleValue] = useToggle()
+  const tagColor = value ? 'green' : 'red'
 
   return (
-    <DisplayDemo>
-      <p>Toggle is {value ? 'on' : 'off'}</p>
-      <Button color="primary" onClick={toggleValue}>toggle value</Button>
-    </DisplayDemo>
+          <DisplayDemo title="useToggle">
+            <Typography.Paragraph>
+              Toggle is <Tag color={tagColor}>{value ? 'on' : 'off'}</Tag>
+            </Typography.Paragraph>
+            <Button type="primary" onClick={toggleValue}>toggle value</Button>
+          </DisplayDemo>
   );
 };
 
@@ -29,19 +35,24 @@ const ComponentWillUnmount = () => {
 ### Initial state
 
 ```jsx harmony
-import useToggle from 'beautiful-react-hooks/useToggle';
-import { Button } from 'beautiful-react-ui'
+import { Button, Typography, Tag } from 'antd'
+import useToggle from 'beautiful-react-hooks/useToggle'
 
 const ComponentWillUnmount = () => {
   const [value, toggleValue] = useToggle(true)
+  const tagColor = value ? 'green' : 'red'
 
   return (
-    <DisplayDemo>
-      <p>Toggle is {value ? 'on' : 'off'}</p>
-      <Button color="primary" onClick={toggleValue}>toggle value</Button>
-    </DisplayDemo>
+          <DisplayDemo title="useToggle">
+            <Typography.Paragraph>
+              Toggle is <Tag color={tagColor}>{value ? 'on' : 'off'}</Tag>
+            </Typography.Paragraph>
+            <Button type="primary" onClick={toggleValue}>toggle value</Button>
+          </DisplayDemo>
   );
 };
 
 <ComponentWillUnmount />
 ```
+
+<!-- Types -->

@@ -1,19 +1,20 @@
-# useQueryParams
+# useURLSearchParams
 
-Very similar to `useQueryParam` (mind the final 's'), it eases the process of manipulate a query string with multiple values.
+A hook that encapsulates the functionality of retrieving an always updated URLSearchParams object.
 
 ### Why? 💡
 
-- Ease the process of use an always updated instance of URLSearchParams
-- it's NOT built on top of version 6 of react-router-dom's useSearchParams, it is therefore compatible with older version
+- simplify the process of obtaining an always up-to-date instance of the URLSearchParams object
+- This hook is not based on the useSearchParams hook from version **6** of the `react-router-dom` library. Therefore, it is compatible with
+  earlier versions of `react-router-dom`
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useState, useRef } from 'react';
 import { HashRouter as Router, useHistory } from 'react-router-dom'
-import { Button, Input } from 'beautiful-react-ui'
-import useURLSearchParams from 'beautiful-react-hooks/useURLSearchParams';
+import { Button, Input } from 'antd'
+import useURLSearchParams from 'beautiful-react-hooks/useURLSearchParams'
 import useDidMount from 'beautiful-react-hooks/useDidMount'
 
 const ExampleComponent = () => {
@@ -30,7 +31,7 @@ const ExampleComponent = () => {
   })
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useURLSearchParams">
       <p>Current value of 'foo' param is '{params.get('foo')}'</p>
       <p>Change the value of the foo param to see how this hook works</p>
     </DisplayDemo>
@@ -41,3 +42,5 @@ const ExampleComponent = () => {
   <ExampleComponent />
 </Router>
 ```
+
+<!-- Types -->

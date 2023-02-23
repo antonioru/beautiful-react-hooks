@@ -75,3 +75,5 @@ by [Dan Abramov](https://twitter.com/dan_abramov)
 
 - You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
 - If using the handler setter, it should not be used asynchronously but immediately invoked
+
+<!-- Types -->

@@ -1,14 +1,30 @@
 import { RefObject, useRef, useState } from 'react'
+import { Direction, getDirection, getHorizontalDirection, getPointerCoordinates, getVerticalDirection } from './shared/swipeUtils'
 import useMouseEvents from './useMouseEvents'
 import useTouchEvents from './useTouchEvents'
-import { Direction, getDirection, getHorizontalDirection, getPointerCoordinates, getVerticalDirection } from './shared/swipeUtils'
 
-export type UseSwipeOptions = {
+/**
+ * The options that can be passed to the hook
+ */
+export interface UseSwipeOptions {
   direction?: 'both' | 'horizontal' | 'vertical',
   threshold?: number,
   preventDefault?: boolean,
   passive?: boolean
 }
+
+/**
+ * The result of the hook
+ */
+export interface SwipeState {
+  swiping: boolean,
+  direction?: Direction,
+  alphaX: number,
+  alphaY: number,
+  count: number,
+}
+
+const initialState: SwipeState = { swiping: false, direction: undefined, alphaX: 0, alphaY: 0, count: 0 }
 
 const defaultOptions: UseSwipeOptions = {
   direction: 'both',
@@ -17,17 +33,8 @@ const defaultOptions: UseSwipeOptions = {
   passive: undefined,
 }
 
-type LocalSwipeState = {
-  swiping: boolean,
-  direction?: Direction,
-  alphaX: number,
-  alphaY: number,
-  count: number,
-}
 
-const initialState: LocalSwipeState = { swiping: false, direction: undefined, alphaX: 0, alphaY: 0, count: 0 }
-
-const isEqual = (prev: LocalSwipeState, next: LocalSwipeState): boolean => (
+const isEqual = (prev: SwipeState, next: SwipeState): boolean => (
   prev.swiping === next.swiping
   && prev.direction === next.direction
   && prev.count === next.count
@@ -70,7 +77,7 @@ const useSwipe = <TElement extends HTMLElement>(targetRef: RefObject<TElement> =
       if (opts.direction === 'both' && (Math.abs(alpha[0]) > opts.threshold || Math.abs(alpha[1]) > opts.threshold)) {
         isDraggingRef.current = true
 
-        const nextState: LocalSwipeState = {
+        const nextState: SwipeState = {
           alphaX: alpha[0],
           alphaY: alpha[1],
           count: state.count,
@@ -86,7 +93,7 @@ const useSwipe = <TElement extends HTMLElement>(targetRef: RefObject<TElement> =
       if (opts.direction === 'horizontal' && Math.abs(alpha[0]) > opts.threshold) {
         isDraggingRef.current = true
 
-        const nextState: LocalSwipeState = {
+        const nextState: SwipeState = {
           alphaX: alpha[0],
           alphaY: 0,
           count: state.count,
@@ -102,7 +109,7 @@ const useSwipe = <TElement extends HTMLElement>(targetRef: RefObject<TElement> =
       if (opts.direction === 'vertical' && Math.abs(alpha[1]) > opts.threshold) {
         isDraggingRef.current = true
 
-        const nextState: LocalSwipeState = {
+        const nextState: SwipeState = {
           alphaY: alpha[1],
           alphaX: 0,
           count: state.count,

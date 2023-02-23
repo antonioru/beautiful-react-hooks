@@ -1,7 +1,7 @@
 export interface Noop {
   noop: true,
 
-  (): void,
+  (...args: any[]): any,
 }
 
 /**

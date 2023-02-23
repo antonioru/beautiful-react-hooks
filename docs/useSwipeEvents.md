@@ -1,16 +1,16 @@
 # useSwipeEvents
 
-Returns a set of handler setters to control swipe events.<br/>
-It possibly accepts a DOM ref to target the event(s) to. If the target is not provided the events will be globally attached to
-the `document` object.
+A hook that provides a set of handler setters to manage swipe events. It can optionally receive a DOM ref to specify the target element for
+the event(s). If no target is provided, the events will be attached globally to the `document` object.
 
 Available handler setters: `onSwipeLeft`, `onSwipeRight`, `onSwipeUp`, `onSwipeDown`,  `onSwipeStart`,  `onSwipeMove`,  `onSwipeEnd`;
 
 ### Why? 💡
 
-- takes care of adding the mouse/touch listeners to handle swipe both globally or to a defined target
-- takes care of cleaning the listener when the component unmounts
-- allows performing abstractions on swipe related events
+- simplifies the handling of swipe gestures by adding mouse and touch listeners for swipe events globally or to a defined target.
+- handles the cleanup of listeners when the component unmounts, avoiding memory leaks and unwanted behaviors.
+- enables the creation of abstractions on swipe-related events, allowing you to focus on implementing your desired functionality without
+  worrying about the details of swipe detection.
 
 ### Basic Usage:
 
@@ -24,16 +24,16 @@ const SwipeReporter = () => {
   const ref = useRef();
   const { onSwipeLeft, onSwipeRight, onSwipeUp, onSwipeMove, onSwipeDown } = useSwipeEvents(ref);
   const [lastSwipeInfo, setLastSwipeInfo] = useState();
-  
+
   onSwipeLeft(setLastSwipeInfo);
   onSwipeRight(setLastSwipeInfo);
   onSwipeUp(setLastSwipeInfo);
   onSwipeDown(setLastSwipeInfo);
 
   onSwipeMove(console.log);
-  
+
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useSwipeEvents">
       <div ref={ref} style={{ padding: 20, background: '#CF7A95' }}>
         Swipe me!
       </div>
@@ -66,7 +66,7 @@ const SwipeReporter = () => {
   onSwipeDown(setLastSwipeInfo);
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useSwipeEvents">
       <div style={{ padding: 20, background: '#CF7A95' }}>
         Swipe around!
       </div>
@@ -80,7 +80,6 @@ const SwipeReporter = () => {
 
 <SwipeReporter />
 ```
-
 
 ### Options
 
@@ -103,7 +102,7 @@ const SwipeReporter = () => {
   onSwipeDown(setLastSwipeInfo);
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useSwipeEvents">
       <div ref={ref} style={{ padding: 20, background: '#CF7A95' }}>
         Swipe me!
       </div>
@@ -117,3 +116,5 @@ const SwipeReporter = () => {
 
 <SwipeReporter />
 ```
+
+<!-- Types -->

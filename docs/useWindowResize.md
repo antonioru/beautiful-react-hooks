@@ -76,7 +76,8 @@ preventing too many useless renders, please take into account using
 
 ```jsx harmony
 import { useState } from 'react';
-import { useWindowResize, useThrottledCallback } from 'beautiful-react-hooks';
+import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const WindowSizeReporter = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -109,3 +110,5 @@ const WindowSizeReporter = () => {
 
 - You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
 - If using the handler setter, it should not be used asynchronously but immediately invoked
+
+<!-- Types -->

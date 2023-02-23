@@ -71,7 +71,8 @@ preventing too many useless renders, please take into account using
 
 ```jsx harmony
 import { useState } from 'react';
-import { useWindowScroll, useThrottledCallback } from 'beautiful-react-hooks';
+import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback'
+import useWindowScroll from 'beautiful-react-hooks/useWindowScroll';
 
 const WindowScrollReporter = () => {
   const [scrollY, setScrollY] = useState(window.scrollY);
@@ -101,3 +102,5 @@ const WindowScrollReporter = () => {
 
 - You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
 - If using the handler setter, it should not be used asynchronously but immediately invoked
+
+<!-- Types -->

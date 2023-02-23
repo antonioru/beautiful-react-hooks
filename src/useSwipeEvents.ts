@@ -5,8 +5,12 @@ import useMouseEvents from './useMouseEvents'
 import useTouchEvents from './useTouchEvents'
 import createHandlerSetter from './factory/createHandlerSetter'
 import { getDirection, getPointerCoordinates } from './shared/swipeUtils'
+import { CallbackSetter } from './shared/types'
 
-export type SwipeState = {
+/**
+ * The swipe event state interface
+ */
+export type SwipeEventState = {
   clientX?: number
   clientY?: number
   direction: 'right' | 'left' | 'up' | 'down',
@@ -14,7 +18,20 @@ export type SwipeState = {
   alphaY: number,
 }
 
-export type UseSwipeEventsOpts = {
+/**
+ * The result of the hook
+ */
+interface UseSwipeEventsReturn {
+  onSwipeLeft: CallbackSetter<SwipeEventState>,
+  onSwipeRight: CallbackSetter<SwipeEventState>,
+  onSwipeUp: CallbackSetter<SwipeEventState>,
+  onSwipeDown: CallbackSetter<SwipeEventState>,
+  onSwipeMove: CallbackSetter<SwipeEventState>,
+  onSwipeStart: CallbackSetter<SwipeEventState>,
+  onSwipeEnd: CallbackSetter<SwipeEventState>,
+}
+
+export interface UseSwipeEventsOpts {
   threshold?: number,
   preventDefault?: boolean,
   passive?: boolean,
@@ -28,9 +45,10 @@ const defaultOptions: UseSwipeEventsOpts = {
 /* eslint-disable @typescript-eslint/default-param-last */
 
 /**
- * Very similar to useSwipe but doesn't cause re-rendering during swipe
+ * Very similar to useSwipe but doesn't cause re-rendering during swipe.
+ * Internal usage only.
  */
-const useSilentSwipeState = <TElement extends HTMLElement>(
+const useSwipeStateInternal = <TElement extends HTMLElement>(
   targetRef: RefObject<TElement> = null,
   options: UseSwipeEventsOpts = defaultOptions,
   onSwipeStart: (...args: any[]) => any,
@@ -43,7 +61,7 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
   const opts = { ...defaultOptions, ...(options || {}) }
   const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef, opts.passive)
   const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef, opts.passive)
-  const [state, setState] = useState<SwipeState>()
+  const [state, setState] = useState<SwipeEventState>()
 
   const startSwipe = (event: MouseEvent | TouchEvent) => {
     const [clientX, clientY] = getPointerCoordinates(event)
@@ -138,14 +156,14 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
  */
 const useSwipeEvents = <TElement extends HTMLElement>(ref: RefObject<TElement> = null, options: UseSwipeEventsOpts = defaultOptions) => {
   const opts = { ...defaultOptions, ...(options || {}) }
-  const [onSwipeLeft, setOnSwipeLeft] = createHandlerSetter<SwipeState>()
-  const [onSwipeRight, setOnSwipeRight] = createHandlerSetter<SwipeState>()
-  const [onSwipeUp, setOnSwipeUp] = createHandlerSetter<SwipeState>()
-  const [onSwipeDown, setOnSwipeDown] = createHandlerSetter<SwipeState>()
-  const [onSwipeStart, setOnSwipeStart] = createHandlerSetter<SwipeState>()
-  const [onSwipeMove, setOnSwipeMove] = createHandlerSetter<SwipeState>()
-  const [onSwipeEnd, setOnSwipeEnd] = createHandlerSetter<SwipeState>()
-  const state: SwipeState = useSilentSwipeState<TElement>(ref, opts, onSwipeStart.current, onSwipeMove.current, onSwipeEnd.current)
+  const [onSwipeLeft, setOnSwipeLeft] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeRight, setOnSwipeRight] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeUp, setOnSwipeUp] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeDown, setOnSwipeDown] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeStart, setOnSwipeStart] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeMove, setOnSwipeMove] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeEnd, setOnSwipeEnd] = createHandlerSetter<SwipeEventState>()
+  const state: SwipeEventState = useSwipeStateInternal<TElement>(ref, opts, onSwipeStart.current, onSwipeMove.current, onSwipeEnd.current)
 
   const fnMap = {
     right: onSwipeRight,
@@ -164,7 +182,7 @@ const useSwipeEvents = <TElement extends HTMLElement>(ref: RefObject<TElement> =
     }
   }, [state])
 
-  return Object.freeze({
+  return Object.freeze<UseSwipeEventsReturn>({
     onSwipeLeft: setOnSwipeLeft,
     onSwipeRight: setOnSwipeRight,
     onSwipeUp: setOnSwipeUp,

@@ -1,16 +1,17 @@
 # useThrottledCallback
 
-Accepts a function and returns a new memoized version of that function that waits the defined time before allowing the next execution. If
-time is not defined, its default value will be 250ms.
+A hook that takes in a function as an argument and returns a new memoized version of the function that limits its invocation to once per
+specified time interval, measured in milliseconds. By default, the time interval is set to 250ms if not defined.
 
 ### Why? 💡
 
-- Controls how many times we allow a function to be executed over time regardless the number of renders the component is performing
+- Manages the frequency of function execution, irrespective of the number of times a component is rendered.
 
 ## Basic Usage
 
 ```jsx harmony
 import { useEffect, useState } from 'react';
+import { Space, Alert, Typography, Tag } from 'antd';
 import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback';
 import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
@@ -35,9 +36,15 @@ const ThrottledFnComponent = () => {
   });
 
   return (
-    <DisplayDemo>
-      <p>window width: {width}</p>
-      <p>window height: {height}</p>
+    <DisplayDemo title="useThrottledCallback">
+      <Space direction="vertical" size="middle">
+        <Alert type="info" message="Resize the browser window and see the update taking effect after the designated delay" showIcon />
+
+        <Typography.Paragraph>
+          window width: <Tag color="green">{width}</Tag><br />
+          window height: <Tag color="green">{height}</Tag>
+        </Typography.Paragraph>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -52,6 +59,7 @@ under the hood, you can possibly define the callback dependencies.
 
 ```jsx harmony
 import { useState } from 'react';
+import { Space, Alert, Typography, Tag } from 'antd';
 import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback';
 import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
@@ -86,6 +94,7 @@ A custom throttled time can be easily defined as follows (500ms)
 
 ```jsx harmony
 import { useState } from 'react';
+import { Space, Alert, Typography, Tag } from 'antd';
 import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback';
 import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
@@ -104,9 +113,15 @@ const ThrottledFnComponent = (props) => {
   onWindowResize(onWindowResizeHandler);
 
   return (
-    <DisplayDemo>
-      <p>window width: {width}</p>
-      <p>window height: {height}</p>
+    <DisplayDemo title="useThrottledCallback">
+      <Space direction="vertical" size="middle">
+        <Alert type="info" message="Resize the browser window and see the update taking effect after the designated delay" showIcon />
+
+        <Typography.Paragraph>
+          window width: <Tag color="green">{width}</Tag><br />
+          window height: <Tag color="green">{height}</Tag>
+        </Typography.Paragraph>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -121,6 +136,7 @@ under the hood, you can possibly define few options to customise its behaviour.
 
 ```jsx harmony
 import { useState } from 'react';
+import { Space, Alert, Typography, Tag } from 'antd';
 import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback';
 import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
@@ -143,9 +159,15 @@ const ThrottledFnComponent = () => {
   onWindowResize(onWindowResizeHandler);
 
   return (
-    <DisplayDemo>
-      <p>window width: {width}</p>
-      <p>window height: {height}</p>
+    <DisplayDemo title="useThrottledCallback">
+      <Space direction="vertical" size="middle">
+        <Alert type="info" message="Resize the browser window and see the update taking effect after the designated delay" showIcon />
+
+        <Typography.Paragraph>
+          window width: <Tag color="green">{width}</Tag><br />
+          window height: <Tag color="green">{height}</Tag>
+        </Typography.Paragraph>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -155,12 +177,8 @@ const ThrottledFnComponent = () => {
 
 #### ✅ Pro tip:
 
-To deep understanding the differences between `throttle` and `debounce`, what they are and when to use this functions please
+To deep understanding the differences between `throttle` and `debounce`, what they are and when to use them please
 read "[Debouncing and Throttling Explained Through Examples](https://css-tricks.com/debouncing-throttling-explained-examples/)"
 by [David Corbacho](https://twitter.com/dcorbacho)
 
-### Mastering the hook
-
-#### ✅ When to use
-
-- The classic example would be an infinite scroll over a paginated API call
+<!-- Types -->

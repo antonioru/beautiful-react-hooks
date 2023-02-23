@@ -1,16 +1,17 @@
 # useLocalStorage
 
-A hook for storing values into [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+A hook that enables effortless storage and retrieval of values in the
+browser's [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
 
 ### 💡 Why?
 
-- A quick way to use the `localStorage` in your React components.
+- A fast and efficient method to implement the `localStorage` functionality in your React components
 
 ### Basic Usage:
 
 ```jsx harmony
 import React, { useCallback } from 'react';
-import { Pill, Paragraph, Icon } from 'beautiful-react-ui';
+import { Button, Tag, Typography } from 'antd';
 import useLocalStorage from 'beautiful-react-hooks/useLocalStorage';
 
 const NotificationBadgeExample = ({ notifications }) => {
@@ -20,18 +21,30 @@ const NotificationBadgeExample = ({ notifications }) => {
     setNotificationCount(0);
   }, [notificationCount]);
 
+  const Actions = [
+    <Button type="primary" onClick={clearNotifications}>
+      You've got {notificationCount} new messages
+    </Button>
+  ]
+
   return (
-    <DisplayDemo>
-      <Paragraph>Click on the badge to clear from the local storage</Paragraph>
-      <Pill color="primary" onClick={clearNotifications}>
-        <Icon name="envelope" />
-        You've got {notificationCount} new messages
-      </Pill>
+    <DisplayDemo title="useLocalStorage" actions={Actions}>
+      <Typography.Paragraph>
+        Click on the following button to clear data from the <Tag>demo-notification-count</Tag> local storage key.
+      </Typography.Paragraph>
     </DisplayDemo>
   )
 };
 
 <NotificationBadgeExample notifications={100} />
+```
+
+### Interface
+
+```typescript
+type SetValue<TValue> = (value: TValue | ((previousValue: TValue) => TValue)) => void
+
+declare const useLocalStorage: <TValue>(storageKey: string, defaultValue?: any) => [TValue, SetValue<TValue>]
 ```
 
 ### Mastering the hooks
@@ -43,3 +56,5 @@ const NotificationBadgeExample = ({ notifications }) => {
 #### 🛑 When not to use
 
 - Do not use this hook as a state manager, the `localStorage` is meant to be used for small pieces of data
+
+<!-- Types -->

@@ -14,6 +14,8 @@ const defaultOptions: UseConditionalTOOpts = {
   cancelOnConditionChange: true,
 }
 
+export type UseConditionalTimeoutReturn = [boolean, () => void]
+
 /**
  * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then delays the
  * execution of the given function by the defined time from when the condition verifies.
@@ -64,7 +66,7 @@ const useConditionalTimeout = <TCallback extends GenericFunction>
     }
   }, [])
 
-  return [isCleared, clear]
+  return [isCleared, clear] as UseConditionalTimeoutReturn
 }
 
 export default useConditionalTimeout

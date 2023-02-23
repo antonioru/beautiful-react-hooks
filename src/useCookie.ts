@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import noop from './shared/noop'
 import isClient from './shared/isClient'
@@ -6,6 +6,7 @@ import isDevelopment from './shared/isDevelopment'
 import isAPISupported from './shared/isAPISupported'
 import createHandlerSetter from './factory/createHandlerSetter'
 import warnOnce from './shared/warnOnce'
+import { CallbackSetter } from './shared/types'
 
 export enum ECookieSameSite {
   STRICT = 'strict',
@@ -38,8 +39,15 @@ interface ICookieStore {
   delete: (options: ICookieStoreDeleteOptions) => Promise<void>;
 }
 
+export interface UseCookieReturn {
+  cookieValue: string,
+  updateCookie: (nextValue: string) => Promise<void>,
+  deleteCookie: () => Promise<void>,
+  onError: CallbackSetter<Error>
+}
+
 const useCookie = (key: string, options?: IOptions) => {
-  const hookNotSupportedResponse = Object.freeze({
+  const hookNotSupportedResponse = Object.freeze<UseCookieReturn>({
     onError: noop,
     updateCookie: noop,
     deleteCookie: noop,
@@ -110,7 +118,7 @@ const useCookie = (key: string, options?: IOptions) => {
     [],
   )
 
-  return Object.freeze({
+  return Object.freeze<UseCookieReturn>({
     cookieValue,
     updateCookie,
     deleteCookie,
