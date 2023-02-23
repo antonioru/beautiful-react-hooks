@@ -1,23 +1,26 @@
 # useRequestAnimationFrame
 
-Takes care of running an animating function, provided as the first argument, while keeping track of its progress.
+A hook that facilitates the execution of javascript animations.
 
-When used `useRequestAnimationFrame` immediately starts a looping call the provided function by using
-[window.requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) under the hood.
+Upon usage, this hook initiates a recurring call to the provided function, using the
+built-in [window.requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) function under the
+hood.
 
-The provided function receives the animation progress and a `next` function to be performed to keep the animation alive.
+The provided function received two arguments: the current progress of the animation and a next function that must be executed to sustain the
+animation.
 
-The loop ends when the animation progress reaches the value of 100. (or any other value provided as `finishAt`, check the options)
+The animation loop will terminate once the progress value reaches 100, although any other value can be specified using the `finishAt`
+option.
 
 ### Why? 💡
 
-- Easily manage a requestAnimationFrame function within a React component
+- Easily manage requestAnimationFrame within a React component
 
 ### Basic Usage
 
 ```jsx harmony
 import { useRef } from 'react';
-import { Alert } from 'beautiful-react-ui';
+import { Alert } from 'antd';
 import useRequestAnimationFrame from 'beautiful-react-hooks/useRequestAnimationFrame';
 
 const AnimationExample = () => {
@@ -29,9 +32,9 @@ const AnimationExample = () => {
   });
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useRequestAnimationFrame">
       <div ref={ref}>
-        <Alert color="primary">Animating content</Alert>
+        <Alert color="primary" message="Animating content" />
       </div>
     </DisplayDemo>
   );
@@ -42,13 +45,13 @@ const AnimationExample = () => {
 
 ### Options
 
-An object of options can be used as second argument to control the animation.
+The animation can be fine-tuned using an options object as the second argument.
 
-**Please note**: options.finishAt = -1 will cause an infinite animation
+Please note that setting `options.finishAt` to a value of `-1` will result in an infinite animation.
 
 ```jsx harmony
 import { useRef } from 'react';
-import { Alert } from 'beautiful-react-ui';
+import { Alert } from 'antd';
 import useRequestAnimationFrame from 'beautiful-react-hooks/useRequestAnimationFrame';
 
 const AnimationExample = () => {
@@ -61,9 +64,9 @@ const AnimationExample = () => {
   }, options);
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useRequestAnimationFrame">
       <div ref={ref}>
-        <Alert color="primary">Animating content</Alert>
+        <Alert color="primary" message="Animating content" />
       </div>
     </DisplayDemo>
   );
@@ -78,7 +81,7 @@ The hook returns an function to possibly set a callback when the animation finis
 
 ```jsx harmony
 import { useRef, useState } from 'react';
-import { Alert, Paragraph } from 'beautiful-react-ui';
+import { Alert, Typography } from 'antd';
 import useRequestAnimationFrame from 'beautiful-react-hooks/useRequestAnimationFrame';
 
 const AnimationExample = () => {
@@ -92,11 +95,11 @@ const AnimationExample = () => {
   onFinish(() => setIsFinished(true));
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useRequestAnimationFrame">
       <div ref={ref}>
-        <Alert color="primary">Animating content</Alert>
+        <Alert color="primary" message="Animating content" />
       </div>
-      {isFinished && <Paragraph>Animation completed!</Paragraph>}
+      {isFinished && <Typography.Paragraph>Animation completed!</Typography.Paragraph>}
     </DisplayDemo>
   );
 };
@@ -113,3 +116,5 @@ Control the speed of your animation by changing the increment value
 #### ✅ When to use
 
 - When in need to perform requestAnimationFrame without re-rendering the component on each frame
+
+<!-- Types -->

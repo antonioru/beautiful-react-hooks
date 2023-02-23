@@ -1,32 +1,50 @@
 # useConditionalTimeout
 
-An async-utility hook that accepts a callback `function`, a `delay time` (*in milliseconds*) and a `condition`, then delays the execution of
-the given function by the defined time when the condition is verified.
+An asynchronous hook which takes in three parameters: a "callback", a "delay time" (in milliseconds), and a boolean value known as "
+condition".\
+It then postpones the execution of the given callback by the specified delay time, only when the provided condition changes to `true`
 
 ### 💡 Why?
 
-- to start a timeout only after a given condition is verified;
-- takes care of performing the given callback regardless the component re-renders;
-- cancels the timeout when component unmount (or not, depends by the defined options) and/or the given condition verifies;
+- To start a timeout only after a certain condition has been confirmed;
+- Handles the executing of the provided callback despite the component's re-rendering;
+- Terminates the timeout when the component unmounts (or not, depending on the specified options) and/or when the provided condition is
+  confirmed;
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useState } from 'react';
-import { Button } from 'beautiful-react-ui';
+import { Button, Space, Typography } from 'antd';
+
 import useConditionalTimeout from 'beautiful-react-hooks/useConditionalTimeout';
 
 const ConditionalDelayedContentComponent = () => {
   const [condition, setCondition] = useState(false);
   const [showContent, setShowContent] = useState(false);
+
   useConditionalTimeout(() => {
     setShowContent(true)
   }, 2000, condition);
 
+  const Actions = [
+    <Button type="primary" onClick={() => setCondition(true)} disabled={condition} loading={condition && !showContent}>
+      {condition ? 'Timer started' : 'Start the timer'}&hellip;
+    </Button>
+  ]
+
   return (
-    <DisplayDemo>
-      <Button color="primary" icon="clock" onClick={() => setCondition(true)}> Start a 2 seconds timeout</Button>
-      {showContent && <div style={{ fontSize: '3rem' }}>🕰</div>}
+    <DisplayDemo title="useConditionalTimeout" actions={Actions}>
+      <Space direction="vertical">
+        <Typography.Paragraph>
+          Click on the following button to change the condition that triggers the 2 seconds timeout to true
+        </Typography.Paragraph>
+        <Typography.Paragraph>
+          After timeout is elapsed a content is displayed
+        </Typography.Paragraph>
+        {showContent && <div style={{ fontSize: '3rem' }}>🕰</div>}
+
+      </Space>
     </DisplayDemo>)
 };
 
@@ -35,11 +53,12 @@ const ConditionalDelayedContentComponent = () => {
 
 ### State & clear method:
 
-The hook returns the state of the timeout (a boolean, cleared/not cleared) and a method to possibly clear it.
+The hook will return the state of the timeout (either cleared or not cleared) and a function that may be used to clear it.
 
 ```jsx harmony
 import { useState } from 'react';
-import { Button, Paragraph } from 'beautiful-react-ui';
+import { Button, Typography } from 'antd';
+
 import useConditionalTimeout from 'beautiful-react-hooks/useConditionalTimeout';
 
 const ConditionalDelayedContentComponent = () => {
@@ -49,14 +68,18 @@ const ConditionalDelayedContentComponent = () => {
     setShowContent(true)
   }, 5000, condition);
 
+  const Actions = [
+    <Button type="primary" onClick={() => setCondition(true)} disabled={condition}>Start a 5 seconds timeout</Button>
+  ]
+
   return (
-    <DisplayDemo>
-      <Paragraph>Content will show after 5 second starting from the following button click</Paragraph>
-      <Button color="primary" icon="clock" onClick={() => setCondition(true)}>Start a 5 seconds timeout</Button>
+    <DisplayDemo title="useConditionalTimeout" actions={Actions}>
+      <Typography.Paragraph>Content will show after 5 second starting from the following button click</Typography.Paragraph>
       {showContent && <div style={{ fontSize: '3rem' }}>🕰</div>}
-      {!isCleared && <Button onClick={clearTimeoutRef}>Cancel timeout</Button>}
-      {isCleared && <Paragraph>Cleared</Paragraph>}
-    </DisplayDemo>)
+      {!isCleared && !showContent && <Button onClick={clearTimeoutRef}>Cancel timeout</Button>}
+      {isCleared && <Typography.Paragraph>Cleared</Typography.Paragraph>}
+    </DisplayDemo>
+  )
 };
 
 <ConditionalDelayedContentComponent />
@@ -64,7 +87,7 @@ const ConditionalDelayedContentComponent = () => {
 
 ### Options:
 
-`useConditionalTimeout` might accept a options object provided as eventual parameter.
+The third parameter is an optional object of options
 
 #### cancelOnUnmount:
 
@@ -74,7 +97,7 @@ Defines whether the timeout should be cleared on unmount.
 
 ```jsx harmony
 import { useState } from 'react';
-import { Button } from 'beautiful-react-ui';
+import { Button } from 'antd';
 import useConditionalTimeout from 'beautiful-react-hooks/useConditionalTimeout';
 
 const ConditionalDelayedContentComponent = () => {
@@ -87,8 +110,8 @@ const ConditionalDelayedContentComponent = () => {
   }, 5000, condition, options);
 
   return (
-    <DisplayDemo>
-      <Button color="primary" icon="clock" onClick={() => setCondition(true)}>Start a 5 seconds timeout</Button>
+    <DisplayDemo title="useConditionalTimeout">
+      <Button type="primary" onClick={() => setCondition(true)}>Start a 5 seconds timeout</Button>
       {showContent && <div style={{ fontSize: '3rem' }}>🕰</div>}
     </DisplayDemo>)
 };
@@ -98,16 +121,16 @@ const ConditionalDelayedContentComponent = () => {
 
 #### cancelOnConditionChange:
 
-Defines whether the timeout should be cleared when the condition change.
+Defines whether the timeout should be cleared when the condition changes.
 
-In this example nothing will happen because when clicking on the button, 2 instance of useConditionalTimeout will be performed, and one of
-them will change the condition.
+In this example, clicking on the button will not trigger any action as there are two instances of useConditionalTimeout, and one of them
+will modify the condition.
 
 **default**: `true`
 
 ```jsx harmony
 import { useState } from 'react';
-import { Button } from 'beautiful-react-ui';
+import { Button } from 'antd';
 import useConditionalTimeout from 'beautiful-react-hooks/useConditionalTimeout';
 
 const ConditionalDelayedContentComponent = () => {
@@ -117,13 +140,14 @@ const ConditionalDelayedContentComponent = () => {
   useConditionalTimeout(() => {
     setShowContent(true)
   }, 5000, condition);
+
   useConditionalTimeout(() => {
     setCondition(false)
   }, 2000, condition);
 
   return (
-    <DisplayDemo>
-      <Button color="primary" icon="clock" onClick={() => setCondition(true)}>Start a 5 seconds timeout</Button>
+    <DisplayDemo title="useConditionalTimeout">
+      <Button type="primary" onClick={() => setCondition(true)}>Start a 5 seconds timeout</Button>
       {showContent && <div style={{ fontSize: '3rem' }}>🕰</div>}
     </DisplayDemo>)
 };
@@ -135,4 +159,6 @@ const ConditionalDelayedContentComponent = () => {
 
 #### ✅ When to use
 
-- If there's the necessity to run a callback after a certain time and only when a certain condition is verified.
+- If it is necessary to execute a callback after a specific duration and only when a specific condition has been verified.
+
+<!-- Types -->

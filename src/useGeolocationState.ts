@@ -1,13 +1,18 @@
 import { useCallback, useEffect, useState } from 'react'
 import createHandlerSetter from './factory/createHandlerSetter'
 import useGeolocationEvents from './useGeolocationEvents'
-import { SomeCallback, BRHGeolocationPosition, BRHGeolocationPositionError } from './shared/types'
+import { BRHGeolocationPosition, BRHGeolocationPositionError, SomeCallback } from './shared/types'
 import { geoStandardOptions, isSamePosition, makePositionObj } from './shared/geolocationUtils'
 
-export type GeolocationState = {
+
+export interface GeolocationState {
   readonly isSupported: boolean,
   readonly isRetrieving: boolean,
   readonly position: BRHGeolocationPosition,
+}
+
+export interface UseGeolocationStateResult extends GeolocationState {
+  onError: (callback: SomeCallback<BRHGeolocationPositionError, void>) => void,
 }
 
 /**
@@ -51,7 +56,8 @@ const useGeolocationState = (options: PositionOptions = geoStandardOptions) => {
     setOnGeolocationEventsErrorRef(callback)
   }
 
-  return Object.freeze({
+
+  return Object.freeze<UseGeolocationStateResult>({
     onError,
     isSupported,
     isRetrieving,

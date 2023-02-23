@@ -1,19 +1,22 @@
 # useInterval
 
-An async-utility hook that accepts a callback `function` and a `delay time` (*in milliseconds*), then repeat the execution of the given
-function by the defined time.
+A hook that facilitates the utilization of the `setInterval` function in React function components. This hook receives a callback function
+and a delay duration as inputs, and subsequently, executes the given function at regular intervals with the specified delay time between
+each invocation
 
 ### Why? 💡
 
-- takes care of performing the given callback regardless the component re-renders;
-- cancels the interval when the component unmount (or not, depends by the defined options);
-- returns the interval state (cleared/not cleared)
-- returns a method to possibly cancel the set interval (cause the component re-render)
+- Ensures that the given callback is executed reliably, even when the component re-renders;
+- Automatically cancels the interval when the component unmounts (although this behavior can be modified by adjusting the options);
+- Provides information about the current state of the interval (whether it has been cleared or not);
+- Offers a method to cancel the set interval, which can trigger a re-render of the component if desired.
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useState } from 'react';
+import { Tag, Typography } from 'antd';
+
 import useInterval from 'beautiful-react-hooks/useInterval';
 
 const DelayedContentComponent = () => {
@@ -25,8 +28,8 @@ const DelayedContentComponent = () => {
   }, 1000);
 
   return (
-    <DisplayDemo>
-      <p>Rendering since {seconds} seconds</p>
+    <DisplayDemo title="useInterval">
+      <Typography.Text>Rendering since <Tag color="green">{seconds}</Tag>seconds</Typography.Text>
     </DisplayDemo>
   );
 };
@@ -36,12 +39,14 @@ const DelayedContentComponent = () => {
 
 ### State & clear method:
 
-The hook returns the state of the timeout (a boolean, cleared/not cleared) and a method to possibly clear it.
+The hook returns information about the timeout's state (whether it has been cleared or not, represented by a boolean flag), and also offers
+a method to potentially clear it.
 
-**Note:** programmatically clearing the timeout will cause the component re-render.
+**Note**: Invoking this method to programmatically clear the timeout may trigger the component re-rendering.
 
 ```jsx harmony
 import { useState } from 'react';
+import { Tag, Typography, Button } from 'antd';
 import useInterval from 'beautiful-react-hooks/useInterval';
 
 const DelayedContentComponent = () => {
@@ -52,9 +57,9 @@ const DelayedContentComponent = () => {
 
   return (
     <DisplayDemo>
-      <p>Rendering since {seconds} seconds</p>
-      {!isCleared && <button onClick={clearInterval}>Stop it!</button>}
-      {isCleared && <p>Interval cleared!</p>}
+      <Typography.Paragraph>Rendering since <Tag color="green">{seconds}</Tag>seconds</Typography.Paragraph>
+      {!isCleared && <Button onClick={clearInterval} type="primary">Stop the counter</Button>}
+      {isCleared && <Typography.Paragraph mark>Interval cleared!</Typography.Paragraph>}
     </DisplayDemo>
   );
 };
@@ -64,7 +69,7 @@ const DelayedContentComponent = () => {
 
 ### Options:
 
-`useInterval` might accept a options object provided as eventual parameter.
+It is possible to provide an options object as the last parameter of the hook.
 
 #### cancelOnUnmount:
 
@@ -74,6 +79,7 @@ Defines whether the timeout should be cleared on unmount.
 
 ```jsx harmony
 import { useState } from 'react';
+import { Tag, Typography, Button } from 'antd';
 import useInterval from 'beautiful-react-hooks/useInterval';
 
 const DelayedContentComponent = () => {
@@ -84,7 +90,8 @@ const DelayedContentComponent = () => {
 
   return (
     <DisplayDemo>
-      <p>Content rendering since {seconds} but will not be cleared on unmount</p>
+      <Typography.Paragraph>Rendering since <Tag color="green">{seconds}</Tag>seconds</Typography.Paragraph>
+      <Typography.Paragraph mark>It won't be cleared at unmount</Typography.Paragraph>
     </DisplayDemo>
   );
 };
@@ -96,8 +103,11 @@ const DelayedContentComponent = () => {
 
 #### ✅ When to use
 
-- If in need to perform a function every x number of milliseconds regardless the component re-renders
+- When you need to perform a function on a regular interval (e.g., every x number of milliseconds), regardless of whether the component
+  re-renders.
 
 #### 🛑 When not to use
 
-- You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+- When attempting to use it asynchronously, since doing so would violate the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+
+<!-- Types -->

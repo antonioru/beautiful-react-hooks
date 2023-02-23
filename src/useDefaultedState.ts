@@ -12,7 +12,7 @@ const useDefaultedState = <TValue>(defaultValue: TValue, initialState?: TValue) 
     setState(maybeState(nextState, defaultValue))
   }, [setState])
 
-  return [maybeState(state, defaultValue), setStateSafe]
+  return [maybeState(state, defaultValue), setStateSafe] as [TValue, typeof setStateSafe]
 }
 
 export default useDefaultedState

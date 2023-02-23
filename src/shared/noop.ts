@@ -1,6 +1,7 @@
 import { Noop } from './types'
 
-const noop: Noop = () => undefined
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+const noop: Noop = (...args: any[]) => undefined
 
 noop.noop = true
 

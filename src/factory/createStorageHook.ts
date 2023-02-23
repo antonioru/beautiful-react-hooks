@@ -6,8 +6,9 @@ import isDevelopment from '../shared/isDevelopment'
 import noop from '../shared/noop'
 import warnOnce from '../shared/warnOnce'
 
+
 /**
- * An utility to quickly create hooks to access both Session Storage and Local Storage
+ * A utility to quickly create hooks to access both Session Storage and Local Storage
  */
 const createStorageHook = (type: 'session' | 'local') => {
   type SetValue<TValue> = (value: TValue | ((previousValue: TValue) => TValue)) => void
@@ -62,7 +63,7 @@ const createStorageHook = (type: 'session' | 'local') => {
           return valueToStore
         })
       },
-      [safelySetStorage]
+      [safelySetStorage],
     )
 
     return [storedValue, setValue]

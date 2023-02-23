@@ -15,13 +15,13 @@ const getHooksDocFiles = () => glob.sync(path.join(__dirname, 'docs', '[use]*.md
 })
 
 module.exports = {
-  title: 'Beautiful React Hooks docs',
+  title: 'beautiful-react-hooks - documentation',
   pagePerSection: true,
   exampleMode: 'expand',
   skipComponentsWithoutExample: true,
   styleguideDir: 'dist-ghpages',
   ribbon: {
-    url: 'https://github.com/beautifulinteractions/beautiful-react-hooks',
+    url: 'https://github.com/antonioru/beautiful-react-hooks',
     text: 'Fork me on GitHub'
   },
   sections: [
@@ -63,8 +63,6 @@ module.exports = {
     LogoRenderer: path.join(docsPath, 'utils', '_CustomLogo'),
     PathlineRenderer: path.join(docsPath, 'utils', '_EmptyComponent'),
     ToolbarButtonRenderer: path.join(docsPath, 'utils', '_EmptyComponent')
-    // TableOfContentsRenderer: path.join(docsPath, 'CustomSidebar'),
-    // ComponentsListRenderer: path.join(docsPath, 'CustomComponentListRenderer'),
   },
   ...theme
 }

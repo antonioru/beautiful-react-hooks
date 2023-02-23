@@ -8,7 +8,11 @@ import useTouchEvents from './useTouchEvents'
  */
 const useTouchState = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>) => {
   const [state, setState] = useState<TouchList>({ length: 0 } as TouchList)
-  const { onTouchMove } = useTouchEvents<TElement>(targetRef)
+  const { onTouchStart, onTouchMove } = useTouchEvents<TElement>(targetRef)
+
+  onTouchStart((event: TouchEvent) => {
+    setState(event.touches)
+  })
 
   onTouchMove((event: TouchEvent) => {
     setState(event.touches)

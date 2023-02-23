@@ -1,18 +1,19 @@
 # useWindowResize
 
-Accepts a function to be performed during the window resize event.
+A hook that receives a callback function to execute on the window's resize event.
 
 It's built on top of [useGlobalEvent](./useGlobalEvent.md).
 
 ### Why? 💡
 
-- takes care of adding the listener for the window resize event.
-- takes care of removing the listener when the component will unmount
+- Simplifies the process of adding a listener for a specific event to the `window` object.
+- Automates the removal of the listener when the component is unmounted.
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useState } from 'react';
+import { Typography, Tag } from 'antd';
 import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const WindowSizeReporter = () => {
@@ -25,9 +26,13 @@ const WindowSizeReporter = () => {
   });
 
   return (
-    <DisplayDemo>
-      <p>window width: {width}</p>
-      <p>window height: {height}</p>
+    <DisplayDemo title="useWindowResize">
+      <Typography.Paragraph>
+        current window width: <Tag color="green">{width}</Tag>
+      </Typography.Paragraph>
+      <Typography.Paragraph>
+        current window height: <Tag color="green">{height}</Tag>
+      </Typography.Paragraph>
     </DisplayDemo>
   );
 };
@@ -37,14 +42,15 @@ const WindowSizeReporter = () => {
 
 ### Callback setter syntax:
 
-if the first parameter is not provided, the returned function (*a handler setter*) can be used to set the `useWindowResize` handler, as long
-as it is immediately invoked.
+if the first parameter is not provided, the returned function (*a callback setter*) can be used to set the `useWindowResize` handler, as
+long as it is immediately invoked.
 
-**Please note**: the returned handler setter is meant to change the value of the callback reference only, it does not cause the component
+**Please note**: the returned callback setter is meant to change the value of the callback reference only, it does not cause the component
 rerender nor should not be invoked asynchronously.
 
 ```jsx harmony
 import { useState } from 'react';
+import { Typography, Tag } from 'antd';
 import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const WindowSizeReporter = () => {
@@ -58,9 +64,13 @@ const WindowSizeReporter = () => {
   });
 
   return (
-    <DisplayDemo>
-      <p>window width: {width}</p>
-      <p>window height: {height}</p>
+    <DisplayDemo title="useWindowResize">
+      <Typography.Paragraph>
+        current window width: <Tag color="green">{width}</Tag>
+      </Typography.Paragraph>
+      <Typography.Paragraph>
+        current window height: <Tag color="green">{height}</Tag>
+      </Typography.Paragraph>
     </DisplayDemo>
   );
 };
@@ -76,7 +86,9 @@ preventing too many useless renders, please take into account using
 
 ```jsx harmony
 import { useState } from 'react';
-import { useWindowResize, useThrottledCallback } from 'beautiful-react-hooks';
+import { Typography, Tag } from 'antd';
+import useThrottledCallback from 'beautiful-react-hooks/useThrottledCallback';
+import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
 const WindowSizeReporter = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -89,9 +101,13 @@ const WindowSizeReporter = () => {
   }));
 
   return (
-    <DisplayDemo>
-      <p>window width: {width}</p>
-      <p>window height: {height}</p>
+    <DisplayDemo title="useWindowResize">
+      <Typography.Paragraph>
+        current window width: <Tag color="green">{width}</Tag>
+      </Typography.Paragraph>
+      <Typography.Paragraph>
+        current window height: <Tag color="green">{height}</Tag>
+      </Typography.Paragraph>
     </DisplayDemo>
   );
 };
@@ -107,5 +123,7 @@ const WindowSizeReporter = () => {
 
 #### 🛑 When not to use
 
-- You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
-- If using the handler setter, it should not be used asynchronously but immediately invoked
+- Avoid using this hook asynchronously since it would violate the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+- If you're using the callback setter, make sure to invoke it immediately instead of asynchronously
+
+<!-- Types -->

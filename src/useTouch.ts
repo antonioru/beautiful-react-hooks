@@ -1,5 +1,5 @@
 import { RefObject } from 'react'
-import useTouchEvents from './useTouchEvents'
+import useTouchEvents, { UseTouchEventsReturn } from './useTouchEvents'
 import useTouchState from './useTouchState'
 
 /**
@@ -11,7 +11,7 @@ const useTouch = <TElement extends HTMLElement>(targetRef: RefObject<TElement> =
   const state = useTouchState<TElement>(targetRef)
   const events = useTouchEvents<TElement>(targetRef)
 
-  return [state, events]
+  return [state, events] as [TouchList, Readonly<UseTouchEventsReturn>]
 }
 
 export default useTouch

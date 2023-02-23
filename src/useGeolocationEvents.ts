@@ -3,6 +3,13 @@ import createHandlerSetter from './factory/createHandlerSetter'
 import { geoStandardOptions } from './shared/geolocationUtils'
 import { BRHGeolocationPosition, BRHGeolocationPositionError } from './shared/types'
 
+
+export interface UseGeolocationEventsResult {
+  isSupported: boolean,
+  onChange: (callback: (position: BRHGeolocationPosition) => void) => void,
+  onError: (callback: (error: BRHGeolocationPositionError) => void) => void,
+}
+
 /**
  * Returns a frozen object of callback setters to handle the geolocation events.<br/>
  * So far, the supported methods are: `onChange`, invoked when the position changes and `onError`, invoked when
@@ -42,7 +49,7 @@ const useGeolocationEvents = (options: PositionOptions = geoStandardOptions) => 
     }
   }, [])
 
-  return Object.freeze({
+  return Object.freeze<UseGeolocationEventsResult>({
     isSupported,
     onChange: setOnChangeRef,
     onError: setOnErrorRef,

@@ -1,18 +1,20 @@
 # useObservable
 
-Make your components reactive with `rxjs`
+A hook that enables reactivity in your components through the utilization of `RxJs` library.
 
 ### Why? 💡
 
-- you can change your data in pipes with default rxjs operators
-- combine data, pipes and create structured code
+- Modify your data using default `RxJs` operators within pipes, providing a cleaner and more concise way of handling asynchronous data
+- Combine data from multiple sources into a single observable stream using various `RxJs` operators, allowing you to create more structured
+  and organized code
 
 ### Basic Usage:
 
-##### Using as  [useInterval](./useInterval.md)
+Mimics the behaviour of [useInterval](./useInterval.md) with `RxJs`
 
 ```jsx harmony
 import { useState } from 'react';
+import { Tag, Typography } from 'antd';
 import { interval } from 'rxjs';
 import useObservable from 'beautiful-react-hooks/useObservable';
 
@@ -24,8 +26,8 @@ const ObservableInterval = () => {
   useObservable(interval$, setSeconds);
 
   return (
-    <DisplayDemo>
-      <p>Rendering since {seconds} seconds</p>
+    <DisplayDemo title="useObservable">
+      <Typography.Text>Rendering since <Tag color="green">{seconds}</Tag>seconds</Typography.Text>
     </DisplayDemo>
   );
 };
@@ -33,11 +35,12 @@ const ObservableInterval = () => {
 <ObservableInterval />
 ```
 
-##### Using as [useGeolocationState](./useGeolocation.md)
+Mimics the behaviour of [useGeolocationState](./useGeolocation.md) with `RxJs`
 
 ```jsx harmony
 import { useState } from 'react';
 import { Observable } from 'rxjs';
+import { Typography } from 'antd';
 import useObservable from 'beautiful-react-hooks/useObservable';
 
 const position$ = new Observable(subscriber => {
@@ -53,15 +56,17 @@ const position$ = new Observable(subscriber => {
 
 const ObservableGeolocation = () => {
   const [position, setPosition] = useState({});
-
-  useObservable(position$, setPosition);
   const { coords } = position;
 
+  useObservable(position$, setPosition);
+
   return (
-    <DisplayDemo>
-      <p>Current position:</p>
-      <p>lat: {coords && coords.latitude}</p>
-      <p>long: {coords && coords.longitude}</p>
+    <DisplayDemo title="useObservable">
+      <Typography.Title>Current position:</Typography.Title>
+      {position.coords && [
+        <Typography.Paragraph key={0}>Lat: {position.coords.latitude}</Typography.Paragraph>,
+        <Typography.Paragraph key={1}>Lng: {position.coords.longitude}</Typography.Paragraph>
+      ]}
     </DisplayDemo>
   );
 };
@@ -74,6 +79,7 @@ const ObservableGeolocation = () => {
 ```jsx harmony
 import { useState } from 'react';
 import { fromEvent } from 'rxjs';
+import { Typography, Tag } from 'antd';
 import useObservable from 'beautiful-react-hooks/useObservable';
 
 const resize$ = fromEvent(window, 'resize');
@@ -85,10 +91,14 @@ const ObservableResize = () => {
   const { target } = event;
 
   return (
-    <DisplayDemo>
-      <b>Resize your window</b>
-      <p>Width: {target && target.innerWidth || 0}</p>
-      <p>Height: {target && target.innerHeight || 0}</p>
+    <DisplayDemo title="useObservable">
+      <Typography.Title>Resize your window</Typography.Title>
+      <Typography.Paragraph>
+        width: <Tag color="green">{target && target.innerWidth || 0}</Tag>
+      </Typography.Paragraph>
+      <Typography.Paragraph>
+        height: <Tag color="green">{target && target.innerHeight || 0}</Tag>
+      </Typography.Paragraph>
     </DisplayDemo>
   );
 };
@@ -100,9 +110,11 @@ const ObservableResize = () => {
 
 #### ✅ When to use
 
-- If you want to present some data like tables and work with them through the pipes (filter, sort, map etc.)
-- use events wisely
+- when you need to display and manipulate data using reactive programming techniques. `RxJs` pipes can be used for filtering, sorting,
+  mapping, and other transformations.
 
 #### 🛑 When not to use
 
-- When you can do something w/o rx
+- Don't use this hook as a state manager
+
+<!-- Types -->

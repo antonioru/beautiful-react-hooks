@@ -1,6 +1,18 @@
 import { RefObject, useEffect } from 'react'
 import safeHasOwnProperty from './shared/safeHasOwnProperty'
 import useEvent from './useEvent'
+import { CallbackSetter } from './shared/types'
+
+export interface UseDragEventsResult {
+  onDrag: CallbackSetter<DragEvent>,
+  onDrop: CallbackSetter<DragEvent>,
+  onDragEnter: CallbackSetter<DragEvent>,
+  onDragEnd: CallbackSetter<DragEvent>,
+  onDragExit: CallbackSetter<DragEvent>,
+  onDragLeave: CallbackSetter<DragEvent>,
+  onDragOver: CallbackSetter<DragEvent>,
+  onDragStart: CallbackSetter<DragEvent>,
+}
 
 /**
  * Returns an object of callback setters to handle the drag-related events.
@@ -29,7 +41,7 @@ const useDragEvents = <TElement extends HTMLElement>(targetRef: RefObject<TEleme
     }
   }, [])
 
-  return Object.freeze({
+  return Object.freeze<UseDragEventsResult>({
     onDrag,
     onDrop,
     onDragEnter,

@@ -1,16 +1,20 @@
 # useObjectState
 
-React state hook that creates setState method which works similar to how useState works, merges object changes into the current state.
+A hook has been developed to emulate the behavior of the now deprecated class Component.setState method. This hook aims to facilitate the
+migration process of legacy class components to the new function components paradigm.
 
 ### Why? 💡
 
-- takes care of automatically destruct the previous state and override this with a new one,
+- Automates the process of destructing the previous state and replacing it with a new one, alleviating the burden of manually handling these
+  operations in function components
+- Allow developers to seamlessly transition their codebase from class components to function components without needing to restructure the
+  existing codebase
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useState, useRef } from 'react';
-import { Button } from 'beautiful-react-ui';
+import { Button, Typography } from 'antd';
 import useObjectState from 'beautiful-react-hooks/useObjectState';
 
 const UseObjectStateComponent = () => {
@@ -22,19 +26,22 @@ const UseObjectStateComponent = () => {
 
   const decrement = () => setState({ count: state.count - 1 })
 
+  const Actions = [
+    <Button onClick={increment}>
+      Increment counter
+    </Button>,
+    <Button onClick={decrement}>
+      Decrement counter
+    </Button>,
+    <Button onClick={reset}>
+      Reset counter
+    </Button>
+  ]
+
   return (
-    <DisplayDemo>
-      <p>State:</p>
-      <p>{JSON.stringify(state, null, 2)}</p>
-      <Button onClick={increment}>
-        Increment counter
-      </Button>
-      <Button onClick={decrement}>
-        Decrement counter
-      </Button>
-      <Button onClick={reset}>
-        Reset counter
-      </Button>
+    <DisplayDemo title="useObjectState" actions={Actions}>
+      <Typography.Paragraph>State:</Typography.Paragraph>
+      <pre>{JSON.stringify(state, null, '\t')}</pre>
     </DisplayDemo>
   );
 };
@@ -46,4 +53,10 @@ const UseObjectStateComponent = () => {
 
 #### ✅ When to use
 
-- When in need of manage the state which is an object,
+- When required to migrate legacy class components to the new function components paradigm
+
+#### 🛑 What not to do
+
+- Don't use this hook in place of `useReducer`.
+
+<!-- Types -->

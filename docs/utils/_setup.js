@@ -1,14 +1,6 @@
-const React = require('react');
+const React = require('react')
+const { Card } = require('antd')
 
-const defaultStyle = {
-  background: '#FDFEFD',
-  width: '250px',
-  padding: '20px',
-  textAlign: 'center',
-  boxShadow: '0 0 10px rgba(20, 20, 20, .1)',
-  margin: '10px auto',
-};
-
-const DisplayDemo = window.DisplayDemo = ({ style, ...props }) => (
-  React.createElement('div', { style: { ...defaultStyle, ...style } }, props.children)
-);
+const DisplayDemo = window.DisplayDemo = (props) => (
+  React.createElement(Card, { bordered: true, hoverable: true, ...props }, props.children)
+)

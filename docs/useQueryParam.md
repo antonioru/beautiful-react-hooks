@@ -1,17 +1,19 @@
 # useQueryParam
 
+A hook built on top of React Router v5 that facilitate access and manipulation of query parameters.
+
 ### Why? 💡
 
-- to ease the process of modify the query string in the URL for the current location.
-- Works similar to the useState hook
-- it's NOT built on top of version 6 of react-router-dom's useSearchParams, it is therefore compatible with older version
+- Facilitates editing the query string in the URL for the current location
+- Functions similarly to the useState hook
+- Does not rely on version 6 of the useSearchParams function from react-router-dom, ensuring compatibility with older versions
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useState, useRef } from 'react';
 import { HashRouter as Router } from 'react-router-dom'
-import { Input } from 'beautiful-react-ui'
+import { Typography, Tag, Input } from 'antd';
 import useQueryParam from 'beautiful-react-hooks/useQueryParam';
 
 const ExampleComponent = () => {
@@ -22,9 +24,11 @@ const ExampleComponent = () => {
   })
 
   return (
-    <DisplayDemo>
-      <p>Current value of 'foo' param is '{param}'</p>
-      <Input value={param} onChange={(e, nextValue) => setValue(nextValue)} />
+    <DisplayDemo title="useQueryParam">
+      <Typography.Paragraph>
+        Current value of 'foo' param is <Tag color="green">{param}</Tag><
+      /Typography.Paragraph>
+      <Input value={param} onChange={(e) => setValue(e.targt.value)} />
     </DisplayDemo>
   );
 };
@@ -33,3 +37,5 @@ const ExampleComponent = () => {
   <ExampleComponent />
 </Router>
 ```
+
+<!-- Types -->

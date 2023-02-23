@@ -1,25 +1,28 @@
 # useSearchQuery
 
+A hook built on top of React Router v5 that facilitate access and manipulation of the 'search' query parameter.
+
 ### Why? 💡
 
-- to ease the process of modify the 'search' query string in the URL for the current location.
-- Works similar to useState hook
-- built on top of useQueryParam
+- Facilitates editing the 'search' query string in the URL for the current location
+- Functions similarly to the useState hook
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useState, useRef } from 'react';
 import { HashRouter as Router } from 'react-router-dom'
-import { Input } from 'beautiful-react-ui'
+import { Input, Typography, Tag } from 'antd'
 import useSearchQuery from 'beautiful-react-hooks/useSearchQuery';
 
 const ExampleComponent = () => {
   const [searchValue, setSearch] = useSearchQuery('initial-value')
 
   return (
-    <DisplayDemo>
-      <p>Current value of search param is '{searchValue}'</p>
+    <DisplayDemo title="useSearchQuery">
+      <Typography.Paragraph>
+        Current value of search param is <Tag color="green">{searchValue}</Tag>
+      </Typography.Paragraph>
       <Input value={searchValue} onChange={(e, nextValue) => setSearch(nextValue)} />
     </DisplayDemo>
   );
@@ -29,3 +32,5 @@ const ExampleComponent = () => {
   <ExampleComponent />
 </Router>
 ```
+
+<!-- Types -->

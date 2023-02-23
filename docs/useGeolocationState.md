@@ -1,23 +1,28 @@
 # useGeolocationState
 
-Returns an object containing the `position` information, the `isSupported` boolean flag reporting whether the geolocation API is supported
-or not, the `isRetrieving` boolean flag reporting whether the hook is fetching the current position or not ans the `onError`, invoked when an error occur while retrieving the position.
+A hook that returns an object comprising information on the response from
+the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API). \
+This object properties are:
 
-The position is retrieved by using the
-[Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API), when supported.
+- the `position` information, which is the actual response from the geolocation API
+- the `isSupported` boolean flag, indicating whether the geolocation API is supported or not
+- the `isRetrieving` boolean flag, indicating whether the hook is currently retrieving the position or not
+- the `onError` function, invoked when an error occurs while retrieving the position
 
-It possibly accepts an object of [geolocation options](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions)
-to be used as parameter when using the `Geolocation.getCurrentPosition()` method.
+It also accepts a [geolocation options object](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) to be utilized as a
+parameter while utilizing the `Geolocation.getCurrentPosition()` method.
 
 ### Why? 💡
 
-- allow to easily access the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API)
-- takes care of cleaning the listener when the component will unmount
-- allow to perform abstractions on geolocation related events
+- facilitates streamlined access to
+  the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API), which allows for
+  geolocation tracking and position updates
+- enables the abstraction of geolocation-related events, allowing for more flexible and scalable code implementation
 
 ### Basic Usage:
 
 ```jsx harmony
+import { Typography } from 'antd';
 import useGeolocationState from 'beautiful-react-hooks/useGeolocationState';
 
 const PositionReporter = () => {
@@ -28,14 +33,14 @@ const PositionReporter = () => {
   });
 
   return (
-    <DisplayDemo>
-      The current position is:
-      {isRetrieving && (<p>Retrieving position...</p>)}
-      {isSupported && position && [
-        <p key={0}>Lat: {position.coords.latitude}</p>,
-        <p key={1}>Lng: {position.coords.longitude}</p>
-      ]}
-    </DisplayDemo>
+          <DisplayDemo title="useGeolocationState">
+            <Typography.Title>The current position is:</Typography.Title>
+            {geoState.isRetrieving && (<Typography.Paragraph>Retrieving position...</Typography.Paragraph>)}
+            {geoState.isSupported && geoState.position && [
+              <Typography.Paragraph key={0}>Lat: {geoState.position.coords.latitude}</Typography.Paragraph>,
+              <Typography.Paragraph key={1}>Lng: {geoState.position.coords.longitude}</Typography.Paragraph>
+            ]}
+          </DisplayDemo>
   );
 };
 
@@ -44,7 +49,7 @@ const PositionReporter = () => {
 
 ### Options:
 
-Before using, please read about the [geolocation options](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions)
+Read more on the [geolocation options documentation](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions)
 
 ```jsx harmony
 import useGeolocationState from 'beautiful-react-hooks/useGeolocationState';
@@ -61,14 +66,14 @@ const PositionReporter = () => {
   });
 
   return (
-    <DisplayDemo>
-      The current high accuracy position is:
-      {isRetrieving && (<p>Retrieving position...</p>)}
-      {isSupported && position && [
-        <p key={0}>Lat: {position.coords.latitude}</p>,
-        <p key={1}>Lng: {position.coords.longitude}</p>
-      ]}
-    </DisplayDemo>
+          <DisplayDemo title="useGeolocationState">
+            <Typography.Title>The current position is:</Typography.Title>
+            {geoState.isRetrieving && (<Typography.Paragraph>Retrieving position...</Typography.Paragraph>)}
+            {geoState.isSupported && geoState.position && [
+              <Typography.Paragraph key={0}>Lat: {geoState.position.coords.latitude}</Typography.Paragraph>,
+              <Typography.Paragraph key={1}>Lng: {geoState.position.coords.longitude}</Typography.Paragraph>
+            ]}
+          </DisplayDemo>
   );
 };
 
@@ -79,10 +84,11 @@ const PositionReporter = () => {
 
 #### ✅ When to use
 
-- If in need to easily access the Geolocation API
-- If in need to abstract some geolocation related logic into a custom hooks
+- Use this hook when you require effortless access to the Geolocation API
 
 #### 🛑 What not to do
 
-- Don't use this hook to try to guess the user's device capabilities
-- Don't access the geolocation state before checking hte `isSupported` flag
+- Do not utilize this hook to speculate the user's device capabilities.
+- Prior to accessing the geolocation state, ensure to verify the isSupported flag.
+
+<!-- Types -->

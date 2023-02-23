@@ -1,5 +1,5 @@
-import useGeolocationState from './useGeolocationState'
-import useGeolocationEvents from './useGeolocationEvents'
+import useGeolocationState, { UseGeolocationStateResult } from './useGeolocationState'
+import useGeolocationEvents, { UseGeolocationEventsResult } from './useGeolocationEvents'
 import { geoStandardOptions } from './shared/geolocationUtils'
 
 /**
@@ -11,7 +11,7 @@ const useGeolocation = (options: PositionOptions = geoStandardOptions) => {
   const state = useGeolocationState(options)
   const events = useGeolocationEvents(options)
 
-  return [state, events]
+  return [state, events] as [UseGeolocationStateResult, UseGeolocationEventsResult]
 }
 
 export default useGeolocation

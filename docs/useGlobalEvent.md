@@ -1,21 +1,19 @@
 # useGlobalEvent
 
-Accepts an event name to be attached to the window global object, then returns a handler setter for that event.
+A hook that streamlines event handling in your application, ensuring that event listeners are added and removed at the appropriate times,
+without requiring you to manage them manually.\
+Simply provide the name of the event you want to attach to the `window` object, and the hook will take care of the rest.
 
 ### Why? 💡
 
-- takes care of adding a listener for a given event to the window object
-- takes care of removing the listener when the component will unmount
+- Simplifies the process of adding a listener for a specific event to the `window` object.
+- Automates the removal of the listener when the component is unmounted.
 
 ### Basic Usage:
 
-`useGlobalEvent` returns a handler setter for the defined event to be immediately invoked.
-
-**Please note**: the handler setter is only meant to change the callback reference, it does not cause the component rerender unless
-differently specified in the function's body. It's not invoked asynchronously
-
 ```jsx harmony
 import { useState } from 'react';
+import { Typography, Alert, Tag, Space } from 'antd';
 import useGlobalEvent from 'beautiful-react-hooks/useGlobalEvent';
 
 const TestComponent = () => {
@@ -27,8 +25,14 @@ const TestComponent = () => {
   });
 
   return (
-    <DisplayDemo>
-      Current window width: {windowWidth}
+    <DisplayDemo title="useGlobalEvent">
+      <Space direction="vertical" size="middle">
+        <Alert type="info" message="Resize the browser window to update the state" showIcon />
+
+        <Typography.Paragraph>
+          window width: <Tag color="green">{windowWidth}</Tag><br />
+        </Typography.Paragraph>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -43,6 +47,7 @@ under the hood, it's possible to specify the listener characteristics by passing
 
 ```jsx harmony
 import { useState } from 'react';
+import { Typography, Alert, Tag, Space } from 'antd';
 import useGlobalEvent from 'beautiful-react-hooks/useGlobalEvent';
 
 const TestComponent = () => {
@@ -55,8 +60,14 @@ const TestComponent = () => {
   });
 
   return (
-    <DisplayDemo>
-      Current window width: {windowWidth}
+    <DisplayDemo title="useGlobalEvent">
+      <Space direction="vertical" size="middle">
+        <Alert type="info" message="Resize the browser window to update the state" showIcon />
+
+        <Typography.Paragraph>
+          window width: <Tag color="green">{windowWidth}</Tag><br />
+        </Typography.Paragraph>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -68,11 +79,10 @@ const TestComponent = () => {
 
 #### ✅ When to use
 
-- When in need of listening to a specific event from the window global object
+- To capture a specific event from the `window` global object.
 
 #### 🛑 What not to do
 
-- When you can archive the same result by using a callback, **please remember listening/firing events directly to/from HTMLElement(s) in
-  React is considered an anti-pattern**
-- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler possibly leading to bugs in
-  your code
+- Avoid using the returned callback setter asynchronously, as it will only change the handler and may cause bugs in your code.
+
+<!-- Types -->

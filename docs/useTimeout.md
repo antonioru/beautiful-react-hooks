@@ -1,19 +1,20 @@
 # useTimeout
 
-An async-utility hook that accepts a callback `function` and a `delay time` (*in milliseconds*), then delays the execution of the given
-function by the defined time.
+A hook that facilitates the utilization of the `setTimeout` function in React function components. This hook receives a callback function
+and a delay duration as inputs, and subsequently, executes the given function at after the specified delay time.
 
 ### 💡 Why?
 
-- takes care of performing the given callback regardless the component re-renders;
-- cancels the timeout when component unmount (or not, depends by the defined options);
-- returns the timeout state (cleared/not cleared)
-- returns a method to possibly cancel the set timeout (cause the component re-render)
+- Ensures that the given callback is executed reliably, even when the component re-renders;
+- Automatically cancels the timeout when the component unmounts (although this behavior can be modified by adjusting the options);
+- Provides information about the current state of the timeout (whether it has been cleared or not);
+- Offers a method to cancel the timeout, which can trigger a re-render of the component if desired.
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useState } from 'react';
+import { Typography } from 'antd'
 import useTimeout from 'beautiful-react-hooks/useTimeout';
 
 const DelayedContentComponent = () => {
@@ -25,8 +26,8 @@ const DelayedContentComponent = () => {
   }, 2000);
 
   return (
-    <DisplayDemo>
-      <p>Content will show in 2 seconds...</p>
+    <DisplayDemo title="useTimeout">
+      <Typography.Paragraph>Content will show in 2 seconds...</Typography.Paragraph>
       {showContent && <div style={{ fontSize: '3rem' }}>🕰</div>}
     </DisplayDemo>
   );
@@ -43,6 +44,7 @@ The hook returns the state of the timeout (a boolean, cleared/not cleared) and a
 
 ```jsx harmony
 import { useState } from 'react';
+import { Typography, Button } from 'antd'
 import useTimeout from 'beautiful-react-hooks/useTimeout';
 
 const DelayedContentComponent = () => {
@@ -52,11 +54,11 @@ const DelayedContentComponent = () => {
   }, 5000);
 
   return (
-    <DisplayDemo>
-      <p>Content will show in 5 seconds...</p>
+    <DisplayDemo title="useTimeout">
+      <Typography.Paragraph>Content will show in 5 seconds...</Typography.Paragraph>
       {showContent && <div style={{ fontSize: '3rem' }}>🕰</div>}
-      {!isCleared && <button onClick={clearTimeoutRef}>Press here to cancel timeout</button>}
-      {isCleared && <p>Cleared</p>}
+      {!isCleared && <Button type="primary" onClick={clearTimeoutRef}>Press here to cancel timeout</Button>}
+      {isCleared && <Typography.Paragraph>Cleared</Typography.Paragraph>}
     </DisplayDemo>
   );
 };
@@ -66,7 +68,7 @@ const DelayedContentComponent = () => {
 
 ### Options:
 
-`useTimeout` might accept a options object provided as eventual parameter.
+`useTimeout` might accept an options object provided as eventual parameter.
 
 #### cancelOnUnmount:
 
@@ -76,6 +78,7 @@ Defines whether the timeout should be cleared on unmount.
 
 ```jsx harmony
 import { useState } from 'react';
+import { Typography } from 'antd';
 import useTimeout from 'beautiful-react-hooks/useTimeout';
 
 const DelayedContentComponent = () => {
@@ -85,8 +88,8 @@ const DelayedContentComponent = () => {
   useTimeout(() => setShowContent(true), 3000, options);
 
   return (
-    <DisplayDemo>
-      <p>Content will show in 3 seconds but not be cleared on unmount</p>
+    <DisplayDemo title="useTimeout">
+      <Typography.Paragraph>Content will show in 3 seconds but not be cleared on unmount</Typography.Paragraph>
       {showContent && <div style={{ fontSize: '3rem' }}>🕰</div>}
     </DisplayDemo>
   );
@@ -99,8 +102,10 @@ const DelayedContentComponent = () => {
 
 #### ✅ When to use
 
-- If in need to perform a function after a specified number of milliseconds regardless the component re-renders
+- when there is a requirement to execute a function after a specific number of milliseconds, without being affected by component re-renders
 
 #### 🛑 When not to use
 
-- You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+- Avoid using this hook for asynchronous operations since it violates the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+
+<!-- Types -->

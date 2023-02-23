@@ -1,12 +1,12 @@
 # useDropZone
 
-Accepts an HTML Element ref then makes it a drop-zone receiving data from dragged object.
+A hook that receives an HTML Element ref and transforms it into a drop-zone capable of accepting data from a dragged object
 
 ### Why? 💡
 
-- takes care of adding the drop-related events listeners to the defined target
-- takes care of cleaning the listener when the component will unmount
-- allow to easily implement drop-related business logic
+- Handles the addition of drop-related event listeners to the specified target
+- Cleans up the listener upon component unmounting
+- Facilitates the implementation of drop-related business logic
 
 ### Basic Usage:
 
@@ -31,7 +31,7 @@ const MyComponent = () => {
   });
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useDropZone">
       <div ref={dragRef} style={{ padding: '20px 0', background: isDragged ? '#BE496E' : '#1D6C8B' }}>
         {!isDragged && <span>Drag to send data</span>}
         {isDragged && <span>is being dragged</span>}
@@ -51,18 +51,15 @@ const MyComponent = () => {
 
 #### ✅ When to use
 
-- When in need of implementing basic drop-related business logic such as file drop
+- If in need to abstract some drag-n-drop related logic into a custom hooks
 
 #### 🛑 What not to do
 
-- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler possibly leading to bugs in
-  your code.
-- Absolutely avoid using `onDrop` handler setters to replace the standard drop handler props.
-- `useDropZone` is meant to be used to abstract more complex hooks that need to control the drag n drop, for example:
-  the drag-around hook.
-- Using `useDropZone` handlers instead of the classic props approach it's just as bad as it sounds since you'll lose the React
-  SyntheticEvent performance boost.<br />
-- If you were doing something like the following, please keep doing it:
+- Using the returned callback setter asynchronously won't have any effect and could introduce bugs into your code, so it should be avoided.
+- Standard drag handler props (like `onDragStart`) should not be replaced with useDragEvents callback setters.
+- useDragEvents is designed to be used for more complex hooks that require control over drag and drop.
+- Replacing classic props with useDragEvents handlers can lead to a loss in performance due to the lack of React SyntheticEvent support.
+- If you were already using a method similar to the following, it is recommended to continue doing so:
 
 ```jsx harmony static noedit
 const MyComponent = (props) => {
@@ -72,4 +69,6 @@ const MyComponent = (props) => {
     <div onDragStart={dragStartHandler} />
   );
 };
-``` 
+```
+
+<!-- Types -->

@@ -1,22 +1,22 @@
 # useDragEvents
 
-Returns an object of handler setters to handle the drag-related events. It accepts a DOM ref representing the events target (where attach
-the events to).
+A hook that provides a collection of functions designed to simplify the management of drag-related events.\
+It takes a reference to target element where the events are to be attached.\
+This hook facilitates the handling of drag events, making it easier for developers to incorporate drag-and-drop functionality into their web
+applications.
 
-Returned handler setters: `onDrag`, `onDrop`, `onDragEnter`, `onDragEnd`, `onDragExit`, `onDragLeave`, `onDragOver`, `onDragStart`;
-
-**Please note:** the returned handler setters should invoked immediately in the function component's body, do not try to call this functions
-asynchronously.
+**Please note:** the returned callback setters should be invoked immediately in the function component's body, do not try to call this
+functions asynchronously.
 
 ### Why? 💡
 
-- takes care of adding the drag-related events listeners to the defined target
-- takes care of cleaning the listener when the component will unmount
-- allow to perform abstractions on drag-related events
+- Takes care of attaching the drag-related event listeners to the specified target element
+- Automatically removes the event listeners when the component is unmounted
+- Enables the ability to abstract the handling of drag-related events
 
 ### Basic Usage:
 
-Provide a DOM ref as first parameter to `useDragEvents`
+Provide a DOM element ref as first parameter to `useDragEvents`
 
 ```jsx harmony
 import { useRef, useState } from 'react';
@@ -36,7 +36,7 @@ const MyComponent = () => {
   });
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useDragEvents">
       <div ref={ref} style={{ padding: '20px 0', background: '#1D6C8B' }}>
         Draggable item...
         {isDragged && <span>is being dragged</span>}
@@ -50,8 +50,7 @@ const MyComponent = () => {
 
 ### Draggable attribute:
 
-The second argument of `useDragEvents` defines whether to set the `draggable` attribute to the target element. By default, this is set
-to `true`.
+the second parameter determines whether the target element should have the `draggable` attribute set. By default, this is set to `true`.
 
 **Please note**:
 
@@ -87,7 +86,7 @@ const MyComponent = () => {
   });
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useDragEvents">
       <div ref={draggableRef} style={{ padding: '20px 0', background: '#1D6C8B' }}>
         Draggable item...
         {isDragged && <span>is being dragged</span>}
@@ -112,14 +111,11 @@ const MyComponent = () => {
 
 #### 🛑 What not to do
 
-- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler possibly leading to bugs in
-  your code.
-- Absolutely avoid using `useDragEvents` handler setters to replace the standard drag handler props.
-- `useDragEvents` is meant to be used to abstract more complex hooks that need to control the drag n drop, for example:
-  the drag-around hook.
-- Using `useDragEvents` handlers instead of the classic props approach it's just as bad as it sounds since you'll lose the React
-  SyntheticEvent performance boost.<br />
-- If you were doing something like the following, please keep doing it:
+- Using the returned callback setter asynchronously won't have any effect and could introduce bugs into your code, so it should be avoided.
+- Standard drag handler props (like `onDragStart`) should not be replaced with useDragEvents callback setters.
+- useDragEvents is designed to be used for more complex hooks that require control over drag and drop.
+- Replacing classic props with useDragEvents handlers can lead to a loss in performance due to the lack of React SyntheticEvent support.
+- If you were already using a method similar to the following, it is recommended to continue doing so:
 
 ```jsx harmony static noedit
 const MyComponent = (props) => {
@@ -129,4 +125,6 @@ const MyComponent = (props) => {
     <div onDragStart={dragStartHandler} />
   );
 };
-``` 
+```
+
+<!-- Types -->

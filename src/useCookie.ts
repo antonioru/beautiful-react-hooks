@@ -1,45 +1,15 @@
-import { useState, useEffect, useCallback } from 'react'
-
+import { useCallback, useEffect, useState } from 'react'
 import noop from './shared/noop'
 import isClient from './shared/isClient'
 import isDevelopment from './shared/isDevelopment'
 import isAPISupported from './shared/isAPISupported'
 import createHandlerSetter from './factory/createHandlerSetter'
 import warnOnce from './shared/warnOnce'
+import { CallbackSetter } from './shared/types'
 
-export enum ECookieSameSite {
-  STRICT = 'strict',
-  LAX = 'lax',
-  NONE = 'none',
-}
 
-interface ICookieStoreDeleteOptions {
-  name?: string;
-  domain?: string;
-  path?: string;
-}
-
-interface ICookieInit extends ICookieStoreDeleteOptions {
-  sameSite?: ECookieSameSite;
-}
-
-interface ICookieInitWithNameAndValue extends ICookieInit {
-  name?: string;
-  value?: string;
-}
-
-export interface IOptions extends ICookieInit {
-  defaultValue?: string;
-}
-
-interface ICookieStore {
-  get: (key: string) => Promise<ICookieInitWithNameAndValue>;
-  set: (options: ICookieInitWithNameAndValue) => Promise<void>;
-  delete: (options: ICookieStoreDeleteOptions) => Promise<void>;
-}
-
-const useCookie = (key: string, options?: IOptions) => {
-  const hookNotSupportedResponse = Object.freeze({
+const useCookie = (key: string, options?: UseCookieOptions) => {
+  const hookNotSupportedResponse = Object.freeze<UseCookieReturn>({
     onError: noop,
     updateCookie: noop,
     deleteCookie: noop,
@@ -63,7 +33,7 @@ const useCookie = (key: string, options?: IOptions) => {
   const [cookieValue, setCookieValue] = useState<string>()
   const [onErrorRef, setOnErrorRef] = createHandlerSetter<Error>()
 
-  const cookieStoreObject = (window as any).cookieStore as ICookieStore
+  const cookieStoreObject = (window as any).cookieStore as CookieStore
 
   const onError = (err: Error) => {
     if (onErrorRef.current) {
@@ -110,12 +80,50 @@ const useCookie = (key: string, options?: IOptions) => {
     [],
   )
 
-  return Object.freeze({
+  return Object.freeze<UseCookieReturn>({
     cookieValue,
     updateCookie,
     deleteCookie,
     onError: setOnErrorRef,
   })
+}
+
+export enum CookieSameSite {
+  STRICT = 'strict',
+  LAX = 'lax',
+  NONE = 'none',
+}
+
+interface CookieStoreDeleteOptions {
+  name?: string;
+  domain?: string;
+  path?: string;
+}
+
+interface CookieBase extends CookieStoreDeleteOptions {
+  sameSite?: CookieSameSite;
+}
+
+interface CookieBaseWithNameAndValue extends CookieBase {
+  name?: string;
+  value?: string;
+}
+
+export interface UseCookieOptions extends CookieBase {
+  defaultValue?: string;
+}
+
+interface CookieStore {
+  get: (key: string) => Promise<CookieBaseWithNameAndValue>;
+  set: (options: CookieBaseWithNameAndValue) => Promise<void>;
+  delete: (options: CookieStoreDeleteOptions) => Promise<void>;
+}
+
+export interface UseCookieReturn {
+  cookieValue: string,
+  updateCookie: (nextValue: string) => Promise<void>,
+  deleteCookie: () => Promise<void>,
+  onError: CallbackSetter<Error>
 }
 
 export default useCookie

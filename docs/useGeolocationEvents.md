@@ -1,22 +1,28 @@
 # useGeolocationEvents
 
-Returns an object of handler setters to handle the geolocation-related events. So far, the supported methods are: `onChange`, invoked when
-the position changes and `onError`, invoked when an error occur while retrieving the position.<br/>
-The returned object also contains the `isSupported` boolean flag reporting whether the geolocation API is supported.
+A hook that returns an object of callback setters (functions to set the callback that will be performed once an event is fired)
+to handle geolocation-related events. So far, the supported methods are:
 
-**Please note:** the returned handler setters should invoked immediately in the function component's body, do not try to call this functions
-asynchronously.
+- onChange, invoked when the position changes
+- onError, invoked when an error occurs while retrieving the position.
+
+The returned object also contains the `isSupported boolean flag, reporting whether the geolocation API is supported.
+
+**Please note**: the returned callback setters should be invoked immediately in the function component's body. Do not try to call these
+functions asynchronously.
 
 ### Why? 💡
 
-- takes care of adding the geolocation events listeners
-- takes care of cleaning the listener when the component will unmount
-- allow to perform abstractions on geolocation related events
+- Manages the addition of geolocation event listeners
+- Handles the cleaning of the listeners when the component unmounts
+- Enables the creation of abstractions for geolocation-related events
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useState } from 'react';
+import { Typography } from 'antd';
+
 import useGeolocationEvents from 'beautiful-react-hooks/useGeolocationEvents';
 
 const GeoReporter = () => {
@@ -29,12 +35,12 @@ const GeoReporter = () => {
   onError((err) => setError(err));
 
   return (
-    <DisplayDemo>
-      <p>Geolocation supported: {isSupported ? 'yes' : 'no'}</p>
-      {!error && position && (
-        <p>lat: {position.coords.latitude}, lng: {position.coords.longitude}</p>
-      )}
-    </DisplayDemo>
+          <DisplayDemo title="useGeolocationEvents">
+            <Typography.Text>Geolocation supported: {isSupported ? 'yes' : 'no'}</Typography.Text>
+            {!error && position && (
+                    <Typography.Text>lat: {position.coords.latitude}, lng: {position.coords.longitude}</Typography.Text>
+            )}
+          </DisplayDemo>
   );
 };
 
@@ -45,9 +51,11 @@ const GeoReporter = () => {
 
 #### ✅ When to use
 
-- If in need to abstract some geolocation related logic into a custom hooks
+- Use this hook when you need to abstract geolocation-related logic into a custom hook
 
 #### 🛑 What not to do
 
-- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler possibly leading to bugs in
-  your code.
+- Do not use the returned callback setter asynchronously. Doing so will have no effect and may cause bugs in your code. Instead, be sure to
+  invoke the callback setters immediately in the function component's body
+
+<!-- Types -->
