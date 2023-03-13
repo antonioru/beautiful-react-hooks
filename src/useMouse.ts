@@ -1,4 +1,4 @@
-import { RefObject } from 'react'
+import { type RefObject } from 'react'
 import useMouseEvents from './useMouseEvents'
 import useMouseState from './useMouseState'
 

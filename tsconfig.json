@@ -10,6 +10,7 @@
     "allowJs": false,
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "strictNullChecks": true,
     "rootDir": "./src",
     "outDir": "./dist"
   }

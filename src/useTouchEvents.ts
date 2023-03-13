@@ -1,6 +1,6 @@
-import { RefObject } from 'react'
+import { type RefObject } from 'react'
 import useEvent from './useEvent'
-import { CallbackSetter } from './shared/types'
+import { type CallbackSetter } from './shared/types'
 
 /**
  * Returns a frozen object of callback setters to handle the touch events.<br/>
@@ -18,7 +18,7 @@ import { CallbackSetter } from './shared/types'
  *
  */
 const useTouchEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>, passive?: boolean) => {
-  const target = targetRef || { current: window.document } as unknown as RefObject<TElement> // hackish but works
+  const target = targetRef ?? { current: window.document } as unknown as RefObject<TElement> // hackish but works
   const onTouchStart = useEvent<TouchEvent, TElement>(target, 'touchstart', { passive })
   const onTouchEnd = useEvent<TouchEvent, TElement>(target, 'touchend', { passive })
   const onTouchCancel = useEvent<TouchEvent, TElement>(target, 'touchcancel', { passive })
@@ -28,7 +28,7 @@ const useTouchEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TEle
     onTouchStart,
     onTouchEnd,
     onTouchCancel,
-    onTouchMove,
+    onTouchMove
   })
 }
 
@@ -36,11 +36,10 @@ const useTouchEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TEle
  * The return object of the `useTouchEvents` hook.
  */
 export interface UseTouchEventsReturn {
-  onTouchStart: CallbackSetter<TouchEvent>,
-  onTouchEnd: CallbackSetter<TouchEvent>,
-  onTouchCancel: CallbackSetter<TouchEvent>,
-  onTouchMove: CallbackSetter<TouchEvent>,
+  onTouchStart: CallbackSetter<TouchEvent>
+  onTouchEnd: CallbackSetter<TouchEvent>
+  onTouchCancel: CallbackSetter<TouchEvent>
+  onTouchMove: CallbackSetter<TouchEvent>
 }
-
 
 export default useTouchEvents

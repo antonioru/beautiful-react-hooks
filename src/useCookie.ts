@@ -5,15 +5,14 @@ import isDevelopment from './shared/isDevelopment'
 import isAPISupported from './shared/isAPISupported'
 import createHandlerSetter from './factory/createHandlerSetter'
 import warnOnce from './shared/warnOnce'
-import { CallbackSetter } from './shared/types'
-
+import { type CallbackSetter } from './shared/types'
 
 const useCookie = (key: string, options?: UseCookieOptions) => {
   const hookNotSupportedResponse = Object.freeze<UseCookieReturn>({
     onError: noop,
     updateCookie: noop,
     deleteCookie: noop,
-    cookieValue: options?.defaultValue,
+    cookieValue: options?.defaultValue
   })
 
   if (!isClient) {
@@ -36,7 +35,7 @@ const useCookie = (key: string, options?: UseCookieOptions) => {
   const cookieStoreObject = (window as any).cookieStore as CookieStore
 
   const onError = (err: Error) => {
-    if (onErrorRef.current) {
+    if (onErrorRef.current != null) {
       onErrorRef.current(err)
     }
   }
@@ -47,44 +46,54 @@ const useCookie = (key: string, options?: UseCookieOptions) => {
         const getFunctionResult = await cookieStoreObject.get(key)
 
         if (getFunctionResult?.value) {
-          return setCookieValue(getFunctionResult.value)
+          setCookieValue(getFunctionResult.value)
+          return
         }
 
         await cookieStoreObject.set({
           name: key,
           value: options?.defaultValue,
-          ...options,
+          ...options
         })
-        return setCookieValue(options?.defaultValue)
+        setCookieValue(options?.defaultValue)
+        return
       } catch (err) {
-        return onError(err)
+        onError(err)
       }
     }
 
-    getInitialValue()
+    getInitialValue().catch(onError)
   }, [])
 
   const updateCookie = useCallback(
-    (newValue: string) => cookieStoreObject
-      .set({ name: key, value: newValue, ...options })
-      .then(() => setCookieValue(newValue))
-      .catch(onError),
-    [],
+    async (newValue: string) => {
+      await cookieStoreObject
+        .set({ name: key, value: newValue, ...options })
+        .then(() => {
+          setCookieValue(newValue)
+        })
+        .catch(onError)
+    },
+    []
   )
 
   const deleteCookie = useCallback(
-    () => cookieStoreObject
-      .delete({ name: key, ...options })
-      .then(() => setCookieValue(undefined))
-      .catch(onError),
-    [],
+    async () => {
+      await cookieStoreObject
+        .delete({ name: key, ...options })
+        .then(() => {
+          setCookieValue(undefined)
+        })
+        .catch(onError)
+    },
+    []
   )
 
   return Object.freeze<UseCookieReturn>({
     cookieValue,
     updateCookie,
     deleteCookie,
-    onError: setOnErrorRef,
+    onError: setOnErrorRef
   })
 }
 
@@ -95,34 +104,34 @@ export enum CookieSameSite {
 }
 
 interface CookieStoreDeleteOptions {
-  name?: string;
-  domain?: string;
-  path?: string;
+  name?: string
+  domain?: string
+  path?: string
 }
 
 interface CookieBase extends CookieStoreDeleteOptions {
-  sameSite?: CookieSameSite;
+  sameSite?: CookieSameSite
 }
 
 interface CookieBaseWithNameAndValue extends CookieBase {
-  name?: string;
-  value?: string;
+  name?: string
+  value?: string
 }
 
 export interface UseCookieOptions extends CookieBase {
-  defaultValue?: string;
+  defaultValue?: string
 }
 
 interface CookieStore {
-  get: (key: string) => Promise<CookieBaseWithNameAndValue>;
-  set: (options: CookieBaseWithNameAndValue) => Promise<void>;
-  delete: (options: CookieStoreDeleteOptions) => Promise<void>;
+  get: (key: string) => Promise<CookieBaseWithNameAndValue>
+  set: (options: CookieBaseWithNameAndValue) => Promise<void>
+  delete: (options: CookieStoreDeleteOptions) => Promise<void>
 }
 
 export interface UseCookieReturn {
-  cookieValue: string,
-  updateCookie: (nextValue: string) => Promise<void>,
-  deleteCookie: () => Promise<void>,
+  cookieValue?: string
+  updateCookie: (nextValue: string) => Promise<void>
+  deleteCookie: () => Promise<void>
   onError: CallbackSetter<Error>
 }
 

@@ -20,39 +20,45 @@ const useDarkMode = (defaultValue?: boolean, localStorageKey: string = LOCAL_STO
       toggle: noop,
       enable: noop,
       disable: noop,
-      isDarkMode: defaultValue ?? false,
+      isDarkMode: defaultValue ?? false
     })
   }
 
   const isDarkOS = useMediaQuery(COLOR_SCHEME_QUERY)
   const [isDarkMode, setIsDarkMode] = useLocalStorage<boolean>(
     localStorageKey,
-    defaultValue ?? isDarkOS ?? false,
+    defaultValue ?? isDarkOS ?? false
   )
 
   useUpdateEffect(() => {
     setIsDarkMode(isDarkOS)
   }, [isDarkOS])
 
-  const enable = useCallback(() => setIsDarkMode(true), [])
+  const enable = useCallback(() => {
+    setIsDarkMode(true)
+  }, [])
 
-  const disable = useCallback(() => setIsDarkMode(false), [])
+  const disable = useCallback(() => {
+    setIsDarkMode(false)
+  }, [])
 
-  const toggle = useCallback(() => setIsDarkMode((prev) => !prev), [setIsDarkMode])
+  const toggle = useCallback(() => {
+    setIsDarkMode((prev) => !prev)
+  }, [setIsDarkMode])
 
   return Object.freeze<UseDarkModeReturn>({
     toggle,
     enable,
     disable,
-    isDarkMode,
+    isDarkMode: isDarkMode ?? false
   })
 }
 
 export interface UseDarkModeReturn {
-  isDarkMode: boolean,
-  toggle: () => void,
-  enable: () => void,
-  disable: () => void,
+  isDarkMode: boolean
+  toggle: () => void
+  enable: () => void
+  disable: () => void
 }
 
 export default useDarkMode

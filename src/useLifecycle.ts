@@ -1,6 +1,6 @@
 import useDidMount from './useDidMount'
 import useWillUnmount from './useWillUnmount'
-import { GenericFunction } from './shared/types'
+import { type GenericFunction } from './shared/types'
 
 /**
  * Returns an object wrapping lifecycle hooks such as `useDidMount` or `useWillUnmount`.

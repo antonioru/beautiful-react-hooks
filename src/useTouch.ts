@@ -1,5 +1,5 @@
-import { RefObject } from 'react'
-import useTouchEvents, { UseTouchEventsReturn } from './useTouchEvents'
+import { type RefObject } from 'react'
+import useTouchEvents, { type UseTouchEventsReturn } from './useTouchEvents'
 import useTouchState from './useTouchState'
 
 /**
@@ -7,7 +7,7 @@ import useTouchState from './useTouchState'
  * is the object of callback setters from the `useTouchEvents` hook.
  * It is intended as a shortcut to those hooks.
  */
-const useTouch = <TElement extends HTMLElement>(targetRef: RefObject<TElement> = null) => {
+const useTouch = <TElement extends HTMLElement>(targetRef: RefObject<TElement> | undefined = undefined) => {
   const state = useTouchState<TElement>(targetRef)
   const events = useTouchEvents<TElement>(targetRef)
 

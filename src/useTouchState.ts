@@ -1,4 +1,4 @@
-import { RefObject, useState } from 'react'
+import { type RefObject, useState } from 'react'
 import useTouchEvents from './useTouchEvents'
 
 /**
@@ -7,6 +7,7 @@ import useTouchEvents from './useTouchEvents'
  * If a target is not provided the state will be caught globally.
  */
 const useTouchState = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>) => {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   const [state, setState] = useState<TouchList>({ length: 0 } as TouchList)
   const { onTouchStart, onTouchMove } = useTouchEvents<TElement>(targetRef)
 

@@ -1,6 +1,6 @@
 # useYourHookName
 
--- A short description of your hook --
+A hook that [...]
 
 ### 💡 Why?
 
@@ -9,12 +9,11 @@
 ### Basic Usage:
 
 ```jsx harmony
-import { yourHook } from 'beautiful-react-hooks'; 
-
+import { yourHook } from 'beautiful-react-hooks';
 
 const YourExample = () => {
   /* Your code goes here */
-  
+
   return null;
 };
 
@@ -26,12 +25,11 @@ const YourExample = () => {
 description of the use case
 
 ```jsx harmony
-import { yourHook } from 'beautiful-react-hooks'; 
-
+import { yourHook } from 'beautiful-react-hooks';
 
 const YourUseCase = () => {
   /* Your code goes here */
-  
+
   return null;
 };
 
@@ -41,9 +39,11 @@ const YourUseCase = () => {
 ### Mastering the hooks
 
 #### ✅ When to use
- 
+
 - When it's good to use
 
 #### 🛑 When not to use
 
 - When it's not good to use
+
+<!-- Types -->

@@ -1,11 +1,11 @@
-import { RefObject, useState } from 'react'
+import { type RefObject, useState } from 'react'
 import useMouseEvents from './useMouseEvents'
 
 const createStateObject = (event: MouseEvent) => ({
   clientX: event.clientX,
   clientY: event.clientY,
   screenX: event.screenX,
-  screenY: event.screenY,
+  screenY: event.screenY
 })
 
 /**

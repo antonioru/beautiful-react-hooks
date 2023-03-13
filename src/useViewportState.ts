@@ -5,10 +5,10 @@ import useThrottledCallback from './useThrottledCallback'
 import useDidMount from './useDidMount'
 
 export interface ViewportState {
-  width: number,
-  height: number,
-  scrollX: number,
-  scrollY: number,
+  width: number
+  height: number
+  scrollX: number
+  scrollY: number
 }
 
 /**
@@ -25,7 +25,7 @@ const useViewportState = (debounceBy: number = 250) => {
       width: window.innerWidth,
       height: window.innerHeight,
       scrollX: window.scrollX,
-      scrollY: window.scrollY,
+      scrollY: window.scrollY
     })
   }, [setViewport], debounceBy)
 

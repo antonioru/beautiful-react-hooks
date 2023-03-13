@@ -1,9 +1,9 @@
-import { RefObject, useState } from 'react'
+import { type RefObject, useState } from 'react'
 import useDragEvents from './useDragEvents'
-import { CallbackSetter } from './shared/types'
+import { type CallbackSetter } from './shared/types'
 
 export interface UseDropZoneResult {
-  readonly isOver: boolean,
+  readonly isOver: boolean
   readonly onDrop: CallbackSetter<DragEvent>
 }
 
@@ -22,7 +22,7 @@ const useDropZone = <TElement extends HTMLElement>(targetRef: RefObject<TElement
 
   return Object.freeze<UseDropZoneResult>({
     isOver,
-    onDrop,
+    onDrop
   })
 }
 

@@ -1,5 +1,5 @@
-import useGeolocationState, { UseGeolocationStateResult } from './useGeolocationState'
-import useGeolocationEvents, { UseGeolocationEventsResult } from './useGeolocationEvents'
+import useGeolocationState, { type UseGeolocationStateResult } from './useGeolocationState'
+import useGeolocationEvents, { type UseGeolocationEventsResult } from './useGeolocationEvents'
 import { geoStandardOptions } from './shared/geolocationUtils'
 
 /**

@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import isFunction from './shared/isFunction'
-import { GenericFunction } from './shared/types'
+import { type GenericFunction } from './shared/types'
 import usePreviousValue from './usePreviousValue'
-
 
 /**
  * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then delays the
@@ -58,16 +57,15 @@ const useConditionalTimeout = <TCallback extends GenericFunction>
 }
 
 export interface UseConditionalTimeoutOptios {
-  cancelOnUnmount?: boolean,
+  cancelOnUnmount?: boolean
   cancelOnConditionChange?: boolean
 }
 
 const defaultOptions: UseConditionalTimeoutOptios = {
   cancelOnUnmount: true,
-  cancelOnConditionChange: true,
+  cancelOnConditionChange: true
 }
 
 export type UseConditionalTimeoutReturn = [boolean, () => void]
-
 
 export default useConditionalTimeout

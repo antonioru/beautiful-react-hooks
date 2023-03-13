@@ -1,11 +1,10 @@
 import { useCallback, useRef, useState } from 'react'
 
-
 /**
  * Returns a state that changes only if the next value pass its validator
  */
 const useValidatedState = <TValue, TValidator extends Validator<TValue>>(validator: TValidator, initialValue?: TValue) => {
-  const [state, setState] = useState<TValue>(initialValue)
+  const [state, setState] = useState<TValue | undefined>(initialValue)
   const validation = useRef<ValidationResult>({ changed: false })
 
   const onChange = useCallback((nextValue: TValue) => {
@@ -16,13 +15,11 @@ const useValidatedState = <TValue, TValidator extends Validator<TValue>>(validat
   return [state, onChange, validation.current] as [TValue, (nextValue: TValue) => void, ValidationResult]
 }
 
-export interface Validator<TValue> {
-  (value: TValue): boolean
-}
+export type Validator<TValue> = (value: TValue) => boolean
 
 export interface ValidationResult {
-  changed: boolean,
-  valid?: boolean,
+  changed: boolean
+  valid?: boolean
 }
 
 export default useValidatedState

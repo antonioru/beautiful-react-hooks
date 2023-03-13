@@ -3,8 +3,8 @@ import isClient from './shared/isClient'
 import isAPISupported from './shared/isAPISupported'
 import warnOnce from './shared/warnOnce'
 
-const errorMessage = 'matchMedia is not supported, this could happen both because window.matchMedia is not supported by'
-  + ' your current browser or you\'re using the useMediaQuery hook whilst server side rendering.'
+const errorMessage = 'matchMedia is not supported, this could happen both because window.matchMedia is not supported by' +
+  ' your current browser or you\'re using the useMediaQuery hook whilst server side rendering.'
 
 /**
  * Accepts a media query string then uses the
@@ -24,7 +24,7 @@ const useMediaQuery = (mediaQuery: string) => {
 
   useEffect(() => {
     const mediaQueryList = window.matchMedia(mediaQuery)
-    const documentChangeHandler = () => setIsVerified(!!mediaQueryList.matches)
+    const documentChangeHandler = () => { setIsVerified(!!mediaQueryList.matches) }
 
     try {
       mediaQueryList.addEventListener('change', documentChangeHandler)

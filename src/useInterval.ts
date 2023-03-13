@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import isFunction from './shared/isFunction'
-import { GenericFunction } from './shared/types'
+import { type GenericFunction } from './shared/types'
 
-export type UseIntervalOptions = {
-  cancelOnUnmount?: boolean,
+export interface UseIntervalOptions {
+  cancelOnUnmount?: boolean
 }
 
 const defaultOptions: UseIntervalOptions = {
-  cancelOnUnmount: true,
+  cancelOnUnmount: true
 }
 
 /**

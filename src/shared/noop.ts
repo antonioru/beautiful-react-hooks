@@ -1,4 +1,4 @@
-import { Noop } from './types'
+import { type Noop } from './types'
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 const noop: Noop = (...args: any[]) => undefined

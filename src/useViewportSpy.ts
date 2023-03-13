@@ -1,4 +1,4 @@
-import { RefObject, useLayoutEffect, useState } from 'react'
+import { type RefObject, useLayoutEffect, useState } from 'react'
 import isClient from './shared/isClient'
 import isApiSupported from './shared/isAPISupported'
 import isDevelopment from './shared/isDevelopment'
@@ -6,13 +6,13 @@ import warnOnce from './shared/warnOnce'
 
 const defaultOptions: IntersectionObserverInit = {
   rootMargin: '0px',
-  threshold: 0,
+  threshold: 0
 }
 
-const errorMessage = 'IntersectionObserver is not supported, this could happen both because'
-  + ' window.IntersectionObserver is not supported by'
-  + ' your current browser or you\'re using the useViewportSpy hook whilst server side rendering.'
-  + ' This message is displayed only in development mode'
+const errorMessage = 'IntersectionObserver is not supported, this could happen both because' +
+  ' window.IntersectionObserver is not supported by' +
+  ' your current browser or you\'re using the useViewportSpy hook whilst server side rendering.' +
+  ' This message is displayed only in development mode'
 
 /**
  * Uses the IntersectionObserverMock API to tell whether the given DOM Element (from useRef) is visible within the
@@ -29,12 +29,16 @@ const useViewportSpy = <TElement extends HTMLElement>(ref: RefObject<TElement>, 
   const [isVisible, setIsVisible] = useState<boolean>()
 
   useLayoutEffect(() => {
-    const observer = new window.IntersectionObserver((entries) => entries.forEach((item) => {
-      const nextValue = item.isIntersecting
-      setIsVisible(nextValue)
-    }), options)
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach((item) => {
+        const nextValue = item.isIntersecting
+        setIsVisible(nextValue)
+      })
+    }, options)
 
-    observer.observe(ref.current)
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
 
     return () => {
       observer.disconnect()
