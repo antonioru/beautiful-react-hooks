@@ -1,9 +1,9 @@
-import { RefObject } from 'react'
-import useSwipe, { UseSwipeOptions } from './useSwipe'
+import { type RefObject } from 'react'
+import useSwipe, { type UseSwipeOptions } from './useSwipe'
 
 const defaultOptions: UseSwipeOptions = {
   threshold: 15,
-  preventDefault: true,
+  preventDefault: true
 }
 
 /**

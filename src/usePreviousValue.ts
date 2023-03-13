@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 /**
  * On each render returns the previous value of the given variable/constant.
  */
-const usePreviousValue = <TValue>(value?: TValue): TValue => {
+const usePreviousValue = <TValue>(value?: TValue): TValue | undefined => {
   const prevValue = useRef<TValue>()
 
   useEffect(() => {

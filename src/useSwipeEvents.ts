@@ -1,49 +1,66 @@
-import { RefObject, useEffect, useRef, useState } from 'react'
-
+import { type RefObject, useEffect, useRef, useState } from 'react'
 import isFunction from './shared/isFunction'
 import useMouseEvents from './useMouseEvents'
 import useTouchEvents from './useTouchEvents'
 import createHandlerSetter from './factory/createHandlerSetter'
 import { getDirection, getPointerCoordinates } from './shared/swipeUtils'
+import { type CallbackSetter } from './shared/types'
 
-export type SwipeState = {
+/**
+ * The swipe event state interface
+ */
+export interface SwipeEventState {
   clientX?: number
   clientY?: number
-  direction: 'right' | 'left' | 'up' | 'down',
-  alphaX: number,
-  alphaY: number,
+  direction: 'right' | 'left' | 'up' | 'down'
+  alphaX: number
+  alphaY: number
 }
 
-export type UseSwipeEventsOpts = {
-  threshold?: number,
-  preventDefault?: boolean,
-  passive?: boolean,
+/**
+ * The result of the hook
+ */
+interface UseSwipeEventsReturn {
+  onSwipeLeft: CallbackSetter<SwipeEventState>
+  onSwipeRight: CallbackSetter<SwipeEventState>
+  onSwipeUp: CallbackSetter<SwipeEventState>
+  onSwipeDown: CallbackSetter<SwipeEventState>
+  onSwipeMove: CallbackSetter<SwipeEventState>
+  onSwipeStart: CallbackSetter<SwipeEventState>
+  onSwipeEnd: CallbackSetter<SwipeEventState>
+}
+
+export interface UseSwipeEventsOpts {
+  threshold?: number
+  preventDefault?: boolean
+  passive?: boolean
 }
 
 const defaultOptions: UseSwipeEventsOpts = {
   threshold: 15,
   preventDefault: true,
-  passive: undefined,
+  passive: undefined
 }
 /* eslint-disable @typescript-eslint/default-param-last */
 
 /**
- * Very similar to useSwipe but doesn't cause re-rendering during swipe
+ * Very similar to useSwipe but doesn't cause re-rendering during swipe.
+ * Internal usage only.
  */
-const useSilentSwipeState = <TElement extends HTMLElement>(
-  targetRef: RefObject<TElement> = null,
+const useSwipeStateInternal = <TElement extends HTMLElement>(
+  targetRef: RefObject<TElement> | undefined = undefined,
   options: UseSwipeEventsOpts = defaultOptions,
-  onSwipeStart: (...args: any[]) => any,
-  onSwipeMove: (...args: any[]) => any,
-  onSwipeEnd: (...args: any[]) => any) => {
+  onSwipeStart?: (...args: any[]) => any,
+  onSwipeMove?: (...args: any[]) => any,
+  onSwipeEnd?: (...args: any[]) => any) => {
   const startingPointRef = useRef<[number, number]>([-1, -1])
-  const directionRef = useRef<'right' | 'left' | 'up' | 'down'>(null)
+  const directionRef = useRef<'right' | 'left' | 'up' | 'down' | null>(null)
   const isDraggingRef = useRef(false)
   const alphaRef = useRef<number[]>([])
   const opts = { ...defaultOptions, ...(options || {}) }
   const { onMouseDown, onMouseMove, onMouseLeave, onMouseUp } = useMouseEvents<TElement>(targetRef, opts.passive)
   const { onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useTouchEvents<TElement>(targetRef, opts.passive)
-  const [state, setState] = useState<SwipeState>()
+  const [state, setState] = useState<SwipeEventState>()
 
   const startSwipe = (event: MouseEvent | TouchEvent) => {
     const [clientX, clientY] = getPointerCoordinates(event)
@@ -71,7 +88,7 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
     if (startingPointRef.current[0] !== -1 && startingPointRef.current[1] !== -1) {
       const alpha: [number, number] = [startingPointRef.current[0] - clientX, startingPointRef.current[1] - clientY]
 
-      if (Math.abs(alpha[0]) > opts.threshold || Math.abs(alpha[1]) > opts.threshold) {
+      if (Math.abs(alpha[0]) > opts.threshold! || Math.abs(alpha[1]) > opts.threshold!) {
         isDraggingRef.current = true
         directionRef.current = getDirection([clientX, clientY], startingPointRef.current, alpha)
         alphaRef.current = alpha
@@ -82,7 +99,7 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
             clientY,
             direction: directionRef.current,
             alphaX: alphaRef.current[0],
-            alphaY: alphaRef.current[1],
+            alphaY: alphaRef.current[1]
           })
         }
       }
@@ -99,14 +116,14 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
       setState({
         direction: directionRef.current,
         alphaX: alphaRef.current[0],
-        alphaY: alphaRef.current[1],
+        alphaY: alphaRef.current[1]
       })
 
       if (onSwipeEnd) {
         onSwipeEnd({
           direction: directionRef.current,
           alphaX: alphaRef.current[0],
-          alphaY: alphaRef.current[1],
+          alphaY: alphaRef.current[1]
         })
       }
     }
@@ -136,26 +153,27 @@ const useSilentSwipeState = <TElement extends HTMLElement>(
  * @param ref
  * @param options
  */
-const useSwipeEvents = <TElement extends HTMLElement>(ref: RefObject<TElement> = null, options: UseSwipeEventsOpts = defaultOptions) => {
+// eslint-disable-next-line max-len
+const useSwipeEvents = <TElement extends HTMLElement>(ref: RefObject<TElement> | undefined = undefined, options: UseSwipeEventsOpts = defaultOptions) => {
   const opts = { ...defaultOptions, ...(options || {}) }
-  const [onSwipeLeft, setOnSwipeLeft] = createHandlerSetter<SwipeState>()
-  const [onSwipeRight, setOnSwipeRight] = createHandlerSetter<SwipeState>()
-  const [onSwipeUp, setOnSwipeUp] = createHandlerSetter<SwipeState>()
-  const [onSwipeDown, setOnSwipeDown] = createHandlerSetter<SwipeState>()
-  const [onSwipeStart, setOnSwipeStart] = createHandlerSetter<SwipeState>()
-  const [onSwipeMove, setOnSwipeMove] = createHandlerSetter<SwipeState>()
-  const [onSwipeEnd, setOnSwipeEnd] = createHandlerSetter<SwipeState>()
-  const state: SwipeState = useSilentSwipeState<TElement>(ref, opts, onSwipeStart.current, onSwipeMove.current, onSwipeEnd.current)
+  const [onSwipeLeft, setOnSwipeLeft] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeRight, setOnSwipeRight] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeUp, setOnSwipeUp] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeDown, setOnSwipeDown] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeStart, setOnSwipeStart] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeMove, setOnSwipeMove] = createHandlerSetter<SwipeEventState>()
+  const [onSwipeEnd, setOnSwipeEnd] = createHandlerSetter<SwipeEventState>()
+  const state = useSwipeStateInternal<TElement>(ref, opts, onSwipeStart.current!, onSwipeMove.current!, onSwipeEnd.current!)
 
   const fnMap = {
     right: onSwipeRight,
     left: onSwipeLeft,
     up: onSwipeUp,
-    down: onSwipeDown,
+    down: onSwipeDown
   }
 
   useEffect(() => {
-    if (state && state.direction) {
+    if (state?.direction) {
       const cb = fnMap[state.direction].current
 
       if (isFunction(cb)) {
@@ -164,14 +182,14 @@ const useSwipeEvents = <TElement extends HTMLElement>(ref: RefObject<TElement> =
     }
   }, [state])
 
-  return Object.freeze({
+  return Object.freeze<UseSwipeEventsReturn>({
     onSwipeLeft: setOnSwipeLeft,
     onSwipeRight: setOnSwipeRight,
     onSwipeUp: setOnSwipeUp,
     onSwipeDown: setOnSwipeDown,
     onSwipeMove: setOnSwipeMove,
     onSwipeStart: setOnSwipeStart,
-    onSwipeEnd: setOnSwipeEnd,
+    onSwipeEnd: setOnSwipeEnd
   })
 }
 

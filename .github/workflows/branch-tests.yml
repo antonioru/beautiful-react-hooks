@@ -11,11 +11,11 @@ on:
 jobs:
   test:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: 18
+        node-version: [ 18.14 ]
 
     steps:
       - uses: actions/checkout@v2

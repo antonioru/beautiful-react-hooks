@@ -1,7 +1,7 @@
-import { RefObject } from 'react'
+import { type RefObject } from 'react'
 import useEvent from './useEvent'
 import isClient from './shared/isClient'
-import { CallbackSetter } from './shared/types'
+import { type CallbackSetter } from './shared/types'
 import noop from './shared/noop'
 
 /**

@@ -1,4 +1,4 @@
-import { RefObject } from 'react'
+import { type RefObject } from 'react'
 import useEvent from './useEvent'
 
 /**
@@ -16,7 +16,7 @@ import useEvent from './useEvent'
  * If you were doing something like the following:
  */
 const useMouseEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TElement>, passive?: boolean) => {
-  const target = targetRef || { current: window.document } as unknown as RefObject<TElement>
+  const target = targetRef ?? { current: window.document } as unknown as RefObject<TElement>
   const onMouseDown = useEvent<MouseEvent, TElement>(target, 'mousedown', { passive })
   const onMouseEnter = useEvent<MouseEvent, TElement>(target, 'mouseenter', { passive })
   const onMouseLeave = useEvent<MouseEvent, TElement>(target, 'mouseleave', { passive })
@@ -32,7 +32,7 @@ const useMouseEvents = <TElement extends HTMLElement>(targetRef?: RefObject<TEle
     onMouseMove,
     onMouseOut,
     onMouseOver,
-    onMouseUp,
+    onMouseUp
   })
 }
 

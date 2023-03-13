@@ -1,15 +1,14 @@
 # useMouseState
 
-Returns a summary of the mouse current position properties (such as clientX, clientY). It accepts a DOM ref representing the events target (
-where attach the events to).
-
-If a target is not provided the events will be globally attached to the `document` object.
+A hook that returns relevant properties from the current mouse position, such as clientX and clientY. To ensure that events are attached to
+the intended target, please provide a DOM reference to the hook. If no target is specified, the events will be attached to the
+the `document` object globally.
 
 ### Why? 💡
 
-- allow to easily inspect the mouse position
-- takes care of adding the mouse events listeners globally or to a defined target
-- takes care of cleaning the listener when the component unmounts
+- Allows to quickly get the mouse position
+- Manages the addition of mouse event listeners either globally or to a defined target
+- Ensures the listener is cleaned up when the component unmounts
 
 ### Basic Usage:
 
@@ -17,6 +16,7 @@ Provide a DOM ref as first parameter to `useMouseState`
 
 ```jsx harmony
 import { useRef } from 'react';
+import { Tag, Space, Alert } from 'antd';
 import useMouseState from 'beautiful-react-hooks/useMouseState';
 
 const MouseReporter = () => {
@@ -24,10 +24,13 @@ const MouseReporter = () => {
   const { clientX, clientY } = useMouseState(ref);
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useMediaQuery">
       <div ref={ref}>
-        Move mouse over me to get its current coordinates:
-        {clientX}, {clientY}
+        <Space direction="vertical">
+          <Alert message="Move mouse over this box to get its current coordinates" type="info" showIcon />
+          <Tag color="green">ClientX: {clientX}</Tag>
+          <Tag color="green">ClientY: {clientY}</Tag>
+        </Space>
       </div>
     </DisplayDemo>
   );
@@ -38,18 +41,22 @@ const MouseReporter = () => {
 
 ### Global events
 
-Avoid providing any argument to `useMouseState`
+Attach the mouse events globally by simply not providing any dom reference to the `useMouseState` hook
 
 ```jsx harmony
+import { Tag, Space, Alert } from 'antd';
 import useMouseState from 'beautiful-react-hooks/useMouseState';
 
 const MouseReporter = () => {
   const { clientX, clientY } = useMouseState();
 
   return (
-    <DisplayDemo>
-      The current mouse coordinates are:
-      {clientX}, {clientY}
+    <DisplayDemo title="useMouseState">
+      <Space direction="vertical">
+        <Alert message="Move mouse around to get its current global coordinates" type="info" showIcon />
+        <Tag color="green">ClientX: {clientX}</Tag>
+        <Tag color="green">ClientY: {clientY}</Tag>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -61,24 +68,26 @@ const MouseReporter = () => {
 
 #### ✅ When to use
 
-- When need to abstract touch related logics into custom hooks(s)
+- When you need to abstract mouse-related logics into custom hooks(s)
+- When you need to quickly get the current mouse position
 
-#### 🛑 What not to do
-
-- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler possibly leading to bugs in
-  your code.
-- Absolutely avoid using `useMouseEvents` handler setters to replace the standard mouse handler props.
-- `useMouseEvents` is meant to be used to abstract more complex hooks that need to control the mouse, for example: a drag n drop hook.
-- Using `useMouseEvents` handlers instead of the classic props approach it's just as bad as it sounds since you'll lose the React
-  SyntheticEvent performance boost.<br />
-- If you were doing something like the following, please keep doing it:
-
-```jsx harmony static noedit
-const MyComponent = (props) => {
-  const { mouseDownHandler } = props;
-
-  return (
-    <div onMouseDown={mouseDownHandler} />
-  );
+<!-- Types -->
+### Types
+    
+```typescript static
+import { type RefObject } from 'react';
+/**
+ * Returns the current state (position) of the mouse pointer.
+ * It possibly accepts a DOM ref representing the mouse target.
+ * If a target is not provided the state will be caught globally.
+ */
+declare const useMouseState: <TElement extends HTMLElement>(targetRef?: RefObject<TElement> | undefined) => {
+    clientX: number;
+    clientY: number;
+    screenX: number;
+    screenY: number;
 };
-``` 
+export default useMouseState;
+
+```
+<!-- Types:end -->

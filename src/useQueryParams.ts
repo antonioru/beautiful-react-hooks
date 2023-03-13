@@ -4,8 +4,8 @@ import useDidMount from './useDidMount'
 import useURLSearchParams from './useURLSearchParams'
 
 export interface UseQueryParamsOptions<TValue extends string[]> {
-  initialValue?: TValue,
-  replaceState?: boolean,
+  initialValue?: TValue
+  replaceState?: boolean
 }
 
 /**
@@ -21,7 +21,9 @@ const useQueryParams = <TValue extends string[]>(key: string, options: UseQueryP
     params.delete(key)
 
     if (nextValue) {
-      nextValue.forEach((value) => params.append(key, value))
+      nextValue.forEach((value) => {
+        params.append(key, value)
+      })
     }
 
     if (options.replaceState) {

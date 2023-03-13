@@ -6,7 +6,7 @@ import useQueryParam from './useQueryParam'
  */
 const useSearchQuery = <TSearchKey extends string>(initialValue?: TSearchKey, replaceState = false) => useQueryParam<TSearchKey>('search', {
   initialValue,
-  replaceState,
+  replaceState
 })
 
 export default useSearchQuery

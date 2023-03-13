@@ -1,17 +1,21 @@
 # useDebouncedCallback
 
-Takes a `function` and returns a new memoized version of that function that delays its invoking by the defined time. If time is not defined,
-its default value will be 250ms.
+A hook that accepts a `function` parameter and produces a new memoized variant of that function which postpones its invocation by the
+specified duration.\
+In case the duration is not specified, it will be set to the default value of 600ms.\
+
+This hook is built on top of the `lodash.debounce` function. For further details, kindly refer to
+the [Lodash documentation](https://lodash.com/docs/#debounce).
 
 ### Why? 💡
 
-- Controls how many times we allow a function to be executed over time regardless the number of renders the component is performing
+- To take full control over frequency at which a function can execute, independent of the number of renders performed by the component
 
 ### Basic Usage
 
 ```jsx harmony
 import { useEffect, useState } from 'react';
-import { Paragraph } from 'beautiful-react-ui';
+import { Typography, Alert, Space, Tag } from 'antd';
 import useDebouncedCallback from 'beautiful-react-hooks/useDebouncedCallback';
 import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
@@ -36,9 +40,15 @@ const DebouncedFnComponent = () => {
   });
 
   return (
-    <DisplayDemo>
-      <Paragraph>window width: <strong>{width}</strong></Paragraph>
-      <Paragraph>window height: <strong>{height}</strong></Paragraph>
+    <DisplayDemo title="useDebounceCallback">
+      <Space direction="vertical" size="middle">
+        <Alert type="info" message="Resize the browser window and see the update taking effect after the designated delay" showIcon />
+
+        <Typography.Paragraph>
+          window width: <Tag color="green">{width}</Tag><br />
+          window height: <Tag color="green">{height}</Tag>
+        </Typography.Paragraph>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -53,7 +63,7 @@ under the hood, you can possibly define the callback dependencies.
 
 ```jsx harmony
 import { useState } from 'react';
-import { Paragraph } from 'beautiful-react-ui';
+import { Typography, Alert, Space, Tag } from 'antd';
 import useDebouncedCallback from 'beautiful-react-hooks/useDebouncedCallback';
 import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
@@ -71,9 +81,15 @@ const DebouncedFnComponent = (props) => {
   onWindowResize(onWindowResizeHandler);
 
   return (
-    <DisplayDemo>
-      <Paragraph>window width: {width}</Paragraph>
-      <Paragraph>window height: {height}</Paragraph>
+    <DisplayDemo title="useDebounceCallback">
+      <Space direction="vertical" size="middle">
+        <Alert type="info" message="Resize the browser window and see the update taking effect after the designated delay" showIcon />
+
+        <Typography.Paragraph>
+          window width: <Tag color="green">{width}</Tag><br />
+          window height: <Tag color="green">{height}</Tag>
+        </Typography.Paragraph>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -87,7 +103,7 @@ A custom debounce time can be easily defined as follows (500ms)
 
 ```jsx harmony
 import { useState } from 'react';
-import { Paragraph } from 'beautiful-react-ui';
+import { Typography, Alert, Space, Tag } from 'antd';
 import useDebouncedCallback from 'beautiful-react-hooks/useDebouncedCallback';
 import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
@@ -106,9 +122,15 @@ const DebouncedFnComponent = (props) => {
   onWindowResize(onWindowResizeHandler);
 
   return (
-    <DisplayDemo>
-      <Paragraph>window width: {width}</Paragraph>
-      <Paragraph>window height: {height}</Paragraph>
+    <DisplayDemo title="useDebounceCallback">
+      <Space direction="vertical" size="middle">
+        <Alert type="info" message="Resize the browser window and see the update taking effect after the designated delay" showIcon />
+
+        <Typography.Paragraph>
+          window width: <Tag color="green">{width}</Tag><br />
+          window height: <Tag color="green">{height}</Tag>
+        </Typography.Paragraph>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -123,7 +145,7 @@ few options to customise its behaviour.
 
 ```jsx harmony
 import { useState } from 'react';
-import { Paragraph } from 'beautiful-react-ui';
+import { Typography, Alert, Space, Tag } from 'antd';
 import useDebouncedCallback from 'beautiful-react-hooks/useDebouncedCallback';
 import useWindowResize from 'beautiful-react-hooks/useWindowResize';
 
@@ -146,9 +168,15 @@ const DebouncedFnComponent = () => {
   onWindowResize(onWindowResizeHandler);
 
   return (
-    <DisplayDemo>
-      <Paragraph>window width: {width}</Paragraph>
-      <Paragraph>window height: {height}</Paragraph>
+    <DisplayDemo title="useDebounceCallback">
+      <Space direction="vertical" size="middle">
+        <Alert type="info" message="Resize the browser window and see the update taking effect after the designated delay" showIcon />
+
+        <Typography.Paragraph>
+          window width: <Tag color="green">{width}</Tag><br />
+          window height: <Tag color="green">{height}</Tag>
+        </Typography.Paragraph>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -158,12 +186,29 @@ const DebouncedFnComponent = () => {
 
 #### ✅ Pro tip:
 
-To deep understanding the differences between `throttle` and `debounce`, what they are and when to use this functions please
+To deep understanding the differences between `throttle` and `debounce`, what they are and when to use them please
 read "[Debouncing and Throttling Explained Through Examples](https://css-tricks.com/debouncing-throttling-explained-examples/)"
 by [David Corbacho](https://twitter.com/dcorbacho)
 
-### Mastering the hook
+<!-- Types -->
+### Types
+    
+```typescript static
+/// <reference types="lodash" />
+import { type DependencyList } from 'react';
+import { type GenericFunction } from './shared/types';
+export interface DebounceOptions {
+    leading?: boolean | undefined;
+    maxWait?: number | undefined;
+    trailing?: boolean | undefined;
+}
+/**
+ * Accepts a function and returns a new debounced yet memoized version of that same function that delays
+ * its invoking by the defined time.
+ * If time is not defined, its default value will be 250ms.
+ */
+declare const useDebouncedCallback: <TCallback extends GenericFunction>(fn: TCallback, dependencies?: DependencyList, wait?: number, options?: DebounceOptions) => import("lodash").DebouncedFunc<TCallback>;
+export default useDebouncedCallback;
 
-#### ✅ When to use
-
-- The classic example would be an API call that would be performed when typing on a search field
+```
+<!-- Types:end -->

@@ -1,23 +1,24 @@
-# useMouse
+# `useMouse`
 
-Returns an array where the first item is the mouse state from [useMouseState](./useMouseState.md) and the second item is an wrapper of all
-the handler-setters from [useMouseEvents](./useMouseEvents.md).
+A hook that combines the functionalities of [useMouseState](./useMouseState.md) and [useMouseEvents](./useMouseEvents.md), returning an
+array where the first item is the mouse state and the second item is a wrapper of all the handler-setters.
 
-`useMouse` is in fact intended as a shortcut to those hooks.
+`useMouse` is intended as a shortcut to avoid the need for using both `useMouse`State and `useMouse`Events separately.
 
 ### Why? 💡
 
-- allow to easily receive the mouse position
-- takes care of adding the mouse events listeners globally or to the defined target
-- takes care of cleaning the listener when the component will unmount
-- allows performing abstractions on mouse related events
+- Provides an easy way to obtain the mouse position
+- Automatically adds mouse event listeners either globally or to the specified target element
+- Automatically removes the listeners when the component unmounts
+- Enables abstractions on mouse-related events
 
 ### Basic Usage:
 
-Provide a DOM ref as first parameter to `useMouse`
+Provide a DOM ref as first parameter to ``useMouse``
 
 ```jsx harmony
 import { useRef, useState } from 'react';
+import { Tag, Space, Alert } from 'antd';
 import useMouse from 'beautiful-react-hooks/useMouse';
 
 const MouseReporter = () => {
@@ -29,14 +30,15 @@ const MouseReporter = () => {
   onMouseLeave(() => setShowCoords(false));
 
   return (
-    <DisplayDemo>
-      <div ref={ref}>
-        Move the mouse over this text to get its current coordinates:
-        {showCoords && (
-          <p>{position.clientX}, {position.clientY}</p>
-        )}
-      </div>
-    </DisplayDemo>
+          <DisplayDemo title="useMediaQuery">
+            <div ref={ref}>
+              <Space direction="vertical">
+                <Alert message="Move mouse over this box to get its current coordinates" type="info" showIcon />
+                <Tag color="green">ClientX: {position.clientX}</Tag>
+                <Tag color="green">ClientY: {position.clientY}</Tag>
+              </Space>
+            </div>
+          </DisplayDemo>
   );
 };
 
@@ -49,6 +51,7 @@ If no ref is provided to `useMouse` it will use the window global object assign 
 
 ```jsx harmony
 import { useState } from 'react';
+import { Tag, Space, Alert } from 'antd';
 import useMouse from 'beautiful-react-hooks/useMouse';
 
 const MouseReporter = () => {
@@ -59,16 +62,13 @@ const MouseReporter = () => {
   onMouseUp(() => setMouseDown(false));
 
   return (
-    <DisplayDemo>
-      <div>
-        The current mouse global coordinates are: {position.clientX}, {position.clientY}
-        {mouseDown && (
-          <p>
-            Holding click
-          </p>
-        )}
-      </div>
-    </DisplayDemo>
+          <DisplayDemo title="useMouse">
+            <Space direction="vertical">
+              <Alert message="Move mouse around to get its current global coordinates" type="info" showIcon />
+              <Tag color="green">ClientX: {position.clientX}</Tag>
+              <Tag color="green">ClientY: {position.clientY}</Tag>
+            </Space>
+          </DisplayDemo>
   );
 };
 
@@ -79,25 +79,52 @@ const MouseReporter = () => {
 
 #### ✅ When to use
 
-- If in need to get the mouse current position
-- If in need to abstract some mouse related logic into a custom hooks
+- use `useMouse` to obtain the current mouse position.
+- use `useMouse` to abstract custom mouse-related logic into a hook.
 
 #### 🛑 What not to do
 
-- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler possibly leading to bugs in
-  your code.
-- Absolutely avoid using `useMouse` handler setters to replace the standard mouse handler props.
-- `useMouse` is meant to be used to abstract more complex hooks that need to control the mouse, for example: a drag n drop hook.
-- Using `useMouse` handlers instead of the classic props approach it's just as bad as it sounds since you'll lose the React SyntheticEvent
-  performance boost.<br />
-- If you were doing something like the following, please keep doing it:
+- Do not use the returned callback setters asynchronously, as doing so will have no effect and may result in bugs in your code.
+- Avoid using `useMouse` callback setters to replace standard mouse handler props.
+- `useMouse`  is designed to be used for abstracting more complex hooks that need to control the mouse, such as a drag-and-drop hook.
+- Using `useMouse` handlers instead of the classic props approach will result in decreased performance due to the loss of the React
+  SyntheticEvent performance boost. If you were using a classic props approach before, continue to do so.
 
 ```jsx harmony static noedit
 const MyComponent = (props) => {
   const { mouseDownHandler } = props;
 
   return (
-    <div onMouseDown={mouseDownHandler} />
+          <div onMouseDown={mouseDownHandler} />
   );
 };
-``` 
+```
+
+<!-- Types -->
+### Types
+    
+```typescript static
+import { type RefObject } from 'react';
+/**
+ * Returns an array where the first item is the mouse state from the `useMouseState` hook and the second item
+ * is the object of callback setters from the `useMouseEvents` hook.
+ * It is intended as a shortcut to those hooks.
+ */
+declare const useMouse: <TElement extends HTMLElement>(targetRef?: RefObject<TElement> | undefined) => ({
+    clientX: number;
+    clientY: number;
+    screenX: number;
+    screenY: number;
+} | Readonly<{
+    onMouseDown: import("./shared/types").CallbackSetter<MouseEvent>;
+    onMouseEnter: import("./shared/types").CallbackSetter<MouseEvent>;
+    onMouseLeave: import("./shared/types").CallbackSetter<MouseEvent>;
+    onMouseMove: import("./shared/types").CallbackSetter<MouseEvent>;
+    onMouseOut: import("./shared/types").CallbackSetter<MouseEvent>;
+    onMouseOver: import("./shared/types").CallbackSetter<MouseEvent>;
+    onMouseUp: import("./shared/types").CallbackSetter<MouseEvent>;
+}>)[];
+export default useMouse;
+
+```
+<!-- Types:end -->

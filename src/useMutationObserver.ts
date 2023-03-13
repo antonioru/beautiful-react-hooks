@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from 'react'
+import { type RefObject, useEffect } from 'react'
 
 import isClient from './shared/isClient'
 import isApiSupported from './shared/isAPISupported'
@@ -11,13 +11,13 @@ const defaultOptions: MutationObserverInit = {
   attributes: true,
   characterData: true,
   childList: true,
-  subtree: true,
+  subtree: true
 }
 
 const useMutationObserver = <TElement extends HTMLElement>(
   ref: RefObject<TElement>,
   callback: MutationCallback,
-  options: MutationObserverInit = defaultOptions,
+  options: MutationObserverInit = defaultOptions
 ) => {
   const isSupported = isClient && isApiSupported('MutationObserver')
 
@@ -32,7 +32,7 @@ const useMutationObserver = <TElement extends HTMLElement>(
       const observer = new MutationObserver(callback)
       observer.observe(ref.current, options)
 
-      return () => observer.disconnect()
+      return () => { observer.disconnect() }
     }
   }, [callback, options])
 }

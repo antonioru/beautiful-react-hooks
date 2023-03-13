@@ -1,15 +1,16 @@
 # useValueHistory
 
-Accepts a variable (*possibly a prop or a state*) and returns its history (changes through updates).
+A hook that takes a variable, which can be a prop or a state, and returns an array of its previous values. This hook is useful for tracking
+changes in a variable across multiple renders and allows developers to compare the current value with its previous values.
 
-### Why? 💡
-
-- You want to keep track of the history of a value
+Overall, the "usePrevious" hook is a helpful tool for debugging and improving the performance of React components that rely on the history
+of a specific variable
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useState } from 'react';
+import { Tag, Typography } from 'antd';
 import useValueHistory from 'beautiful-react-hooks/useValueHistory';
 import useInterval from 'beautiful-react-hooks/useInterval';
 
@@ -20,15 +21,28 @@ const TestComponent = () => {
   useInterval(() => setCount(1 + count), 500);
 
   return (
-    <DisplayDemo>
-      <p>Count: {count}</p>
-      <p>The history of the `count` state is:</p>
-      <blockquote>
+    <DisplayDemo title={useValueHistory}>
+      <Typography.Paragraph>Count: <Tag color="blue">{count}</Tag></Typography.Paragraph>
+      <Typography.Paragraph>The history of the `count` state is:</Typography.Paragraph>
+      <Tag color="green">
         {countHistory.join(', ')}
-      </blockquote>
+      </Tag>
     </DisplayDemo>
   );
 };
 
 <TestComponent />
 ```
+
+<!-- Types -->
+### Types
+    
+```typescript static
+/**
+ * Accepts a variable (possibly a prop or a state) and returns its history (changes through updates).
+ */
+declare const useValueHistory: <TValue = unknown>(value: TValue, distinct?: boolean) => TValue[];
+export default useValueHistory;
+
+```
+<!-- Types:end -->

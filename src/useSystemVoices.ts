@@ -1,27 +1,8 @@
-import { useEffect, useState } from 'react'
-
 /**
- * At the moment, the `window.speechSynthesis.getVoices` function returns all the available system voices, but since
- * it does it asynchronously the returning value is an empty array until a second call is performed.
- *
- * Check: https://w3c.github.io/speech-api/speechapi-errata.html.
+ * Returns all the available voices on the system.
+ * This hook is here to backward compatibility with the previous version of the library that was using
+ * a different non-stable version of the Web Speech API.
  */
-const asyncGetSystemVoices = (): Promise<SpeechSynthesisVoice[]> => new Promise((resolve) => {
-  window.speechSynthesis.onvoiceschanged = () => resolve(window.speechSynthesis.getVoices())
-  window.speechSynthesis.getVoices()
-})
-
-/**
- * A side effect to retrieve all the available system voices using the Web_Speech_API
- */
-const useSystemVoices = () => {
-  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
-
-  useEffect(() => {
-    asyncGetSystemVoices().then(setVoices)
-  }, [])
-
-  return voices
-}
+const useSystemVoices = () => window.speechSynthesis.getVoices()
 
 export default useSystemVoices

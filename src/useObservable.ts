@@ -1,14 +1,16 @@
 import { useEffect } from 'react'
-import { Observable, Observer, Subscription } from 'rxjs'
+import { type Observable, type Observer } from 'rxjs'
 
 /**
  * Hook, which helps you combine rxjs flow and setState in your component
  */
-const useObservable = <T, F extends (observer?: Partial<Observer<T>>) => Subscription>(observable: Observable<T>, setter: F) => {
+const useObservable = <T, F extends Partial<Observer<T>> | ((value: T) => void)>(observable: Observable<T>, setter: F) => {
   useEffect(() => {
     const subscription = observable.subscribe(setter)
 
-    return () => subscription.unsubscribe()
+    return () => {
+      subscription.unsubscribe()
+    }
   }, [observable, setter])
 }
 

@@ -999,3 +999,12 @@ Errored release
 ### Fixes
 
 - `useLocalStorage` and `useSessionStorage` no longer return a new `setValue` function everytime `setValue` is called
+
+## [4.0.0] - 2023-03-13
+
+### Breaking Changes
+
+- Removes `index.ts` file from `src` folder
+- Updates dependencies
+- Improves documentation
+- Improves types

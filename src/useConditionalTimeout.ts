@@ -1,25 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-
 import isFunction from './shared/isFunction'
-import { GenericFunction } from './shared/types'
+import { type GenericFunction } from './shared/types'
 import usePreviousValue from './usePreviousValue'
-
-type UseConditionalTOOpts = {
-  cancelOnUnmount?: boolean,
-  cancelOnConditionChange?: boolean
-}
-
-const defaultOptions: UseConditionalTOOpts = {
-  cancelOnUnmount: true,
-  cancelOnConditionChange: true,
-}
 
 /**
  * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then delays the
  * execution of the given function by the defined time from when the condition verifies.
  */
 const useConditionalTimeout = <TCallback extends GenericFunction>
-  (fn: TCallback, milliseconds: number, condition: boolean, options: UseConditionalTOOpts = defaultOptions) => {
+  (fn: TCallback, milliseconds: number, condition: boolean, options: UseConditionalTimeoutOptios = defaultOptions) => {
   const opts = { ...defaultOptions, ...(options || {}) }
   const timeout = useRef<any>()
   const callback = useRef(fn)
@@ -64,7 +53,19 @@ const useConditionalTimeout = <TCallback extends GenericFunction>
     }
   }, [])
 
-  return [isCleared, clear]
+  return [isCleared, clear] as UseConditionalTimeoutReturn
 }
+
+export interface UseConditionalTimeoutOptios {
+  cancelOnUnmount?: boolean
+  cancelOnConditionChange?: boolean
+}
+
+const defaultOptions: UseConditionalTimeoutOptios = {
+  cancelOnUnmount: true,
+  cancelOnConditionChange: true
+}
+
+export type UseConditionalTimeoutReturn = [boolean, () => void]
 
 export default useConditionalTimeout

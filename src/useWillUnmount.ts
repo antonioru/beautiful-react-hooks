@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
-
 import isFunction from './shared/isFunction'
-import { GenericFunction } from './shared/types'
+import { type GenericFunction } from './shared/types'
 import createHandlerSetter from './factory/createHandlerSetter'
 
 /**
@@ -9,7 +8,7 @@ import createHandlerSetter from './factory/createHandlerSetter'
  */
 const useWillUnmount = <TCallback extends GenericFunction>(callback?: TCallback) => {
   const mountRef = useRef(false)
-  const [handler, setHandler] = createHandlerSetter<void>(callback)
+  const [handler, setHandler] = createHandlerSetter<undefined>(callback)
 
   useEffect(() => {
     mountRef.current = true

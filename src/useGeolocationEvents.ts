@@ -1,7 +1,13 @@
 import { useEffect, useMemo, useRef } from 'react'
 import createHandlerSetter from './factory/createHandlerSetter'
 import { geoStandardOptions } from './shared/geolocationUtils'
-import { BRHGeolocationPosition, BRHGeolocationPositionError } from './shared/types'
+import { type BRHGeolocationPosition, type BRHGeolocationPositionError } from './shared/types'
+
+export interface UseGeolocationEventsResult {
+  isSupported: boolean
+  onChange: (callback: (position: BRHGeolocationPosition) => void) => void
+  onError: (callback: (error: BRHGeolocationPositionError) => void) => void
+}
 
 /**
  * Returns a frozen object of callback setters to handle the geolocation events.<br/>
@@ -36,16 +42,16 @@ const useGeolocationEvents = (options: PositionOptions = geoStandardOptions) => 
     }
 
     return () => {
-      if (isSupported) {
+      if (isSupported && watchId.current) {
         window.navigator.geolocation.clearWatch(watchId.current)
       }
     }
   }, [])
 
-  return Object.freeze({
+  return Object.freeze<UseGeolocationEventsResult>({
     isSupported,
     onChange: setOnChangeRef,
-    onError: setOnErrorRef,
+    onError: setOnErrorRef
   })
 }
 

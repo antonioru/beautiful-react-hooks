@@ -1,16 +1,16 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { type DependencyList, useCallback, useEffect, useRef } from 'react'
 import throttle from 'lodash.throttle'
-import { GenericFunction } from './shared/types'
+import { type GenericFunction } from './shared/types'
 import useWillUnmount from './useWillUnmount'
 
 interface ThrottleSettings {
-  leading?: boolean | undefined;
-  trailing?: boolean | undefined;
+  leading?: boolean | undefined
+  trailing?: boolean | undefined
 }
 
 const defaultOptions: ThrottleSettings = {
   leading: false,
-  trailing: true,
+  trailing: true
 }
 
 /**
@@ -19,7 +19,7 @@ const defaultOptions: ThrottleSettings = {
  * If time is not defined, its default value will be 250ms.
  */
 const useThrottledCallback = <TCallback extends GenericFunction>
-  (fn: TCallback, dependencies?: any[], wait: number = 600, options: ThrottleSettings = defaultOptions) => {
+  (fn: TCallback, dependencies?: DependencyList, wait: number = 600, options: ThrottleSettings = defaultOptions) => {
   const throttled = useRef(throttle<TCallback>(fn, wait, options))
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const useThrottledCallback = <TCallback extends GenericFunction>
     throttled.current?.cancel()
   })
 
-  return useCallback(throttled.current, dependencies)
+  return useCallback(throttled.current, dependencies ?? [])
 }
 
 export default useThrottledCallback

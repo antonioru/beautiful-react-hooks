@@ -1,5 +1,5 @@
 import debounce from 'lodash.debounce'
-import { RefObject, useEffect, useRef, useState } from 'react'
+import { type RefObject, useEffect, useRef, useState } from 'react'
 
 import isClient from './shared/isClient'
 import isFunction from './shared/isFunction'
@@ -41,7 +41,7 @@ const useResizeObserver = <TElement extends HTMLElement>
 
       return () => {
         fn.cancel()
-        if (isFunction(observerRef?.current?.disconnect)) {
+        if (observerRef.current && isFunction(observerRef?.current?.disconnect)) {
           observerRef.current.disconnect()
         }
       }
@@ -54,7 +54,7 @@ const useResizeObserver = <TElement extends HTMLElement>
   // observes on the provided element ref
   useEffect(() => {
     if (isSupported && elementRef.current) {
-      if (isFunction(observerRef?.current?.observe)) {
+      if (observerRef.current && isFunction(observerRef?.current?.observe)) {
         observerRef.current.observe(elementRef.current)
       }
     }

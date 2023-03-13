@@ -1,12 +1,12 @@
 # useInfiniteScroll
 
-Accepts an HTML Element ref, then returns a function that allows you to handle the infinite scroll for that specific element.
+A hook that accepts an HTML Element reference and returns a function that facilitates handling infinite scroll for that specific element.
 
 ### Why? 💡
 
-- takes care of adding the infinite scroll-related events listeners to the defined target
-- takes care of cleaning the listener when the component will unmount
-- allow to easily implement infinite scroll business logic
+- adds the required event listeners for infinite scrolling to the defined target
+- takes care of cleaning up the event listener when the component is unmounted, reducing the risk of memory leaks in your application
+- simplifies the implementation of infinite scroll business logic by providing an intuitive and easy-to-use interface
 
 ### Basic Usage:
 
@@ -14,6 +14,7 @@ Provide a DOM ref as first parameter to `useInfiniteScroll`
 
 ```jsx harmony
 import { useState, useRef } from 'react';
+import { Alert, List, Typography } from 'antd';
 import useInfiniteScroll from 'beautiful-react-hooks/useInfiniteScroll';
 
 const generateRandomNo = () => Math.floor(Math.random() * 11)
@@ -47,29 +48,33 @@ const TestComponent = () => {
       setIsFetching(true)
 
       fetchMock()
-        .then((next) => setData([...data, ...next]))
-        .finally(() => setIsFetching(false))
+              .then((next) => setData([...data, ...next]))
+              .finally(() => setIsFetching(false))
     }
   })
 
   return (
-    <DisplayDemo>
-      <div style={{ maxHeight: 250, overflow: 'scroll' }} ref={targetElementRef}>
-        <div style={{ height: 500, position: 'relative' }}>
-          <p>Scroll to "load" more contents&hellip;</p>
-          <ul>
-            {data.map((item) => (
-              <li>mock item no: {item}</li>
-            ))}
-          </ul>
-          {isFetching && (
-            <div style={{ opacity: 0.6, textAlign: 'center', marginBottom: 20 }}>
-              Loading next data...
+          <DisplayDemo title="useInfiniteScroll">
+            <div style={{ maxHeight: 250, overflow: 'scroll' }} ref={targetElementRef}>
+              <div style={{ height: 500, position: 'relative' }}>
+                <Alert type="info" message="Scroll to load more content" />
+                <List
+                        bordered
+                        dataSource={data}
+                        renderItem={(_, item) => (
+                                <List.Item>
+                                  <Typography.Text mark>mock item no: {item}</Typography.Text>
+                                </List.Item>
+                        )}
+                />
+                {isFetching && (
+                        <div style={{ opacity: 0.6, textAlign: 'center', marginBottom: 20 }}>
+                          Loading next data...
+                        </div>
+                )}
+              </div>
             </div>
-          )}
-        </div>
-      </div>
-    </DisplayDemo>
+          </DisplayDemo>
   );
 };
 
@@ -80,9 +85,25 @@ const TestComponent = () => {
 
 #### ✅ When to use
 
-- When in need of abstracting your own infinite scroll business logic
+- Use this hook to abstract your own infinite scroll business logic and streamline the implementation of this functionality in your
+  application
 
 #### 🛑 What not to do
 
-- Don't rely on this hook to debounce/throttling your functions, if you're implementing a pagination-like infinite scroll you should
-  debounce/throttle your own functions
+- Avoid using this hook to debounce or throttle your functions. If you're implementing a pagination-like infinite scroll, it's best to
+  handle this debounce/throttle functionality yourself, to ensure that your application behaves exactly as you intend.
+
+<!-- Types -->
+### Types
+    
+```typescript static
+import { type RefObject } from 'react';
+/**
+ * Accepts an HTML Element ref, then returns a function that allows you to handle the infinite
+ * scroll for that specific element.
+ */
+declare const useInfiniteScroll: <TElement extends HTMLElement>(ref: RefObject<TElement>, delay?: number) => import("./shared/types").CallbackSetter<unknown>;
+export default useInfiniteScroll;
+
+```
+<!-- Types:end -->

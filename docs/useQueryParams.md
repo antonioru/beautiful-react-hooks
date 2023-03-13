@@ -13,7 +13,7 @@ Very similar to `useQueryParam` (mind the final 's'), it eases the process of ma
 ```jsx harmony
 import { useState, useRef } from 'react';
 import { HashRouter as Router } from 'react-router-dom'
-import { Button, Input } from 'beautiful-react-ui'
+import { Button, Typography, Input } from 'antd'
 import useQueryParams from 'beautiful-react-hooks/useQueryParams';
 
 const ExampleComponent = () => {
@@ -25,12 +25,17 @@ const ExampleComponent = () => {
 
   const onClick = () => setFoos([4, 5, 6])
 
+  const Actions = [
+    <Button onClick={onClick} type="primary">
+      Change to param to [4,5,6]
+    </Button>
+  ]
+
   return (
-    <DisplayDemo>
-      <p>Current value of 'foo[]' param is '{foos.join(',')}'</p>
-      <Button onClick={onClick} color="primary">
-        Change to param to [4,5,6]
-      </Button>
+    <DisplayDemo actions={Actions}>
+      <Typography.Paragraph>
+        Current value of 'foo[]' param is '{foos.join(',')}'
+      </Typography.Paragraph>
     </DisplayDemo>
   );
 };
@@ -39,3 +44,20 @@ const ExampleComponent = () => {
   <ExampleComponent />
 </Router>
 ```
+
+<!-- Types -->
+### Types
+    
+```typescript static
+export interface UseQueryParamsOptions<TValue extends string[]> {
+    initialValue?: TValue;
+    replaceState?: boolean;
+}
+/**
+ * Very similar to `useQueryParams`, it eases the process of manipulate a query string that handles multiple values
+ */
+declare const useQueryParams: <TValue extends string[]>(key: string, options?: UseQueryParamsOptions<TValue>) => [TValue, (nextValue?: TValue | undefined) => void];
+export default useQueryParams;
+
+```
+<!-- Types:end -->

@@ -1,18 +1,23 @@
 # useLifecycle
 
-Accepts two functions to be performed during the component's lifecycle.
+A hook that facilitates performing specific functions during the lifecycle of a component.
 
-The first one will be fired after **component did mount**, the second right before the **component unmounts**.
+It accepts two functions as arguments. The first function will be executed after the component has mounted, which means that the component
+has been initialized and rendered on the screen. The second function will be executed right before the component unmounts, which happens
+when the component is removed from the screen or destroyed.
+
+Using this hook allows for greater control and customization of a component's behavior.
 
 ### Why? 💡
 
-- Encloses the "lifecycle hooks" such as `useDidMount` and `useWillUnmount`;
-- It's as a shortcut to `useEffect(onMount, [])` and `useEffect(() => () => willUnmount, [])`;
+- Provides a wrapper for "lifecycle hooks" including `useDidMount` and `useWillUnmount`.
+- Serves as a shorthand for `useEffect(onMount, [])` and `useEffect(() => () => willUnmount, [])`.
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useCallback } from 'react';
+import { Alert } from 'antd';
 import useLifecycle from 'beautiful-react-hooks/useLifecycle';
 
 /**
@@ -30,8 +35,8 @@ const LifeCycleComponent = () => {
   useLifecycle(onMount, onUnmount);
 
   return (
-    <DisplayDemo>
-      Check the javascript console
+    <DisplayDemo title="useLifecycle">
+      <Alert icon message="Please check the javascript console to read mount/unmount messages" />
     </DisplayDemo>
   );
 };
@@ -41,13 +46,15 @@ const LifeCycleComponent = () => {
 
 ### Callback setter syntax:
 
-if no parameters are provided, the returned object of handler setters can be used to set the `useDidMount` and `useWillUnmount` handlers, as
-long as they are immediately invoked.
+If you don't provide any parameters, you can use the returned callback setters to set the `useDidMount` and `useWillUnmount` handlers.
+However, you must immediately invoke them to make it work.
 
-**Please note**: the returned handler setters are meant to change the value of the callback reference only, they do not cause the component
-rerender nor should not be invoked asynchronously.
+**Note**: It's important to keep in mind that the callback setters are intended to modify the value of the callback reference only. They do
+not cause the component to rerender, and you should not invoke them asynchronously. This ensures that the behavior of your code remains
+predictable and that your project runs smoothly.
 
 ```jsx harmony
+import { Alert } from 'antd';
 import useLifecycle from 'beautiful-react-hooks/useLifecycle';
 
 const ComponentDidMount = () => {
@@ -62,8 +69,8 @@ const ComponentDidMount = () => {
   });
 
   return (
-    <DisplayDemo>
-      Check the javascript console
+    <DisplayDemo title="useLifecycle">
+      <Alert icon message="Please check the javascript console to read mount/unmount messages" />
     </DisplayDemo>
   );
 };
@@ -75,9 +82,6 @@ const ComponentDidMount = () => {
 
 When using a React function component you should not really think of it in terms of "lifecycle".
 
-The `useLifecycle` hook is indeed intended as a shortcut to  `useEffect(onMount, [])` and
-`useEffect(() => () => willUnmount, [])`.
-
 To deep understanding `useEffect`, what it is and how it should be properly used, please read
 "[A complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)"
 by [Dan Abramov](https://twitter.com/dan_abramov)
@@ -86,11 +90,29 @@ by [Dan Abramov](https://twitter.com/dan_abramov)
 
 #### ✅ When to use
 
-- When in need of performing a function after the component did mount
-- When in need of performing a function right before the component unmounts
-- When in need of a shortcut to the component lifecycle
+- When you need to execute a function after the component has mounted
+- When you need to execute a function immediately before the component unmounts
+- When you require a shortcut to the component lifecycle
 
 #### 🛑 When not to use
 
-- You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
-- If using the handler setters, they should not be used asynchronously but immediately invoked.
+- If you need to use it asynchronously, as this violates the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+- If you're using the callback setters, you must not use them asynchronously, but instead, immediately invoke them.
+
+<!-- Types -->
+### Types
+    
+```typescript static
+import { type GenericFunction } from './shared/types';
+/**
+ * Returns an object wrapping lifecycle hooks such as `useDidMount` or `useWillUnmount`.
+ * It is intended as a shortcut to those hooks.
+ */
+declare const useLifecycle: <TMount extends GenericFunction = GenericFunction, TUnmount extends GenericFunction = GenericFunction>(mount?: TMount | undefined, unmount?: TUnmount | undefined) => {
+    onDidMount: import("./shared/types").CallbackSetter<undefined>;
+    onWillUnmount: import("./shared/types").CallbackSetter<undefined>;
+};
+export default useLifecycle;
+
+```
+<!-- Types:end -->

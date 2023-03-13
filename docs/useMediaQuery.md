@@ -1,18 +1,14 @@
 # useMediaQuery
 
-Accepts a media query string then uses the [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia)
-API to determine if it matches with the current document.
+A hook that takes in a media query string and utilizes the [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia)
+API to check whether it corresponds to the present document.
 
-It also monitor the document changes to detect when it stops matching the given media query.
+Additionally, it tracks changes in the document to detect when it no longer corresponds to the provided media query.
 
-Returns the validity state of the given media query.
-
-### Why? 💡
-
-- takes care of re-rendering the component when the given media query changes
-- get rid of the listener when the component will unmount
+The hook returns the validity status of the media query provided.
 
 ```jsx harmony
+import { Tag, Typography, Space, Alert } from 'antd';
 import useMediaQuery from 'beautiful-react-hooks/useMediaQuery';
 
 const MediaQueryReporter = () => {
@@ -20,9 +16,12 @@ const MediaQueryReporter = () => {
   const isLarge = useMediaQuery('(min-width: 48rem)');
 
   return (
-    <DisplayDemo>
-      <p>Small view? {isSmall ? 'yes' : 'no'}</p>
-      <p>Large view? {isLarge ? 'yes' : 'no'}</p>
+    <DisplayDemo title="useMediaQuery">
+      <Space direction="vertical">
+        <Alert type="info" message="Resize the browser window to see the changes" showIcon />
+        <Typography.Paragraph>Small view? <Tag color={isSmall ? 'green' : 'red'}>{isSmall ? 'yes' : 'no'}</Tag></Typography.Paragraph>
+        <Typography.Paragraph>Large view? <Tag color={isLarge ? 'green' : 'red'}>{isLarge ? 'yes' : 'no'}</Tag></Typography.Paragraph>
+      </Space>
     </DisplayDemo>
   );
 };
@@ -34,9 +33,27 @@ const MediaQueryReporter = () => {
 
 #### ✅ When to use
 
-- When a component should have a different layout/behaviour on different medias
-- Mount/Unmount sub-components according to a defined media-query
+- If a component needs to display a different layout or behavior on various media types
+- Conditionally render sub-components based on a specified media query
 
 #### 🛑 When not to use
 
-- Do not use this hook to define the user device
+- Avoid using this hook to identify the user's device, use agent detection instead
+
+<!-- Types -->
+### Types
+    
+```typescript static
+/**
+ * Accepts a media query string then uses the
+ * [window.matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) API to determine if it
+ * matches with the current document.<br />
+ * It also monitor the document changes to detect when it matches or stops matching the media query.<br />
+ * Returns the validity state of the given media query.
+ *
+ */
+declare const useMediaQuery: (mediaQuery: string) => boolean;
+export default useMediaQuery;
+
+```
+<!-- Types:end -->

@@ -2,18 +2,15 @@ module.exports = {
   // https://github.com/styleguidist/react-styleguidist/blob/master/src/client/styles/theme.ts
   theme: {
     color: {
-      base: '#606f7b',
-      text: '#606f7b',
+      base: '#2D3142',
+      text: '#2D3142',
       link: '#1D6C8B',
       linkHover: '#317995'
     },
-    baseColor: '#606f7b',
+    baseColor: '#2D3142',
     fontFamily: {
       base: '"Ubuntu", "sans-serif", light',
     },
-  },
-  template: {
-    favicon: 'https://beautifulinteractions.com/favicons/bi-favicon.ico',
   },
   styles: {
     SectionHeading: {
@@ -54,11 +51,12 @@ module.exports = {
     },
     Playground: {
       preview: {
-        border: '2px solid rgba(0, 0, 0, .05)',
-        background: 'white',
-        borderRadius: '5px',
-        boxShadow: '0 0px 10px 0 rgba(93, 100, 148, 0.05)',
+        padding: 0,
+        border: 'none',
+        background: 'transparent',
+        //borderRadius: '6px',
+        // boxShadow: '0 0px 10px 0 rgba(93, 100, 148, 0.05)',
       },
     },
   },
-};
+}

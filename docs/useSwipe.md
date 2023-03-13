@@ -1,13 +1,13 @@
 # useSwipe
 
-Returns the state of the swipe gesture both on mobile or desktop.<br/>
+A hook that provides access to the current state of swipe gestures, regardless of whether the user is on a mobile or desktop device
 
 ### Why? 💡
 
-- allows to easily receive the last swipe information
-- takes care of adding the listeners both for mouse and touch events globally or to the defined target
-- takes care of cleaning the listener when the component will unmount
-- allows performing abstractions on swipe related logics
+- facilitates the retrieval of the most recent swipe data
+- registers global or target-specific listeners for both mouse and touch events
+- automatically removes listeners upon unmounting of the component
+- enables abstraction of swipe-related logic
 
 ### Basic Usage:
 
@@ -23,8 +23,8 @@ const SwipeReporter = () => {
   const showDetail = swipeState.count > 0 || swipeState.swiping;
 
   return (
-    <DisplayDemo>
-      <div ref={ref} style={{ padding: 20, background: '#CF7A95' }}>
+    <DisplayDemo title="useSwipe">
+      <div ref={ref} style={{ padding: 20, background: '#A1B5D8' }}>
         Swipe me!
         {showDetail && (
           <div>
@@ -45,7 +45,7 @@ const SwipeReporter = () => {
 
 ### Global events
 
-Avoid providing any argument to `useSwipe`
+To register global listeners, simply invoke the hook without passing any arguments
 
 ```jsx harmony
 import { useRef, useState } from 'react';
@@ -56,8 +56,8 @@ const SwipeReporter = () => {
   const showDetail = swipeState.count > 0 || swipeState.swiping;
 
   return (
-    <DisplayDemo>
-      <div style={{ padding: 20, background: '#CF7A95' }}>
+    <DisplayDemo title="useSwipe">
+      <div style={{ padding: 20, background: '#A1B5D8' }}>
         Swipe everywehere you want!
         {showDetail && (
           <div>
@@ -93,8 +93,8 @@ const SwipeReporter = () => {
   const showDetail = swipeState.count > 0 || swipeState.swiping;
 
   return (
-    <DisplayDemo>
-      <div ref={ref} style={{ padding: 20, background: '#CF7A95' }}>
+    <DisplayDemo title="useSwipe">
+      <div ref={ref} style={{ padding: 20, background: '#A1B5D8' }}>
         Swipe me, horizontally...
         {showDetail && (
           <div>
@@ -112,3 +112,37 @@ const SwipeReporter = () => {
 
 <SwipeReporter />
 ```
+
+<!-- Types -->
+### Types
+    
+```typescript static
+import { type RefObject } from 'react';
+import { type Direction } from './shared/swipeUtils';
+/**
+ * The options that can be passed to the hook
+ */
+export interface UseSwipeOptions {
+    direction?: 'both' | 'horizontal' | 'vertical';
+    threshold?: number;
+    preventDefault?: boolean;
+    passive?: boolean;
+}
+/**
+ * The result of the hook
+ */
+export interface SwipeState {
+    swiping: boolean;
+    direction?: Direction;
+    alphaX: number;
+    alphaY: number;
+    count: number;
+}
+/**
+ * useSwipe hook
+ */
+declare const useSwipe: <TElement extends HTMLElement>(targetRef?: RefObject<TElement> | undefined, options?: UseSwipeOptions) => SwipeState;
+export default useSwipe;
+
+```
+<!-- Types:end -->

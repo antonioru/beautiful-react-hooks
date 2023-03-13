@@ -1,11 +1,12 @@
 # useDrag
 
-Accepts an HTML Element ref then makes it draggable. Returns a boolean reporting whether the element in being dragged or not.
+A hook that receives a reference to an HTML Element (using React's useRef) and enables it to be dragged.\
+The hook returns a boolean value indicating whether the element is currently being dragged or not.
 
 ### Why? 💡
 
-- takes care of adding the drag-related events listeners to the defined target
-- takes care of cleaning the listener when the component will unmount
+- takes care of attaching drag-related event listeners to the specified target
+- takes care of emoving the listener when the component is unmounted.
 - allow to easily implement draggable business logic
 
 ### Basic Usage:
@@ -21,7 +22,7 @@ const MyComponent = () => {
   const isDragged = useDrag(ref);
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useDrag">
       <div ref={ref} style={{ padding: '20px 0', background: isDragged ? '#BE496E' : '#1D6C8B' }}>
         Draggable item...
         {isDragged && <span>is being dragged</span>}
@@ -48,7 +49,7 @@ const MyComponent = () => {
   });
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useDrag">
       <div ref={ref} style={{ padding: '20px 0', background: isDragged ? '#BE496E' : '#1D6C8B' }}>
         Draggable item...
         {isDragged && <span>is being dragged</span>}
@@ -74,7 +75,7 @@ const MyComponent = () => {
   });
 
   return (
-    <DisplayDemo>
+    <DisplayDemo title="useDrag">
       <div ref={ref} style={{ padding: '20px 0', background: isDragged ? '#BE496E' : '#1D6C8B' }}>
         Draggable item...
         {isDragged && <span>is being dragged</span>}
@@ -90,4 +91,22 @@ const MyComponent = () => {
 
 #### ✅ When to use
 
-- When in need of implementing basic drag-related business logic
+- If you require basic drag-related business logic
+
+<!-- Types -->
+### Types
+    
+```typescript static
+import { type RefObject } from 'react';
+export interface UseDragOptions {
+    dragImage?: string;
+    dragImageXOffset?: number;
+    dragImageYOffset?: number;
+    transfer?: string | number | Record<string, any>;
+    transferFormat?: string;
+}
+declare const useDrag: <TElement extends HTMLElement>(targetRef: RefObject<TElement>, options?: UseDragOptions) => boolean;
+export default useDrag;
+
+```
+<!-- Types:end -->

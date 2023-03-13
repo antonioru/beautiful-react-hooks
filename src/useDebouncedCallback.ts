@@ -1,17 +1,17 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { type DependencyList, useCallback, useEffect, useRef } from 'react'
 import debounce from 'lodash.debounce'
-import { GenericFunction } from './shared/types'
+import { type GenericFunction } from './shared/types'
 import useWillUnmount from './useWillUnmount'
 
-export type DebounceOptions = {
-  leading?: boolean | undefined;
-  maxWait?: number | undefined;
-  trailing?: boolean | undefined;
+export interface DebounceOptions {
+  leading?: boolean | undefined
+  maxWait?: number | undefined
+  trailing?: boolean | undefined
 }
 
 const defaultOptions: DebounceOptions = {
   leading: false,
-  trailing: true,
+  trailing: true
 }
 
 /**
@@ -20,7 +20,7 @@ const defaultOptions: DebounceOptions = {
  * If time is not defined, its default value will be 250ms.
  */
 const useDebouncedCallback = <TCallback extends GenericFunction>
-  (fn: TCallback, dependencies?: any[], wait: number = 600, options: DebounceOptions = defaultOptions) => {
+  (fn: TCallback, dependencies?: DependencyList, wait: number = 600, options: DebounceOptions = defaultOptions) => {
   const debounced = useRef(debounce<TCallback>(fn, wait, options))
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const useDebouncedCallback = <TCallback extends GenericFunction>
     debounced.current?.cancel()
   })
 
-  return useCallback(debounced.current, dependencies)
+  return useCallback(debounced.current, dependencies ?? [])
 }
 
 export default useDebouncedCallback

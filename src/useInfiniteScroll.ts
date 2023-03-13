@@ -1,4 +1,4 @@
-import { RefObject, useRef } from 'react'
+import { type RefObject, useRef } from 'react'
 import useEvent from './useEvent'
 import isFunction from './shared/isFunction'
 import safeHasOwnProperty from './shared/safeHasOwnProperty'
@@ -10,7 +10,7 @@ import createHandlerSetter from './factory/createHandlerSetter'
  */
 const useInfiniteScroll = <TElement extends HTMLElement>(ref: RefObject<TElement>, delay = 300) => {
   const onScroll = useEvent<UIEvent, TElement>(ref, 'scroll', { passive: true })
-  const [onScrollEnd, setOnScrollEnd] = createHandlerSetter<void>()
+  const [onScrollEnd, setOnScrollEnd] = createHandlerSetter<unknown>()
   const timeoutRef = useRef<NodeJS.Timeout>()
 
   if (ref && !safeHasOwnProperty(ref, 'current')) {
@@ -30,7 +30,9 @@ const useInfiniteScroll = <TElement extends HTMLElement>(ref: RefObject<TElement
         clearTimeout(timeoutRef.current)
 
         timeoutRef.current = setTimeout(() => {
-          onScrollEnd.current()
+          if (onScrollEnd.current && isFunction(onScrollEnd.current)) {
+            onScrollEnd.current()
+          }
           clearTimeout(timeoutRef.current)
         }, delay)
       }

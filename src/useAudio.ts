@@ -1,4 +1,4 @@
-import { MutableRefObject, useCallback, useEffect, useRef } from 'react'
+import { type MutableRefObject, useCallback, useEffect, useRef } from 'react'
 import noop from './shared/noop'
 import isClient from './shared/isClient'
 import useObjectState from './useObjectState'
@@ -7,74 +7,58 @@ import isAPISupported from './shared/isAPISupported'
 import createHandlerSetter from './factory/createHandlerSetter'
 import warnOnce from './shared/warnOnce'
 
-type UseAudioPreloadType = 'auto' | 'metadata' | 'none';
-
-export interface UseAudioOptions {
-  loop?: boolean;
-  muted?: boolean;
-  volume?: number;
-  autoPlay?: boolean;
-  preload?: UseAudioPreloadType;
-  playbackRate?: number;
-}
-
-interface LocalState {
-  loop: boolean;
-  muted: boolean;
-  volume: number;
-  duration: number;
-  autoPlay: boolean;
-  isPlaying: boolean;
-  preload?: UseAudioPreloadType;
-  currentTime: number;
-  playbackRate: number;
-  isSrcLoading: boolean | undefined;
-}
-
-interface Controls {
-  play: () => void;
-  mute: () => void;
-  pause: () => void;
-  unmute: () => void;
-  seek: (time: number) => void;
-  onError: (onError: ((error: Error) => void)) => void;
-  setVolume: (volume: number) => void;
-}
-
+/**
+ * The default options for the useAudio hook
+ */
 const defaultOptions: Required<UseAudioOptions> = {
   volume: 1,
   loop: false,
   muted: false,
   playbackRate: 1,
   autoPlay: false,
-  preload: 'auto',
+  preload: 'auto'
 }
 
-const defaultState: LocalState = {
+/**
+ * The default state for the useAudio hook
+ */
+const defaultState: AudioState = {
   duration: 0,
   currentTime: 0,
   isPlaying: false,
   isSrcLoading: undefined,
-  ...defaultOptions,
+  ...defaultOptions
 }
 
+/**
+ * The error event code to message mapper
+ */
 const errorEventCodeToMessageMapper: Record<number, string> = {
   3: 'MEDIA_ERR_DECODE - error occurred when decoding',
   4: 'MEDIA_ERR_SRC_NOT_SUPPORTED - audio not supported',
   2: 'MEDIA_ERR_NETWORK - error occurred when downloading',
   1: 'MEDIA_ERR_ABORTED - fetching process aborted by user',
+  0: 'UNKNOWN_ERROR - unknown error'
 }
 
-const hookNotSupportedControls: Controls = Object.freeze({
+/**
+ * The hook not supported controls
+ */
+const hookNotSupportedControls: AudioControls = Object.freeze({
   seek: noop,
   play: noop,
   mute: noop,
   pause: noop,
   unmute: noop,
   onError: noop,
-  setVolume: noop,
+  setVolume: noop
 })
 
+/**
+ * Checks if the ref element exists and calls the callback with it
+ * @param ref
+ * @param callback
+ */
 const checkIfRefElementExists = <TElement>(ref: MutableRefObject<TElement>, callback: (element: TElement) => unknown) => () => {
   const element = ref.current
 
@@ -85,11 +69,14 @@ const checkIfRefElementExists = <TElement>(ref: MutableRefObject<TElement>, call
   return callback(element)
 }
 
+/**
+ * The useAudio hook wraps the Audio API and provides a set of controls to manage the audio
+ */
 export const useAudio = (src: string, options?: UseAudioOptions) => {
   const hookNotSupportedResponse = [
     defaultState,
     hookNotSupportedControls,
-    useRef<HTMLAudioElement | null>(null),
+    useRef<HTMLAudioElement | null>(null)
   ]
 
   if (!isClient) {
@@ -97,36 +84,38 @@ export const useAudio = (src: string, options?: UseAudioOptions) => {
       warnOnce('Please be aware that useAudio hook could not be available during SSR')
     }
 
-    return hookNotSupportedResponse as [LocalState, Readonly<Controls>, MutableRefObject<HTMLAudioElement>]
+    return hookNotSupportedResponse as [AudioState, Readonly<AudioControls>, MutableRefObject<HTMLAudioElement>]
   }
 
   if (!isAPISupported('Audio')) {
     warnOnce('The current device does not support the \'Audio\' API, you should avoid using useAudio hook')
 
-    return hookNotSupportedResponse as [LocalState, Readonly<Controls>, MutableRefObject<HTMLAudioElement>]
+    return hookNotSupportedResponse as [AudioState, Readonly<AudioControls>, MutableRefObject<HTMLAudioElement>]
   }
 
   const audioRef = useRef<HTMLAudioElement>(new Audio(src))
   const [onErrorRef, setOnErrorRef] = createHandlerSetter<Error>()
 
-  const [state, setState] = useObjectState<LocalState>(defaultState)
+  const [state, setState] = useObjectState<AudioState>(defaultState)
 
   const onError = (error: Error) => {
-    if (onErrorRef.current) {
+    if (onErrorRef.current != null) {
       onErrorRef.current(error)
     }
   }
 
   const play = useCallback(
-    checkIfRefElementExists(audioRef, (element) => element
-      .play()
-      .then(() => {
-        setState({
-          isPlaying: true,
+    checkIfRefElementExists(audioRef, async (element) => {
+      await element
+        .play()
+        .then(() => {
+          setState({
+            isPlaying: true
+          })
         })
-      })
-      .catch(onError)),
-    [],
+        .catch(onError)
+    }),
+    []
   )
 
   const pause = useCallback(
@@ -134,10 +123,10 @@ export const useAudio = (src: string, options?: UseAudioOptions) => {
       element.pause()
 
       setState({
-        isPlaying: false,
+        isPlaying: false
       })
     }),
-    [],
+    []
   )
 
   const mute = useCallback(
@@ -146,10 +135,10 @@ export const useAudio = (src: string, options?: UseAudioOptions) => {
       element.muted = true
 
       setState({
-        muted: true,
+        muted: true
       })
     }),
-    [],
+    []
   )
 
   const unmute = useCallback(
@@ -158,10 +147,10 @@ export const useAudio = (src: string, options?: UseAudioOptions) => {
       element.muted = false
 
       setState({
-        muted: false,
+        muted: false
       })
     }),
-    [],
+    []
   )
 
   const seek = useCallback(
@@ -172,10 +161,10 @@ export const useAudio = (src: string, options?: UseAudioOptions) => {
       element.currentTime = newTime
 
       setState({
-        currentTime: newTime,
+        currentTime: newTime
       })
     })(),
-    [],
+    []
   )
 
   const setVolume = useCallback(
@@ -186,34 +175,36 @@ export const useAudio = (src: string, options?: UseAudioOptions) => {
       element.volume = newVolume
 
       setState({
-        volume: newVolume,
+        volume: newVolume
       })
     })(),
-    [],
+    []
   )
 
-  const onLoadedData = checkIfRefElementExists(audioRef, (element) => setState({
-    isSrcLoading: false,
-    duration: element.duration,
-    currentTime: element.currentTime,
-  }))
+  const onLoadedData = checkIfRefElementExists(audioRef, (element) => {
+    setState({
+      isSrcLoading: false,
+      duration: element.duration,
+      currentTime: element.currentTime
+    })
+  })
 
-  const onTimeUpdate = checkIfRefElementExists(audioRef, (element) => setState({
-    currentTime: element.currentTime,
-  }))
+  const onTimeUpdate = checkIfRefElementExists(audioRef, (element) => {
+    setState({
+      currentTime: element.currentTime
+    })
+  })
 
   const errorEventCallback = () => {
     const element = audioRef.current
-    const errorCode = element.error.code
-    const errorMessage = element.error.message
-      || errorEventCodeToMessageMapper[errorCode]
-      || 'UNKNOWN'
+    const errorCode = element.error?.code
+    const errorMessage = (element.error?.message ?? errorEventCodeToMessageMapper[errorCode ?? 0]) || 'UNKNOWN'
 
     onError(new Error(errorMessage))
   }
 
   useEffect(() => {
-    const element = audioRef.current!
+    const element = audioRef.current
 
     if (element) {
       const mergedOptions = { ...defaultOptions, ...options }
@@ -227,7 +218,7 @@ export const useAudio = (src: string, options?: UseAudioOptions) => {
 
       setState({
         ...mergedOptions,
-        isSrcLoading: true,
+        isSrcLoading: true
       })
 
       element.addEventListener('loadeddata', onLoadedData)
@@ -251,17 +242,60 @@ export const useAudio = (src: string, options?: UseAudioOptions) => {
     }
   }, [state.isSrcLoading, state.autoPlay])
 
-  const controls = Object.freeze<Controls>({
+  const controls = Object.freeze<AudioControls>({
     seek,
     play,
     mute,
     pause,
     unmute,
     setVolume,
-    onError: setOnErrorRef,
+    onError: setOnErrorRef
   })
 
-  return [state, controls, audioRef] as [LocalState, Readonly<Controls>, MutableRefObject<HTMLAudioElement>]
+  return [state, controls, audioRef] as [AudioState, Readonly<AudioControls>, MutableRefObject<HTMLAudioElement>]
+}
+
+type UseAudioPreloadType = 'auto' | 'metadata' | 'none';
+
+/**
+ * The interface for the state of the useAudio hook
+ */
+export interface AudioState {
+  loop: boolean
+  muted: boolean
+  volume: number
+  duration: number
+  autoPlay: boolean
+  isPlaying: boolean
+  preload?: UseAudioPreloadType
+  currentTime: number
+  playbackRate: number
+  isSrcLoading: boolean | undefined
+}
+
+/**
+ * The interface for the options of the useAudio hook
+ */
+export interface UseAudioOptions {
+  loop?: boolean
+  muted?: boolean
+  volume?: number
+  autoPlay?: boolean
+  preload?: UseAudioPreloadType
+  playbackRate?: number
+}
+
+/**
+ * The interface for the controls of the useAudio hook
+ */
+export interface AudioControls {
+  play: () => void
+  mute: () => void
+  pause: () => void
+  unmute: () => void
+  seek: (time: number) => void
+  onError: (onError: ((error: Error) => void)) => void
+  setVolume: (volume: number) => void
 }
 
 export default useAudio

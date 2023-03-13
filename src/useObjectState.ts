@@ -2,21 +2,21 @@ import { useReducer } from 'react'
 
 const reducer = <TState>(
   previousState: TState,
-  updatedState: Partial<TState>,
+  updatedState: Partial<TState>
 ) => ({
     ...previousState,
-    ...updatedState,
+    ...updatedState
   })
 
 const useObjectState = <TState>(
-  initialState: TState,
+  initialState: TState
 ): [TState, (state: Partial<TState>) => void] => {
   const [state, dispatch] = useReducer(
     (previousState: TState, updatedState: Partial<TState>) => reducer(previousState, updatedState),
-    initialState,
+    initialState
   )
 
-  const setState = (updatedState: Partial<TState>): void => dispatch(updatedState)
+  const setState = (updatedState: Partial<TState>): void => { dispatch(updatedState) }
 
   return [state, setState]
 }

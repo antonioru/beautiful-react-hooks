@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from 'react'
+import { type RefObject, useEffect } from 'react'
 import createHandlerSetter from './factory/createHandlerSetter'
 import safeHasOwnProperty from './shared/safeHasOwnProperty'
 
@@ -21,12 +21,12 @@ const useEvent = <TEvent extends Event, TElement extends HTMLElement = HTMLEleme
       }
     }
 
-    if (ref.current && ref.current.addEventListener && handler.current) {
+    if (ref.current?.addEventListener && handler.current) {
       ref.current.addEventListener(eventName, cb, options)
     }
 
     return () => {
-      if (ref.current && ref.current.addEventListener && handler.current) {
+      if (ref.current?.addEventListener && handler.current) {
         ref.current.removeEventListener(eventName, cb, options)
       }
     }

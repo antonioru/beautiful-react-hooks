@@ -4,8 +4,8 @@ import useDidMount from './useDidMount'
 import useURLSearchParams from './useURLSearchParams'
 
 export interface UseQueryParamOptions<TValue extends string> {
-  initialValue?: TValue,
-  replaceState?: boolean,
+  initialValue?: TValue
+  replaceState?: boolean
 }
 
 /**

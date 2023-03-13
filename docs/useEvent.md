@@ -1,18 +1,18 @@
 # useEvent
 
-Accepts the reference to an HTML Element and an event name then performs the necessary operations to listen to the event when fired from
-that HTML Element.
+A hook that allows you to specify an HTML element and an event name. It sets up a listener so that when that event happens on that element,
+your code will be notified and can take action. Essentially, it lets you "listen" for events on a specific HTML element
 
 ### Why? 💡
 
-- takes care of adding a listener for the event to the provided target ref
-- takes care of clearing the listener when the component unmounts
+- Automatically adds the event listener to the element, so you don't have to do it manually
+- Automatically removes the event listener when the component unmounts
 
 ### Basic Usage:
 
-`useEvents` returns a handler setter for the defined event to be immediately invoked.
+`useEvents` returns a callback setter for the defined event to be immediately invoked.
 
-**Please note**: the handler setter is only meant to change the callback reference, it does not cause the component rerender unless
+**Please note**: the callback setter is only meant to change the callback reference, it does not cause the component rerender unless
 differently specified in the function's body. It's not invoked asynchronously
 
 ```jsx harmony
@@ -29,11 +29,11 @@ const TestComponent = () => {
   });
 
   return (
-    <DisplayDemo>
-      <div ref={targetRef}>
-        Click on this text to increase the number of clicks: {clicksNo}
-      </div>
-    </DisplayDemo>
+          <DisplayDemo title="useEvent">
+            <div ref={targetRef}>
+              Click on this text to increase the number of clicks: {clicksNo}
+            </div>
+          </DisplayDemo>
   );
 };
 
@@ -63,11 +63,11 @@ const TestComponent = () => {
   });
 
   return (
-    <DisplayDemo>
-      <div ref={targetRef}>
-        Click on this text to increase the number of clicks: {clicksNo}
-      </div>
-    </DisplayDemo>
+          <DisplayDemo title="useEvent">
+            <div ref={targetRef}>
+              Click on this text to increase the number of clicks: {clicksNo}
+            </div>
+          </DisplayDemo>
   );
 };
 
@@ -84,5 +84,20 @@ const TestComponent = () => {
 
 - When you can archive the same result by using a callback, **please remember listening/firing events directly to/from HTMLElement(s) in
   React is considered an anti-pattern**
-- You can't use the returned handler setter asynchronously, it will not have any effect but changing the handler possibly leading to bugs in
-  your code
+- You can't use the returned callback setter asynchronously, it will not have any effect but changing the handler possibly leading to bugs
+  in your code
+
+<!-- Types -->
+### Types
+    
+```typescript static
+import { type RefObject } from 'react';
+/**
+ * Accepts the reference to an HTML Element and an event name then performs the necessary operations to listen to the event
+ * when fired from that HTML Element.
+ */
+declare const useEvent: <TEvent extends Event, TElement extends HTMLElement = HTMLElement>(ref: RefObject<TElement>, eventName: string, options?: AddEventListenerOptions) => import("./shared/types").CallbackSetter<TEvent>;
+export default useEvent;
+
+```
+<!-- Types:end -->

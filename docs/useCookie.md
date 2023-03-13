@@ -1,32 +1,34 @@
 # useCookie
 
-A hook for storing, updating and deleting values into [CookieStore](https://developer.mozilla.org/en-US/docs/Web/API/CookieStore).
+A hook that facilitates the storage, updating, and deletion of values within
+the [CookieStore](https://developer.mozilla.org/en-US/docs/Web/API/CookieStore).
 
 ### 💡 Why?
 
-- A quick way to use the `CookieStore` in your React components.
+- A quick and safe way to access the `CookieStore` in your React components.
+- Improves readability of React components accessing the `CookieStore
 
 ### Basic Usage:
 
 ```jsx harmony
 import { useCallback } from 'react';
-import { Pill, Paragraph, Icon } from 'beautiful-react-ui';
-import useCookie from 'beautiful-react-hooks/useCookie'; 
+import { Typography, Tag, Button } from 'antd';
+
+import useCookie from 'beautiful-react-hooks/useCookie';
 
 const UseCookieExample = () => {
-  const {
-    onError,
-    cookieValue,
-    deleteCookie,
-    updateCookie
-  } = useCookie('cookie-key', { secure: false, path: '/', defaultValue: 'default-value' });
+  const { onError, cookieValue, deleteCookie, updateCookie } = useCookie('cookie-key', {
+    secure: false,
+    path: '/',
+    defaultValue: 'default-value'
+  });
 
   onError((error) => {
     console.log(error)
 
     alert(error.message)
   })
-  
+
   const updateButtonClick = useCallback(() => {
     updateCookie('new-cookie-value')
   }, [])
@@ -35,18 +37,23 @@ const UseCookieExample = () => {
     deleteCookie()
   }, [])
 
+  const Actions = [
+    <Button type="primary" onClick={updateButtonClick}>
+      Update the cookieStore
+    </Button>,
+    <Button onClick={deleteButtonClick}>
+      Clear the cookieStore
+    </Button>
+  ]
+
   return (
-    <DisplayDemo>
-      <Paragraph>Click on the button to update or clear from the cookieStore</Paragraph>
-      <Paragraph>{cookieValue || ''}</Paragraph>
-      <Pill color='primary' onClick={updateButtonClick}>
-        <Icon name="envelope" />
-        update the cookieStore
-      </Pill>
-      <Pill color='primary' onClick={deleteButtonClick}>
-        <Icon name="envelope" />
-        Clear the cookieStore
-      </Pill>
+    <DisplayDemo title="useCookie" actions={Actions}>
+      <Typography.Paragraph>
+        Click on the button to update or clear the cookieStore
+      </Typography.Paragraph>
+      <Tag color="blue">
+        {cookieValue || 'no value'}
+      </Tag>
     </DisplayDemo>
   )
 };
@@ -58,8 +65,41 @@ const UseCookieExample = () => {
 
 #### ✅ When to use
 
-- When you need to get/set values from the `cookieStore` 
+- When you need to CRUD values from the `CookieStore`
 
 #### 🛑 When not to use
 
-- This hook(cookieStore) can't be used in server-side and http website.
+- in server-only components (during SSR)
+
+<!-- Types -->
+### Types
+    
+```typescript static
+import { type CallbackSetter } from './shared/types';
+declare const useCookie: (key: string, options?: UseCookieOptions) => Readonly<UseCookieReturn>;
+export declare enum CookieSameSite {
+    STRICT = "strict",
+    LAX = "lax",
+    NONE = "none"
+}
+interface CookieStoreDeleteOptions {
+    name?: string;
+    domain?: string;
+    path?: string;
+}
+interface CookieBase extends CookieStoreDeleteOptions {
+    sameSite?: CookieSameSite;
+}
+export interface UseCookieOptions extends CookieBase {
+    defaultValue?: string;
+}
+export interface UseCookieReturn {
+    cookieValue?: string;
+    updateCookie: (nextValue: string) => Promise<void>;
+    deleteCookie: () => Promise<void>;
+    onError: CallbackSetter<Error>;
+}
+export default useCookie;
+
+```
+<!-- Types:end -->

@@ -7,7 +7,7 @@ import noop from '../shared/noop'
 import warnOnce from '../shared/warnOnce'
 
 /**
- * An utility to quickly create hooks to access both Session Storage and Local Storage
+ * A utility to quickly create hooks to access both Session Storage and Local Storage
  */
 const createStorageHook = (type: 'session' | 'local') => {
   type SetValue<TValue> = (value: TValue | ((previousValue: TValue) => TValue)) => void
@@ -20,10 +20,7 @@ const createStorageHook = (type: 'session' | 'local') => {
   /**
    * the hook
    */
-  return function useStorageCreatedHook<TValue>(
-    storageKey: string,
-    defaultValue?: any,
-  ): [TValue, SetValue<TValue>] {
+  return function useStorageCreatedHook<TValue> (storageKey: string, defaultValue?: any): [TValue | null, SetValue<TValue>] {
     if (!isClient) {
       if (isDevelopment) {
         warnOnce(`Please be aware that ${storageName} could not be available during SSR`)
@@ -40,18 +37,18 @@ const createStorageHook = (type: 'session' | 'local') => {
       }
     }, [storage, storageKey])
 
-    const [storedValue, setStoredValue] = useState<TValue>(
+    const [storedValue, setStoredValue] = useState<TValue | null>(
       () => {
         let valueToStore: string
         try {
-          valueToStore = storage.getItem(storageKey) || JSON.stringify(defaultValue)
+          valueToStore = storage.getItem(storageKey) ?? JSON.stringify(defaultValue)
         } catch (e) {
           valueToStore = JSON.stringify(defaultValue)
         }
 
         safelySetStorage(valueToStore)
         return safelyParseJson(valueToStore)
-      },
+      }
     )
 
     const setValue: SetValue<TValue> = useCallback(

@@ -1,17 +1,17 @@
 import { useRef } from 'react'
 
 export interface RenderInfo {
-  readonly module: string;
-  renders: number;
-  timestamp: number;
-  sinceLast: number | '[now]'
+  readonly module: string
+  renders: number
+  timestamp: null | number
+  sinceLast: null | number | '[now]'
 }
 
 const getInitial = (moduleName: string): RenderInfo => ({
   module: moduleName,
   renders: 0,
   timestamp: null,
-  sinceLast: null,
+  sinceLast: null
 })
 
 /**
@@ -29,12 +29,10 @@ const useRenderInfo = (moduleName: string = 'Unknown component', log: boolean = 
   info.timestamp = now
 
   if (log) {
-    /* eslint-disable no-console */
     console.group(`${moduleName} info`)
     console.log(`Render no: ${info.renders}${info.renders > 1 ? `, ${info.sinceLast}s since last render` : ''}`)
     console.dir(info)
     console.groupEnd()
-    /* eslint-enable no-console */
   }
 
   return info

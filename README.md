@@ -13,15 +13,14 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 <br />
 <div>
   <p align="center">
-    A collection of beautiful (and hopefully useful) React hooks to speed-up your
-    components and hooks development
+    A collection of tailor-made React hooks to enhance your development process and make it faster.
   </p>
 </div>
 
 <div>
   <p align="center">
     <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 Hooks Playground 🌟
     </a>
   </p>
 </div>
@@ -38,13 +37,13 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 
 ## 💡 Why?
 
-React custom hooks allow to abstract components' business logic into single reusable functions.<br />
-So far, we've found that most of the hooks we've created and therefore shared between our internal projects have quite often a similar gist
-that involves callback references, events and components' lifecycle. <br />
-For this reason we've tried to sum up that gist into `beautiful-react-hooks`: a collection of (*hopefully*) useful React hooks to possibly
-help other companies and professionals to speed up their development process.<br /><br />
-Furthermore, we created a concise yet concrete API having in mind the code readability, focusing to keep the learning curve as lower as
-possible so that the it can be used and shared in bigger teams.
+Custom React hooks allow developers to abstract the business logic of components into single, reusable functions.\
+I have noticed that many of the hooks I have created and shared across projects involve callbacks, references, events, and dealing with the
+component lifecycle.\
+Therefore, I have created `beautiful-react-hooks`, a collection of useful [React hooks](https://beta.reactjs.org/reference/react) that may
+help other developers speed up their development process.\
+Moreover, I have strived to create a concise and practical API that emphasizes code readability, while keeping the learning curve as low as
+possible, making it suitable for larger teams to use and share
 
 **-- Please before using any hook, read its documentation! --**
 
@@ -57,7 +56,7 @@ possible so that the it can be used and shared in bigger teams.
 <div>
   <p align="center">
     <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 Hooks Playground 🌟
     </a>
   </p>
 </div>
@@ -74,6 +73,14 @@ by using `yarn`:
 
 ```bash
 $ yarn add beautiful-react-hooks
+```
+
+## Basic usage
+
+importing a hooks is as easy as the following straightforward line:
+
+```ts static
+import useSomeHook from 'beautiful-react-hooks/useSomeHook'
 ```
 
 ## 🎨 Hooks
@@ -127,36 +134,29 @@ $ yarn add beautiful-react-hooks
 <div>
   <p align="center">
     <a href="https://antonioru.github.io/beautiful-react-hooks/" target="_blank">
-    🌟 Live playground here 🌟
+    🌟 Hooks Playground 🌟
     </a>
   </p>
 </div>
 
 ## Peer dependencies
 
-Some hooks are built on top of third-party libraries (rxjs, react-router-dom, redux), therefore you will notice those libraries listed as
-peer dependencies. You don't have to install these dependencies unless you directly use those hooks.
+Some hooks are built using third-party libraries (such as rxjs, react-router-dom, redux). As a result, you will see these libraries listed
+as peer dependencies.\
+Unless you are using these hooks directly, you need not install these dependencies.
 
 ## Contributing
 
 Contributions are very welcome and wanted.
 
-To submit your custom hook, please make sure your read our [CONTRIBUTING](./CONTRIBUTING.md) guidelines.
+To submit your custom hook, make sure you have thoroughly read and understood the [CONTRIBUTING](./CONTRIBUTING.md) guidelines.
 
-**Before submitting** a new merge request, please make sure:
+**Prior to submitting your pull request**: please take note of the following
 
 1. make sure to write tests for your code, run `npm test` and `npm build` before submitting your merge request.
-2. in case you're creating a custom hook, make sure you've added the documentation (*you can possibly use
+2. in case you're creating a custom hook, make sure you've added the documentation (*you may use
    the [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) to document your custom hook*).
 
-### Made with
-
-* [React](https://reactjs.org/)
-* [Mocha](https://mochajs.org/)
-* [Chai](https://www.chaijs.com/)
-* [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro)
-* [@testing-library/react-hooks](https://react-hooks-testing-library.com/)
-
----
+## Credits
 
 Icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/free-icon/hook_1081812)

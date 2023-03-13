@@ -1,15 +1,15 @@
 # useWillUnmount
 
-Accepts a function to be performed right before the component unmounts.
+A hook that takes in a function to execute right before the component unmounts.
 
 ### Why? 💡
 
-- takes care of performing a callback right before the component unmounts
-- It's as a shortcut to `useEffect(() => () => willUnmount, [])`;
+- takes care of performing a callback when the component unmounts
 
 ### Basic Usage:
 
 ```jsx harmony
+import { Typography } from 'antd';
 import useWillUnmount from 'beautiful-react-hooks/useWillUnmount';
 
 const ComponentWillUnmount = () => {
@@ -18,8 +18,8 @@ const ComponentWillUnmount = () => {
   });
 
   return (
-    <DisplayDemo>
-      Check the javascript console after moving from this page
+    <DisplayDemo title="useWillUnmount">
+      <Typography.Paragraph>Check the javascript console after moving from this page</Typography.Paragraph>
     </DisplayDemo>
   );
 };
@@ -29,13 +29,14 @@ const ComponentWillUnmount = () => {
 
 ### Callback setter syntax:
 
-if the first parameter is not provided, the returned function (*a handler setter*) can be used to set the `useWillUnmount` handler, as long
-as it is immediately invoked.
+If the first parameter is omitted, you can use the returned function (a callback setter) to set the useWillUnmount handler. However, you
+must immediately invoke the callback setter.
 
-**Please note**: the returned handler setter is meant to change the value of the callback reference only, it does not cause the component
-rerender nor should not be invoked asynchronously.
+Important: The callback setter only changes the value of the callback reference and does not trigger a component rerender. Also, avoid
+invoking it asynchronously
 
 ```jsx harmony
+import { Typography } from 'antd';
 import useWillUnmount from 'beautiful-react-hooks/useWillUnmount';
 
 const ComponentWillUnmount = () => {
@@ -46,8 +47,8 @@ const ComponentWillUnmount = () => {
   });
 
   return (
-    <DisplayDemo>
-      Check the javascript console after moving from this page
+    <DisplayDemo title="useWillUnmount">
+      <Typography.Paragraph>Check the javascript console after moving from this page</Typography.Paragraph>
     </DisplayDemo>
   );
 };
@@ -69,9 +70,23 @@ by [Dan Abramov](https://twitter.com/dan_abramov)
 
 #### ✅ When to use
 
-- When in need of performing a function after the component did mount
+- When you need to perform a function after the component has mounted
 
 #### 🛑 When not to use
 
-- You can't use it asynchronously since this will break the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
-- If using the handler setter, it should not be used asynchronously but immediately invoked
+- Avoid using this hook asynchronously since it would violate the [rules of hooks](https://reactjs.org/docs/hooks-rules.html)
+- If you're using the callback setter, make sure to invoke it immediately instead of asynchronously
+
+<!-- Types -->
+### Types
+    
+```typescript static
+import { type GenericFunction } from './shared/types';
+/**
+ * Returns a callback setter for a callback to be performed when the component will unmount.
+ */
+declare const useWillUnmount: <TCallback extends GenericFunction>(callback?: TCallback | undefined) => import("./shared/types").CallbackSetter<undefined>;
+export default useWillUnmount;
+
+```
+<!-- Types:end -->
