@@ -56,7 +56,7 @@ const useInterval = <TCallback extends GenericFunction>
     }
   }, [])
 
-  return [isCleared, clear]
+  return [isCleared, clear] as [boolean, () => void]
 }
 
 export default useInterval
