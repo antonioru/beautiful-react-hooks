@@ -85,10 +85,7 @@ import useSomeHook from 'beautiful-react-hooks/useSomeHook'
 
 ## 🎨 Hooks
 
-* [useQueryParam](docs/useQueryParam.md)
-* [useQueryParams](docs/useQueryParams.md)
-* [useSearchQuery](docs/useSearchQuery.md)
-* [useURLSearchParams](docs/useURLSearchParams.md)
+* [useMutableState](docs/useMutableState.md)
 * [useInfiniteScroll](docs/useInfiniteScroll.md)
 * [useObservable](docs/useObservable.md)
 * [useEvent](docs/useEvent.md)
@@ -130,6 +127,11 @@ import useSomeHook from 'beautiful-react-hooks/useSomeHook'
 * [useAudio](docs/useAudio.md)
 * [useObjectState](docs/useObjectState.md)
 * [useToggle](docs/useToggle.md)
+* [useQueryParam](docs/useQueryParam.md)
+* [useQueryParams](docs/useQueryParams.md)
+* [useSearchQuery](docs/useSearchQuery.md)
+* [useURLSearchParams](docs/useURLSearchParams.md)
+*
 
 <div>
   <p align="center">
