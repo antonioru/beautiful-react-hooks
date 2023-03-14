@@ -1008,3 +1008,9 @@ Errored release
 - Updates dependencies
 - Improves documentation
 - Improves types
+
+## [4.0.0] - 2023-03-13
+
+### Adds
+
+- `useMutableState` hook

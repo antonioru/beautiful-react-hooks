@@ -41,8 +41,7 @@ React のカスタムフックは抽象的なコンポーネントのビジネ�
 これまでのところ、私たちが作成し、内部で共有されているフックの大半はかなりの頻度でコールバック参照、イベントとコンポーネントのライフサイクルに関して類似する点がある事が分かっています。<br />
 この理由から、私たちはそれらの知見を企業や専門家が開発プロセスをスピードアップするのに役立つ（*できれば*）便利な React フックのコレクションとして `beautiful-react-hooks` にまとめました。
 <br /><br />
-さらに、コードの読みやすさを考慮して、簡潔かつ具体的な API を作成しました。
-より大きなチームで使用し、共有できるように、学習曲線を可能な限り低く抑える事が可能です。
+さらに、コードの読みやすさを考慮して、簡潔かつ具体的な API を作成しました。 より大きなチームで使用し、共有できるように、学習曲線を可能な限り低く抑える事が可能です。
 
 **-- フックを利用する前に、ドキュメントを確認して下さい！ --**
 
@@ -76,10 +75,7 @@ $ yarn add beautiful-react-hooks
 
 ## 🎨 Hooks
 
-* [useQueryParam](useQueryParam.md)
-* [useQueryParams](useQueryParams.md)
-* [useSearchQuery](useSearchQuery.md)
-* [useURLSearchParams](useURLSearchParams.md)
+* [useMutableState](useMutableState.md)
 * [useInfiniteScroll](useInfiniteScroll.md)
 * [useObservable](useObservable.md)
 * [useEvent](useEvent.md)
@@ -120,6 +116,10 @@ $ yarn add beautiful-react-hooks
 * [useAudio](useAudio.md)
 * [useObjectState](useObjectState.md)
 * [useToggle](useToggle.md)
+* [useQueryParam](useQueryParam.md)
+* [useQueryParams](useQueryParams.md)
+* [useSearchQuery](useSearchQuery.md)
+* [useURLSearchParams](useURLSearchParams.md)
 
 <div>
   <p align="center">
@@ -131,7 +131,8 @@ $ yarn add beautiful-react-hooks
 
 ## Peer dependencies
 
-いくつかのフックはサードパーティライブラリ(rxjs、react-router-dom、redux)の上に構築されているため、それらのライブラリが peer dependencies としてリストされていることに気づくかもしれません。直接的にそれらのフックを使用しない限り、依存関係としてインストールする必要はありません。
+いくつかのフックはサードパーティライブラリ(rxjs、react-router-dom、redux)の上に構築されているため、それらのライブラリが peer dependencies
+としてリストされていることに気づくかもしれません。直接的にそれらのフックを使用しない限り、依存関係としてインストールする必要はありません。
 
 ## コントリビューション
 
@@ -143,7 +144,7 @@ $ yarn add beautiful-react-hooks
 
 1. コードのテストを必ず書くようにし、PR を送る前に `npm test` と `npm build` を実行して問題がない事を確認してください。
 2. カスタムフックを作成する場合には、ドキュメントに必ず追加するようにしてください。  
-  (*カスタムフックのドキュメントテンプレートを用意しています [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md)*).
+   (*カスタムフックのドキュメントテンプレートを用意しています [HOOK_DOCUMENTATION_TEMPLATE](../HOOK_DOCUMENTATION_TEMPLATE.md)*).
 
 ### 利用しているライブラリ
 

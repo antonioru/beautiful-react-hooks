@@ -77,10 +77,7 @@ $ yarn add beautiful-react-hooks
 
 ## 🎨 Hooki
 
-* [useQueryParam](useQueryParam.md)
-* [useQueryParams](useQueryParams.md)
-* [useSearchQuery](useSearchQuery.md)
-* [useURLSearchParams](useURLSearchParams.md)
+* [useMutableState](useMutableState.md)
 * [useInfiniteScroll](useInfiniteScroll.md)
 * [useObservable](useObservable.md)
 * [useEvent](useEvent.md)
@@ -121,6 +118,10 @@ $ yarn add beautiful-react-hooks
 * [useAudio](useAudio.md)
 * [useObjectState](useObjectState.md)
 * [useToggle](useToggle.md)
+* [useQueryParam](useQueryParam.md)
+* [useQueryParams](useQueryParams.md)
+* [useSearchQuery](useSearchQuery.md)
+* [useURLSearchParams](useURLSearchParams.md)
 
 <div>
   <p align="center">
