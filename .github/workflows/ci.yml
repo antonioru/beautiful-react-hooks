@@ -14,23 +14,23 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18.14
           registry-url: https://registry.npmjs.org/
 
-      - name: NPM CI
+      - name: NPM Install
         run: npm install
 
-      - name: Repository build
+      - name: Build
         run: npm run build
 
       - name: Tests (with coverage)
         run: npm test -- --coverage
 
       - name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@v1.1.1
+        uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -38,7 +38,7 @@ jobs:
         run: npm run build-doc --if-present
 
       - name: Publish website on GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v2.1.2
+        uses: crazy-max/ghaction-github-pages@v3
         with:
           build_dir: dist-ghpages
         env:

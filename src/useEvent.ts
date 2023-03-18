@@ -7,10 +7,10 @@ import safeHasOwnProperty from './shared/safeHasOwnProperty'
  * when fired from that HTML Element.
  */
 const useEvent = <TEvent extends Event, TElement extends HTMLElement = HTMLElement>
-  (ref: RefObject<TElement>, eventName: string, options?: AddEventListenerOptions) => {
+  (target: RefObject<TElement>, eventName: string, options?: AddEventListenerOptions) => {
   const [handler, setHandler] = createHandlerSetter<TEvent>()
 
-  if (!!ref && !safeHasOwnProperty(ref, 'current')) {
+  if (!!target && !safeHasOwnProperty(target, 'current')) {
     throw new Error('Unable to assign any scroll event to the given ref')
   }
 
@@ -21,16 +21,16 @@ const useEvent = <TEvent extends Event, TElement extends HTMLElement = HTMLEleme
       }
     }
 
-    if (ref.current?.addEventListener && handler.current) {
-      ref.current.addEventListener(eventName, cb, options)
+    if (target.current?.addEventListener && handler.current) {
+      target.current.addEventListener(eventName, cb, options)
     }
 
     return () => {
-      if (ref.current?.addEventListener && handler.current) {
-        ref.current.removeEventListener(eventName, cb, options)
+      if (target.current?.addEventListener && handler.current) {
+        target.current.removeEventListener(eventName, cb, options)
       }
     }
-  }, [eventName, ref.current, options])
+  }, [eventName, target.current, options])
 
   return setHandler
 }
