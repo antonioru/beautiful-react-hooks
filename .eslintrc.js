@@ -34,7 +34,8 @@ module.exports = {
     'import/no-named-as-default-member': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off'
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-invalid-void-type': 'off'
   },
   overrides: [
     {

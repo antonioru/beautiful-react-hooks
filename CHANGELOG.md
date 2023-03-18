@@ -1020,3 +1020,9 @@ Errored release
 ### Fixes
 
 - wrong dependency in package.json
+
+## [4.2.0] - 2023-03-18
+
+### Adds
+
+- `useLongPress` hook

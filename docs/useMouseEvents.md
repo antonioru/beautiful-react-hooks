@@ -39,15 +39,15 @@ const MyComponent = () => {
   });
 
   return (
-          <DisplayDemo title="useMouseEvent">
-            <div ref={ref}>
-              <Space direction="vertical">
-                <Alert message="Move mouse over this box to get its current coordinates" type="info" showIcon />
-                <Tag color="green">ClientX: {coordinates[0]}</Tag>
-                <Tag color="green">ClientY: {coordinates[1]}</Tag>
-              </Space>
-            </div>
-          </DisplayDemo>
+    <DisplayDemo title="useMouseEvent">
+      <div ref={ref}>
+        <Space direction="vertical">
+          <Alert message="Move mouse over this box to get its current coordinates" type="info" showIcon />
+          <Tag color="green">ClientX: {coordinates[0]}</Tag>
+          <Tag color="green">ClientY: {coordinates[1]}</Tag>
+        </Space>
+      </div>
+    </DisplayDemo>
   );
 };
 
@@ -73,13 +73,13 @@ const MyComponent = () => {
   });
 
   return (
-          <DisplayDemo title="useMouseEvent">
-            <Space direction="vertical">
-              <Alert message="Move mouse around to get its current global coordinates" type="info" showIcon />
-              <Tag color="green">ClientX: {coordinates[0]}</Tag>
-              <Tag color="green">ClientY: {coordinates[1]}</Tag>
-            </Space>
-          </DisplayDemo>
+    <DisplayDemo title="useMouseEvent">
+      <Space direction="vertical">
+        <Alert message="Move mouse around to get its current global coordinates" type="info" showIcon />
+        <Tag color="green">ClientX: {coordinates[0]}</Tag>
+        <Tag color="green">ClientY: {coordinates[1]}</Tag>
+      </Space>
+    </DisplayDemo>
   );
 };
 
@@ -105,14 +105,15 @@ const MyComponent = (props) => {
   const { mouseDownHandler } = props;
 
   return (
-          <div onMouseDown={mouseDownHandler} />
+    <div onMouseDown={mouseDownHandler} />
   );
 };
 ```
 
 <!-- Types -->
+
 ### Types
-    
+
 ```typescript static
 import { type RefObject } from 'react';
 /**
@@ -141,4 +142,5 @@ declare const useMouseEvents: <TElement extends HTMLElement>(targetRef?: RefObje
 export default useMouseEvents;
 
 ```
+
 <!-- Types:end -->
