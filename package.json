@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -253,6 +253,10 @@
     "./useMediaQuery": {
       "import": "./esm/useMediaQuery.js",
       "require": "./useMediaQuery.js"
+    },
+    "./useLongPress": {
+      "import": "./esm/useLongPress.js",
+      "require": "./useLongPress.js"
     },
     "./useLocalStorage": {
       "import": "./esm/useLocalStorage.js",
