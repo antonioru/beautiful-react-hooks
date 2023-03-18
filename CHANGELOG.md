@@ -1026,3 +1026,7 @@ Errored release
 ### Adds
 
 - `useLongPress` hook
+
+### Fixes
+
+- Deprecated github actions version
