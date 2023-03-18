@@ -102,10 +102,6 @@
     "webpack": "5.76.1"
   },
   "exports": {
-    ".": {
-      "import": "./esm/index.js",
-      "require": "./index.js"
-    },
     "./useWindowScroll": {
       "import": "./esm/useWindowScroll.js",
       "require": "./useWindowScroll.js"

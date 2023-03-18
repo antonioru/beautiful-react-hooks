@@ -1029,4 +1029,10 @@ Errored release
 
 ### Fixes
 
-- Deprecated github actions version
+- Deprecated GitHub actions version
+
+## [4.2.1] - 2023-03-18
+
+### Fixes
+
+- package.json specifiers (exports)

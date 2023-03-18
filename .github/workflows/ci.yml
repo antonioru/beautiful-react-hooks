@@ -45,7 +45,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Prepare distribution
-        run: cp package.json README.md LICENSE.txt CHANGELOG.md CONTRIBUTING.md CODE_OF_CONDUCT.md ./dist
+        run: |
+          node scripts/generate-exports.js
+          cp package.json README.md LICENSE.txt CHANGELOG.md CONTRIBUTING.md CODE_OF_CONDUCT.md ./dist
 
       - name: Publish
         run: |
