@@ -78,6 +78,7 @@ $ yarn add beautiful-react-hooks
 ## 🎨 Hooki
 
 * [useMutableState](useMutableState.md)
+* [useSpeechRecognition](useSpeechRecognition.md)
 * [useInfiniteScroll](useInfiniteScroll.md)
 * [useObservable](useObservable.md)
 * [useEvent](useEvent.md)

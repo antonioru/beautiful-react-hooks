@@ -1036,3 +1036,9 @@ Errored release
 ### Fixes
 
 - package.json specifiers (exports)
+
+## [4.3.0] - 2023-03-19
+
+### Adds
+
+- `useSpeechRecognition` hook

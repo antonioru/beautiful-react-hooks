@@ -86,6 +86,7 @@ import useSomeHook from 'beautiful-react-hooks/useSomeHook'
 ## 🎨 Hooks
 
 * [useMutableState](docs/useMutableState.md)
+* [useSpeechRecognition](docs/useSpeechRecognition.md)
 * [useInfiniteScroll](docs/useInfiniteScroll.md)
 * [useObservable](docs/useObservable.md)
 * [useEvent](docs/useEvent.md)
@@ -131,7 +132,6 @@ import useSomeHook from 'beautiful-react-hooks/useSomeHook'
 * [useQueryParams](docs/useQueryParams.md)
 * [useSearchQuery](docs/useSearchQuery.md)
 * [useURLSearchParams](docs/useURLSearchParams.md)
-*
 
 <div>
   <p align="center">
