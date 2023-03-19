@@ -86,7 +86,6 @@ import useSomeHook from 'beautiful-react-hooks/useSomeHook'
 ## 🎨 Hooks
 
 * [useMutableState](docs/useMutableState.md)
-* [useSpeechRecognition](docs/useSpeechRecognition.md)
 * [useInfiniteScroll](docs/useInfiniteScroll.md)
 * [useObservable](docs/useObservable.md)
 * [useEvent](docs/useEvent.md)
@@ -98,7 +97,7 @@ import useSomeHook from 'beautiful-react-hooks/useSomeHook'
 * [useOnlineState](docs/useOnlineState.md)
 * [useViewportSpy](docs/useViewportSpy.md)
 * [useViewportState](docs/useViewportState.md)
-* [useSpeechSynthesis](docs/useSpeechSynthesis.md) and [useSystemVoices](docs/useSystemVoices.md)
+* [useSpeechRecognition](docs/useSpeechRecognition.md) and [useSpeechSynthesis](docs/useSpeechSynthesis.md)
 * [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md)
   and [useGeolocationEvents](docs/useGeolocationEvents.md)
 * [useDrag](docs/useDrag.md), [useDropZone](docs/useDropZone.md) and [useDragEvents](docs/useDragEvents.md)

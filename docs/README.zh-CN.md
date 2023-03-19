@@ -74,7 +74,6 @@ $ yarn add beautiful-react-hooks
 ## 🎨 Hooks
 
 * [useMutableState](useMutableState.md)
-* [useSpeechRecognition](useSpeechRecognition.md)
 * [useInfiniteScroll](useInfiniteScroll.md)
 * [useObservable](useObservable.md)
 * [useEvent](useEvent.md)
@@ -86,8 +85,9 @@ $ yarn add beautiful-react-hooks
 * [useOnlineState](useOnlineState.md)
 * [useViewportSpy](useViewportSpy.md)
 * [useViewportState](useViewportState.md)
-* [useSpeechSynthesis](useSpeechSynthesis.md) and [useSystemVoices](useSystemVoices.md)
-* [useGeolocation](useGeolocation.md), [useGeolocationState](useGeolocationState.md) and [useGeolocationEvents](useGeolocationEvents.md)
+* [useSpeechRecognition](useSpeechRecognition.md) and [useSpeechSynthesis](useSpeechSynthesis.md)
+* [useGeolocation](useGeolocation.md), [useGeolocationState](useGeolocationState.md)
+  and [useGeolocationEvents](useGeolocationEvents.md)
 * [useDrag](useDrag.md), [useDropZone](useDropZone.md) and [useDragEvents](useDragEvents.md)
 * [useMouse](useMouse.md), [useMouseState](useMouseState.md) and [useMouseEvents](useMouseEvents.md)
 * [useTouch](useTouch.md), [useTouchState](useTouchState.md) and [useTouchEvents](useTouchEvents.md)
