@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useCallback, useReducer } from 'react'
 
 const reducer = <TState>(
   previousState: TState,
@@ -16,7 +16,7 @@ const useObjectState = <TState>(
     initialState
   )
 
-  const setState = (updatedState: Partial<TState>): void => { dispatch(updatedState) }
+  const setState = useCallback((updatedState: Partial<TState>): void => { dispatch(updatedState) }, [dispatch])
 
   return [state, setState]
 }
