@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import isFunction from './shared/isFunction'
 import { type GenericFunction } from './shared/types'
 import createHandlerSetter from './factory/createHandlerSetter'
@@ -10,7 +10,7 @@ const useWillUnmount = <TCallback extends GenericFunction>(callback?: TCallback)
   const mountRef = useRef(false)
   const [handler, setHandler] = createHandlerSetter<undefined>(callback)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     mountRef.current = true
 
     return () => {

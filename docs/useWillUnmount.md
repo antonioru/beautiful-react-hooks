@@ -4,7 +4,7 @@ A hook that takes in a function to execute right before the component unmounts.
 
 ### Why? 💡
 
-- takes care of performing a callback when the component unmounts
+- takes care of performing a callback before the component unmounts
 
 ### Basic Usage:
 
@@ -14,7 +14,7 @@ import useWillUnmount from 'beautiful-react-hooks/useWillUnmount';
 
 const ComponentWillUnmount = () => {
   useWillUnmount(() => {
-    console.log('Component did unmount');
+    console.log('Component will unmount');
   });
 
   return (
@@ -43,7 +43,7 @@ const ComponentWillUnmount = () => {
   const onUnmount = useWillUnmount();
 
   onUnmount(() => {
-    console.log('Component did unmount');
+    console.log('Component will unmount');
   });
 
   return (
@@ -60,17 +60,17 @@ const ComponentWillUnmount = () => {
 
 When using a React function component you should not really think of it in terms of "lifecycle".
 
-The `useWillUnmount` hook is indeed intended as a shortcut to  `useEffect(() => () => willUnmount, [])`.
+The `useWillUnmount` hook is indeed intended as a shortcut to `useLayoutEffect(() => () => willUnmount, [])`.
 
-To deep understanding `useEffect`, what it is and how it should be properly used, please read
-"[A complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)"
-by [Dan Abramov](https://twitter.com/dan_abramov)
+To deep understanding `useLayoutEffect`, what it is and how it should be properly used, please read
+"[A complete guide to useLayoutEffect](https://react.dev/reference/react/useLayoutEffect)"
+by React Team
 
 ### Mastering the hook
 
 #### ✅ When to use
 
-- When you need to perform a function after the component has mounted
+- When you need to perform a function before the component has mounted
 
 #### 🛑 When not to use
 
