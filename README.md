@@ -121,6 +121,7 @@ import useSomeHook from 'beautiful-react-hooks/useSomeHook'
 * [useConditionalTimeout](docs/useConditionalTimeout.md)
 * [useCookie](docs/useCookie.md)
 * [useDarkMode](docs/useDarkMode.md)
+* [useUnmount](docs/useUnmount.md)
 * [useUpdateEffect](docs/useUpdateEffect.md)
 * [useIsFirstRender](docs/useIsFirstRender.md)
 * [useMutationObserver](docs/useMutationObserver.md)
