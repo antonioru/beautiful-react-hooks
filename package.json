@@ -1,6 +1,6 @@
 {
   "name": "beautiful-react-hooks",
-  "version": "4.2.1",
+  "version": "5.0.0",
   "description": "A collection of beautiful (and hopefully useful) React hooks to speed-up your components and hooks development",
   "main": "index.js",
   "module": "esm/index.js",
@@ -138,6 +138,10 @@
       "import": "./esm/useUpdateEffect.js",
       "require": "./useUpdateEffect.js"
     },
+    "./useUnmount": {
+      "import": "./esm/useUnmount.js",
+      "require": "./useUnmount.js"
+    },
     "./useURLSearchParams": {
       "import": "./esm/useURLSearchParams.js",
       "require": "./useURLSearchParams.js"
@@ -181,6 +185,10 @@
     "./useSpeechSynthesis": {
       "import": "./esm/useSpeechSynthesis.js",
       "require": "./useSpeechSynthesis.js"
+    },
+    "./useSpeechRecognition": {
+      "import": "./esm/useSpeechRecognition.js",
+      "require": "./useSpeechRecognition.js"
     },
     "./useSessionStorage": {
       "import": "./esm/useSessionStorage.js",
