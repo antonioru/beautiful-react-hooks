@@ -104,247 +104,308 @@
   "exports": {
     "./useWindowScroll": {
       "import": "./esm/useWindowScroll.js",
-      "require": "./useWindowScroll.js"
+      "require": "./useWindowScroll.js",
+      "types": "./useWindowScroll.d.ts"
     },
     "./useWindowResize": {
       "import": "./esm/useWindowResize.js",
-      "require": "./useWindowResize.js"
+      "require": "./useWindowResize.js",
+      "types": "./useWindowResize.d.ts"
     },
     "./useWillUnmount": {
       "import": "./esm/useWillUnmount.js",
-      "require": "./useWillUnmount.js"
+      "require": "./useWillUnmount.js",
+      "types": "./useWillUnmount.d.ts"
     },
     "./useViewportState": {
       "import": "./esm/useViewportState.js",
-      "require": "./useViewportState.js"
+      "require": "./useViewportState.js",
+      "types": "./useViewportState.d.ts"
     },
     "./useViewportSpy": {
       "import": "./esm/useViewportSpy.js",
-      "require": "./useViewportSpy.js"
+      "require": "./useViewportSpy.js",
+      "types": "./useViewportSpy.d.ts"
     },
     "./useVerticalSwipe": {
       "import": "./esm/useVerticalSwipe.js",
-      "require": "./useVerticalSwipe.js"
+      "require": "./useVerticalSwipe.js",
+      "types": "./useVerticalSwipe.d.ts"
     },
     "./useValueHistory": {
       "import": "./esm/useValueHistory.js",
-      "require": "./useValueHistory.js"
+      "require": "./useValueHistory.js",
+      "types": "./useValueHistory.d.ts"
     },
     "./useValidatedState": {
       "import": "./esm/useValidatedState.js",
-      "require": "./useValidatedState.js"
+      "require": "./useValidatedState.js",
+      "types": "./useValidatedState.d.ts"
     },
     "./useUpdateEffect": {
       "import": "./esm/useUpdateEffect.js",
-      "require": "./useUpdateEffect.js"
+      "require": "./useUpdateEffect.js",
+      "types": "./useUpdateEffect.d.ts"
     },
     "./useUnmount": {
       "import": "./esm/useUnmount.js",
-      "require": "./useUnmount.js"
+      "require": "./useUnmount.js",
+      "types": "./useUnmount.d.ts"
     },
     "./useURLSearchParams": {
       "import": "./esm/useURLSearchParams.js",
-      "require": "./useURLSearchParams.js"
+      "require": "./useURLSearchParams.js",
+      "types": "./useURLSearchParams.d.ts"
     },
     "./useTouchState": {
       "import": "./esm/useTouchState.js",
-      "require": "./useTouchState.js"
+      "require": "./useTouchState.js",
+      "types": "./useTouchState.d.ts"
     },
     "./useTouchEvents": {
       "import": "./esm/useTouchEvents.js",
-      "require": "./useTouchEvents.js"
+      "require": "./useTouchEvents.js",
+      "types": "./useTouchEvents.d.ts"
     },
     "./useTouch": {
       "import": "./esm/useTouch.js",
-      "require": "./useTouch.js"
+      "require": "./useTouch.js",
+      "types": "./useTouch.d.ts"
     },
     "./useToggle": {
       "import": "./esm/useToggle.js",
-      "require": "./useToggle.js"
+      "require": "./useToggle.js",
+      "types": "./useToggle.d.ts"
     },
     "./useTimeout": {
       "import": "./esm/useTimeout.js",
-      "require": "./useTimeout.js"
+      "require": "./useTimeout.js",
+      "types": "./useTimeout.d.ts"
     },
     "./useThrottledCallback": {
       "import": "./esm/useThrottledCallback.js",
-      "require": "./useThrottledCallback.js"
+      "require": "./useThrottledCallback.js",
+      "types": "./useThrottledCallback.d.ts"
     },
     "./useSystemVoices": {
       "import": "./esm/useSystemVoices.js",
-      "require": "./useSystemVoices.js"
+      "require": "./useSystemVoices.js",
+      "types": "./useSystemVoices.d.ts"
     },
     "./useSwipeEvents": {
       "import": "./esm/useSwipeEvents.js",
-      "require": "./useSwipeEvents.js"
+      "require": "./useSwipeEvents.js",
+      "types": "./useSwipeEvents.d.ts"
     },
     "./useSwipe": {
       "import": "./esm/useSwipe.js",
-      "require": "./useSwipe.js"
+      "require": "./useSwipe.js",
+      "types": "./useSwipe.d.ts"
     },
     "./useSpeechSynthesis": {
       "import": "./esm/useSpeechSynthesis.js",
-      "require": "./useSpeechSynthesis.js"
+      "require": "./useSpeechSynthesis.js",
+      "types": "./useSpeechSynthesis.d.ts"
     },
     "./useSpeechRecognition": {
       "import": "./esm/useSpeechRecognition.js",
-      "require": "./useSpeechRecognition.js"
+      "require": "./useSpeechRecognition.js",
+      "types": "./useSpeechRecognition.d.ts"
     },
     "./useSessionStorage": {
       "import": "./esm/useSessionStorage.js",
-      "require": "./useSessionStorage.js"
+      "require": "./useSessionStorage.js",
+      "types": "./useSessionStorage.d.ts"
     },
     "./useSearchQuery": {
       "import": "./esm/useSearchQuery.js",
-      "require": "./useSearchQuery.js"
+      "require": "./useSearchQuery.js",
+      "types": "./useSearchQuery.d.ts"
     },
     "./useResizeObserver": {
       "import": "./esm/useResizeObserver.js",
-      "require": "./useResizeObserver.js"
+      "require": "./useResizeObserver.js",
+      "types": "./useResizeObserver.d.ts"
     },
     "./useRequestAnimationFrame": {
       "import": "./esm/useRequestAnimationFrame.js",
-      "require": "./useRequestAnimationFrame.js"
+      "require": "./useRequestAnimationFrame.js",
+      "types": "./useRequestAnimationFrame.d.ts"
     },
     "./useRenderInfo": {
       "import": "./esm/useRenderInfo.js",
-      "require": "./useRenderInfo.js"
+      "require": "./useRenderInfo.js",
+      "types": "./useRenderInfo.d.ts"
     },
     "./useQueryParams": {
       "import": "./esm/useQueryParams.js",
-      "require": "./useQueryParams.js"
+      "require": "./useQueryParams.js",
+      "types": "./useQueryParams.d.ts"
     },
     "./useQueryParam": {
       "import": "./esm/useQueryParam.js",
-      "require": "./useQueryParam.js"
+      "require": "./useQueryParam.js",
+      "types": "./useQueryParam.d.ts"
     },
     "./usePreviousValue": {
       "import": "./esm/usePreviousValue.js",
-      "require": "./usePreviousValue.js"
+      "require": "./usePreviousValue.js",
+      "types": "./usePreviousValue.d.ts"
     },
     "./useOnlineState": {
       "import": "./esm/useOnlineState.js",
-      "require": "./useOnlineState.js"
+      "require": "./useOnlineState.js",
+      "types": "./useOnlineState.d.ts"
     },
     "./useObservable": {
       "import": "./esm/useObservable.js",
-      "require": "./useObservable.js"
+      "require": "./useObservable.js",
+      "types": "./useObservable.d.ts"
     },
     "./useObjectState": {
       "import": "./esm/useObjectState.js",
-      "require": "./useObjectState.js"
+      "require": "./useObjectState.js",
+      "types": "./useObjectState.d.ts"
     },
     "./useMutationObserver": {
       "import": "./esm/useMutationObserver.js",
-      "require": "./useMutationObserver.js"
+      "require": "./useMutationObserver.js",
+      "types": "./useMutationObserver.d.ts"
     },
     "./useMutableState": {
       "import": "./esm/useMutableState.js",
-      "require": "./useMutableState.js"
+      "require": "./useMutableState.js",
+      "types": "./useMutableState.d.ts"
     },
     "./useMouseState": {
       "import": "./esm/useMouseState.js",
-      "require": "./useMouseState.js"
+      "require": "./useMouseState.js",
+      "types": "./useMouseState.d.ts"
     },
     "./useMouseEvents": {
       "import": "./esm/useMouseEvents.js",
-      "require": "./useMouseEvents.js"
+      "require": "./useMouseEvents.js",
+      "types": "./useMouseEvents.d.ts"
     },
     "./useMouse": {
       "import": "./esm/useMouse.js",
-      "require": "./useMouse.js"
+      "require": "./useMouse.js",
+      "types": "./useMouse.d.ts"
     },
     "./useMediaQuery": {
       "import": "./esm/useMediaQuery.js",
-      "require": "./useMediaQuery.js"
+      "require": "./useMediaQuery.js",
+      "types": "./useMediaQuery.d.ts"
     },
     "./useLongPress": {
       "import": "./esm/useLongPress.js",
-      "require": "./useLongPress.js"
+      "require": "./useLongPress.js",
+      "types": "./useLongPress.d.ts"
     },
     "./useLocalStorage": {
       "import": "./esm/useLocalStorage.js",
-      "require": "./useLocalStorage.js"
+      "require": "./useLocalStorage.js",
+      "types": "./useLocalStorage.d.ts"
     },
     "./useLifecycle": {
       "import": "./esm/useLifecycle.js",
-      "require": "./useLifecycle.js"
+      "require": "./useLifecycle.js",
+      "types": "./useLifecycle.d.ts"
     },
     "./useIsFirstRender": {
       "import": "./esm/useIsFirstRender.js",
-      "require": "./useIsFirstRender.js"
+      "require": "./useIsFirstRender.js",
+      "types": "./useIsFirstRender.d.ts"
     },
     "./useInterval": {
       "import": "./esm/useInterval.js",
-      "require": "./useInterval.js"
+      "require": "./useInterval.js",
+      "types": "./useInterval.d.ts"
     },
     "./useInfiniteScroll": {
       "import": "./esm/useInfiniteScroll.js",
-      "require": "./useInfiniteScroll.js"
+      "require": "./useInfiniteScroll.js",
+      "types": "./useInfiniteScroll.d.ts"
     },
     "./useHorizontalSwipe": {
       "import": "./esm/useHorizontalSwipe.js",
-      "require": "./useHorizontalSwipe.js"
+      "require": "./useHorizontalSwipe.js",
+      "types": "./useHorizontalSwipe.d.ts"
     },
     "./useGlobalEvent": {
       "import": "./esm/useGlobalEvent.js",
-      "require": "./useGlobalEvent.js"
+      "require": "./useGlobalEvent.js",
+      "types": "./useGlobalEvent.d.ts"
     },
     "./useGeolocationState": {
       "import": "./esm/useGeolocationState.js",
-      "require": "./useGeolocationState.js"
+      "require": "./useGeolocationState.js",
+      "types": "./useGeolocationState.d.ts"
     },
     "./useGeolocationEvents": {
       "import": "./esm/useGeolocationEvents.js",
-      "require": "./useGeolocationEvents.js"
+      "require": "./useGeolocationEvents.js",
+      "types": "./useGeolocationEvents.d.ts"
     },
     "./useGeolocation": {
       "import": "./esm/useGeolocation.js",
-      "require": "./useGeolocation.js"
+      "require": "./useGeolocation.js",
+      "types": "./useGeolocation.d.ts"
     },
     "./useEvent": {
       "import": "./esm/useEvent.js",
-      "require": "./useEvent.js"
+      "require": "./useEvent.js",
+      "types": "./useEvent.d.ts"
     },
     "./useDropZone": {
       "import": "./esm/useDropZone.js",
-      "require": "./useDropZone.js"
+      "require": "./useDropZone.js",
+      "types": "./useDropZone.d.ts"
     },
     "./useDragEvents": {
       "import": "./esm/useDragEvents.js",
-      "require": "./useDragEvents.js"
+      "require": "./useDragEvents.js",
+      "types": "./useDragEvents.d.ts"
     },
     "./useDrag": {
       "import": "./esm/useDrag.js",
-      "require": "./useDrag.js"
+      "require": "./useDrag.js",
+      "types": "./useDrag.d.ts"
     },
     "./useDidMount": {
       "import": "./esm/useDidMount.js",
-      "require": "./useDidMount.js"
+      "require": "./useDidMount.js",
+      "types": "./useDidMount.d.ts"
     },
     "./useDefaultedState": {
       "import": "./esm/useDefaultedState.js",
-      "require": "./useDefaultedState.js"
+      "require": "./useDefaultedState.js",
+      "types": "./useDefaultedState.d.ts"
     },
     "./useDebouncedCallback": {
       "import": "./esm/useDebouncedCallback.js",
-      "require": "./useDebouncedCallback.js"
+      "require": "./useDebouncedCallback.js",
+      "types": "./useDebouncedCallback.d.ts"
     },
     "./useDarkMode": {
       "import": "./esm/useDarkMode.js",
-      "require": "./useDarkMode.js"
+      "require": "./useDarkMode.js",
+      "types": "./useDarkMode.d.ts"
     },
     "./useCookie": {
       "import": "./esm/useCookie.js",
-      "require": "./useCookie.js"
+      "require": "./useCookie.js",
+      "types": "./useCookie.d.ts"
     },
     "./useConditionalTimeout": {
       "import": "./esm/useConditionalTimeout.js",
-      "require": "./useConditionalTimeout.js"
+      "require": "./useConditionalTimeout.js",
+      "types": "./useConditionalTimeout.d.ts"
     },
     "./useAudio": {
       "import": "./esm/useAudio.js",
-      "require": "./useAudio.js"
+      "require": "./useAudio.js",
+      "types": "./useAudio.d.ts"
     }
   }
 }
