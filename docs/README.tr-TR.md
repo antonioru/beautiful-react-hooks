@@ -7,7 +7,7 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 
 <div align="center">
   <p align="center">
-    <img src="./logo.png" alt="Beautiful React Hooks" width="750px" />
+    <img src="../logo.png" alt="Beautiful React Hooks" width="750px" />
   </p>
 </div>
 <br />
@@ -25,9 +25,9 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
   </p>
 </div>
 
-![Usage example](./usage_example.png)
+![Usage example](../usage_example.png)
 
-🇬🇧 English | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a>
+<a>🇬🇧 English</a>  <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a>
