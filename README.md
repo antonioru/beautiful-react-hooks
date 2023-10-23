@@ -34,6 +34,7 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">🇯🇵 日本語 </a>
+| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.tr-TR.md">🇹🇷 Türkçe</a>
 
 ## 💡 Why?
 
@@ -44,7 +45,7 @@ Therefore, I have created `beautiful-react-hooks`, a collection of useful [React
 help other developers speed up their development process.\
 Moreover, I have strived to create a concise and practical API that emphasizes code readability, while keeping the learning curve as low as
 possible, making it suitable for larger teams to use and share
-
+t
 **-- Please before using any hook, read its documentation! --**
 
 ## ☕️ Features
