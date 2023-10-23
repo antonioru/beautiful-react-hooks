@@ -27,16 +27,16 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 
 ![Usage example](../usage_example.png)
 
-<a>🇬🇧 English</a>  <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a>
+<a href="https://github.com/beautifulinteractions/beautiful-react-hooks/">🇬🇧 English</a> | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.zh-CN.md">🇨🇳 简体中文</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.it-IT.md">🇮🇹 Italiano</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.es-ES.md"> 🇪🇸 Español </a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.uk-UA.md">🇺🇦 Ukrainian</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pt-BR.md">🇧🇷 Brazilian Portuguese</a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.pl-PL.md">🇵🇱 Polski </a>
 | <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.jp-JP.md">🇯🇵 日本語 </a>
-| <a href="https://github.com/beautifulinteractions/beautiful-react-hooks/blob/master/docs/README.tr-TR.md">🇹🇷 Türkçe</a>
+| 🇹🇷 Türkçe
 
-## 💡 Why?
+## 💡 Neden?
 
 Özel React hooklar, geliştiricilere bileşenlerin iş mantığını tek, yeniden kullanılabilir işlevlere soyutlama imkanı sağlar.
 Oluşturduğum ve projeler arasında paylaştığım birçok hookun geri çağrıları, referansları, etkinlikleri ve bileşen yaşam döngüsü ile ilgili olduğunu fark ettim.\
