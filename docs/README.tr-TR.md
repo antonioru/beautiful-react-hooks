@@ -4,7 +4,6 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.or
 ![npm](https://img.shields.io/npm/v/beautiful-react-hooks)
 ![GitHub stars](https://img.shields.io/github/stars/beautifulinteractions/beautiful-react-hooks?style=social)
 
-
 <div align="center">
   <p align="center">
     <img src="../logo.png" alt="Beautiful React Hooks" width="750px" />
@@ -47,9 +46,9 @@ Ayrıca, kod okunabilirliğini vurgulayan, öğrenme eğrisini mümkün olduğun
 
 ## ☕️ Özellikler
 
-* Sade API
-* Hafif ve küçük
-* Öğrenmesi kolay
+- Sade API
+- Hafif ve küçük
+- Öğrenmesi kolay
 
 <div>
   <p align="center">
@@ -78,58 +77,58 @@ $ yarn add beautiful-react-hooks
 İstediğiniz özel hook'u aşağıdaki şekilde import ederek kolayca kullanabilirsin.:
 
 ```ts static
-import useSomeHook from 'beautiful-react-hooks/useSomeHook'
+import useSomeHook from "beautiful-react-hooks/useSomeHook";
 ```
 
 ## 🎨 Hooks
 
-* [useMutableState](docs/useMutableState.md)
-* [useInfiniteScroll](docs/useInfiniteScroll.md)
-* [useObservable](docs/useObservable.md)
-* [useEvent](docs/useEvent.md)
-* [useGlobalEvent](docs/useGlobalEvent.md)
-* [usePreviousValue](docs/usePreviousValue.md)
-* [useValueHistory](docs/useValueHistory.md)
-* [useValidatedState](docs/useValidatedState.md)
-* [useMediaQuery](docs/useMediaQuery.md)
-* [useOnlineState](docs/useOnlineState.md)
-* [useViewportSpy](docs/useViewportSpy.md)
-* [useViewportState](docs/useViewportState.md)
-* [useSpeechRecognition](docs/useSpeechRecognition.md) and [useSpeechSynthesis](docs/useSpeechSynthesis.md)
-* [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md)
+- [useMutableState](docs/useMutableState.md)
+- [useInfiniteScroll](docs/useInfiniteScroll.md)
+- [useObservable](docs/useObservable.md)
+- [useEvent](docs/useEvent.md)
+- [useGlobalEvent](docs/useGlobalEvent.md)
+- [usePreviousValue](docs/usePreviousValue.md)
+- [useValueHistory](docs/useValueHistory.md)
+- [useValidatedState](docs/useValidatedState.md)
+- [useMediaQuery](docs/useMediaQuery.md)
+- [useOnlineState](docs/useOnlineState.md)
+- [useViewportSpy](docs/useViewportSpy.md)
+- [useViewportState](docs/useViewportState.md)
+- [useSpeechRecognition](docs/useSpeechRecognition.md) and [useSpeechSynthesis](docs/useSpeechSynthesis.md)
+- [useGeolocation](docs/useGeolocation.md), [useGeolocationState](docs/useGeolocationState.md)
   and [useGeolocationEvents](docs/useGeolocationEvents.md)
-* [useDrag](docs/useDrag.md), [useDropZone](docs/useDropZone.md) and [useDragEvents](docs/useDragEvents.md)
-* [useMouse](docs/useMouse.md), [useMouseState](docs/useMouseState.md) and [useMouseEvents](docs/useMouseEvents.md)
-* [useTouch](docs/useTouch.md), [useTouchState](docs/useTouchState.md) and [useTouchEvents](docs/useTouchEvents.md)
-* [useLifecycle](docs/useLifecycle.md), [useDidMount](docs/useDidMount.md) and [useWillUnmount](docs/useWillUnmount.md)
-* [useWindowResize](docs/useWindowResize.md)
-* [useWindowScroll](docs/useWindowScroll.md)
-* [useRequestAnimationFrame](docs/useRequestAnimationFrame.md)
-* [useResizeObserver](docs/useResizeObserver.md)
-* [useTimeout](docs/useTimeout.md)
-* [useInterval](docs/useInterval.md)
-* [useDebouncedCallback](docs/useDebouncedCallback.md)
-* [useThrottledCallback](docs/useThrottledCallback.md)
-* [useLocalStorage](docs/useLocalStorage.md)
-* [useSessionStorage](docs/useSessionStorage.md)
-* [useDefaultedState](docs/useDefaultedState.md)
-* [useRenderInfo](docs/useRenderInfo.md)
-* [useSwipe](docs/useSwipe.md), [useHorizontalSwipe](docs/useHorizontalSwipe.md) and [useVerticalSwipe](docs/useVerticalSwipe.md)
-* [useSwipeEvents](docs/useSwipeEvents.md)
-* [useConditionalTimeout](docs/useConditionalTimeout.md)
-* [useCookie](docs/useCookie.md)
-* [useDarkMode](docs/useDarkMode.md)
-* [useUnmount](docs/useUnmount.md)
-* [useUpdateEffect](docs/useUpdateEffect.md)
-* [useIsFirstRender](docs/useIsFirstRender.md)
-* [useMutationObserver](docs/useMutationObserver.md)
-* [useAudio](docs/useAudio.md)
-* [useObjectState](docs/useObjectState.md)
-* [useToggle](docs/useToggle.md)
-* [useQueryParam](docs/useQueryParam.md)
-* [useQueryParams](docs/useQueryParams.md)
-* [useSearchQuery](docs/useSearchQuery.md)
-* [useURLSearchParams](docs/useURLSearchParams.md)
+- [useDrag](docs/useDrag.md), [useDropZone](docs/useDropZone.md) and [useDragEvents](docs/useDragEvents.md)
+- [useMouse](docs/useMouse.md), [useMouseState](docs/useMouseState.md) and [useMouseEvents](docs/useMouseEvents.md)
+- [useTouch](docs/useTouch.md), [useTouchState](docs/useTouchState.md) and [useTouchEvents](docs/useTouchEvents.md)
+- [useLifecycle](docs/useLifecycle.md), [useDidMount](docs/useDidMount.md) and [useWillUnmount](docs/useWillUnmount.md)
+- [useWindowResize](docs/useWindowResize.md)
+- [useWindowScroll](docs/useWindowScroll.md)
+- [useRequestAnimationFrame](docs/useRequestAnimationFrame.md)
+- [useResizeObserver](docs/useResizeObserver.md)
+- [useTimeout](docs/useTimeout.md)
+- [useInterval](docs/useInterval.md)
+- [useDebouncedCallback](docs/useDebouncedCallback.md)
+- [useThrottledCallback](docs/useThrottledCallback.md)
+- [useLocalStorage](docs/useLocalStorage.md)
+- [useSessionStorage](docs/useSessionStorage.md)
+- [useDefaultedState](docs/useDefaultedState.md)
+- [useRenderInfo](docs/useRenderInfo.md)
+- [useSwipe](docs/useSwipe.md), [useHorizontalSwipe](docs/useHorizontalSwipe.md) and [useVerticalSwipe](docs/useVerticalSwipe.md)
+- [useSwipeEvents](docs/useSwipeEvents.md)
+- [useConditionalTimeout](docs/useConditionalTimeout.md)
+- [useCookie](docs/useCookie.md)
+- [useDarkMode](docs/useDarkMode.md)
+- [useUnmount](docs/useUnmount.md)
+- [useUpdateEffect](docs/useUpdateEffect.md)
+- [useIsFirstRender](docs/useIsFirstRender.md)
+- [useMutationObserver](docs/useMutationObserver.md)
+- [useAudio](docs/useAudio.md)
+- [useObjectState](docs/useObjectState.md)
+- [useToggle](docs/useToggle.md)
+- [useQueryParam](docs/useQueryParam.md)
+- [useQueryParams](docs/useQueryParams.md)
+- [useSearchQuery](docs/useSearchQuery.md)
+- [useURLSearchParams](docs/useURLSearchParams.md)
 
 <div>
   <p align="center">
@@ -153,7 +152,7 @@ Katkıda bulunmak hoş görülür ve istenir.
 **Pull isteğini göndermeden önce**: Lütfen aşağıdakilere dikkat edin
 
 1. Kodunuz için testler yazmayı unutmayın ve çekme isteğinizi göndermeden önce `npm test` ve `npm build` komutlarını çalıştırın.
-2. Eğer özel bir hook oluşturuyorsanız, lütfen özel hook'unuzu belgelediğinizden emin olun (*Özel hook'unuzu belgelemek için [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) bu dökümanı kullanabilirsiniz.*).
+2. Eğer özel bir hook oluşturuyorsanız, lütfen özel hook'unuzu belgelediğinizden emin olun (_Özel hook'unuzu belgelemek için [HOOK_DOCUMENTATION_TEMPLATE](./HOOK_DOCUMENTATION_TEMPLATE.md) bu dökümanı kullanabilirsiniz._).
 
 ## Katkılar
 
