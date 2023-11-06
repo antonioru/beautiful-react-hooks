@@ -15,7 +15,8 @@ const exportsObj = srcFiles.reduce((acc, file) => ({
   ...acc,
   [`./${file}`]: {
     import: `./esm/${file}.js`,
-    require: `./${file}.js`
+    require: `./${file}.js`,
+    types: `./${file}.d.ts`
   }
 }), {})
 
