@@ -20,18 +20,18 @@ const defaultOptions: DebounceOptions = {
  * If time is not defined, its default value will be 250ms.
  */
 const useDebouncedCallback = <TCallback extends GenericFunction>
-  (fn: TCallback, dependencies?: DependencyList, wait: number = 600, options: DebounceOptions = defaultOptions) => {
+  (fn: TCallback, dependencies: DependencyList = [], wait: number = 600, options: DebounceOptions = defaultOptions) => {
   const debounced = useRef(debounce<TCallback>(fn, wait, options))
 
   useEffect(() => {
     debounced.current = debounce(fn, wait, options)
-  }, [fn, wait, options])
+  }, [fn, wait, options, ...dependencies])
 
   useWillUnmount(() => {
     debounced.current?.cancel()
   })
 
-  return useCallback(debounced.current, dependencies ?? [])
+  return useCallback((...args: Parameters<TCallback>) => debounced.current(...args), [...dependencies])
 }
 
 export default useDebouncedCallback
