@@ -19,18 +19,18 @@ const defaultOptions: ThrottleSettings = {
  * If time is not defined, its default value will be 250ms.
  */
 const useThrottledCallback = <TCallback extends GenericFunction>
-  (fn: TCallback, dependencies?: DependencyList, wait: number = 600, options: ThrottleSettings = defaultOptions) => {
+  (fn: TCallback, dependencies: DependencyList = [], wait: number = 600, options: ThrottleSettings = defaultOptions) => {
   const throttled = useRef(throttle<TCallback>(fn, wait, options))
 
   useEffect(() => {
     throttled.current = throttle(fn, wait, options)
-  }, [fn, wait, options])
+  }, [fn, wait, options, ...dependencies])
 
   useWillUnmount(() => {
     throttled.current?.cancel()
   })
 
-  return useCallback(throttled.current, dependencies ?? [])
+  return useCallback((...args: Parameters<TCallback>) => throttled.current(...args), [...dependencies])
 }
 
 export default useThrottledCallback

@@ -47,4 +47,37 @@ describe('useDebouncedCallback', () => {
     expect(spy.called).to.be.true
     expect(spy.callCount).to.equal(1)
   })
+
+  it('should use the latest callback', async () => {
+    const firstSpy = sinon.spy();
+    const secondSpy = sinon.spy();
+
+    const TestComponent = () => {
+      const [callback, setCallback] = React.useState(() => firstSpy);
+      const debouncedCallback = useDebouncedCallback(callback, [callback], 250);
+
+      React.useEffect(() => {
+        debouncedCallback();
+        debouncedCallback();
+
+        setTimeout(() => {
+          setCallback(() => secondSpy);
+        }, 100);
+
+        setTimeout(() => {
+          debouncedCallback();
+          debouncedCallback();
+        }, 200);
+      }, [debouncedCallback]);
+
+      return <div />;
+    };
+
+    render(<TestComponent />);
+
+    await promiseDelay(600);
+
+    expect(firstSpy.callCount).to.equal(1); 
+    expect(secondSpy.callCount).to.equal(1); 
+  })
 })

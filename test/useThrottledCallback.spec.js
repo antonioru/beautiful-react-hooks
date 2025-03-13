@@ -47,4 +47,34 @@ describe('useThrottledCallback', () => {
     expect(spy.called).to.be.true
     expect(spy.callCount).to.equal(1)
   })
+
+  it('should use the latest callback', async () => {
+    const firstSpy = sinon.spy();
+    const secondSpy = sinon.spy();
+
+    const TestComponent = () => {
+      const [callback, setCallback] = React.useState(() => firstSpy);
+      const throttledCallback = useThrottledCallback(callback, [callback], 250); 
+
+      React.useEffect(() => {
+        throttledCallback();
+        throttledCallback();
+      }, [throttledCallback]);
+
+      React.useEffect(() => {
+        setTimeout(() => {
+          setCallback(() => secondSpy);
+        }, 100);
+      }, []);
+
+      return <div />;
+    };
+
+    render(<TestComponent />);
+
+    await promiseDelay(600);
+
+    expect(firstSpy.callCount).to.equal(1); 
+    expect(secondSpy.callCount).to.equal(1); 
+  })
 })
