@@ -406,6 +406,5 @@
       "require": "./dist/useAudio.js",
       "types": "./dist/useAudio.d.ts"
     }
-  },
-  "packageManager": "npm@10.9.1+sha512.c89530d37c4baa38afd43e76a077a84b9aa63840b986426584fd5c5a54ab0a0b21bb1595c851042b733784b0b43706d36a494b4d8ae1a086a762cb8d3f95942a"
+  }
 }
