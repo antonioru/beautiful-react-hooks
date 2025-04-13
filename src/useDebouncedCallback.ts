@@ -1,7 +1,7 @@
 import { type DependencyList, useCallback, useEffect, useRef } from 'react'
 import debounce from 'lodash.debounce'
-import { type GenericFunction } from './shared/types'
-import useWillUnmount from './useWillUnmount'
+import { type GenericFunction } from './shared/types.ts'
+import useWillUnmount from './useWillUnmount.ts'
 
 export interface DebounceOptions {
   leading?: boolean | undefined

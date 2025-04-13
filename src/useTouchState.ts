@@ -1,5 +1,5 @@
 import { type RefObject, useState } from 'react'
-import useTouchEvents from './useTouchEvents'
+import useTouchEvents from './useTouchEvents.ts'
 
 /**
  * Returns the current touches from the touch move event.

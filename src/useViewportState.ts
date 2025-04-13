@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import useWindowScroll from './useWindowScroll'
-import useWindowResize from './useWindowResize'
-import useThrottledCallback from './useThrottledCallback'
-import useDidMount from './useDidMount'
+import useWindowScroll from './useWindowScroll.ts'
+import useWindowResize from './useWindowResize.ts'
+import useThrottledCallback from './useThrottledCallback.ts'
+import useDidMount from './useDidMount.ts'
 
 export interface ViewportState {
   width: number

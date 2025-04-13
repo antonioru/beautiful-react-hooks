@@ -1,6 +1,6 @@
 import { type RefObject, useEffect } from 'react'
-import createHandlerSetter from './factory/createHandlerSetter'
-import safeHasOwnProperty from './shared/safeHasOwnProperty'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
+import safeHasOwnProperty from './shared/safeHasOwnProperty.ts'
 
 /**
  * Accepts the reference to an HTML Element and an event name then performs the necessary operations to listen to the event

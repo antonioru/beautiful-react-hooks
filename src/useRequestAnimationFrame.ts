@@ -1,10 +1,10 @@
 import { useCallback, useRef } from 'react'
-import createHandlerSetter from './factory/createHandlerSetter'
-import isClient from './shared/isClient'
-import isAPISupported from './shared/isAPISupported'
-import { type CallbackSetter, type GenericFunction } from './shared/types'
-import noop from './shared/noop'
-import warnOnce from './shared/warnOnce'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
+import isClient from './shared/isClient.ts'
+import isAPISupported from './shared/isAPISupported.ts'
+import { type CallbackSetter, type GenericFunction } from './shared/types.ts'
+import noop from './shared/noop.ts'
+import warnOnce from './shared/warnOnce.ts'
 
 export interface UseRequestAnimationFrameOpts {
   increment?: number

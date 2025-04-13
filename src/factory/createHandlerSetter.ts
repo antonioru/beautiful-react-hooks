@@ -1,5 +1,5 @@
 import { type RefObject, useRef } from 'react'
-import { type CallbackSetter, type SomeCallback } from '../shared/types'
+import { type CallbackSetter, type SomeCallback } from '../shared/types.ts'
 
 /**
  * Returns an array where the first item is the [ref](https://reactjs.org/docs/hooks-reference.html#useref) to a

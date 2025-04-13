@@ -1,4 +1,4 @@
-import useQueryParam from './useQueryParam'
+import useQueryParam from './useQueryParam.ts'
 
 /**
  * Ease the process of modify the 'search' query string in the URL for the current location.

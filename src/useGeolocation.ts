@@ -1,6 +1,6 @@
-import useGeolocationState, { type UseGeolocationStateResult } from './useGeolocationState'
-import useGeolocationEvents, { type UseGeolocationEventsResult } from './useGeolocationEvents'
-import { geoStandardOptions } from './shared/geolocationUtils'
+import useGeolocationState, { type UseGeolocationStateResult } from './useGeolocationState.ts'
+import useGeolocationEvents, { type UseGeolocationEventsResult } from './useGeolocationEvents.ts'
+import { geoStandardOptions } from './shared/geolocationUtils.ts'
 
 /**
  * Returns an array where the first item is the geolocation state from the `useGeolocationState` hook and the

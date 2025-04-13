@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
-import createHandlerSetter from './factory/createHandlerSetter'
-import useGeolocationEvents from './useGeolocationEvents'
-import { type BRHGeolocationPosition, type BRHGeolocationPositionError, type SomeCallback } from './shared/types'
-import { geoStandardOptions, isSamePosition, makePositionObj } from './shared/geolocationUtils'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
+import useGeolocationEvents from './useGeolocationEvents.ts'
+import { type BRHGeolocationPosition, type BRHGeolocationPositionError, type SomeCallback } from './shared/types.ts'
+import { geoStandardOptions, isSamePosition, makePositionObj } from './shared/geolocationUtils.ts'
 
 export interface GeolocationState {
   readonly isSupported: boolean

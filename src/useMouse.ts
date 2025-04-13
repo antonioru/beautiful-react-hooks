@@ -1,6 +1,6 @@
 import { type RefObject } from 'react'
-import useMouseEvents from './useMouseEvents'
-import useMouseState from './useMouseState'
+import useMouseEvents from './useMouseEvents.ts'
+import useMouseState from './useMouseState.ts'
 
 /**
  * Returns an array where the first item is the mouse state from the `useMouseState` hook and the second item

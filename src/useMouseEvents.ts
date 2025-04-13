@@ -1,5 +1,5 @@
 import { type RefObject } from 'react'
-import useEvent from './useEvent'
+import useEvent from './useEvent.ts'
 
 /**
  * Returns a frozen object of callback setters to handle the mouse events.<br/>

@@ -1,7 +1,7 @@
 import { type RefObject, useRef, useState } from 'react'
-import { type Direction, getDirection, getHorizontalDirection, getPointerCoordinates, getVerticalDirection } from './shared/swipeUtils'
-import useMouseEvents from './useMouseEvents'
-import useTouchEvents from './useTouchEvents'
+import { type Direction, getDirection, getHorizontalDirection, getPointerCoordinates, getVerticalDirection } from './shared/swipeUtils.ts'
+import useMouseEvents from './useMouseEvents.ts'
+import useTouchEvents from './useTouchEvents.ts'
 
 /**
  * The options that can be passed to the hook

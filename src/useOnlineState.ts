@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import useGlobalEvent from './useGlobalEvent'
-import warnOnce from './shared/warnOnce'
+import useGlobalEvent from './useGlobalEvent.ts'
+import warnOnce from './shared/warnOnce.ts'
 
 /**
  * Uses the [Navigator online API](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine) to define

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import isClient from './shared/isClient'
-import isAPISupported from './shared/isAPISupported'
-import warnOnce from './shared/warnOnce'
+import isClient from './shared/isClient.ts'
+import isAPISupported from './shared/isAPISupported.ts'
+import warnOnce from './shared/warnOnce.ts'
 
 const errorMessage = 'matchMedia is not supported, this could happen both because window.matchMedia is not supported by' +
   ' your current browser or you\'re using the useMediaQuery hook whilst server side rendering.'

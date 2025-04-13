@@ -1,5 +1,5 @@
 import { type RefObject, useState } from 'react'
-import useMouseEvents from './useMouseEvents'
+import useMouseEvents from './useMouseEvents.ts'
 
 const createStateObject = (event: MouseEvent) => ({
   clientX: event.clientX,

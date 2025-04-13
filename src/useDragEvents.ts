@@ -1,7 +1,7 @@
 import { type RefObject, useEffect } from 'react'
-import safeHasOwnProperty from './shared/safeHasOwnProperty'
-import useEvent from './useEvent'
-import { type CallbackSetter } from './shared/types'
+import safeHasOwnProperty from './shared/safeHasOwnProperty.ts'
+import useEvent from './useEvent.ts'
+import { type CallbackSetter } from './shared/types.ts'
 
 export interface UseDragEventsResult {
   onDrag: CallbackSetter<DragEvent>

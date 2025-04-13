@@ -1,6 +1,6 @@
 import { type RefObject } from 'react'
-import useEvent from './useEvent'
-import { type CallbackSetter } from './shared/types'
+import useEvent from './useEvent.ts'
+import { type CallbackSetter } from './shared/types.ts'
 
 /**
  * Returns a frozen object of callback setters to handle the touch events.<br/>

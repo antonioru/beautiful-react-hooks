@@ -1,6 +1,6 @@
-import useDidMount from './useDidMount'
-import useWillUnmount from './useWillUnmount'
-import { type GenericFunction } from './shared/types'
+import useDidMount from './useDidMount.ts'
+import useWillUnmount from './useWillUnmount.ts'
+import { type GenericFunction } from './shared/types.ts'
 
 /**
  * Returns an object wrapping lifecycle hooks such as `useDidMount` or `useWillUnmount`.
