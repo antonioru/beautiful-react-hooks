@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import { useCallback, useRef } from 'react'
-import useDidMount from './useDidMount'
-import useURLSearchParams from './useURLSearchParams'
+import useDidMount from './useDidMount.ts'
+import useURLSearchParams from './useURLSearchParams.ts'
 
 export interface UseQueryParamsOptions<TValue extends string[]> {
   initialValue?: TValue

@@ -1,11 +1,11 @@
 import { type MutableRefObject, useCallback, useEffect, useRef } from 'react'
-import noop from './shared/noop'
-import isClient from './shared/isClient'
-import useObjectState from './useObjectState'
-import isDevelopment from './shared/isDevelopment'
-import isAPISupported from './shared/isAPISupported'
-import createHandlerSetter from './factory/createHandlerSetter'
-import warnOnce from './shared/warnOnce'
+import noop from './shared/noop.ts'
+import isClient from './shared/isClient.ts'
+import useObjectState from './useObjectState.ts'
+import isDevelopment from './shared/isDevelopment.ts'
+import isAPISupported from './shared/isAPISupported.ts'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
+import warnOnce from './shared/warnOnce.ts'
 
 /**
  * The default options for the useAudio hook

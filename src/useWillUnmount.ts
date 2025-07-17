@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from 'react'
-import isFunction from './shared/isFunction'
-import { type GenericFunction } from './shared/types'
-import createHandlerSetter from './factory/createHandlerSetter'
+import isFunction from './shared/isFunction.ts'
+import { type GenericFunction } from './shared/types.ts'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
 
 /**
  * Returns a callback setter for a callback to be performed when the component will unmount.

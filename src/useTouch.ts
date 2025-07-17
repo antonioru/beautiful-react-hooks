@@ -1,6 +1,6 @@
 import { type RefObject } from 'react'
-import useTouchEvents, { type UseTouchEventsReturn } from './useTouchEvents'
-import useTouchState from './useTouchState'
+import useTouchEvents, { type UseTouchEventsReturn } from './useTouchEvents.ts'
+import useTouchState from './useTouchState.ts'
 
 /**
  * Returns an array where the first item is the touch state from the `useTouchState` hook and the second item

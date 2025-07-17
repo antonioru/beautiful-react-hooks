@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
-import isFunction from './shared/isFunction'
-import { type GenericFunction, type Noop } from './shared/types'
-import createHandlerSetter from './factory/createHandlerSetter'
+import isFunction from './shared/isFunction.ts'
+import { type GenericFunction, type Noop } from './shared/types.ts'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
 
 /**
  * Returns a callback setter for a function to be performed when the component did mount.

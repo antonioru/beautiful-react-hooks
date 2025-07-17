@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import isFunction from './shared/isFunction'
-import { type GenericFunction } from './shared/types'
+import isFunction from './shared/isFunction.ts'
+import { type GenericFunction } from './shared/types.ts'
 
 export interface UseIntervalOptions {
   cancelOnUnmount?: boolean

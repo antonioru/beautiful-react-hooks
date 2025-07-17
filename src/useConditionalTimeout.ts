@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import isFunction from './shared/isFunction'
-import { type GenericFunction } from './shared/types'
-import usePreviousValue from './usePreviousValue'
+import isFunction from './shared/isFunction.ts'
+import { type GenericFunction } from './shared/types.ts'
+import usePreviousValue from './usePreviousValue.ts'
 
 /**
  * An async-utility hook that accepts a callback function and a delay time (in milliseconds), then delays the

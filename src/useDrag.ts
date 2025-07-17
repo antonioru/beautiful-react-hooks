@@ -1,5 +1,5 @@
 import { type RefObject, useState } from 'react'
-import useDragEvents from './useDragEvents'
+import useDragEvents from './useDragEvents.ts'
 
 export interface UseDragOptions {
   dragImage?: string

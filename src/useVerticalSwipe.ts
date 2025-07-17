@@ -1,5 +1,5 @@
 import { type RefObject } from 'react'
-import useSwipe, { type UseSwipeOptions } from './useSwipe'
+import useSwipe, { type UseSwipeOptions } from './useSwipe.ts'
 
 const defaultOptions: UseSwipeOptions = {
   threshold: 15,

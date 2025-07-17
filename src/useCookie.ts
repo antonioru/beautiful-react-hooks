@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
-import noop from './shared/noop'
-import isClient from './shared/isClient'
-import isDevelopment from './shared/isDevelopment'
-import isAPISupported from './shared/isAPISupported'
-import createHandlerSetter from './factory/createHandlerSetter'
-import warnOnce from './shared/warnOnce'
-import { type CallbackSetter } from './shared/types'
+import noop from './shared/noop.ts'
+import isClient from './shared/isClient.ts'
+import isDevelopment from './shared/isDevelopment.ts'
+import isAPISupported from './shared/isAPISupported.ts'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
+import warnOnce from './shared/warnOnce.ts'
+import { type CallbackSetter } from './shared/types.ts'
 
 const useCookie = (key: string, options?: UseCookieOptions) => {
   const hookNotSupportedResponse = Object.freeze<UseCookieReturn>({

@@ -1,6 +1,6 @@
 import { type RefObject, useState } from 'react'
-import useDragEvents from './useDragEvents'
-import { type CallbackSetter } from './shared/types'
+import useDragEvents from './useDragEvents.ts'
+import { type CallbackSetter } from './shared/types.ts'
 
 export interface UseDropZoneResult {
   readonly isOver: boolean

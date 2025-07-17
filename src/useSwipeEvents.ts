@@ -1,10 +1,10 @@
 import { type RefObject, useEffect, useRef, useState } from 'react'
-import isFunction from './shared/isFunction'
-import useMouseEvents from './useMouseEvents'
-import useTouchEvents from './useTouchEvents'
-import createHandlerSetter from './factory/createHandlerSetter'
-import { getDirection, getPointerCoordinates } from './shared/swipeUtils'
-import { type CallbackSetter } from './shared/types'
+import isFunction from './shared/isFunction.ts'
+import useMouseEvents from './useMouseEvents.ts'
+import useTouchEvents from './useTouchEvents.ts'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
+import { getDirection, getPointerCoordinates } from './shared/swipeUtils.ts'
+import { type CallbackSetter } from './shared/types.ts'
 
 /**
  * The swipe event state interface

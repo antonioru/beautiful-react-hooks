@@ -1,9 +1,9 @@
 import { type RefObject, useCallback, useState } from 'react'
-import useMouseEvents from './useMouseEvents'
-import useConditionalTimeout from './useConditionalTimeout'
-import createHandlerSetter from './factory/createHandlerSetter'
-import useTouchEvents from './useTouchEvents'
-import { type CallbackSetter } from './shared/types'
+import useMouseEvents from './useMouseEvents.ts'
+import useConditionalTimeout from './useConditionalTimeout.ts'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
+import useTouchEvents from './useTouchEvents.ts'
+import { type CallbackSetter } from './shared/types.ts'
 
 /**
  * A hook that facilitates the implementation of the long press functionality on a given target, supporting both mouse and touch events.

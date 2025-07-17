@@ -1,10 +1,10 @@
 import debounce from 'lodash.debounce'
 import { type RefObject, useEffect, useRef, useState } from 'react'
 
-import isClient from './shared/isClient'
-import isFunction from './shared/isFunction'
-import isApiSupported from './shared/isAPISupported'
-import warnOnce from './shared/warnOnce'
+import isClient from './shared/isClient.ts'
+import isFunction from './shared/isFunction.ts'
+import isApiSupported from './shared/isAPISupported.ts'
+import warnOnce from './shared/warnOnce.ts'
 
 // eslint-disable-next-line max-len
 const errorMessage = 'ResizeObserver is not supported, this could happen both because window. ResizeObserver is not supported by your current browser or you\'re using the useResizeObserver hook whilst server side rendering.'

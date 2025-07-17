@@ -1,5 +1,5 @@
 import { type DependencyList, type EffectCallback, useEffect } from 'react'
-import useIsFirstRender from './useIsFirstRender'
+import useIsFirstRender from './useIsFirstRender.ts'
 
 /**
  * A hook that runs an effect after the first render.

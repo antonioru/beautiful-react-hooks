@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
-import createHandlerSetter from './factory/createHandlerSetter'
-import { geoStandardOptions } from './shared/geolocationUtils'
-import { type BRHGeolocationPosition, type BRHGeolocationPositionError } from './shared/types'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
+import { geoStandardOptions } from './shared/geolocationUtils.ts'
+import { type BRHGeolocationPosition, type BRHGeolocationPositionError } from './shared/types.ts'
 
 export interface UseGeolocationEventsResult {
   isSupported: boolean

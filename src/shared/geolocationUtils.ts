@@ -1,4 +1,4 @@
-import { type BRHGeolocationPosition } from './types'
+import { type BRHGeolocationPosition } from './types.ts'
 
 export const geoStandardOptions: PositionOptions = Object.freeze({
   enableHighAccuracy: false,

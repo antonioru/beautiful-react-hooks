@@ -1,8 +1,8 @@
 import { type RefObject } from 'react'
-import useEvent from './useEvent'
-import isClient from './shared/isClient'
-import { type CallbackSetter } from './shared/types'
-import noop from './shared/noop'
+import useEvent from './useEvent.ts'
+import isClient from './shared/isClient.ts'
+import { type CallbackSetter } from './shared/types.ts'
+import noop from './shared/noop.ts'
 
 /**
  * Accepts an event name then returns a callback setter for a function to be performed when the event triggers.

@@ -1,8 +1,8 @@
 import { type RefObject, useLayoutEffect, useState } from 'react'
-import isClient from './shared/isClient'
-import isApiSupported from './shared/isAPISupported'
-import isDevelopment from './shared/isDevelopment'
-import warnOnce from './shared/warnOnce'
+import isClient from './shared/isClient.ts'
+import isApiSupported from './shared/isAPISupported.ts'
+import isDevelopment from './shared/isDevelopment.ts'
+import warnOnce from './shared/warnOnce.ts'
 
 const defaultOptions: IntersectionObserverInit = {
   rootMargin: '0px',

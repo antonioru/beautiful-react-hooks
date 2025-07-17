@@ -1,8 +1,8 @@
 import { type RefObject, useRef } from 'react'
-import useEvent from './useEvent'
-import isFunction from './shared/isFunction'
-import safeHasOwnProperty from './shared/safeHasOwnProperty'
-import createHandlerSetter from './factory/createHandlerSetter'
+import useEvent from './useEvent.ts'
+import isFunction from './shared/isFunction.ts'
+import safeHasOwnProperty from './shared/safeHasOwnProperty.ts'
+import createHandlerSetter from './factory/createHandlerSetter.ts'
 
 /**
  * Accepts an HTML Element ref, then returns a function that allows you to handle the infinite

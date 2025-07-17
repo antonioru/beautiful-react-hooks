@@ -1,10 +1,10 @@
 import { useCallback, useState } from 'react'
-import safelyParseJson from '../shared/safelyParseJson'
-import isClient from '../shared/isClient'
-import isAPISupported from '../shared/isAPISupported'
-import isDevelopment from '../shared/isDevelopment'
-import noop from '../shared/noop'
-import warnOnce from '../shared/warnOnce'
+import safelyParseJson from '../shared/safelyParseJson.ts'
+import isClient from '../shared/isClient.ts'
+import isAPISupported from '../shared/isAPISupported.ts'
+import isDevelopment from '../shared/isDevelopment.ts'
+import noop from '../shared/noop.ts'
+import warnOnce from '../shared/warnOnce.ts'
 
 /**
  * A utility to quickly create hooks to access both Session Storage and Local Storage

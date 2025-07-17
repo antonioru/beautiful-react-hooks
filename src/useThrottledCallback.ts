@@ -1,7 +1,7 @@
 import { type DependencyList, useCallback, useEffect, useRef } from 'react'
 import throttle from 'lodash.throttle'
-import { type GenericFunction } from './shared/types'
-import useWillUnmount from './useWillUnmount'
+import { type GenericFunction } from './shared/types.ts'
+import useWillUnmount from './useWillUnmount.ts'
 
 interface ThrottleSettings {
   leading?: boolean | undefined

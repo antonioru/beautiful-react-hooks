@@ -1,4 +1,4 @@
-import createStorageHook from './factory/createStorageHook'
+import createStorageHook from './factory/createStorageHook.ts'
 
 /**
  * Save a value on session storage
