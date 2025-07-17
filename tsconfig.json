@@ -3,6 +3,7 @@
     "./src/**/*.ts"
   ],
   "compilerOptions": {
+    "types": ["node"],
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "target": "es5",
@@ -10,6 +11,7 @@
     "allowJs": false,
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "strictNullChecks": true,
     "rootDir": "./src",
     "outDir": "./dist",
