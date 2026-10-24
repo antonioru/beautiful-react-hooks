@@ -97,4 +97,44 @@ describe('useEvent', () => {
     expect(spy.called).to.be.true
     expect(spy.callCount).to.equal(1)
   })
+  it('should remove the listener when the ref is cleared before unmount', () => {
+    const element = document.createElement('div')
+    const target = { current: element }
+    const spy = sinon.spy()
+    const { unmount } = renderHook(() => {
+      const setHandler = useEvent(target, 'click')
+      setHandler(spy)
+    })
+
+    element.click()
+    expect(spy.callCount).to.equal(1)
+    target.current = null
+    unmount()
+    element.click()
+    expect(spy.callCount).to.equal(1)
+  })
+
+  it('should remove the listener from the previous ref target on rerender', () => {
+    const previous = document.createElement('div')
+    const current = document.createElement('div')
+    const target = { current: previous }
+    const spy = sinon.spy()
+    const { rerender, unmount } = renderHook(() => {
+      const setHandler = useEvent(target, 'click')
+      setHandler(spy)
+    })
+
+    previous.click()
+    expect(spy.callCount).to.equal(1)
+    target.current = current
+    rerender()
+    previous.click()
+    expect(spy.callCount).to.equal(1)
+    current.click()
+    expect(spy.callCount).to.equal(2)
+    unmount()
+    current.click()
+    expect(spy.callCount).to.equal(2)
+  })
+
 })

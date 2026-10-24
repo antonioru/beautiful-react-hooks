@@ -15,19 +15,20 @@ const useEvent = <TEvent extends Event, TElement extends HTMLElement = HTMLEleme
   }
 
   useEffect(() => {
+    const element = target.current
     const cb: EventListenerOrEventListenerObject = (event: TEvent) => {
       if (handler.current) {
         handler.current(event)
       }
     }
 
-    if (target.current?.addEventListener && handler.current) {
-      target.current.addEventListener(eventName, cb, options)
+    if (element?.addEventListener && handler.current) {
+      element.addEventListener(eventName, cb, options)
     }
 
     return () => {
-      if (target.current?.addEventListener && handler.current) {
-        target.current.removeEventListener(eventName, cb, options)
+      if (element?.removeEventListener) {
+        element.removeEventListener(eventName, cb, options)
       }
     }
   }, [eventName, target.current, options])

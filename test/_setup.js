@@ -12,3 +12,6 @@ global.sinon = sinon
 // because of a bug in one of the project dependency `wait-for-expect`, the following line must be placed here.
 // to know more: https://github.com/testing-library/dom-testing-library/issues/194
 window.Date = Date
+
+// Keep mocked browser APIs shared on Node versions with a built-in navigator.
+Object.defineProperty(global, 'navigator', { value: window.navigator, configurable: true })
